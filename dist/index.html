@@ -12,7 +12,7 @@
 <body>
 
     <header>
-        <section id="cookiesNote" class="bg-dark">
+        <section id="cookiesNote" class="bg-dark d-none">
             <div class="container">
                 <div class="note">The US-based Amazon website has the information page about cookies located within the “<a href="#">Privacy Notice</a>” page, and for US laws, that’s good enough:<a class="close-note" title="Закрыть">&times;</a></div>
             </div>
@@ -285,16 +285,20 @@
                     <ul class="categories mr-auto">
                         <li class="active"><a href="#" title="Все события">Все события</a></li>
                         <li><a href="#" title="Концерты">Концерты</a></li>
-                        <li>
-							<a href="#" title="Театры" data-toggle="popover">Театры</a>
-
-							<ul class="sub-menu d-none">
-								<li><a href="#">Балет</a></li>
-								<li><a href="#">Спектакли</a></li>
+                        <li class="dropdown expand-hover">
+							<a href="#" title="Театры">Театры</a>
+							<ul class="sub-menu dropdown-menu">
+								<li class="dropdown-item"><a href="#">Балет</a></li>
+								<li class="dropdown-item"><a href="#">Спектакли</a></li>
 							</ul>
 						</li>
                         <li><a href="#" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
-                        <li><a href="#" title="Детям">Детям</a></li>
+                        <li class="dropdown expand-hover">
+							<a href="#" title="Детям">Детям</a>
+							<ul class="sub-menu dropdown-menu">
+								<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
+							</ul>
+						</li>
                         <li><a href="#" title="Юмор">Юмор</a></li>
                     </ul>
 					<div class="right-block">

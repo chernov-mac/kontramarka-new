@@ -651,26 +651,6 @@ small, .small {
         ul {
             margin-bottom: 0;
 
-            .dropdown-item {
-                a {
-                    display: block;
-                    padding: $dd-item-padding;
-                    color: inherit;
-                    text-decoration: none;
-                }
-            }
-            .dropdown-item, .dropdown-item a {
-                line-height: $dd-item-line-height;
-                font-size: 18px;
-
-                &.empty {
-                    @include light-text;
-                }
-            }
-            .dropdown-item + .dropdown-item {
-                border-top: $dd-item-border-width solid rgba($black, .08);
-            }
-
             .message {
                 padding: $dd-item-padding;
                 text-align: center;
@@ -688,6 +668,25 @@ small, .small {
                 vertical-align: -0.1em;
             }
         }
+    }
+    &-item {
+        a {
+            display: block;
+            padding: $dd-item-padding;
+            color: inherit;
+            text-decoration: none;
+        }
+        &, > a {
+            line-height: $dd-item-line-height;
+            font-size: 18px;
+
+            &.empty {
+                @include light-text;
+            }
+        }
+    }
+    &-item + &-item {
+        border-top: $dd-item-border-width solid rgba($black, .08);
     }
 }
 
@@ -942,18 +941,22 @@ small, .small {
         margin-bottom: 0;
         color: $black;
 
-        li {
+        > li {
             flex: 0 0 auto;
             position: relative;
             padding: $item-padding-y 8px;
 			font-weight: bold;
 
-            a {
+            > a {
                 display: block;
                 padding: 8px;
                 line-height: 20px;
                 text-transform: uppercase;
                 @include masked-link(true);
+
+                &:hover {
+                    background: $body-bg;
+                }
             }
 
             &:after {
@@ -974,6 +977,12 @@ small, .small {
 
                 &:after {
                     background: theme-color(primary);
+                }
+            }
+
+            &.dropdown.show {
+                > a {
+                    background: $body-bg;
                 }
             }
         }

@@ -2,19 +2,16 @@ $(function() {
 
 	// Initialization
 
-	// Popover
-	console.log($().popover());
-	// $('[data-toggle="popover"]').popover();
-	$('#subMenu a[data-toggle="popover"]').popover({
-		trigger: 'hover',
-		container: 'body',
-		// content: function() {
-		// 	console.log(this);
-		// 	console.log(category);
-		// },
-		content: 'lorem ipsum dolor sit amet',
-		placement: 'bottom-start',
-		// selector: '.categories .dropdown-menu'
+	// Sub menu
+	$('.dropdown.expand-hover').on('mouseenter', function(event){
+		var dropdown = this.closest('.dropdown');
+		$(this).addClass('show');
+		$(this).find('.dropdown-menu').addClass('show');
+	});
+	$('.dropdown.expand-hover').on('mouseleave', function(event){
+		var dropdown = this.closest('.dropdown');
+		$(this).removeClass('show');
+		$(this).find('.dropdown-menu').removeClass('show');
 	});
 
 	// Slider
