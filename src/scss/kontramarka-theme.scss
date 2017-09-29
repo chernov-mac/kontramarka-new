@@ -12,10 +12,10 @@
 // Default
 // Bootstrap
 // Variables
-// Typography
 // Mixins
-// Functions
+// Animations
 // Main
+// Typography
 // Grid extension
 // Blocks
 // Page sections
@@ -448,7 +448,7 @@ small, .small {
         $langs: de ru;
         @each $lang in $langs {
             &.#{$lang} {
-                background: url('/img/lang/#{$lang}.svg') center no-repeat;
+                background: url('/images/lang/#{$lang}.svg') center no-repeat;
                 background-size: cover;
             }
         }
@@ -736,7 +736,7 @@ small, .small {
             flex-shrink: 0;
             width: 140px;
             margin-right: auto;
-            background: url('/img/logo.svg') no-repeat;
+            background: url('/images/logo.svg') no-repeat;
             background-position-x: left;
 
             height: 64px;
@@ -1094,7 +1094,7 @@ small, .small {
         .logo {
             width: 132px;
             height: 32px;
-            background: url('/img/logo-mono-white.svg') center no-repeat;
+            background: url('/images/logo-mono-white.svg') center no-repeat;
             background-size: contain;
         }
         ul {
@@ -1166,7 +1166,7 @@ small, .small {
                     $methods: mastercard visa paypal vorkasse;
                     @each $method in $methods {
                         &.#{$method} {
-                            background: url('/img/brands/#{$method}.png') no-repeat center;
+                            background: url('/images/brands/#{$method}.png') no-repeat center;
                             background-size: contain;
                         }
                     }
@@ -1215,6 +1215,10 @@ small, .small {
                     padding-left: 0;
                     padding-right: 0;
                     text-align: center;
+
+                    i {
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -1677,7 +1681,7 @@ small, .small {
     $cities: berlin hamburg munchen bern koln stuttgart dusseldorf dortmund;
     @each $city in $cities {
         .city.#{$city}:before {
-            background: url('/img/cities/#{$city}.png') center center / cover no-repeat;
+            background: url('/images/cities/#{$city}.png') center center / cover no-repeat;
         }
     }
     .city {

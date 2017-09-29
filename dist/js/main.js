@@ -50,6 +50,28 @@ $(function() {
 		]
 	});
 
+	// Autocomplete
+	var cityInputs = document.querySelectorAll('input[data-autocomplete="cities"]');
+	$.each(cityInputs, function(i, curInput) {
+	    var dataSource = curInput.dataset.src;
+
+		var citiesData = [];
+	    var activeName = '';
+		var cities = curInput.closest('.autocomplete').querySelectorAll('.autocomplete-results li a');
+		cities.forEach(curCity => {
+			citiesData.push({
+				href: curCity.getAttribute('href'),
+				name: curCity.textContent
+			});
+	        if (curCity.parentNode.classList.contains('active')) activeName = curCity.textContent;
+		});
+
+		new Autocomplete(curInput, citiesData, {
+	        activeName: activeName,
+	        noSuggestionText: 'Не найдено совпадений'
+	    });
+	});
+
 
 	// Events
 
