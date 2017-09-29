@@ -285,31 +285,47 @@
                     <ul class="categories mr-auto">
                         <li class="active"><a href="#" title="Все события">Все события</a></li>
                         <li><a href="#" title="Концерты">Концерты</a></li>
-                        <li><a href="#" title="Театры">Театры</a></li>
+                        <li>
+							<a href="#" title="Театры" data-toggle="popover">Театры</a>
+
+							<ul class="sub-menu d-none">
+								<li><a href="#">Балет</a></li>
+								<li><a href="#">Спектакли</a></li>
+							</ul>
+						</li>
                         <li><a href="#" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
                         <li><a href="#" title="Детям">Детям</a></li>
                         <li><a href="#" title="Юмор">Юмор</a></li>
                     </ul>
-                    <div class="phone d-none d-lg-block">
-                        <i class="fa fa-phone"></i>
-                        <a href="tel:+493078712860">
-                            <span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
-                            <div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
-                        </a>
-                    </div>
-                    <div class="lang-select d-none d-lg-block">
-                        <a href="#" class="lang curr-lang" id="subMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="flag de"></span><span class="d-none d-xl-block">Deutsch</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="subMenuLangSelect">
-                            <a href="#" class="dropdown-item lang active" data-lang-val="de">
-                                <span class="flag de"></span><span>Deutsch</span>
-                            </a>
-                            <a href="#" class="dropdown-item lang" data-lang-val="ru">
-                                <span class="flag ru"></span><span>Русский</span>
-                            </a>
-                        </div>
-                    </div>
+					<div class="right-block">
+						<div class="right-block-elem skins d-none d-lg-block">
+	                        <a href="#" id="skinConfig" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Skins</a>
+	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="skinConfig">
+	                            <a href="#" class="dropdown-item active">Default</a>
+	                            <a href="#" class="dropdown-item">Kontramarka</a>
+	                        </div>
+	                    </div>
+	                    <div class="right-block-elem phone d-none d-lg-block">
+	                        <i class="fa fa-phone"></i>
+	                        <a href="tel:+493078712860">
+	                            <span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
+	                            <div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
+	                        </a>
+	                    </div>
+	                    <div class="right-block-elem lang-select d-none d-lg-block">
+	                        <a href="#" class="lang curr-lang" id="subMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                            <span class="flag de"></span><span class="d-none d-xl-block">Deutsch</span>
+	                        </a>
+	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="subMenuLangSelect">
+	                            <a href="#" class="dropdown-item lang active" data-lang-val="de">
+	                                <span class="flag de"></span><span>Deutsch</span>
+	                            </a>
+	                            <a href="#" class="dropdown-item lang" data-lang-val="ru">
+	                                <span class="flag ru"></span><span>Русский</span>
+	                            </a>
+	                        </div>
+	                    </div>
+					</div>
                 </div>
             </div>
         </section>

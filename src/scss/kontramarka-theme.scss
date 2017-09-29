@@ -886,7 +886,7 @@ small, .small {
                 background: $red;
                 font-size: 10px;
                 font-weight: bold;
-                line-height: 1.5em;
+                line-height: 1.4em;
                 text-align: center;
                 color: $white;
             }
@@ -978,20 +978,40 @@ small, .small {
             }
         }
     }
-    .phone {
-        padding-top: $item-padding-y;
-        padding-bottom: $item-padding-y;
-    }
-    .lang-select {
-        padding: 10px 0;
-        margin-right: -8px;
-        margin-left: 24px;
 
-        .curr-lang {
-            border-radius: 2px;
+    .right-block {
+        display: flex;
+        padding: {
+            top: $item-padding-y;
+            bottom: $item-padding-y;
+        }
+        &-elem {
+            margin-left: 24px;
 
-            &:hover, &[aria-expanded=true] {
-                background: $body-bg;
+            &:not(.phone) a {
+                text-decoration: none;
+
+                &:hover, &[aria-expanded=true] {
+                    background: $body-bg;
+                }
+            }
+
+            &.skins {
+                a {
+                    display: inline-block;
+                    padding: 6px 8px;
+
+                    i.fa {
+                        margin-right: 8px;
+                    }
+                }
+            }
+            &.lang-select {
+                margin-right: -8px;
+
+                .curr-lang {
+                    border-radius: 2px;
+                }
             }
         }
     }

@@ -2,13 +2,28 @@ $(function() {
 
 	// Initialization
 
+	// Popover
+	console.log($().popover());
+	// $('[data-toggle="popover"]').popover();
+	$('#subMenu a[data-toggle="popover"]').popover({
+		trigger: 'hover',
+		container: 'body',
+		// content: function() {
+		// 	console.log(this);
+		// 	console.log(category);
+		// },
+		content: 'lorem ipsum dolor sit amet',
+		placement: 'bottom-start',
+		// selector: '.categories .dropdown-menu'
+	});
+
 	// Slider
 	var topSliderOptions = {
 		speed: 500,
 		infinite: true,
 		fade: false,
-		// autoplay: true,
-		// autoplaySpeed: 5000,
+		autoplay: true,
+		autoplaySpeed: 5000,
 		thumbsCount: {
 			xl: 5,
 			lg: 3
@@ -117,3 +132,5 @@ function onNavbarBDClick(event) {
 	$('#topMenu .navbar-toggler').trigger('click');
 	$('.modal-backdrop').off('click', onNavbarBDClick);
 }
+
+// function showSubCategories(category)
