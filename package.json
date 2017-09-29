@@ -1,0 +1,26 @@
+{
+  "name": "kontramarka-new",
+  "version": "1.0.0",
+  "description": "New design of Kontramarka.de",
+  "main": "main.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chernov-mac/kontramarka-new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chernov-mac/kontramarka-new/issues"
+  },
+  "homepage": "https://github.com/chernov-mac/kontramarka-new#readme",
+  "devDependencies": {
+    "bootstrap": "^4.0.0-beta",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.5"
+  },
+  "dependencies": {}
+}

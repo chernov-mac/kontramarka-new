@@ -1,0 +1,91 @@
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1248px
+);
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1266px // 1200px + 48px .container's x-padding + 15px scrollbar (+3px no reason)
+);
+
+// Colors
+$black:  #000 !default;
+$gray-100: rgba($black, .08);
+$gray-500: #a4a4a4;
+$gray-800: #343a40 !default;
+
+$body-bg: #f7f7f7;
+$red:     #d0011b;
+$green:   #28a745 !default;
+$blue:    #00398c;
+$yellow:  #ffc800;
+$cyan:    #17a2b8 !default;
+
+$theme-colors: (
+  primary: $yellow,
+  secondary: $blue,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $gray-100,
+  dark: $black
+);
+
+// Links
+$link-color: rgba($black, .48);
+$link-decoration: underline;
+
+// Components
+// $input-btn-padding-y: 16px;
+// $input-btn-padding-x: 16px;
+$input-btn-line-height-lg: 1.6;
+
+$border-width: 0;
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+
+$dropdown-padding-y: 0;
+$dropdown-spacer: 0;
+// $dropdown-box-shadow: 0 4px 40px 0 rgba($black, .18);
+
+$dropdown-link-color: $black;
+$dropdown-link-hover-color: $black;
+$dropdown-link-active-color: $black;
+$dropdown-link-hover-bg: $body-bg;
+$dropdown-link-active-bg: $yellow;
+
+$dropdown-item-padding-y: 0;
+$dropdown-item-padding-x: 0;
+
+// Cards
+$card-spacer-y: 8px;
+$card-spacer-x: 8px;
+$card-border-width: 0;
+
+// Headings
+$h1-font-size: 52px;
+$h2-font-size: 32px;
+$h3-font-size: 22px;
+$h4-font-size: 20px;
+$h5-font-size: 18px;
+$h6-font-size: 16px;
+
+$headings-margin-bottom: 1.4rem;
+$headings-font-weight: 400;
+$headings-line-height: 1.25;
+
+// Navbar
+$navbar-padding-x: 0;
+$navbar-padding-y: 0;
+
+// Modal
+$modal-backdrop-bg: rgba($black, .48);
