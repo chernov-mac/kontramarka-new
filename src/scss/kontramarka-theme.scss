@@ -448,7 +448,7 @@ small, .small {
         $langs: de ru;
         @each $lang in $langs {
             &.#{$lang} {
-                background: url('/images/lang/#{$lang}.svg') center no-repeat;
+                background: url('../images/lang/#{$lang}.svg') center no-repeat;
                 background-size: cover;
             }
         }
@@ -736,7 +736,7 @@ small, .small {
             flex-shrink: 0;
             width: 140px;
             margin-right: auto;
-            background: url('/images/logo.svg') no-repeat;
+            background: url('../images/logo.svg') no-repeat;
             background-position-x: left;
 
             height: 64px;
@@ -1094,7 +1094,7 @@ small, .small {
         .logo {
             width: 132px;
             height: 32px;
-            background: url('/images/logo-mono-white.svg') center no-repeat;
+            background: url('../images/logo-mono-white.svg') center no-repeat;
             background-size: contain;
         }
         ul {
@@ -1166,7 +1166,7 @@ small, .small {
                     $methods: mastercard visa paypal vorkasse;
                     @each $method in $methods {
                         &.#{$method} {
-                            background: url('/images/brands/#{$method}.png') no-repeat center;
+                            background: url('../images/brands/#{$method}.png') no-repeat center;
                             background-size: contain;
                         }
                     }
@@ -1681,7 +1681,7 @@ small, .small {
     $cities: berlin hamburg munchen bern koln stuttgart dusseldorf dortmund;
     @each $city in $cities {
         .city.#{$city}:before {
-            background: url('/images/cities/#{$city}.png') center center / cover no-repeat;
+            background: url('../images/cities/#{$city}.png') center center / cover no-repeat;
         }
     }
     .city {
