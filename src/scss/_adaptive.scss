@@ -28,8 +28,10 @@
 			}
 		}
 	}
+	#footMenu {
+		padding: 32px 0 24px;
+	}
 };
-
 @include media-breakpoint-up(lg) {
 	.page-block {
 	    $margin: 32px;

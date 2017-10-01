@@ -280,6 +280,7 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
 
 html, body {
     height: 100%;
+    overflow-x: hidden;
 }
 body {
     display: flex;
@@ -387,11 +388,38 @@ small, .small {
         }
     }
 
+    &.btn-round {
+        display: block;
+        width: $container-padding-x * 2;
+        height: $container-padding-x * 2;
+        border-radius: 50%;
+    }
+
     &:hover,
     &:active,
     &:focus {
         outline: none;
     }
+}
+#scrollToTop {
+    position: absolute;
+    right: 0;
+    top: -32px;
+    transform: translate(100%, -50%);
+    // position: fixed;
+    z-index: 1000;
+    background: $white;
+    box-shadow: 0 4px 40px 0 rgba($black, .18);
+
+    i {
+        margin: 0;
+    }
+
+    @each $dimension in map-keys($grid-breakpoints) {
+        @media (min-width: map-get($grid-breakpoints, $dimension)) and (max-width: (map-get($grid-breakpoints, $dimension)) + $container-padding-x * 4) {
+            transform: translate(0, -50%);
+        }
+    };
 }
 
 
@@ -1047,8 +1075,22 @@ small, .small {
 
 // Footer
 #footMenu {
-    padding: 32px 0 26px;
+    padding: 0 0 $container-padding-x * 2;
 
+    .container {
+        position: relative;
+
+        #scrollToTop {
+
+
+            @include media-breakpoint-down(xs) {
+                top: auto;
+                right: $container-padding-x;
+                transform: translate(0, 150%);
+                bottom: 0;
+            };
+        }
+    }
     h4 {
         margin-bottom: 15px;
     }
@@ -1098,10 +1140,6 @@ small, .small {
                 }
             }
         }
-
-        &:first-child {
-            margin-top: -24px;
-        }
     }
     #facebookWidget {
         position: relative;
@@ -1125,10 +1163,6 @@ small, .small {
             text-align: center;
             @include light-text($black, 0.32);
         }
-    }
-
-    @include media-breakpoint-down(xs) {
-        padding: 24px 0;
     }
 }
 #footSubInfo {

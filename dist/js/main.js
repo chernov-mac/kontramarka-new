@@ -75,6 +75,9 @@ $(function() {
 	    });
 	});
 
+	// Scroll to top
+	// setScrollToTopBtnPos();
+
 
 	// Events
 
@@ -126,11 +129,15 @@ $(function() {
 		$(this).addClass('d-none');
 	});
 
+	// Scroll to top
+	$('#scrollToTop').on('click', function() {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+		return false;
+	});
+
 });
 
 function onNavbarBDClick(event) {
 	$('#topMenu .navbar-toggler').trigger('click');
 	$('.modal-backdrop').off('click', onNavbarBDClick);
 }
-
-// function showSubCategories(category)
