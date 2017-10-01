@@ -614,6 +614,7 @@ small, .small {
             content: '\f0d7';
             width: auto;
             height: auto;
+            margin-left: 0.8em;
             line-height: 0.9;
             font-family: 'FontAwesome';
             font-size: .7em;
@@ -983,9 +984,24 @@ small, .small {
                 }
             }
 
-            &.dropdown.show {
+            &.dropdown {
                 > a {
-                    background: $body-bg;
+                    &:after {
+                        content: '\f0d7';
+                        font-family: 'FontAwesome';
+                        display: inline-block;
+                        height: 1em;
+                        margin-left: .5em;
+                        line-height: .8;
+                        font-size: .7em;
+                        vertical-align: middle
+                    }
+                }
+
+                &.show {
+                    > a {
+                        background: $body-bg;
+                    }
                 }
             }
         }
@@ -1296,6 +1312,8 @@ small, .small {
 
 #topSlider {
     .slider {
+        overflow: hidden;
+
         .slides {
             height: $top-slider-height;
 

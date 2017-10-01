@@ -14,41 +14,44 @@ $(function() {
 			lg: 3
 		}
 	};
-	$('#topSlider .slides').slick({
-		infinite: topSliderOptions.infinite,
-		autoplay: topSliderOptions.autoplay,
-		autoplaySpeed: topSliderOptions.autoplaySpeed,
-		speed: topSliderOptions.speed,
-		fade: topSliderOptions.fade,
-		arrows: false,
-		dots: true,
-		dotsClass: 'pagination',
-		cssEase: 'ease-in-out',
-		lazyLoading: 'progressive'
-	});
-	$('#topSlider .controls').slick({
-		infinite: topSliderOptions.infinite,
-		speed: topSliderOptions.speed,
-		slidesToShow: topSliderOptions.thumbsCount.xl,
-		dots: false,
-		swipe: false,
-		focusOnSelect: true,
-		slidesToScroll: 1,
-		cssEase: 'ease-in-out',
-		lazyLoading: 'progressive',
-		prevArrow: '<button class="controls-arrow prev"></button>',
-		nextArrow: '<button class="controls-arrow next"></button>',
-		asNavFor: '#topSlider .slides',
-		slide: '.thumbs',
-		responsive: [
-			{
-				breakpoint: 1266,
-				settings: {
-					slidesToShow: topSliderOptions.thumbsCount.lg
+
+	if ($('#topSlider').length) {
+		$('#topSlider .slides').slick({
+			infinite: topSliderOptions.infinite,
+			autoplay: topSliderOptions.autoplay,
+			autoplaySpeed: topSliderOptions.autoplaySpeed,
+			speed: topSliderOptions.speed,
+			fade: topSliderOptions.fade,
+			arrows: false,
+			dots: true,
+			dotsClass: 'pagination',
+			cssEase: 'ease-in-out',
+			lazyLoading: 'progressive'
+		});
+		$('#topSlider .controls').slick({
+			infinite: topSliderOptions.infinite,
+			speed: topSliderOptions.speed,
+			slidesToShow: topSliderOptions.thumbsCount.xl,
+			dots: false,
+			swipe: false,
+			focusOnSelect: true,
+			slidesToScroll: 1,
+			cssEase: 'ease-in-out',
+			lazyLoading: 'progressive',
+			prevArrow: '<button class="controls-arrow prev"></button>',
+			nextArrow: '<button class="controls-arrow next"></button>',
+			asNavFor: '#topSlider .slides',
+			slide: '.thumbs',
+			responsive: [
+				{
+					breakpoint: 1266,
+					settings: {
+						slidesToShow: topSliderOptions.thumbsCount.lg
+					}
 				}
-			}
-		]
-	});
+			]
+		});
+	}
 
 	// Autocomplete
 	var cityInputs = document.querySelectorAll('input[data-autocomplete="cities"]');
@@ -88,7 +91,7 @@ $(function() {
 	});
 
 	// Top menu
-	$('#topMenu .calendar .dropdown-menu').on('click', function(event) {
+	$('#topMenu .dropdown-menu').on('click', function(event) {
 		event.stopPropagation();
 	});
 
