@@ -68,8 +68,8 @@
 						left: $btn-arrow-width;
 					}
 
-					&-title,
-		            &-name {
+					&-title {
+						max-height: 166px;
 		                font-size: 52px;
 		                font-weight: 300;
 		            }
