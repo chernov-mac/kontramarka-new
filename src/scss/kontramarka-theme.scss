@@ -208,6 +208,72 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
 }
 
 
+// Utilities
+
+
+.text-muted {
+    line-height: 13px;
+    color: rgba($black, 0.48) !important;
+}
+.slidable {
+    position: relative;
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        display: block;
+        width: $container-padding-x;
+    }
+    &:before {
+        left: 0;
+        background: linear-gradient(90deg, $white, rgba($white, 0));
+    }
+    &:after {
+        right: 0;
+        background: linear-gradient(-90deg, $white, rgba($white, 0));
+    }
+
+    .sliding-box {
+        @each $bp in map-keys($grid-breakpoints) {
+            &.sliding-#{$bp} {
+                @include media-breakpoint-down($bp) {
+                    overflow-x: auto;
+                };
+            }
+        }
+    }
+}
+.e2e {
+    margin-right: -$container-padding-x;
+    margin-left: -$container-padding-x;
+
+    &-container {
+        padding-right: $container-padding-x;
+        padding-left: $container-padding-x;
+    }
+
+    @each $viewport in map-keys($grid-breakpoints) {
+        &.e2e-off-#{$viewport}-up {
+            @include media-breakpoint-up(#{$viewport}) {
+                @include horz-indent-off;
+            };
+        }
+        &.e2e-off-#{$viewport}-down {
+            @include media-breakpoint-down(#{$viewport}) {
+                @include horz-indent-off;
+            };
+        }
+        &.e2e-off-#{$viewport}-only {
+            @include media-breakpoint-only(#{$viewport}) {
+                @include horz-indent-off;
+            };
+        }
+    }
+}
+
 // Main
 //
 // Main styles for common tags and containers
@@ -229,34 +295,6 @@ body {
     &, &-fluid {
         padding-right: $container-padding-x;
         padding-left: $container-padding-x;
-    }
-
-    .e2e {
-        margin-right: -$container-padding-x;
-        margin-left: -$container-padding-x;
-
-        &-container {
-            padding-right: $container-padding-x;
-            padding-left: $container-padding-x;
-        }
-
-        @each $viewport in map-keys($grid-breakpoints) {
-            &.e2e-off-#{$viewport}-up {
-                @include media-breakpoint-up(#{$viewport}) {
-                    @include horz-indent-off;
-                };
-            }
-            &.e2e-off-#{$viewport}-down {
-                @include media-breakpoint-down(#{$viewport}) {
-                    @include horz-indent-off;
-                };
-            }
-            &.e2e-off-#{$viewport}-only {
-                @include media-breakpoint-only(#{$viewport}) {
-                    @include horz-indent-off;
-                };
-            }
-        }
     }
 }
 ol, ul, dl {
@@ -383,10 +421,6 @@ small, .small {
         }
     }
 }
-.text-muted {
-    line-height: 13px;
-    color: rgba($black, 0.48) !important;
-}
 .bg-secondary {
     color: $white;
 
@@ -399,37 +433,6 @@ small, .small {
     height: 0;
     border-bottom: 1px solid rgba($black, .08);
     @include clearfix;
-}
-.slidable {
-    position: relative;
-
-    &:before, &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-        display: block;
-        width: $container-padding-x;
-    }
-    &:before {
-        left: 0;
-        background: linear-gradient(90deg, $white, rgba($white, 0));
-    }
-    &:after {
-        right: 0;
-        background: linear-gradient(-90deg, $white, rgba($white, 0));
-    }
-
-    .sliding-box {
-        @each $bp in map-keys($grid-breakpoints) {
-            &.sliding-#{$bp} {
-                @include media-breakpoint-down($bp) {
-                    overflow-x: auto;
-                };
-            }
-        }
-    }
 }
 .lang {
     display: flex;
@@ -1323,7 +1326,8 @@ small, .small {
                 .caption {
                     position: absolute;
                     top: 18px;
-                    right: $container-padding-x;
+                    // right: $container-padding-x;
+                    max-width: 600px;
                     bottom: 56px;
                     left: $container-padding-x;
                     z-index: 10;
@@ -1342,9 +1346,13 @@ small, .small {
                     }
                 }
 
-                &-title,
-                &-name {
+                &-title {
+                    display: inline-block;
+                    max-width: 600px;
+                    max-height: 166px;
+                    overflow: hidden;
                     margin-bottom: 0;
+                    margin-right: auto;
                     line-height: 1.04;
                     letter-spacing: -1px;
                     color: $white;
@@ -1363,7 +1371,7 @@ small, .small {
                             padding-left: 26px;
 
                             a {
-                                display: block;
+                                display: inline-block;
                                 margin-top: 6px;
                                 text-decoration: underline;
                                 color: $white;
@@ -1496,6 +1504,7 @@ small, .small {
                 }
 
                 &-img {
+                    flex-shrink: 0;
                     width: 50px;
                     height: 50px;
                     margin-right: 16px;
@@ -1509,7 +1518,10 @@ small, .small {
                 }
                 &-info {
                     flex: 1 1 auto;
-                    line-height: 1.15em;
+                    max-height: 50px;
+                    // line-height: 1.15em; // original
+                    line-height: 1.1em;
+                    overflow: hidden;
                 }
 
                 &.slick-current {

@@ -2,18 +2,6 @@ $(function() {
 
 	// Initialization
 
-	// Sub menu
-	$('.dropdown.expand-hover').on('mouseenter', function(event){
-		var dropdown = this.closest('.dropdown');
-		$(this).addClass('show');
-		$(this).find('.dropdown-menu').addClass('show');
-	});
-	$('.dropdown.expand-hover').on('mouseleave', function(event){
-		var dropdown = this.closest('.dropdown');
-		$(this).removeClass('show');
-		$(this).find('.dropdown-menu').removeClass('show');
-	});
-
 	// Slider
 	var topSliderOptions = {
 		speed: 500,
@@ -86,6 +74,18 @@ $(function() {
 
 
 	// Events
+
+	// Dropdown hover
+	$('.dropdown.expand-hover').on('mouseenter', function(event){
+		var dropdown = this.closest('.dropdown');
+		$(this).addClass('show');
+		$(this).find('.dropdown-menu').addClass('show');
+	});
+	$('.dropdown.expand-hover').on('mouseleave', function(event){
+		var dropdown = this.closest('.dropdown');
+		$(this).removeClass('show');
+		$(this).find('.dropdown-menu').removeClass('show');
+	});
 
 	// Top menu
 	$('#topMenu .calendar .dropdown-menu').on('click', function(event) {
