@@ -75,8 +75,10 @@ $(function() {
 	    });
 	});
 
-	// Scroll to top
-	// setScrollToTopBtnPos();
+	// Scheme
+	// if ($('#scheme').length) {
+	// 	initScheme();
+	// }
 
 
 	// Events
@@ -137,7 +139,20 @@ $(function() {
 
 });
 
+
 function onNavbarBDClick(event) {
 	$('#topMenu .navbar-toggler').trigger('click');
 	$('.modal-backdrop').off('click', onNavbarBDClick);
 }
+
+// function initScheme() {
+// 	var schemeEl = document.getElementById('scheme');
+//
+// 	var scheme = new Scheme(schemeEl, sample.data[0].places, {
+// 		category: 0 // default
+// 	});
+// }
+//
+// function markerPlace() {
+// 	console.log(arguments);
+// }
