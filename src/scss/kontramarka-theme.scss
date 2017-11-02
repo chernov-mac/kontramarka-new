@@ -394,6 +394,16 @@ small, .small {
         height: $container-padding-x * 2;
         border-radius: 50%;
     }
+    &.btn-square {
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        width: $btn-height;
+
+        i {
+            margin-right: 0;
+        }
+    }
 
     &:hover,
     &:active,
@@ -634,8 +644,75 @@ small, .small {
         line-height: 20px;
     }
 }
+.nav-tabs {
+    display: flex;
+    color: $black;
+    border-bottom: 2px solid $body-bg;
 
-// Customized Bootstrap's dropdown
+    > .nav-item {
+        flex: 0 0 auto;
+        padding: 10px 8px;
+        font-weight: bold;
+
+        > .nav-link {
+            position: relative;
+            display: block;
+            padding: 8px;
+            line-height: 20px;
+            text-transform: uppercase;
+            @include masked-link(true);
+
+            &:before {
+                content: '';
+                position: absolute;
+                right: 8px;
+                bottom: -12px;
+                left: 8px;
+                display: block;
+                height: 2px;
+                background: transparent;
+            }
+
+            &.active {
+                background-color: transparent;
+                // a {
+                    @include light-text;
+                // }
+
+                &:before {
+                    background: theme-color(primary);
+                }
+            }
+
+            &:hover {
+                background: $body-bg;
+            }
+        }
+
+        &.dropdown {
+            > a {
+                &:after {
+                    content: '\f0d7';
+                    font-family: 'FontAwesome';
+                    display: inline-block;
+                    height: 1em;
+                    margin-left: .5em;
+                    line-height: .8;
+                    font-size: .7em;
+                    vertical-align: middle
+                }
+            }
+
+            &.show {
+                > a {
+                    background: $body-bg;
+                }
+            }
+        }
+    }
+}
+
+// Customized Bootstrap's elements
 .dropdown {
     &-toggle {
         &:after {
@@ -719,6 +796,27 @@ small, .small {
     }
     &-item + &-item {
         border-top: $dd-item-border-width solid rgba($black, .08);
+    }
+}
+.form-control {
+    border: 1px solid $gray-100;
+    // line-height: 16px;
+    // padding: 16px 16px;
+    font-size: 18px;
+    transition: all .25s ease;
+    @include placeholder {
+        font-size: 18px;
+        @include light-text();
+        transition: all .25s ease;
+    }
+
+    &:focus {
+        border: 1px solid $gray-100;
+        box-shadow: 0 3px 16px 0 rgba($black, .12);
+
+        @include placeholder {
+            color: rgba($black, .32);
+        }
     }
 }
 
@@ -1282,26 +1380,11 @@ small, .small {
     }
     .newsletter {
         .input-group {
-            input {
-                @include placeholder {
-                    font-size: 18px;
-                    @include light-text();
-                }
-            }
             small {
                 font-size: 12px;
             }
-            &-lg {
-                .btn-square {
-                    width: 48px;
-                    padding-left: 0;
-                    padding-right: 0;
-                    text-align: center;
-
-                    i {
-                        margin-right: 0;
-                    }
-                }
+            input:focus {
+                box-shadow: none;
             }
         }
 
@@ -1850,6 +1933,30 @@ small, .small {
             }
             span {
                 font-size: 20px;
+            }
+        }
+    }
+}
+
+#loginModal {
+    .modal-header {
+        padding: 0;
+
+        .nav-tabs {
+            width: 100%;
+
+            > .nav-item {
+                flex: 1 0 50%;
+                text-align: center;
+
+                > .nav-link {
+                    &.active {
+                        &:before {
+                            right: -8px;
+                            left: -8px;
+                        }
+                    }
+                }
             }
         }
     }

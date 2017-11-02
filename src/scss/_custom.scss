@@ -45,8 +45,14 @@ $link-decoration: underline;
 
 // Components
 // $input-btn-padding-y: 16px;
-// $input-btn-padding-x: 16px;
-$input-btn-line-height-lg: 1.6;
+// $input-btn-padding-x: .5rem;
+// $input-btn-line-height-lg: 1;
+// $input-btn-padding-y-lg: .563rem;
+// $input-btn-lg-padding-y: 563rem;
+
+$input-btn-padding-y:    .625rem;
+$input-btn-padding-x:    1rem !default;
+$input-btn-line-height:  1.6;
 
 $border-width: 0;
 $border-radius: 0;
@@ -88,4 +94,8 @@ $navbar-padding-x: 0;
 $navbar-padding-y: 0;
 
 // Modal
+// $modal-lg: 800px !default;
+// $modal-md: 500px !default;
+$modal-sm: 400px;
+$modal-inner-padding: 16px;
 $modal-backdrop-bg: rgba($black, .48);

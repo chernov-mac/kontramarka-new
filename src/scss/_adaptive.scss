@@ -17,6 +17,9 @@
 }
 
 @include media-breakpoint-up(sm) {
+	.btn {
+		@include button-size(.625rem, 1rem, 18px, 1.6, 0);
+	}
 	#currentEvents {
 		.event {
 			.card {

@@ -1350,8 +1350,8 @@
                     <div class="newsletter col-lg-3">
                         <h4>Новостная рассылка</h4>
                         <form>
-                            <div class="input-group input-group-lg">
-                                <input type="text" class="form-control" placeholder="Введите email">
+                            <div class="input-group">
+                                <input type="text" class="form-control border-0" placeholder="Введите email">
                                 <span class="input-group-btn">
                                     <button class="btn bg-primary btn-square" type="submit">
                                         <i class="fa fa-arrow-right"></i>
@@ -1371,23 +1371,25 @@
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Авторизация</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<!-- <h5 class="modal-title">Добро пожаловать!</h5> -->
+				<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
-				</button>
+				</button> -->
+				<ul class="nav nav-tabs">
+					<li class="nav-item"><a data-toggle="tab" href="#signin" class="nav-link active">Вход</a></li>
+					<li class="nav-item"><a href="/register.html" class="nav-link">Регистрация</a></li>
+				</ul>
 			</div>
-
-			<div class="divider e2e"></div>
-
-			<form method="post" action="" autocomplete="off">
-				<div class="modal-body">
-		            <div class="logform">
+			<!-- <div class="divider e2e"></div> -->
+			<div class="modal-body">
+				<form method="post" action="" autocomplete="off">
+					<div class="logform">
 						<div class="form-group">
-							<label for="login_name">Электронная почта</label>
+							<!-- <label for="login_name">Электронная почта</label> -->
 							<input type="email" name="login_name" class="form-control" id="login_name" placeholder="Введите e-mail">
 						</div>
 						<div class="form-group">
-							<label for="login_password">Пароль</label>
+							<!-- <label for="login_password">Пароль</label> -->
 							<input type="password" name="login_password" class="form-control" id="login_password" placeholder="Введите пароль">
 							<small class="form-text text-muted"><a href="/lostpassword/">Забыли?</a></small>
 						</div>
@@ -1397,19 +1399,17 @@
 								Не запоминать меня на этом компьютере
 							</label>
 						</div>
-		                <input name="login" type="hidden" id="login" value="submit">
-		            </div>
-				</div>
-
-				<div class="divider e2e"></div>
-
-				<div class="modal-footer">
-					<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
-						<i class="fa fa-sign-in"></i><span>Войти</span>
-					</button>
-					<a href="/register/" class="btn" title="Регистрация">Регистрация</a>
-		        </div>
-			</form>
+						<input name="login" type="hidden" id="login" value="submit">
+						<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
+							<i class="fa fa-sign-in"></i><span>Войти</span>
+						</button>
+					</div>
+				</form>
+			</div>
+			<!-- <div class="divider e2e"></div>
+			<div class="modal-footer">
+				<a href="/register/" class="btn" title="Регистрация">Регистрация</a>
+	        </div> -->
 		</div>
 	</div>
 </div>
