@@ -80,6 +80,23 @@ $(function() {
 	// 	initScheme();
 	// }
 
+	// Indicated tabs
+	$('.nav-tabs.indicated').append('<div class="indicator"></div>');
+	$.each($('.nav-tabs.indicated'), function(i, nav){
+		setTimeout(function(){
+			setTabIndicator(nav, $(nav).find('.nav-link.active'));
+		}, 100);
+
+		$(nav).find('.nav-item').on({
+			mouseenter: function(event) {
+				setTabIndicator(nav, event.target);
+			},
+			mouseleave: function(event) {
+				setTabIndicator(nav);
+			}
+		});
+	});
+
 
 	// Events
 
@@ -137,12 +154,33 @@ $(function() {
 		return false;
 	});
 
+	// Tabs on modal shown
+	$('.modal').on('shown.bs.modal', function(event){
+		$.each($(this).find('.nav-tabs'), function(i, nav){
+			setTabIndicator(nav, $(nav).find('.nav-link.active'));
+		});
+	});
+
 });
 
 
 function onNavbarBDClick(event) {
 	$('#topMenu .navbar-toggler').trigger('click');
 	$('.modal-backdrop').off('click', onNavbarBDClick);
+}
+
+
+
+function setTabIndicator(nav, activeTab) {
+	var $nav = $(nav),
+		$cur = activeTab ? $(activeTab) : $(nav).find('.nav-link.active'),
+		$ind = $nav.find('.indicator');
+
+	$ind.css({
+		left: (($cur.offset().left - $nav.offset().left) + ($cur.outerWidth() - $cur.width()) / 2) + 'px',
+		width: $cur.width() + 'px',
+		backgroundColor: '#ffcc00'
+	});
 }
 
 // function initScheme() {

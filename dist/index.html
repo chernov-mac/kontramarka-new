@@ -289,25 +289,25 @@
         <section id="subMenu" class=" bg-white">
             <div class="slidable container">
                 <div class="sliding-box sliding-md e2e e2e-container">
-                    <ul class="categories mr-auto">
-                        <li class="active"><a href="#" title="Все события">Все события</a></li>
-                        <li><a href="#" title="Концерты">Концерты</a></li>
-                        <li class="dropdown expand-hover">
-							<a href="#" title="Театры">Театры</a>
+					<ul class="categories nav nav-tabs indicated mr-auto">
+						<li class="nav-item"><a href="#" class="nav-link active" title="Все события">Все события</a></li>
+						<li class="nav-item"><a href="#" class="nav-link" title="Концерты">Концерты</a></li>
+						<li class="nav-item dropdown expand-hover">
+							<a href="#" class="nav-link" title="Театры">Театры</a>
 							<ul class="sub-menu dropdown-menu">
 								<li class="dropdown-item"><a href="#">Балет</a></li>
 								<li class="dropdown-item"><a href="#">Спектакли</a></li>
 							</ul>
 						</li>
-                        <li><a href="#" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
-                        <li class="dropdown expand-hover">
-							<a href="#" title="Детям">Детям</a>
+						<li class="nav-item"><a href="#" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
+						<li class="nav-item dropdown expand-hover">
+							<a href="#" class="nav-link" title="Детям">Детям</a>
 							<ul class="sub-menu dropdown-menu">
 								<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
 							</ul>
 						</li>
-                        <li><a href="#" title="Юмор">Юмор</a></li>
-                    </ul>
+						<li class="nav-item"><a href="#" class="nav-link" title="Юмор">Юмор</a></li>
+					</ul>
 					<div class="right-block">
 						<div class="right-block-elem skins d-none d-lg-block">
 	                        <a href="#" id="skinConfig" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Skins</a>
@@ -1375,12 +1375,11 @@
 				<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button> -->
-				<ul class="nav nav-tabs">
-					<li class="nav-item"><a data-toggle="tab" href="#signin" class="nav-link active">Вход</a></li>
-					<li class="nav-item"><a href="/register.html" class="nav-link">Регистрация</a></li>
-				</ul>
+				<div class="nav nav-tabs nav-fill indicated">
+					<div class="nav-item"><a data-toggle="tab" href="#signin" class="nav-link active">Вход</a></div>
+					<div class="nav-item"><a href="/register.html" class="nav-link">Регистрация</a></div>
+				</div>
 			</div>
-			<!-- <div class="divider e2e"></div> -->
 			<div class="modal-body">
 				<form method="post" action="" autocomplete="off">
 					<div class="logform">
@@ -1403,13 +1402,10 @@
 						<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
 							<i class="fa fa-sign-in"></i><span>Войти</span>
 						</button>
+						<button class="btn pull-right" title="Войти" data-dismiss="modal">Отмена</button>
 					</div>
 				</form>
 			</div>
-			<!-- <div class="divider e2e"></div>
-			<div class="modal-footer">
-				<a href="/register/" class="btn" title="Регистрация">Регистрация</a>
-	        </div> -->
 		</div>
 	</div>
 </div>
