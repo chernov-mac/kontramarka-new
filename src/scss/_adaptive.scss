@@ -58,6 +58,10 @@
 	}
 };
 @include media-breakpoint-up(md) {
+	.page-title {
+	    font-size: 36px;
+	}
+
 	#tour_info {
 		.tour {
 			&-pic {
