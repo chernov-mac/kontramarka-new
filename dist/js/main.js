@@ -6,10 +6,12 @@ $(function() {
 	$('[data-toggle="tooltip"]').tooltip({
 		delay: 200
 	});
-	$('#concert_select .eticket[title]').tooltip({
-		placement: 'left',
-		delay: 200
-	});
+	if ($('#concert_select').length) {
+		$('#concert_select .eticket[title]').tooltip({
+			placement: 'left',
+			delay: 200
+		});
+	}
 
 	// Slider
 	var topSliderOptions = {
@@ -102,7 +104,7 @@ $(function() {
 	});
 
 	// Tour description height
-	if ($('#tour_info')) {
+	if ($('#tour_info').length) {
 		var image = new Image();
 		image.src = $('#tour_info .tour-pic img').attr('src');
 
@@ -178,14 +180,12 @@ $(function() {
 	});
 
 	// Coments adding box
-	if ($('#commentForm')) {
-		$('#commentForm').on('hide.bs.collapse', function (event) {
-			$(this).closest('.box').addClass('e2e-off-xs-down');
-		});
-		$('#commentForm').on('show.bs.collapse', function (event) {
-			$(this).closest('.box').removeClass('e2e-off-xs-down');
-		});
-	}
+	$('#commentForm').on('hide.bs.collapse', function (event) {
+		$(this).closest('.box').addClass('e2e-off-xs-down');
+	});
+	$('#commentForm').on('show.bs.collapse', function (event) {
+		$(this).closest('.box').removeClass('e2e-off-xs-down');
+	});
 
 });
 

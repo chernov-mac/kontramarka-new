@@ -20,7 +20,7 @@
 	.btn {
 		@include button-size(.625rem, 1rem, 18px, 1.6, 0);
 	}
-	.event {
+	.card {
 		.card {
 			&-img {
 				&-fixed {
@@ -82,7 +82,7 @@
 	        margin: $margin * 2 auto;
 	    }
 	}
-	.event {
+	.card {
 		$btn-height: 48px;
 		$card-spacer-y: 16px;
 		$card-spacer-x: 16px;

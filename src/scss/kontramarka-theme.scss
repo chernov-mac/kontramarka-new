@@ -877,7 +877,7 @@ small, .small {
         }
     }
 }
-.event {
+.card {
     position: relative;
     overflow-y: hidden;
     padding-bottom: $card-title-height + $card-spacer-y * 2;
@@ -1019,24 +1019,23 @@ small, .small {
             }
         }
     }
+}
+.event-full-width {
+    max-height: 200px;
+    margin: 24px 0;
 
-    &-full-width {
-        max-height: 200px;
-        margin: 24px 0;
+    @include media-breakpoint-up(xl) {
+        margin: 32px auto;
+    };
 
-        @include media-breakpoint-up(xl) {
-            margin: 32px auto;
-        };
+    a {
+        display: block;
+        width: 100%;
+        height: 100%;
 
-        a {
-            display: block;
+        img {
             width: 100%;
             height: 100%;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
         }
     }
 }
