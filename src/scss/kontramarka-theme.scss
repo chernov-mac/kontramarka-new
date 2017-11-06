@@ -145,6 +145,13 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
     overflow: hidden;
     text-overflow: ellipsis;
 }
+@mixin text-muted {
+    line-height: 13px;
+    @include light-text($black, 0.48);
+}
+@mixin accent {
+    box-shadow: 0 4px 40px 0 rgba($black, .18);
+}
 
 // Setting vertical margins to columns with opposite margins on row
 @mixin row-y-offsets($offsets-map) {
@@ -212,12 +219,14 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
 // Utilities
 
 .text-muted {
-    line-height: 13px;
-    color: rgba($black, 0.48) !important;
+    @include text-muted();
 }
 .e2e {
     margin-right: -$container-padding-x;
     margin-left: -$container-padding-x;
+    transition:
+        margin-left .3s cubic-bezier(.7, 0, .3, 1),
+        margin-right .3s cubic-bezier(.7, 0, .3, 1);
 
     &-container {
         padding-right: $container-padding-x;
@@ -249,6 +258,9 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
     left: 0;
     border-bottom: 2px solid $body-bg;
     z-index: 0;
+}
+.accent {
+    box-shadow: 0 4px 40px 0 rgba($black, .18);
 }
 
 // Main
@@ -318,8 +330,8 @@ a {
     cursor: pointer;
 }
 p {
-	font-size: 18px;
-	line-height: 1.56; // 28px
+	font-size: 16px;
+	line-height: 1.5;
 	@include light-text;
 }
 small, .small {
@@ -355,16 +367,41 @@ small, .small {
 	text-decoration: none;
     cursor: pointer;
 
-    i {
-        margin-right: $btn-padding-x;
-    }
-
     &.processing {
         i.fa-refresh {
             animation: $spin-time $spin-easing 0s infinite normal spin;
         }
     }
+    &-mobile {
+        span {
+            display: none;
+            margin-left: $btn-padding-x - 4;
+        }
+    }
 
+    @each $color in map-keys($theme-colors) {
+        &.btn-outline-#{$color} {
+            $btn-border: theme-color($color);
+            $btn-color: theme-color($color);
+
+            @if ($color == 'light') {
+                $btn-border: rgba($black, .32);
+                $btn-color: rgba($black, .8);
+            }
+
+            border: 1px solid $btn-border;
+            color: $btn-color;
+
+            &:disabled,
+            &.disabled {
+                border: 1px solid lighten($btn-border, 25%);
+                color: lighten($btn-color, 25%);
+            }
+        }
+    }
+    &[class^="btn-outline"] {
+        padding: ($btn-padding-y - 1) ($btn-padding-x - 1);
+    }
     &.btn-round {
         display: block;
         width: $container-padding-x * 2;
@@ -763,7 +800,248 @@ small, .small {
     }
 }
 
-// Customized Bootstrap's elements
+
+// Components
+
+.eticket {
+    .fa-barcode {
+        transform: translateY(18%);
+    }
+    &:before {
+        content: 'E';
+        position: absolute;
+        top: 2%;
+        left: 22%;
+        z-index: 2;
+        color: $white;
+        line-height: 1;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+}
+.top-list {
+    margin-bottom: 16px;
+
+    li {
+        position: relative;
+
+        .number {
+            position: absolute;
+            left: 0;
+            color: $black;
+            margin: {
+                right: 16px;
+                left: 8px;
+            }
+        }
+        a:not(.btn) {
+            display: block;
+            text-decoration: none;
+            padding: 4px 0 6px 32px;
+            color: $black;
+            @include overflow-ellipsis;
+
+            &:hover {
+                color: theme-color(secondary);
+            }
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 24px;
+            border-bottom: 2px solid theme-color(primary);
+            transition: all .175s cubic-bezier(.7, 0, .3, 1);
+        }
+        &:before {
+            border-color: $body-bg;
+            width: 100%;
+        }
+
+        &:hover {
+            &:after {
+                width: 100%;
+            }
+        }
+
+        &:last-child {
+            .number {
+                margin: {
+                    right: 12px;
+                    left: 4px;
+                }
+            }
+        }
+    }
+}
+.event {
+    position: relative;
+    overflow-y: hidden;
+    padding-bottom: $card-title-height + $card-spacer-y * 2;
+    transition: box-shadow $card-sliding-speed ease;
+
+    .card {
+        &-img {
+            width: 100%;
+
+            &-fixed {
+                height: 190px;
+
+                @media (min-width: 448px) {
+                    height: 280px;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        &-body {
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: -($card-spacer-y * 2 + $card-info-height);
+            left: 0;
+            overflow: hidden;
+            background: $white;
+            transition: bottom $card-sliding-speed ease;
+
+            .action {
+                margin-top: -($card-spacer-y + $btn-height);
+                opacity: 0;
+                transition:
+                    margin-top $card-sliding-speed ease,
+                    opacity $card-sliding-speed * 5/7 ease;
+
+                @include media-breakpoint-down(md) {
+                    padding: 11px 6px;
+                    margin-top: -($card-spacer-y + 10px * 2 + 20px);
+                    font-size: 16px;
+                };
+            }
+        }
+        &-info {
+            margin-top: $card-spacer-y;
+            line-height: $card-body-line-height;
+
+            .title {
+                display: block;
+                height: $card-title-height;
+                overflow: hidden;
+                margin-bottom: $card-spacer-y;
+                font-size: 16px;
+                color: inherit;
+                text-decoration: none;
+            }
+            .date {
+                position: relative;
+                z-index: 2;
+                @include overflow-ellipsis;
+
+                &:before {
+                    content: '\f133';
+                    font-family: 'FontAwesome';
+                    display: inline-block;
+                    width: 24px;
+                }
+            }
+            .cities {
+                position: relative;
+                z-index: 1;
+                max-height: $card-body-line-height * 5;
+                height: $card-cities-height;
+                margin-top: $card-spacer-y;
+                padding-left: 24px;
+
+                li {
+                    transition: all $card-sliding-speed * .8 ease-out;
+                    opacity: 0;
+                    @include overflow-ellipsis;
+
+                    &:first-child {
+                        opacity: 1;
+                    }
+                }
+                .multiple-places {
+                    position: absolute;
+                    top: 0;
+                    display: list-item;
+
+                    ~ li {
+                        transform: translateY($card-body-line-height);
+                    }
+                }
+
+                a {
+                    text-decoration: underline;
+                    @include light-text;
+                }
+
+                &:before {
+                    content: '\f041';
+                    font-family: 'FontAwesome';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: 0 4px 40px 0 rgba($black, .18);
+
+        .card {
+            &-body {
+                bottom: 0;
+
+                .action {
+                    margin-top: 0;
+                    opacity: 1;
+                }
+                .cities {
+                    li:not(.multiple-places) {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+                    li.multiple-places {
+                        top: -$card-body-line-height;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-full-width {
+        max-height: 200px;
+        margin: 24px 0;
+
+        @include media-breakpoint-up(xl) {
+            margin: 32px auto;
+        };
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+// Customized Bootstrap's components
 .dropdown {
     &-toggle {
         &:after {
@@ -850,11 +1128,9 @@ small, .small {
     }
 }
 .form-control {
-    border: 1px solid $gray-100;
-    // line-height: 16px;
-    // padding: 16px 16px;
+    border: 1px solid theme-color(light);
     font-size: 18px;
-    transition: all .25s ease;
+    transition: box-shadow .25s ease;
     @include placeholder {
         font-size: 18px;
         @include light-text();
@@ -862,12 +1138,18 @@ small, .small {
     }
 
     &:focus {
-        border: 1px solid $gray-100;
+        border: 1px solid theme-color(light);
         box-shadow: 0 3px 16px 0 rgba($black, .12);
 
         @include placeholder {
             color: rgba($black, .32);
         }
+    }
+}
+.tooltip {
+    &-inner {
+        font-size: 14px;
+        line-height: 1.25;
     }
 }
 
@@ -1465,6 +1747,24 @@ small, .small {
 }
 
 // Main (page blocks)
+.page-title {
+    text-align: left;
+    font-size: 36px;
+    margin: 32px 0 0;
+
+    .undertitle {
+        margin-top: 4px;
+        font-size: 14px;
+        @include light-text;
+
+        &:before {
+            content: '\f133';
+            font-family: 'FontAwesome';
+            margin-right: 10px;
+            margin-left: 1px;
+        }
+    }
+}
 .page-block {
     $margin: 24px;
 
@@ -1483,6 +1783,89 @@ small, .small {
                 width: 100%;
             }
         };
+    }
+
+    ul.list {
+        margin-bottom: 24px;
+        padding-left: 32px;
+        list-style-type: disc;
+        @include light-text();
+    }
+
+    // .panel {
+    //     // margin-bottom: 32px;
+    //     &-title {
+    //         font-size: 24px;
+    //         margin-bottom: 0.6rem;
+    //     }
+    //
+    //     &.collapsed .panel-body {
+    //         max-height: 120px;
+    //         overflow: hidden;
+    //     }
+    // }
+
+    .box {
+        background: $white;
+    }
+}
+.box {
+    margin-bottom: 32px;
+    background: $white;
+    @include clearfix;
+    @extend .e2e;
+    @extend .e2e-off-sm-up;
+
+    &-header,
+    &-body,
+    &-footer {
+        padding: 16px $container-padding-x;
+        border-style: solid;
+        border-color: $body-bg;
+    }
+
+    &-header {
+        border-bottom-width: 2px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+
+        &[data-toggle] {
+            position: relative;
+            cursor: pointer;
+        }
+        &[data-toggle="collapse"] {
+            @include clearfix;
+
+            &:before {
+                content: '\f106';
+                font-family: 'FontAwesome';
+                float: right;
+                line-height: 1;
+                font-size: 24px;
+                margin-left: 16px;
+                @include light-text;
+            }
+
+            &[aria-expanded="false"] {
+                border-bottom-width: 0;
+
+                &:before {
+                    content: '\f107';
+                }
+            }
+        }
+    }
+    &-footer {
+        border-top-width: 2px;
+    }
+
+    a:not(.btn) {
+        text-decoration: underline;
+        @include light-text();
+
+        &:hover {
+            color: $black;
+        }
     }
 }
 
@@ -1676,7 +2059,7 @@ small, .small {
                         top: 0;
                         bottom: 0;
                         left: 0;
-                        border-left: 1px solid $gray-100;
+                        border-left: 1px solid theme-color(light);
                     }
                     &:after {
                         content: '\f178';
@@ -1710,7 +2093,7 @@ small, .small {
                     top: 0;
                     bottom: 0;
                     left: 0;
-                    border-left: 1px solid $gray-100;
+                    border-left: 1px solid theme-color(light);
                 }
 
                 &-img {
@@ -1753,170 +2136,6 @@ small, .small {
 #currentEvents {
     .events {
         @include row-y-offsets($grid-gutters);
-    }
-
-    .event {
-        position: relative;
-        overflow-y: hidden;
-        padding-bottom: $card-title-height + $card-spacer-y * 2;
-        transition: box-shadow $card-sliding-speed ease;
-
-        .card {
-            &-img {
-                width: 100%;
-
-                &-fixed {
-                    height: 190px;
-
-                    @media (min-width: 448px) {
-                        height: 280px;
-                    }
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                }
-            }
-            &-body {
-                position: absolute;
-                top: auto;
-                right: 0;
-                bottom: -($card-spacer-y * 2 + $card-info-height);
-                left: 0;
-                overflow: hidden;
-                background: $white;
-                transition: bottom $card-sliding-speed ease;
-
-                .action {
-                    margin-top: -($card-spacer-y + $btn-height);
-                    opacity: 0;
-                    transition:
-                        margin-top $card-sliding-speed ease,
-                        opacity $card-sliding-speed * 5/7 ease;
-
-                    @include media-breakpoint-down(md) {
-                        padding: 11px 6px;
-                        margin-top: -($card-spacer-y + 10px * 2 + 20px);
-                        font-size: 16px;
-                    };
-                }
-            }
-            &-info {
-                margin-top: $card-spacer-y;
-                line-height: $card-body-line-height;
-
-                .title {
-                    display: block;
-                    height: $card-title-height;
-                    overflow: hidden;
-                    margin-bottom: $card-spacer-y;
-                    font-size: 16px;
-                    color: inherit;
-                    text-decoration: none;
-                }
-                .date {
-                    position: relative;
-                    z-index: 2;
-                    @include overflow-ellipsis;
-
-                    &:before {
-                        content: '\f133';
-                        font-family: 'FontAwesome';
-                        display: inline-block;
-                        width: 24px;
-                    }
-                }
-                .cities {
-                    position: relative;
-                    z-index: 1;
-                    max-height: $card-body-line-height * 5;
-                    height: $card-cities-height;
-                    margin-top: $card-spacer-y;
-                    padding-left: 24px;
-
-                    li {
-                        transition: all $card-sliding-speed * .8 ease-out;
-                        opacity: 0;
-                        @include overflow-ellipsis;
-
-                        &:first-child {
-                            opacity: 1;
-                        }
-                    }
-                    .multiple-places {
-                        position: absolute;
-                        top: 0;
-                        display: list-item;
-
-                        ~ li {
-                            transform: translateY($card-body-line-height);
-                        }
-                    }
-
-                    a {
-                        text-decoration: underline;
-                        @include light-text;
-                    }
-
-                    &:before {
-                        content: '\f041';
-                        font-family: 'FontAwesome';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                    }
-                }
-            }
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-            box-shadow: 0 4px 40px 0 rgba($black, .18);
-
-            .card {
-                &-body {
-                    bottom: 0;
-
-                    .action {
-                        margin-top: 0;
-                        opacity: 1;
-                    }
-                    .cities {
-                        li:not(.multiple-places) {
-                            transform: translateY(0);
-                            opacity: 1;
-                        }
-                        li.multiple-places {
-                            top: -$card-body-line-height;
-                            opacity: 0;
-                        }
-                    }
-                }
-            }
-        }
-
-        &-full-width {
-            max-height: 200px;
-            margin: 24px 0;
-
-            @include media-breakpoint-up(xl) {
-                margin: 32px auto;
-            };
-
-            a {
-                display: block;
-                width: 100%;
-                height: 100%;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-        }
     }
 }
 #cities {
@@ -1996,27 +2215,267 @@ small, .small {
         }
     }
 }
+#metaInfo {
+    p {
+    	font-size: 18px;
+    	line-height: 1.56; // 28px
+    }
+}
 
+#tour_info {
+    .tour {
+        &-pic {
+            width: 250px;
+            max-width: 100%;
+            margin: 0 auto $container-padding-x;
+
+            img {
+                width: 250px;
+                max-width: 100%;
+            }
+            .btn {
+                margin-top: 16px;
+                @include media-breakpoint-down(md) {
+                    padding: 11px 6px;
+                    font-size: 16px;
+                };
+
+                .fa {
+                    margin-right: 10px;
+                    color: $black;
+                }
+            }
+        }
+        &-info {
+            overflow: hidden;
+
+            &.collapsed {
+                position: relative;
+
+                .expand {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    height: 64px;
+                    background: linear-gradient(0, $white, $white 33%, rgba($white, 0));
+                }
+            }
+        }
+    }
+    .box-body {
+        padding: $container-padding-x;
+    }
+}
+#concert_select {
+    .box {
+        &-header,
+        &-body {
+            padding: 0;
+        }
+    }
+
+    .title,
+    .inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        > div {
+            // min-width: 200px;
+            // text-align: center;
+
+            &.concert {
+                &_date {
+                    min-width: 80px;
+                    text-align: left;
+
+                    .time {
+                        display: block;
+                    }
+                }
+                &_city {
+                    // flex: 1 0 auto;
+                    flex: 1 1 0%;
+                    // margin: 0 16px;
+                    text-align: left;
+                    margin-left: 12px;
+                }
+                &_btn {
+                    flex: 1 0 100%;
+                    min-width: 50px;
+                    text-align: center;
+
+                    .btn {
+                        display: block;
+                        width: 100%;
+                        margin-top: 8px;
+                    }
+                }
+            }
+
+            .btn-mobile {
+                &:before {
+                    content: '\f07a';
+                    font-family: 'FontAwesome';
+                }
+            }
+        }
+    }
+    .title {
+        padding: 16px 24px;
+        background: theme-color(secondary);
+        color: $white;
+
+        .fa {
+            margin-right: 5px;
+        }
+        > div + div {
+            border-color: rgba($white, 0.12);
+        }
+    }
+    .inner {
+        padding: 8px 24px 16px;
+
+        > div + div {
+            border-color: rgba($black, 0.12);
+        }
+        .concert {
+            &_date,
+            &_city {
+                font-size: 14px;
+
+                > div:first-of-type {
+                    font-size: 16px;
+                }
+            }
+            &_date {
+                @include light-text();
+
+                > div:first-of-type {
+                    font-weight: bold;
+                    color: $black;
+                }
+
+                .time {
+                    &:before {
+                        content: '\f017';
+                        font-family: 'FontAwesome';
+                        margin-right: 4px;
+                    }
+                }
+            }
+            &_city {
+                position: relative;
+
+                > div:first-of-type {
+                    color: theme-color(secondary);
+                }
+                .eticket {
+                    position: absolute;
+                    right: $container-padding-x;
+                    top: $container-padding-x;
+                    color: theme-color(secondary);
+                    font-size: 24px;
+                }
+            }
+        }
+
+        & + .inner {
+            border-top: 1px solid rgba($black, 0.12);
+        }
+
+        &.last-events {
+            display: block;
+            margin: 0;
+            padding: 16px $container-padding-x;
+            background: $body-bg;
+            border-top-width: 0;
+            text-align: center;
+            @include light-text();
+
+            & + .inner {
+                border-top-width: 0;
+            }
+        }
+    }
+}
+#tour_comments {
+    .comm {
+        &-itm {
+            @extend .box;
+            @extend .box-body;
+            @extend .e2e-off-xs-down;
+            margin-bottom: 24px;
+        }
+        &-username {
+            font-size: 18px;
+            color: theme-color(secondary);
+        }
+        &-date,
+        &-time {
+            font-size: 14px;
+            @include light-text;
+
+            &:before {
+                font-family: 'FontAwesome';
+                margin-right: 4px;
+            }
+        }
+        &-date {
+            &:before {
+                content: '\f133';
+            }
+
+            & + .comm-time {
+                margin-left: 4px;
+            }
+        }
+        &-time {
+            &:before {
+                content: '\f017';
+            }
+        }
+        &-info {
+            margin-bottom: 12px;
+        }
+        &-content,
+        &-content p {
+            font-size: 16px;
+            color: $black;
+        }
+    }
+}
+#recommendations {
+    .event:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}
+
+#captcha {
+    img {
+        height: 82px;
+    }
+    a {
+        display: block;
+    }
+}
+
+// Modals
 #loginModal {
     .modal-header {
         padding: 0;
 
         .nav-tabs {
             flex: 1 1 100%;
-
-            // > .nav-item {
-            //     flex: 1 0 50%;
-            //     text-align: center;
-            //
-            //     > .nav-link {
-            //         &.active {
-            //             &:before {
-            //                 right: -8px;
-            //                 left: -8px;
-            //             }
-            //         }
-            //     }
-            // }
         }
     }
 }

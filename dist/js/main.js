@@ -2,6 +2,15 @@ $(function() {
 
 	// Initialization
 
+	// Tooltips
+	$('[data-toggle="tooltip"]').tooltip({
+		delay: 200
+	});
+	$('#concert_select .eticket[title]').tooltip({
+		placement: 'left',
+		delay: 200
+	});
+
 	// Slider
 	var topSliderOptions = {
 		speed: 500,
@@ -75,11 +84,6 @@ $(function() {
 	    });
 	});
 
-	// Scheme
-	// if ($('#scheme').length) {
-	// 	initScheme();
-	// }
-
 	// Indicated tabs
 	$('.nav-tabs.indicated').append('<div class="indicator"></div>');
 	$.each($('.nav-tabs.indicated'), function(i, nav){
@@ -96,6 +100,18 @@ $(function() {
 			}
 		});
 	});
+
+	// Tour description height
+	if ($('#tour_info')) {
+		var image = new Image();
+		image.src = $('#tour_info .tour-pic img').attr('src');
+
+		if (image.complete) {
+			calcTourDescHeight();
+		} else {
+			$('#tour_info .tour-pic img').on('load', calcTourDescHeight);
+		}
+	}
 
 
 	// Events
@@ -118,7 +134,7 @@ $(function() {
 	});
 
 	// Navbar
-	$('#navbar').on('show.bs.collapse', function() {
+	$('#navbar').on('show.bs.collapse', function(event) {
 		$('#topMenu').addClass('modal-zindex');
 		$('<div class="modal-backdrop fade"></div>').appendTo(document.body);
 
@@ -128,7 +144,7 @@ $(function() {
 
 		$('.modal-backdrop').on('click', onNavbarBDClick);
 	});
-	$('#navbar').on('hide.bs.collapse', function() {
+	$('#navbar').on('hide.bs.collapse', function(event) {
 		$('.modal-backdrop').removeClass('show');
 		setTimeout(function(){
 			$('.modal-backdrop').remove();
@@ -149,17 +165,27 @@ $(function() {
 	});
 
 	// Scroll to top
-	$('#scrollToTop').on('click', function() {
+	$('#scrollToTop').on('click', function(event) {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
 	});
 
 	// Tabs on modal shown
-	$('.modal').on('shown.bs.modal', function(event){
+	$('.modal').on('shown.bs.modal', function(event) {
 		$.each($(this).find('.nav-tabs'), function(i, nav){
 			setTabIndicator(nav, $(nav).find('.nav-link.active'));
 		});
 	});
+
+	// Coments adding box
+	if ($('#commentForm')) {
+		$('#commentForm').on('hide.bs.collapse', function (event) {
+			$(this).closest('.box').addClass('e2e-off-xs-down');
+		});
+		$('#commentForm').on('show.bs.collapse', function (event) {
+			$(this).closest('.box').removeClass('e2e-off-xs-down');
+		});
+	}
 
 });
 
@@ -168,9 +194,6 @@ function onNavbarBDClick(event) {
 	$('#topMenu .navbar-toggler').trigger('click');
 	$('.modal-backdrop').off('click', onNavbarBDClick);
 }
-
-
-
 function setTabIndicator(nav, activeTab) {
 	var $nav = $(nav),
 		$cur = activeTab ? $(activeTab) : $(nav).find('.nav-link.active'),
@@ -180,6 +203,17 @@ function setTabIndicator(nav, activeTab) {
 		left: (($cur.offset().left - $nav.offset().left) + ($cur.outerWidth() - $cur.width()) / 2) + 'px',
 		width: $cur.width() + 'px',
 		backgroundColor: '#ffcc00'
+	});
+}
+function calcTourDescHeight() {
+	$('#tour_info .tour-info')
+		.addClass('collapsed')
+		.append('<a class="expand">Показать полностью...</a>')
+		.css('max-height', $('#tour_info .tour-pic').outerHeight() + 'px');
+
+	$('#tour_info .expand').on('click', function(event) {
+		$(this).closest('.tour-info').removeClass('collapsed').css('max-height', 'none');
+		$(this).remove();
 	});
 }
 

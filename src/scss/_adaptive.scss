@@ -20,21 +20,53 @@
 	.btn {
 		@include button-size(.625rem, 1rem, 18px, 1.6, 0);
 	}
-	#currentEvents {
-		.event {
-			.card {
-				&-img {
-					&-fixed {
-						height: 230px;
-					}
+	.event {
+		.card {
+			&-img {
+				&-fixed {
+					height: 230px;
 				}
 			}
 		}
 	}
+
+	#concert_select {
+		.title,
+		.inner {
+			> div {
+				&.concert {
+					&_btn {
+						flex: 0 0 auto;
+
+						.btn {
+							margin-top: 0;
+						}
+					}
+				}
+			}
+			> div + div {
+				margin-left: 12px;
+			}
+		}
+		.inner {
+			padding-bottom: 8px;
+		}
+	}
+
 	#footMenu {
 		padding: 32px 0 24px;
 	}
 };
+@include media-breakpoint-up(md) {
+	#tour_info {
+		.tour {
+			&-pic {
+				float: left;
+				margin: 0 $container-padding-x 0 0 !important;
+			}
+		}
+	}
+}
 @include media-breakpoint-up(lg) {
 	.page-block {
 	    $margin: 32px;
@@ -49,6 +81,37 @@
 	    &-action {
 	        margin: $margin * 2 auto;
 	    }
+	}
+	.event {
+		$btn-height: 48px;
+		$card-spacer-y: 16px;
+		$card-spacer-x: 16px;
+		$card-title-height: $card-body-line-height * 2;
+
+		padding-bottom: $card-spacer-y * 2 + $card-title-height + $card-date-height + $card-body-line-height + 8px * 2;
+
+		.card {
+			&-img {
+				&-fixed {
+					height: 310px;
+				}
+			}
+			&-body {
+				bottom: -($card-spacer-y * 2 + $card-info-height - ($card-title-height + $card-date-height + $card-body-line-height - 8px));
+				padding: $card-spacer-y $card-spacer-x;
+
+				.action {
+					margin-top: -($card-spacer-y + $btn-height);
+				}
+			}
+			&-info {
+				margin-top: $card-spacer-y;
+
+				.title {
+					height: $card-title-height;
+				}
+			}
+		}
 	}
 
 	#topSlider {
@@ -85,42 +148,79 @@
 			}
 		}
 	}
-	#currentEvents {
-		$btn-height: 48px;
-		$card-spacer-y: 16px;
-		$card-spacer-x: 16px;
-		$card-title-height: $card-body-line-height * 2;
-
-		.event {
-			padding-bottom: $card-spacer-y * 2 + $card-title-height + $card-date-height + $card-body-line-height + 8px * 2;
-
-			.card {
-				&-img {
-					&-fixed {
-						height: 310px;
-					}
-				}
-				&-body {
-					bottom: -($card-spacer-y * 2 + $card-info-height - ($card-title-height + $card-date-height + $card-body-line-height - 8px));
-					padding: $card-spacer-y $card-spacer-x;
-
-					.action {
-						margin-top: -($card-spacer-y + $btn-height);
-					}
-				}
-				&-info {
-					margin-top: $card-spacer-y;
-
-					.title {
-						height: $card-title-height;
-					}
-				}
-			}
-		}
-	}
 	#cities {
 		.city {
 			height: 156px;
+		}
+	}
+	#tour_info {
+		.page-block-title {
+	        text-align: left;
+	    }
+	}
+	#concert_select {
+		.title,
+		.inner {
+			padding: 0;
+
+			> div {
+				padding: $container-padding-x;
+
+				&.concert {
+					&_date,
+					&_btn {
+						text-align: center;
+					}
+					&_date {
+						min-width: 200px;
+
+						.time {
+							display: inline;
+
+							&:before {
+								margin-left: 4px;
+							}
+						}
+					}
+					&_city {
+						margin: 0;
+					}
+					&_btn {
+						min-width: 250px;
+					}
+				}
+			}
+
+			> div + div {
+				margin-left: 0;
+				border-left-width: 1px;
+				border-style: solid;
+			}
+		}
+		.inner {
+			.concert {
+				&_date,
+				&_city {
+					> div:first-of-type {
+						font-size: 20px;
+					}
+				}
+				&_date {
+					> div:first-of-type {
+						font-size: 20px;
+					}
+				}
+				&_btn {
+					.btn-outline-light.btn-mobile {
+						&:before {
+							display: none;
+						}
+						span {
+							margin-left: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 }

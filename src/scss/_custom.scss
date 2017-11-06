@@ -27,6 +27,7 @@ $green:   #28a745 !default;
 $blue:    #00398c;
 $yellow:  #ffc800;
 $cyan:    #17a2b8 !default;
+$purple:  #bd25b2;
 
 $theme-colors: (
   primary: $yellow,
@@ -36,7 +37,8 @@ $theme-colors: (
   warning: $yellow,
   danger: $red,
   light: $gray-100,
-  dark: $black
+  dark: $black,
+  accent: $purple
 );
 
 // Links
@@ -99,3 +101,10 @@ $navbar-padding-y: 0;
 $modal-sm: 400px;
 $modal-inner-padding: 16px;
 $modal-backdrop-bg: rgba($black, .48);
+
+
+// Tooltips
+$tooltip-bg:                  rgba($blue, 0.94);
+// $tooltip-opacity:             .55; // doesn't work
+$tooltip-padding-y:           6px;
+$tooltip-padding-x:           6px !default;
