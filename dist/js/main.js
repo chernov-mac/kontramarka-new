@@ -289,7 +289,7 @@ $(function() {
 
     // Resize
 	$(window).on('resize', function(event) {
-		$('#mainMenuCategories').dropdown('update');
+
 		$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {
 			setTimeout(function(){
 				setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
