@@ -89,15 +89,23 @@ $(function() {
 	});
 
 	// Indicated tabs
+	var navTimers = [];
 	$('.nav-tabs.indicated, #mainMenu .categories').append('<div class="nav-indicator"></div>');
 	$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {
-		setTimeout(function(){
+		navTimers[i] = setTimeout(function tick() {
+			console.log('set indicator for ' + i + '`th nav');
 			setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
-		}, 200);
+			navTimers[i] = setTimeout(tick, 500);
+		}, 500);
+		setTimeout(function(){
+			clearTimeout(navTimers[i]);
+			console.log('STOP setting indicator for ' + i + '`th nav by TIME');
+		}, 10000);
 
 		$(nav).find('.nav-item').on({
 			mouseenter: function(event) {
 				setTabIndicator(nav, event.target.closest('.nav-item'));
+				console.log('STOP setting indicator for ' + i + '`th nav by HOVER');
 			},
 			mouseleave: function(event) {
 				setTabIndicator(nav);
