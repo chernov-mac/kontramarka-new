@@ -93,19 +93,20 @@ $(function() {
 	$('.nav-tabs.indicated, #mainMenu .categories').append('<div class="nav-indicator"></div>');
 	$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {
 		navTimers[i] = setTimeout(function tick() {
-			console.log('set indicator for ' + i + '`th nav');
 			setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
 			navTimers[i] = setTimeout(tick, 500);
 		}, 500);
 		setTimeout(function(){
 			clearTimeout(navTimers[i]);
-			console.log('STOP setting indicator for ' + i + '`th nav by TIME');
 		}, 10000);
 
 		$(nav).find('.nav-item').on({
 			mouseenter: function(event) {
+				if (navTimers[i]) {
+					clearTimeout(navTimers[i]);
+					delete navTimers[i];
+				}
 				setTabIndicator(nav, event.target.closest('.nav-item'));
-				console.log('STOP setting indicator for ' + i + '`th nav by HOVER');
 			},
 			mouseleave: function(event) {
 				setTabIndicator(nav);
@@ -282,7 +283,7 @@ $(function() {
 	// Tabs on modal shown
 	$('.modal').on('shown.bs.modal', function(event) {
 		$.each($(this).find('.nav-tabs'), function(i, nav){
-			setTabIndicator(nav, $(nav).find('.nav-link.active'));
+			setTabIndicator(nav, $(nav).find('.nav-link.active').closest('.nav-item'));
 		});
 	});
 
