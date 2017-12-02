@@ -1,5 +1,3 @@
-// comment for new test commit
-
 var menuDragDistance = 0;
 
 $(function() {
