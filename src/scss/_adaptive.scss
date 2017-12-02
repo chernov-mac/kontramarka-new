@@ -521,5 +521,13 @@
 	}
 }
 @include media-breakpoint-up(xl) {
-
+	#topMenu {
+		.lang-select {
+			.dropdown-menu {
+				right: 0;
+				left: 0;
+				min-width: 0;
+			}
+		}
+	}
 }
