@@ -155,9 +155,11 @@ $(function() {
 	// Categories dragging
 	$('#mainMenuCategories').on('mousedown', function(event) {
 		event.preventDefault();
+		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
 		$('body').on('mousemove', drag.bind(this, event, $(this).scrollLeft()));
 	});
 	$('body').on('mouseup', function(event) {
+		$('#mainMenuCategories').css('cursor', '-webkit-grab');
 		$('body').off('mousemove');
 	});
 	$('#mainMenuCategories a').on('click', function(event) {

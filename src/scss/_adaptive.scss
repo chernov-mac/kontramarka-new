@@ -311,6 +311,11 @@
 	                width: 0 !important;
 	                height: 0 !important;
 	            }
+				cursor: -webkit-grab;
+
+				&:active {
+					cursor: -webkit-grabing;
+				}
 
 
 				.categories {
