@@ -33,11 +33,11 @@
 							</form>
 						</li>
 						<li class="nav-item dropdown date">
-							<a class="nav-link dropdown-toggle" id="mainMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" id="topMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="icon-calendar"></i><span class="d-none d-md-inline">Дата</span>
 							</a>
-							<div class="dropdown-menu fixed-width" aria-labelledby="mainMenuDate">
-								<div id="calendar" class="calendar">
+							<div class="dropdown-menu fixed-width" aria-labelledby="topMenuDate">
+								<div id="topMenuCalendar" class="calendar">
 									<div class="title">
 										<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
 										<a class="month" href="/2017-september/">Cентябрь 2017</a>
@@ -119,11 +119,11 @@
 							</div>
 						</li>
 						<li class="nav-item dropdown city">
-							<a class="nav-link dropdown-toggle" id="mainMenuCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" id="topMenuCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="icon-map-marker"></i>
 								<span class="d-none d-md-inline">Город</span>
 							</a>
-							<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="mainMenuCity">
+							<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="topMenuCity">
 								<div class="list-search">
 									<i class="icon-search"></i>
 									<input type="text" data-autocomplete="cities" placeholder="Искать город">
@@ -252,7 +252,7 @@
 							</ul>
 						</li>
 					</ul>
-					<a class="navbar-close-nav d-none bg-secondary">&times;</a>
+					<a class="navbar-close-nav d-none">&times;</a>
                 </nav>
             </div>
         </section>
@@ -260,7 +260,7 @@
 			<div class="container">
 				<div class="main-menu">
 					<!-- first toggler -->
-					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span>Меню</span></a>
+					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
 
 					<!-- than other elements in menu heading (that are on the right) -->
 					<!-- first of this will have margin left 40px -->
@@ -271,6 +271,206 @@
 							<li class="dropdown-item"><a href="#" class="dropdown-item">Kontramarka</a></li>
 						</div>
 					</div> -->
+
+					<div class="menu-item dropdown reference date">
+						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
+							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
+						</a>
+						<div class="dropdown-menu fixed-width" aria-labelledby="mainMenuDate">
+							<div id="mainMenuCalendar" class="calendar">
+								<div class="title dd-menu-header">
+									<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
+									<a class="month" href="/2017-september/">Cентябрь 2017</a>
+									<a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
+								</div>
+								<div class="divider"></div>
+								<div class="dates dd-menu-body">
+									<table cellpadding="0" cellspacing="0">
+										<thead>
+											<tr class="week">
+												<th>Пн</th>
+												<th>Вт</th>
+												<th>Ср</th>
+												<th>Чт</th>
+												<th>Пт</th>
+												<th>Сб</th>
+												<th>Вс</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="old">28</span></td>
+												<td><span class="old">29</span></td>
+												<td><span class="old">30</span></td>
+												<td><span class="old">31</span></td>
+												<td><span>1</span></td>
+												<td><span>2</span></td>
+												<td><span>3</span></td>
+											</tr>
+											<tr>
+												<td><span>4</span></td>
+												<td><span>5</span></td>
+												<td><span>6</span></td>
+												<td><span>7</span></td>
+												<td><span>8</span></td>
+												<td><span>9</span></td>
+												<td><span>10</span></td>
+											</tr>
+											<tr>
+												<td><span>11</span></td>
+												<td><span>12</span></td>
+												<td><span>13</span></td>
+												<td><span>14</span></td>
+												<td><span>15</span></td>
+												<td><span>16</span></td>
+												<td><span>17</span></td>
+											</tr>
+											<tr>
+												<td><span>18</span></td>
+												<td><span>19</span></td>
+												<td><span>20</span></td>
+												<td><span class="today">21</span></td>
+												<td><a href="/date/viewday/2017-09-22/">22</a></td>
+												<td><span>23</span></td>
+												<td><span>24</span></td>
+											</tr>
+											<tr>
+												<td><span>25</span></td>
+												<td><a href="/date/viewday/2017-09-26/">26</a></td>
+												<td><a href="/date/viewday/2017-09-27/">27</a></td>
+												<td><a href="/date/viewday/2017-09-28/">28</a></td>
+												<td><a href="/date/viewday/2017-09-29/">29</a></td>
+												<td><a href="/date/viewday/2017-09-30/">30</a></td>
+												<td><span class="new">1</span></td>
+											</tr>
+											<tr>
+												<td><span class="new">2</span></td>
+												<td><span class="new">3</span></td>
+												<td><span class="new">4</span></td>
+												<td><span class="new">5</span></td>
+												<td><span class="new">6</span></td>
+												<td><span class="new">7</span></td>
+												<td><span class="new">8</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="menu-item dropdown reference city">
+						<a id="mainMenuCity" data-toggle="dropdown" data-flip="false">
+							<i class="icon-map-marker"></i>
+							<span class="d-none d-xl-inline">Город</span>
+						</a>
+						<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="mainMenuCity">
+							<div class="dd-menu-header list-search">
+								<i class="icon-search"></i>
+								<input type="text" data-autocomplete="cities" placeholder="Искать город">
+							</div>
+							<ul class="dd-menu-body autocomplete-results">
+								<li class="active"><a href="/city/view/aachen/">Aachen</a></li>
+								<li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
+								<li><a href="/city/view/altoetting/">Altötting</a></li>
+								<li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
+								<li><a href="/city/view/amberg/">Amberg</a></li>
+								<li><a href="/city/view/ansbach/">Ansbach</a></li>
+								<li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
+								<li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
+								<li><a href="/city/view/bamberg/">Bamberg</a></li>
+								<li><a href="/city/view/bayreuth/">Bayreuth</a></li>
+								<li><a href="/city/view/berlin/">Berlin</a></li>
+								<li><a href="/city/view/bielefeld/">Bielefeld</a></li>
+								<li><a href="/city/view/boeblingen/">Böblingen</a></li>
+								<li><a href="/city/view/bonn/">Bonn</a></li>
+								<li><a href="/city/view/bremen/">Bremen</a></li>
+								<li><a href="/city/view/buende/">Bünde</a></li>
+								<li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
+								<li><a href="/city/view/coburg/">Coburg</a></li>
+								<li><a href="/city/view/coesfeld/">Coesfeld</a></li>
+								<li><a href="/city/view/darmstadt/">Darmstadt</a></li>
+								<li><a href="/city/view/deggendorf/">Deggendorf</a></li>
+								<li><a href="/city/view/delbrueck/">Delbrück</a></li>
+								<li><a href="/city/view/detmold/">Detmold</a></li>
+								<li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
+								<li><a href="/city/view/dortmund/">Dortmund</a></li>
+								<li><a href="/city/view/duisburg/">Duisburg</a></li>
+								<li><a href="/city/view/dueren/">Düren</a></li>
+								<li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
+								<li><a href="/city/view/erlangen/">Erlangen</a></li>
+								<li><a href="/city/view/essen/">Essen</a></li>
+								<li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
+								<li><a href="/city/view/freiburg/">Freiburg</a></li>
+								<li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
+								<li><a href="/city/view/fulda/">Fulda</a></li>
+								<li><a href="/city/view/fuerth/">Fürth</a></li>
+								<li><a href="/city/view/giessen/">Gießen</a></li>
+								<li><a href="/city/view/goettingen/">Göttingen</a></li>
+								<li><a href="/city/view/gummersbach/">Gummersbach</a></li>
+								<li><a href="/city/view/guetersloh/">Gütersloh</a></li>
+								<li><a href="/city/view/gamburg/">Hamburg</a></li>
+								<li><a href="/city/view/hamm/">Hamm</a></li>
+								<li><a href="/city/view/hanau/">Hanau</a></li>
+								<li><a href="/city/view/hannover/">Hannover</a></li>
+								<li><a href="/city/view/heidenheim/">Heidenheim</a></li>
+								<li><a href="/city/view/heilbronn/">Heilbronn</a></li>
+								<li><a href="/city/view/herford/">Herford</a></li>
+								<li><a href="/city/view/hilden/">Hilden</a></li>
+								<li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
+								<li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
+								<li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
+								<li><a href="/city/view/kleve/">Kleve</a></li>
+								<li><a href="/city/view/koeln/">Köln</a></li>
+								<li><a href="/city/view/krefeld/">Krefeld</a></li>
+								<li><a href="/city/view/lahnstein/">Lahnstein</a></li>
+								<li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
+								<li><a href="/city/view/leipzig/">Leipzig</a></li>
+								<li><a href="/city/view/lemgo/">Lemgo</a></li>
+								<li><a href="/city/view/limburg/">Limburg</a></li>
+								<li><a href="/city/view/lingen/">Lingen</a></li>
+								<li><a href="/city/view/luebbecke/">Lübbecke</a></li>
+								<li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
+								<li><a href="/city/view/memmingen/">Memmingen</a></li>
+								<li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
+								<li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
+								<li><a href="/city/view/muenchen/">München</a></li>
+								<li><a href="/city/view/muenster/">Münster</a></li>
+								<li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
+								<li><a href="/city/view/neuss/">Neuss</a></li>
+								<li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
+								<li><a href="/city/view/nienburg/">Nienburg</a></li>
+								<li><a href="/city/view/neurnberg/">Nürnberg</a></li>
+								<li><a href="/city/view/offenbach/">Offenbach</a></li>
+								<li><a href="/city/view/oldenburg/">Oldenburg</a></li>
+								<li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
+								<li><a href="/city/view/paderborn/">Paderborn</a></li>
+								<li><a href="/city/view/pforzheim/">Pforzheim</a></li>
+								<li><a href="/city/view/pocking/">Pocking</a></li>
+								<li><a href="/city/view/praha/">Praha</a></li>
+								<li><a href="/city/view/rastatt/">Rastatt</a></li>
+								<li><a href="/city/view/ratingen/">Ratingen</a></li>
+								<li><a href="/city/view/regensburg/">Regensburg</a></li>
+								<li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
+								<li><a href="/city/view/rheine/">Rheine</a></li>
+								<li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
+								<li><a href="/city/view/siegen/">Siegen</a></li>
+								<li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
+								<li><a href="/city/view/singen/">Singen</a></li>
+								<li><a href="/city/view/stuttgart/">Stuttgart</a></li>
+								<li><a href="/city/view/trier/">Trier</a></li>
+								<li><a href="/city/view/trossingen/">Trossingen</a></li>
+								<li><a href="/city/view/ulm/">Ulm</a></li>
+								<li><a href="/city/view/vechta/">Vechta</a></li>
+								<li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
+								<li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
+								<li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
+								<li><a href="/city/view/werl/">Werl</a></li>
+								<li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
+								<li><a href="/city/view/wuerzburg/">Würzburg</a></li>
+								<li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
+							</ul>
+						</div>
+					</div>
 					<a href="tel:+493078712860" class="phone menu-item">
 						<i class="icon-phone"></i>
 						<div class="d-none d-lg-inline-block">
@@ -281,7 +481,7 @@
 					<a href="#" class="menu-item cart">
 						<span class="cart-outer">
 							<i class="icon-basket"></i>
-							<span class="d-none d-md-inline">Корзина</span>
+							<!-- <span class="d-none d-md-inline">Корзина</span> -->
 							<span class="badge badge-accent cart-count">2</span>
 						</span>
 					</a>

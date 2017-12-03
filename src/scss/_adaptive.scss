@@ -399,10 +399,21 @@
 			.menu-body { order: 6; }
 			.fog-right { order: 7; }
 			.skins { order: 20; }
+			.dropdown.date { order: 21; }
+			.dropdown.city { order: 22; }
 			.phone { order: 25; }
 			.cart { order: 30; }
 			.login,
 			.profile { order: 35; }
+
+
+			.dropdown {
+				&.city {
+					ul {
+						max-height: 8 * ($dd-item-padding * 2 + $dd-item-line-height + $dd-item-border-width);
+					}
+				}
+			}
 
 			&:after {
 				display: none;

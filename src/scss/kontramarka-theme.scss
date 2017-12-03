@@ -748,14 +748,14 @@ a, button, .btn {
     &-outer {
         position: relative;
 
-        i + span:first-of-type {
+        i + span:not(.cart-count):first-of-type {
             margin-left: .5em;
         }
     }
     &-count {
         position: absolute;
-        top: -0.6em;
-        left: 1.2em;
+        top: -8px;
+        left: 10px;
     }
 }
 
@@ -1120,6 +1120,9 @@ a, button, .btn {
         }
         &.fixed {
             z-index: $zindex-modal + 1;
+        }
+        &.fixed-width {
+            min-width: 268px;
         }
     }
     &-item {
@@ -1507,9 +1510,6 @@ a, button, .btn {
             right: 0;
             left: 0;
         }
-        .dropdown-menu.fixed-width {
-            min-width: 268px;
-        }
         &.city {
             ul {
                 min-height: 2 * ($dd-item-padding * 2 + $dd-item-line-height) + $dd-item-border-width;
@@ -1518,7 +1518,6 @@ a, button, .btn {
             }
         }
         &.show {
-            padding-right: 52px;
             text-align: left;
         }
     }
@@ -1595,6 +1594,11 @@ a, button, .btn {
             z-index: 3;
             margin-left: 20px;
 
+            &.date,
+            &.city {
+                display: none;
+            }
+
             &:not(.phone) {
                 line-height: 20px;
                 padding: {
@@ -1669,6 +1673,13 @@ a, button, .btn {
         .categories .nav-indicator {
             top: 0;
             bottom: auto;
+        }
+
+        .main-menu {
+            .menu-item.date,
+            .menu-item.city {
+                display: block;
+            }
         }
     }
     &.open {
