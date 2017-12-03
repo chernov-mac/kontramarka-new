@@ -413,6 +413,10 @@ body {
 }
 a {
     cursor: pointer;
+
+    &[href]:not(.btn):not([data-toggle]):hover {
+        border-bottom: 1px solid;
+    }
 }
 p {
 	font-size: 16px;
@@ -691,6 +695,10 @@ a, button, .btn {
                     a[href] {
                         background: theme-color(primary);
                         @include masked-link;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                     .today {
                         background: rgba($black, 0.06);
@@ -1173,6 +1181,52 @@ a, button, .btn {
     }
 }
 .form-control {
+    position: relative;
+    padding: 0;
+    border: 2px solid $gray-200;
+    font-size: 18px;
+    background: $white;
+
+    @include placeholder {
+        font-size: 18px;
+        transition: all .25s ease;
+        @include light-text();
+    }
+
+    .placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: inline-table;
+        max-width: 100%;
+        padding: 20px 30px;
+        font-size: 18px;
+        line-height: 20px;
+        @include transition;
+    }
+    input {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        padding: 24px 16px 6px 16px;
+        line-height: 20px;
+        border: none;
+        background: transparent;
+        z-index: 2;
+    }
+
+    &.active,
+    &.filled {
+        .placeholder {
+            padding: 10px 16px 3px;
+            line-height: 16px;
+            font-size: 14px;
+        }
+    }
+}
+input.form-control {
+    padding: $input-btn-padding-y $input-btn-padding-x;
     border: 1px solid theme-color(light);
     font-size: 18px;
     transition: box-shadow .25s ease;
@@ -1240,6 +1294,9 @@ a, button, .btn {
         margin-bottom: 57px;
     }
 
+    a {
+        border-bottom: none;
+    }
     .navbar {
         position: relative;
         display: flex;
@@ -1533,6 +1590,9 @@ a, button, .btn {
     background: $white;
     transition: box-shadow .225s ease;
 
+    a {
+        border-bottom: none;
+    }
     .main-menu {
         position: relative;
         display: flex;
@@ -1593,6 +1653,7 @@ a, button, .btn {
             position: relative;
             z-index: 3;
             margin-left: 20px;
+            border-bottom: none;
 
             &.date,
             &.city {
@@ -1688,9 +1749,59 @@ a, button, .btn {
 }
 
 // Footer
-#footMenu {
-    padding: 0 0 $container-padding-x * 2;
+#subscribe {
+    padding: 20px 0;
 
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .title {
+        font-size: 28px;
+        text-align: center;
+        line-height: 1.1em;
+    }
+    .form {
+        width: 100%;
+        margin: 16px 0;
+
+        @include media-breakpoint-down(xs) {
+            .input-group {
+                flex-wrap: wrap;
+
+                .form-control:not(.active):not(.filled) {
+                    .placeholder {
+                        text-align: center;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                    }
+                }
+                .btn {
+                    width: 100%;
+                    margin-top: 10px;
+                }
+            }
+        };
+    }
+    .secure {
+        @include media-breakpoint-only(lg) {
+            display: flex;
+            align-items: center;
+            max-width: 100px;
+
+            i + span {
+                line-height: 1.2em;
+            }
+        };
+
+
+        i + span {
+            margin-left: 2px;
+        }
+    }
+}
+#footMenu {
     .container {
         position: relative;
 
@@ -1709,47 +1820,33 @@ a, button, .btn {
         margin-bottom: 15px;
     }
     .links-list {
-        // margin-bottom: 0;
-
-        li {
-            a {
-                text-decoration: none;
-                line-height: 1.62;
-                @include light-text();
-
-                &:hover {
-                    font-weight: bold;
-                    color: $black;
-                }
-            }
-        }
+        padding-bottom: 24px;
     }
     #footMenuAccordion {
-        margin-bottom: 24px;
-
         h4 {
             margin-bottom: 0;
 
             a {
                 display: block;
-                padding: 10px 0;
+                padding: 16px 0;
                 color: inherit;
                 text-decoration: none;
                 @include clearfix;
 
                 &:after {
-                    content: '\f104';
+                    content: '\f107'; // angle
+                    // content: '\f078'; // chevron
                     font-family: 'FontAwesome';
                     float: right;
-                    // display: inline-block;
-                    // width: 1em;
-                    // text-align: right;
-                    @include light-text;
+                    // font-size: 0.8em;
+                    // margin-top: 0.1em;
+                    // @include light-text;
                 }
 
                 &[aria-expanded=true] {
                     &:after {
-                        content: '\f107';
+                        content: '\f106'; // angle
+                        // content: '\f077'; // chevron
                     }
                 }
             }
@@ -1779,146 +1876,68 @@ a, button, .btn {
         }
     }
 }
-#footSubInfo {
-    padding: 32px 0;
-    color: $white;
+#footInfo {
+    padding: 10px 0 24px;
 
-    h4 {
-        padding-top: 2px;
-    }
-    .copyright {
-        .logo {
-            width: 132px;
-            height: 32px;
-            background: url('../images/logo-mono-white.svg') center no-repeat;
-            background-size: contain;
-        }
-        ul {
-            line-height: 1.25;
-            margin-top: 16px;
-            @include light-text($white);
+    .row.text {
+        text-align: center;
 
-            a {
-                color: $white;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-            }
+        & > div {
+            padding: 11px 0;
         }
 
-        @include media-breakpoint-down(md) {
-            order: 2;
-        }
-        @include media-breakpoint-down(xs) {
-            order: 3;
+        .copyright {
+            @include light-text;
+            @include media-breakpoint-down(md) {
+                padding-bottom: 0;
+            };
         }
     }
     .payment-methods {
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
 
-            .method {
-                padding: 10px 0;
-                margin-right: 10px;
+        .method {
+            padding: 10px 0;
+            margin-right: 10px;
 
-                & > div {
-                    display: block;
-                    height: 26px;
+            & > div {
+                display: block;
+                height: 26px;
 
-                    &.mastercard {
-                        width: 32px;
-                        @include media-breakpoint-down(xs) { width: 28px; };
-                    }
-                    &.visa {
-                        width: 54px;
-                        height: 18px;
-                        margin: 4px 0;
-                        @include media-breakpoint-down(xs) {
-                            width: 50px;
-                            height: 16px;
-                            margin: 3px 0;
-                        };
-                    }
-                    &.paypal {
-                        width: 82px;
-                        height: 22px;
-                        margin: 2px 0;
-                        @include media-breakpoint-down(xs) {
-                            width: 76px;
-                            height: 20px;
-                            margin: 1px 0;
-                        };
-                    }
-                    &.vorkasse {
-                        width: 90px;
-                        @include media-breakpoint-down(xs) { width: 82px; };
-                    }
-
-                    $methods: mastercard visa paypal vorkasse;
-                    @each $method in $methods {
-                        &.#{$method} {
-                            background: url('../images/brands/#{$method}.png') no-repeat center;
-                            background-size: contain;
-                        }
-                    }
-
-                    @include media-breakpoint-down(xs) {
-                        height: 22px;
-                    };
+                &.visa {
+                    width: 48px;
+                }
+                &.mastercard {
+                    width: 38px;
+                }
+                &.paypal {
+                    width: 60px;
+                }
+                &.vorkasse {
+                    width: 76px;
                 }
 
-                &:last-child {
-                    margin-right: 0;
+                $methods: mastercard visa paypal vorkasse;
+                @each $method in $methods {
+                    &.#{$method} {
+                        background: url('../images/brands/#{$method}.svg') no-repeat center;
+                        background-size: contain;
+                    }
+                    &.#{$method}.mono {
+                        background: url('../images/brands/mono/#{$method}.png') no-repeat center;
+                        background-size: contain;
+                    }
                 }
             }
 
-            @include media-breakpoint-up(lg) {
-                justify-content: flex-start;
-                padding: 10px 0;
-
-                .method {
-                    margin-right: 32px;
-                }
-            };
-        }
-
-        @include media-breakpoint-down(md) {
-            order: 3;
-        }
-        @include media-breakpoint-down(xs) {
-            order: 2;
-        }
-    }
-    .newsletter {
-        .input-group {
-            small {
-                font-size: 12px;
-            }
-            input:focus {
-                box-shadow: none;
+            &:last-child {
+                margin-right: 0;
             }
         }
-
-        @include media-breakpoint-down(md) {
-            order: 1;
-        }
-        @include media-breakpoint-between(sm, md) { margin-bottom: 32px; }
     }
-
-    .divider {
-        margin-top: 12px;
-        margin-bottom: 22px;
-        border-color: rgba($white, .12);
-    }
-
-    @include media-breakpoint-down(xs) {
-        padding: 24px 0;
-    };
 }
 
 // Main (page blocks)

@@ -53,9 +53,9 @@ $theme-colors: (
 //
 // Style anchor elements.
 
-$link-color:            lighten(theme-color('secondary'), 15%);
+$link-color:            lighten(theme-color('secondary'), 10%);
 $link-decoration:       none;
-$link-hover-color:      darken($link-color, 15%);
+$link-hover-color:      $link-color;// darken($link-color, 15%);
 $link-hover-decoration: none;
 
 // Links

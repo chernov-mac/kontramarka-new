@@ -302,6 +302,12 @@ $(function() {
 		$(this).closest('.box').removeClass('e2e-off-xs-down');
 	});
 
+	// Form control
+	$.each($('.form-control input'), function(i, input) {
+		$(input).on('focus', onFormControlFocus.bind(this));
+		$(input).on('blur', onFormControlBlur.bind(this));
+	});
+
 
     // Resize
 	$(window).on('resize', function(event) {
@@ -444,6 +450,15 @@ function setDDHeight(dropdown) {
 		overflowY: 'auto'
 	});
 	$(dropdown).dropdown('update');
+}
+function onFormControlFocus(input) {
+	$(this).closest('.form-control').addClass('active').removeClass('filled');
+	$(this).addClass('focus').attr('placeholder', $(this).data('placeholder'));
+}
+function onFormControlBlur(input) {
+	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
+	if (this.value) $(this).closest('.form-control').addClass('filled');
+	// console.log(this.value);
 }
 
 // function initScheme() {

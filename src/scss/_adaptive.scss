@@ -95,6 +95,7 @@
 
 	#footMenu {
 		padding: 32px 0 24px;
+		border-bottom: 1px solid $body-bg;
 	}
 };
 @include media-breakpoint-up(md) {
@@ -535,6 +536,30 @@
 			}
 		}
 	}
+	#subscribe {
+		.container {
+			flex-direction: row;
+	    }
+		.title {
+			font-size: $h3-font-size;
+			text-align: left;
+		}
+		.form {
+			flex: 1 0 auto;
+			width: auto;
+			margin: 0 50px;
+		}
+	}
+	#footInfo {
+		padding: 10px 0;
+
+		.payment-methods {
+            justify-content: space-between;
+		}
+		.row.text {
+			text-align: left;
+		}
+	}
 }
 @include media-breakpoint-up(xl) {
 	#topMenu {
@@ -544,6 +569,11 @@
 				left: 0;
 				min-width: 0;
 			}
+		}
+	}
+	#subscribe {
+		.title {
+			font-size: $h2-font-size;
 		}
 	}
 }
