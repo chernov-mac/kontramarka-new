@@ -81,13 +81,6 @@ $(function() {
 			});
 	        if (curCity.parentNode.classList.contains('active')) activeName = curCity.textContent;
 		});
-		// cities.forEach(curCity => {
-		// 	citiesData.push({
-		// 		href: curCity.getAttribute('href'),
-		// 		name: curCity.textContent
-		// 	});
-	    //     if (curCity.parentNode.classList.contains('active')) activeName = curCity.textContent;
-		// });
 
 		new Autocomplete(curInput, citiesData, {
 	        activeName: activeName,
@@ -346,11 +339,9 @@ $(function() {
 		}
 	});
 
+	$(window).on('scroll', function(event) {
 
-	// Scroll
-	$('body').on('scroll', function(event) {
-		// $('#mainMenuCategories').dropdown('update');
-		if ($('body').scrollTop() > ($('header').outerHeight() - $('#mainMenu').outerHeight())) {
+		if ($(window).scrollTop() > ($('header').outerHeight() - $('#mainMenu').outerHeight())) {
 			$('#mainMenu').addClass('fixed-top');
 			$('body').addClass('fixed-nav');
 		} else {

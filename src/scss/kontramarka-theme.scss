@@ -352,14 +352,15 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
 //
 // Main styles for common tags and containers
 
-html, body {
+html {
     height: 100%;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
-.flex-wrapper {
+body {
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     main {
         flex: 1 0 auto;
