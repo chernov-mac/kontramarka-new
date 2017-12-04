@@ -294,6 +294,7 @@
 
 			.menu-body {
 				overflow: hidden;
+				height: 56px;
 
 				position: relative;
 				top: 0;
@@ -312,15 +313,23 @@
 					flex-flow: row nowrap;
 					@include nav-tabs;
 					@include nav-tabs-indicated;
-					height: 56px;
 					margin-bottom: 0;
-					cursor: -webkit-grab;
-					overflow: hidden;
-					
 			        &:before {
 			            content: '';
 			            display: none;
 			        }
+
+					// hiding scrollbar
+					height: 80px;
+					padding-bottom: 24px;
+		            overflow-x: auto;
+		            overflow-y: hidden;
+		            -ms-overflow-style: none;
+		            &::-webkit-scrollbar {
+		                width: 0 !important;
+		                height: 0 !important;
+		            }
+					cursor: -webkit-grab;
 
 					.badge {
 						display: none;
@@ -383,6 +392,9 @@
 					}
 					.nav-indicator {
 						bottom: 0;
+					}
+					.nav-indicator {
+						bottom: 24px;
 					}
 				}
 			}
