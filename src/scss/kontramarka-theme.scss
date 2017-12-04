@@ -1586,7 +1586,8 @@ input.form-control {
 #mainMenu {
     $item-padding-y: 10px;
 
-    border-bottom: 1px solid $body-bg;
+    // border-bottom: 1px solid $body-bg;
+    margin-bottom: 1px;
     background: $white;
     transition: box-shadow .225s ease;
 
@@ -1729,7 +1730,7 @@ input.form-control {
     }
     &.fixed-top {
         box-shadow: 0 3px 18px 0 rgba(0,0,0,0.18);
-        border-bottom-width: 0;
+        // border-bottom-width: 0;
 
         .categories .nav-indicator {
             top: 0;

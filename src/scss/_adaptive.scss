@@ -293,6 +293,8 @@
 			padding: 0 16px;
 
 			.menu-body {
+				overflow: hidden;
+
 				position: relative;
 				top: 0;
 				left: auto;
@@ -305,20 +307,6 @@
 				// margin-right: auto !important;
 				border-top: none;
 
-	            overflow-x: auto;
-	            overflow-y: hidden;
-	            -ms-overflow-style: none;
-	            &::-webkit-scrollbar {
-	                width: 0 !important;
-	                height: 0 !important;
-	            }
-				cursor: -webkit-grab;
-
-				&:active {
-					cursor: -webkit-grabing;
-				}
-
-
 				.categories {
 					display: flex;
 					flex-flow: row nowrap;
@@ -326,6 +314,9 @@
 					@include nav-tabs-indicated;
 					height: 56px;
 					margin-bottom: 0;
+					cursor: -webkit-grab;
+					overflow: hidden;
+					
 			        &:before {
 			            content: '';
 			            display: none;
