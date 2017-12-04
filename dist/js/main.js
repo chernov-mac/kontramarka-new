@@ -161,7 +161,6 @@ $(function() {
 
 	// Categories dragging
 	$('#mainMenu .categories').on('mousedown', function(event) {
-		console.log('down triggered');
 		event.preventDefault();
 		$('#mainMenu .categories').css('cursor', '-webkit-grabbing');
 
@@ -172,7 +171,6 @@ $(function() {
 		});
 	});
 	$('body').on('mouseup', function(event) {
-		console.log('up triggered');
 		$('#mainMenu .categories').css('cursor', '-webkit-grab');
 		$('body').off('mousemove');
 	});
@@ -406,14 +404,11 @@ function calcTourDescHeight() {
 	});
 }
 function drag(element, clickEvent, moveEvent, scrollOnStart) {
-	console.log(scrollOnStart);
 	var startPos = clickEvent.pageX;
 	var curPos = moveEvent.clientX;
 
 	var distance = - (curPos - startPos);
 	menuDragDistance = Math.abs(distance);
-
-	// console.log(distance);
 
 	if (distance === 0) return;
 	$(element).scrollLeft(scrollOnStart + distance);
@@ -459,8 +454,6 @@ function setDDHeight(dropdown) {
 		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
 		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
 
-	// console.log(target);
-	// console.log(headHeight);
 	var maxHeight 	= $(window).outerHeight() - $(reference).offset().top - $(reference).outerHeight() - headHeight - footHeight - 24;
 
 	$(target).css({
@@ -476,7 +469,6 @@ function onFormControlFocus(input) {
 function onFormControlBlur(input) {
 	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
 	if (this.value) $(this).closest('.form-control').addClass('filled');
-	// console.log(this.value);
 }
 
 // function initScheme() {
