@@ -115,80 +115,6 @@ $(function() {
 	});
 
 
-    // Categories dropdowns
-	$.each($('#mainMenuCategories .dropdown'), function(i, dropdown){
-		var id = $(dropdown).attr('id');
-		var menu = $('body').find('.dropdown-menu[aria-labelledby="' + id + '"]');
-		var arrow = $(dropdown).find('.arrow');
-
-		$(arrow).on('click', function (e) {
-			var show = $(dropdown).hasClass('show');
-
-			if (show) {
-				$(dropdown).append(
-					$(menu).removeAttr('style').removeClass('fixed').hide().detach()
-				).removeClass('show');
-			} else {
-				$('body').append(menu.show().detach());
-				$(dropdown).addClass('show');
-
-				var fixed = $('#mainMenu').css('position') == 'fixed' ? true : false;
-				setDDMenuPos(dropdown, menu, fixed);
-			}
-	    });
-	});
-	$('body').on('click', function(event) {
-		$.each($('#mainMenuCategories .dropdown.show'), function(i, dropdown){
-			var id = $(dropdown).attr('id');
-			var menu = $('body').find('.dropdown-menu[aria-labelledby="' + id + '"]');
-
-			if ($(event.target).closest('#' + id).length || $(event.target).closest('.dropdown-menu[aria-labelledby="' + id + '"]').length) {
-				return;
-			}
-
-			$(dropdown).append(
-				$(menu).removeAttr('style').removeClass('fixed').hide().detach()
-			).removeClass('show');
-		});
-	});
-
-	// Categories dragging
-	$('#mainMenuCategories').on('mousedown', function(event) {
-		event.preventDefault();
-		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
-
-		var clickEvent = event;
-		var scrollOnStart = $('#mainMenuCategories').scrollLeft();
-		$('body').on('mousemove', function(event){
-			drag($('#mainMenuCategories'), clickEvent, event, scrollOnStart);
-		});
-	});
-	$('body').on('mouseup', function(event) {
-		$('#mainMenuCategories').css('cursor', '-webkit-grab');
-		$('body').off('mousemove');
-	});
-	$('#mainMenuCategories a').on('click', function(event) {
-		if (menuDragDistance > 5) {
-			menuDragDistance = 0;
-			event.preventDefault();
-			event.stopImmediatePropagation();
-			return false;
-		}
-		menuDragDistance = 0;
-	});
-
-	// Tour description height
-	if ($('#tour_info').length) {
-		var image = new Image();
-		image.src = $('#tour_info .tour-pic img').attr('src');
-
-		if (image.complete) {
-			calcTourDescHeight();
-		} else {
-			$('#tour_info .tour-pic img').on('load', calcTourDescHeight);
-		}
-	}
-
 
 	// Events
 
@@ -321,6 +247,80 @@ $(function() {
 		$(input).on('focus', onFormControlFocus.bind(this));
 		$(input).on('blur', onFormControlBlur.bind(this));
 	});
+
+    // Categories dropdowns
+	$.each($('#mainMenuCategories .dropdown'), function(i, dropdown){
+		var id = $(dropdown).attr('id');
+		var menu = $('body').find('.dropdown-menu[aria-labelledby="' + id + '"]');
+		var arrow = $(dropdown).find('.arrow');
+
+		$(arrow).on('click', function (e) {
+			var show = $(dropdown).hasClass('show');
+
+			if (show) {
+				$(dropdown).append(
+					$(menu).removeAttr('style').removeClass('fixed').hide().detach()
+				).removeClass('show');
+			} else {
+				$('body').append(menu.show().detach());
+				$(dropdown).addClass('show');
+
+				var fixed = $('#mainMenu').css('position') == 'fixed' ? true : false;
+				setDDMenuPos(dropdown, menu, fixed);
+			}
+	    });
+	});
+	$('body').on('click', function(event) {
+		$.each($('#mainMenuCategories .dropdown.show'), function(i, dropdown){
+			var id = $(dropdown).attr('id');
+			var menu = $('body').find('.dropdown-menu[aria-labelledby="' + id + '"]');
+
+			if ($(event.target).closest('#' + id).length || $(event.target).closest('.dropdown-menu[aria-labelledby="' + id + '"]').length) {
+				return;
+			}
+
+			$(dropdown).append(
+				$(menu).removeAttr('style').removeClass('fixed').hide().detach()
+			).removeClass('show');
+		});
+	});
+
+	// Categories dragging
+	$('#mainMenuCategories').on('mousedown', function(event) {
+		event.preventDefault();
+		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
+
+		var clickEvent = event;
+		var scrollOnStart = $('#mainMenuCategories').scrollLeft();
+		$('body').on('mousemove', function(event){
+			drag($('#mainMenuCategories'), clickEvent, event, scrollOnStart);
+		});
+	});
+	$('body').on('mouseup', function(event) {
+		$('#mainMenuCategories').css('cursor', '-webkit-grab');
+		$('body').off('mousemove');
+	});
+	$('#mainMenuCategories a').on('click', function(event) {
+		if (menuDragDistance > 5) {
+			menuDragDistance = 0;
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			return false;
+		}
+		menuDragDistance = 0;
+	});
+
+	// Tour description height
+	if ($('#tour_info').length) {
+		var image = new Image();
+		image.src = $('#tour_info .tour-pic img').attr('src');
+
+		if (image.complete) {
+			calcTourDescHeight();
+		} else {
+			$('#tour_info .tour-pic img').on('load', calcTourDescHeight);
+		}
+	}
 
 
     // Resize
@@ -471,9 +471,13 @@ function setDDHeight(dropdown) {
 		headHeight	= $(menu).find('.dd-menu-header').length ? $(menu).find('.dd-menu-header').outerHeight() : 0,
 		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
 		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
-	console.log();
 
 	var maxHeight 	= $(window).outerHeight() - reference.getBoundingClientRect().top - $(reference).outerHeight() - headHeight - footHeight - 24;
+
+	if ($(reference).hasClass('city')) {
+		var topMenuCityHeight = parseInt($('#topMenu .dropdown.city .autocomplete-results').css('max-height'), 10);
+		maxHeight = maxHeight < topMenuCityHeight ? maxHeight : topMenuCityHeight;
+	}
 
 	$(target).css({
 		maxHeight: maxHeight + 'px',
