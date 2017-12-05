@@ -219,7 +219,7 @@ $(function() {
 	});
 
 	// Top menu
-	$('#topMenu .dropdown-menu').on('click', function(event) {
+	$('#topMenu .dropdown-menu, #mainMenu .dropdown-menu').on('click', function(event) {
 		event.stopPropagation();
 	});
 	$('#topMenu .nav-item.dropdown').on('show.bs.dropdown', function(event) {
