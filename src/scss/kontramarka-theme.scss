@@ -336,6 +336,30 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
         transform: rotate(360deg);
     }
 }
+@keyframes optional-move-in {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes optional-move-out {
+    0% {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}
 
 
 // Utilities
@@ -1656,7 +1680,9 @@ input.form-control {
 
     a {
         border-bottom: none;
+        white-space: nowrap;
     }
+
     .main-menu {
         position: relative;
         display: flex;
@@ -1719,9 +1745,28 @@ input.form-control {
             margin-left: 20px;
             border-bottom: none;
 
-            &.date,
-            &.city {
+            &.optional {
                 display: none;
+                will-change: transform;
+
+                &:not(.moving) {
+                    &.in {
+                        display: block;
+                    }
+                    &.out {
+                        display: none;
+                    }
+                }
+                &.moving {
+                    display: block;
+
+                    &.in {
+                        animation: 0.225s $spin-easing 0s 1 normal optional-move-in;
+                    }
+                    &.out {
+                        animation: 0.225s $spin-easing 0s 1 normal optional-move-out;
+                    }
+                }
             }
 
             &:not(.phone) {
@@ -1768,27 +1813,16 @@ input.form-control {
             background: $white;
         }
     }
-    a {
-        white-space: nowrap;
-    }
 
     &:not(.fixed-top) {
         position: relative;
     }
     &.fixed-top {
         box-shadow: 0 3px 18px 0 rgba(0,0,0,0.18);
-        // border-bottom-width: 0;
 
         .categories .nav-indicator {
             top: 0;
             bottom: auto;
-        }
-
-        .main-menu {
-            .menu-item.date,
-            .menu-item.city {
-                display: block;
-            }
         }
     }
     &.open {

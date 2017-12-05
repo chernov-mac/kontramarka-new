@@ -356,10 +356,25 @@ $(function() {
 		if ($(window).scrollTop() > requiredOffset || $(window).scrollTop() == requiredOffset) {
 			$('#mainMenu').addClass('fixed-top');
 			$('body').addClass('fixed-nav');
+
+			if (!$('#mainMenu .menu-item.optional').hasClass('in')) {
+				$('#mainMenu .menu-item.optional').removeClass('out').addClass('moving in');
+				setTimeout(function(){
+					$('#mainMenu .menu-item.optional').removeClass('moving');
+				}, 225);
+			}
 		} else {
 			$('body').removeClass('fixed-nav');
 			$('#mainMenu').removeClass('fixed-top');
+
+			if (!$('#mainMenu .menu-item.optional').hasClass('out')) {
+				$('#mainMenu .menu-item.optional').removeClass('in').addClass('moving out');
+				setTimeout(function(){
+					$('#mainMenu .menu-item.optional').removeClass('moving');
+				}, 225);
+			}
 		}
+
 
 		setShownDDMenuPos();
 
@@ -420,8 +435,8 @@ function setDDMenuPos(reference, menu, fixed) {
 	if (fixed) {
 		$(menu).css({
 			position: 'fixed',
-			top: ($(reference).offset().top + $(reference).outerHeight()) + 'px',
-			left: $(reference).offset().left + 'px',
+			top: (reference.getBoundingClientRect().top + $(reference).outerHeight()) + 'px',
+			left: reference.getBoundingClientRect().left + 'px',
 			transform: 'translate3d(0, 0, 0)'
 		}).addClass('fixed');
 	} else {
