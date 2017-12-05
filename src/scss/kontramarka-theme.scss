@@ -168,20 +168,17 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
             text-transform: uppercase;
             @include masked-link(true);
 
-            &:before {
-                content: '';
-                position: absolute;
-                right: 8px;
-                bottom: -12px;
-                left: 8px;
-                display: block;
-                height: 2px;
-                background: transparent;
+            &:hover {
+                border-bottom: none;
             }
 
             &.active {
                 background-color: transparent;
                 @include light-text;
+
+                &:before {
+                    background: rgba($black, .12);
+                }
             }
         }
     }
@@ -194,7 +191,29 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
     }
 }
 @mixin nav-tabs-indicated {
-    margin-bottom: 1px;
+    // margin-bottom: 1px;
+    border-bottom: 1px solid $body-bg;
+
+    .nav-item {
+        z-index: 2;
+        .nav-link {
+            // &:before {
+            //     content: '';
+            //     position: absolute;
+            //     right: 0;
+            //     bottom: -2px;
+            //     left: 0;
+            //     display: block;
+            //     height: 2px;
+            //     background: transparent;
+            // }
+            // &.active {
+            //     &:before {
+            //         background: rgba($black, .12);
+            //     }
+            // }
+        }
+    }
 
     &:before {
         content: '';
@@ -477,7 +496,7 @@ body {
 a {
     cursor: pointer;
 
-    &[href]:not(.btn):not([data-toggle]):hover {
+    &[href]:hover {
         border-bottom: 1px solid;
     }
 }
@@ -1275,6 +1294,7 @@ a, button, .btn {
     border: 2px solid $gray-200;
     font-size: 18px;
     background: $white;
+    transition: none;
 
     @include placeholder {
         font-size: 18px;
@@ -1286,13 +1306,32 @@ a, button, .btn {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
         display: inline-table;
         max-width: 100%;
         padding: 20px 30px;
         font-size: 18px;
         line-height: 20px;
         @include transition;
+
+        &.over-input {
+            z-index: 3;
+        }
+
+        &.pull {
+            &-right {
+                right: 0;
+                left: auto;
+            }
+            &-left {
+                right: auto;
+                left: 0;
+            }
+        }
+        &.static {
+            padding: 10px 16px 3px;
+            line-height: 16px;
+            font-size: 14px;
+        }
     }
     input {
         position: relative;
@@ -1311,6 +1350,17 @@ a, button, .btn {
             padding: 10px 16px 3px;
             line-height: 16px;
             font-size: 14px;
+        }
+    }
+
+    @each $color in map-keys($theme-colors) {
+        &.has-#{$color} {
+            $value: theme-color($color);
+            border-color: $value;
+
+            .placeholder {
+                color: $value;
+            }
         }
     }
 }
@@ -1332,6 +1382,30 @@ input.form-control {
         @include placeholder {
             color: rgba($black, .32);
         }
+    }
+}
+.form-group {
+    .form-control {
+        &:not(:last-of-type) {
+            border-bottom-width: 0;
+        }
+
+        &.active {
+            border-color: theme-color(secondary);
+            border-bottom-width: 2px;
+
+            + .form-control {
+                border-top-width: 0;
+            }
+        }
+        // &:not(:first-of-type) {
+        //     border-top-width: 1px;
+        // }
+    }
+}
+.form-check {
+    &-label {
+        line-height: 1.45em;
     }
 }
 .tooltip {
@@ -1402,12 +1476,8 @@ input.form-control {
         &-brand {
             display: block;
             flex-shrink: 0;
-            // width: 140px;
             width: 74px;
-            // margin-left: -24px;
-            // margin-right: auto;
             background: url('../images/logo-no-text.svg') center no-repeat;
-            // background-position-x: 24px;
 
             height: 64px;
             background-position-x: $container-padding-x;
@@ -1523,8 +1593,6 @@ input.form-control {
 
                 &.dropdown-toggle {
                     &:after {
-                        // float: right;
-                        // margin-top: 0.6em;
                         margin-left: 0.4em;
                         vertical-align: middle;
                         display: none;
@@ -1533,25 +1601,10 @@ input.form-control {
                         background: rgba(0,0,0,0.24);
                     }
                 }
-                // &.dropdown-toggle {
-                //     &:after {
-                //         content: '\f0d7';
-                //         width: auto;
-                //         height: auto;
-                //         margin-left: 0.8em;
-                //         line-height: 0.9;
-                //         font-family: 'FontAwesome';
-                //         font-size: .7em;
-                //         border-top: none;
-                //         border-right: none;
-                //         border-left: none;
-                //     }
-                // }
             }
             &-item {
                 position: relative;
                 flex: 1 0 20%;
-                // border-top: $nav-item-border;
                 white-space: nowrap;
                 text-align: center;
                 @include transition;
@@ -1600,7 +1653,7 @@ input.form-control {
                 bottom: 0;
                 left: 0;
             }
-            & + .nav-item {
+            & ~ .nav-item {
                 opacity: 0;
             }
         }
@@ -1879,7 +1932,6 @@ input.form-control {
             }
         };
 
-
         i + span {
             margin-left: 2px;
         }
@@ -1906,58 +1958,58 @@ input.form-control {
     .links-list {
         padding-bottom: 24px;
     }
-    #footMenuAccordion {
-        h4 {
-            margin-bottom: 0;
+}
+#footMenuAccordion {
+    h4 {
+        margin-bottom: 0;
 
-            a {
-                display: block;
-                padding: 16px 0;
-                color: inherit;
-                text-decoration: none;
-                @include clearfix;
+        a {
+            display: block;
+            padding: 16px 0;
+            color: inherit;
+            text-decoration: none;
+            @include clearfix;
 
+            &:after {
+                content: '\f107'; // angle
+                // content: '\f078'; // chevron
+                font-family: 'FontAwesome';
+                float: right;
+                // font-size: 0.8em;
+                // margin-top: 0.1em;
+                // @include light-text;
+            }
+
+            &[aria-expanded=true] {
                 &:after {
-                    content: '\f107'; // angle
-                    // content: '\f078'; // chevron
-                    font-family: 'FontAwesome';
-                    float: right;
-                    // font-size: 0.8em;
-                    // margin-top: 0.1em;
-                    // @include light-text;
-                }
-
-                &[aria-expanded=true] {
-                    &:after {
-                        content: '\f106'; // angle
-                        // content: '\f077'; // chevron
-                    }
+                    content: '\f106'; // angle
+                    // content: '\f077'; // chevron
                 }
             }
         }
     }
-    #facebookWidget {
-        position: relative;
-        min-height: 216px;
-        background: $body-bg;
+}
+#facebookWidget {
+    position: relative;
+    min-height: 216px;
+    background: $body-bg;
 
-        &:before {
-            content: '\f230';
-            font-family: 'FontAwesome';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            display: block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            margin: auto;
-            font-size: 50px;
-            text-align: center;
-            @include light-text($black, 0.32);
-        }
+    &:before {
+        content: '\f230';
+        font-family: 'FontAwesome';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin: auto;
+        font-size: 50px;
+        text-align: center;
+        @include light-text($black, 0.32);
     }
 }
 #footInfo {
@@ -2751,12 +2803,40 @@ input.form-control {
 }
 
 // Modals
+.modal {
+    &-header {
+        border-bottom: 2px solid $body-bg;
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            font-size: 1rem;
+            line-height: 24px;
+            cursor: pointer;
+            color: $black;
+            opacity: 1;
+        }
+    }
+    @include media-breakpoint-up(sm) {
+        &-xs {
+            max-width: 300px;
+        }
+    };
+}
 #loginModal {
     .modal-header {
         padding: 0;
+        border-bottom-width: 0;
 
         .nav-tabs {
             flex: 1 1 100%;
+            padding: 0 14px;
+
+            .nav-link {
+                padding: 22px 0;
+            }
         }
     }
 }

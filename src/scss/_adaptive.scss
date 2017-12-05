@@ -395,9 +395,6 @@
 						}
 					}
 					.nav-indicator {
-						bottom: 0;
-					}
-					.nav-indicator {
 						bottom: auto;
 						top: 54px;
 					}
@@ -407,7 +404,6 @@
 			// ordering
 			.drag-wrapper { order: 1; }
 			.menu-item { order: 2 }
-
 
 			.dropdown {
 				&.city {
@@ -419,12 +415,6 @@
 
 			&:after {
 				display: none;
-			}
-		}
-		&:not(.fixed-top) {
-			.nav-item {
-				height: 57px;
-				padding-bottom: 1px; // for dropdown offseting
 			}
 		}
 	}

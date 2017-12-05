@@ -1563,43 +1563,73 @@
 
 <!-- Modals -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-sm" role="document">
+	<div class="modal-dialog modal-xs" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<!-- <h5 class="modal-title">Добро пожаловать!</h5> -->
-				<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button> -->
-				<div class="nav nav-tabs nav-fill indicated">
-					<div class="nav-item"><a data-toggle="tab" href="#signin" class="nav-link active">Вход</a></div>
-					<div class="nav-item"><a href="/register.html" class="nav-link">Регистрация</a></div>
+				<div class="nav nav-tabs indicated">
+					<div class="nav-item"><a data-toggle="tab" href="#loginModal_signIn" class="nav-link active">Вход</a></div>
+					<div class="nav-item"><a data-toggle="tab" href="#loginModal_signUp" class="nav-link">Регистрация</a></div>
 				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="icon-times" aria-hidden="true"></i>
+				</button>
 			</div>
 			<div class="modal-body">
-				<form method="post" action="" autocomplete="off">
-					<div class="logform">
-						<div class="form-group">
-							<!-- <label for="login_name">Электронная почта</label> -->
-							<input type="email" name="login_name" class="form-control" id="login_name" placeholder="Введите e-mail">
-						</div>
-						<div class="form-group">
-							<!-- <label for="login_password">Пароль</label> -->
-							<input type="password" name="login_password" class="form-control" id="login_password" placeholder="Введите пароль">
-							<small class="form-text text-muted"><a href="/lostpassword/">Забыли?</a></small>
-						</div>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-								Не запоминать меня на этом компьютере
-							</label>
-						</div>
-						<input name="login" type="hidden" id="login" value="submit">
-						<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
-							<i class="fa fa-sign-in"></i><span>Войти</span>
-						</button>
-						<button class="btn pull-right" title="Войти" data-dismiss="modal">Отмена</button>
+				<div class="tab-content">
+					<div class="tab-pane active" id="loginModal_signIn" role="tabpanel">
+						<form method="post" action="" autocomplete="off">
+							<div class="logform">
+								<div class="form-group">
+									<div class="form-control">
+										<input type="email" name="login_name" id="login_name" data-placeholder="example@mail.com">
+										<span class="placeholder">E-mail</span>
+									</div>
+									<div class="form-control">
+										<input type="password" name="login_password" id="login_password">
+										<span class="placeholder">Пароль</span>
+										<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
+									</div>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
+										Не запоминать меня на этом компьютере
+									</label>
+								</div>
+								<input name="login" type="hidden" id="login" value="submit">
+								<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
+									<i class="icon-sign-in"></i><span>Войти</span>
+								</button>
+								<button class="btn pull-right" title="Отмена" data-dismiss="modal">Отмена</button>
+							</div>
+						</form>
 					</div>
-				</form>
+					<div class="tab-pane" id="loginModal_signUp" role="tabpanel">
+						<form method="post" action="" autocomplete="off">
+							<div class="registerform">
+								<div class="form-group">
+									<!-- NOTE: you may apply classes '.has-XXX' to .form-control, where XXX is one from [success, warning, danger] -->
+									<div class="form-control">
+										<input type="email" name="login_name" id="register_name" data-placeholder="example@mail.com">
+										<span class="placeholder">E-mail</span>
+									</div>
+									<div class="form-control">
+										<input type="password" name="login_password" id="register_password">
+										<span class="placeholder">Пароль</span>
+									</div>
+									<div class="form-control">
+										<input type="password" name="login_password" id="register_password_check">
+										<span class="placeholder">Пароль ещё раз</span>
+									</div>
+								</div>
+								<input name="login" type="hidden" id="register" value="submit">
+								<button class="btn btn-primary btn-block" onclick="submit();" type="submit" title="Войти">Зарегистрироваться</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

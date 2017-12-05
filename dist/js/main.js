@@ -115,7 +115,6 @@ $(function() {
 	});
 
 
-
 	// Events
 
 	// Dropdowns height
@@ -169,7 +168,9 @@ $(function() {
 	});
 	$('#topMenu .nav-item.search .nav-link').on('click', function(event) {
 		if ($(window).width() < 768) {
-			$('#topMenu .search input').css('max-width', $(this).closest('.container').outerWidth() - $('#topMenu .navbar-brand').outerWidth() + 'px');
+			$('#topMenu .search input').css({
+				maxWidth: $(this).closest('.container').outerWidth() - $('#topMenu .navbar-brand').outerWidth() + 'px'
+			});
 			$(this).closest('.search').addClass('expanded');
 			$('#topMenu .navbar-close-nav').removeClass('d-none');
 		}
@@ -243,7 +244,7 @@ $(function() {
 	});
 
 	// Form control
-	$.each($('.form-control input'), function(i, input) {
+	$.each($('.form-control input:not(.disabled):not([disabled]):not([readonly])'), function(i, input) {
 		$(input).on('focus', onFormControlFocus.bind(this));
 		$(input).on('blur', onFormControlBlur.bind(this));
 	});
