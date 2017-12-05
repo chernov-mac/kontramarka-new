@@ -272,7 +272,7 @@
 						</div>
 					</div> -->
 
-					<div class="menu-item dropdown reference date">
+					<div class="menu-item optional dropdown reference date">
 						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
 							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
 						</a>
@@ -358,7 +358,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="menu-item dropdown reference city">
+					<div class="menu-item optional dropdown reference city">
 						<a id="mainMenuCity" data-toggle="dropdown" data-flip="false">
 							<i class="icon-map-marker"></i>
 							<span class="d-none d-xl-inline">Город</span>
@@ -491,34 +491,37 @@
 					</a>
 
 					<!-- categories list -->
-					<div class="fog fog-left d-none d-lg-block"></div>
-					<div class="menu-body collapse e2e" id="mainMenuCategories">
-						<ul class="categories">
-							<li class="nav-item"><a href="/" class="nav-link active" title="Все события">Все события</a></li>
-							<li class="nav-item"><a href="/concerts/" class="nav-link" title="Концерты">Концерты</a></li>
-							<li class="nav-item dropdown reference" id="mainMenu_theaters">
-								<a href="/" class="nav-link" title="Театры">Театры</a>
-								<a class="arrow"><i class="fa fa-angle-down"></i></a>
-								<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_theaters">
-									<li class="dropdown-item"><a href="#">Балет</a></li>
-									<li class="dropdown-item"><a href="#">Спектакли</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
-							<li class="nav-item dropdown reference" id="mainMenu_children">
-								<a href="javascript:void(0)" class="nav-link" title="Детям">Детям</a>
-								<a class="arrow"><i class="fa fa-angle-down"></i></a>
-								<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_children">
-									<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Юмор">Юмор</a></li>
-							<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
-							<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
-							<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
-						</ul>
+					<div class="menu-wrapper draggable-lg-up">
+						<div class="drag-fog left d-none d-lg-block"></div>
+						<div class="drag-item menu-body collapse" id="mainMenuCategories">
+							<ul class="categories">
+								<li class="nav-item"><a href="/" class="nav-link active" title="Все события">Все события</a></li>
+								<li class="nav-item"><a href="/concerts/" class="nav-link" title="Концерты">Концерты</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_theaters">
+									<a href="/" class="nav-link" title="Театры">Театры</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_theaters">
+										<li class="dropdown-item"><a href="#">Балет</a></li>
+										<li class="dropdown-item"><a href="#">Спектакли</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_children">
+									<a href="javascript:void(0)" class="nav-link" title="Детям">Детям</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_children">
+										<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Юмор">Юмор</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+							</ul>
+						</div>
+						<div class="drag-fog right d-none d-lg-block mr-auto"></div>
 					</div>
-					<div class="fog fog-right d-none d-lg-block mr-auto"></div>
+
 				</div>
 			</div>
         </section>

@@ -153,21 +153,21 @@ $(function() {
 	});
 
 	// Categories dragging
-	$('#mainMenu .categories').on('mousedown', function(event) {
+	$('#mainMenuCategories').on('mousedown', function(event) {
 		event.preventDefault();
-		$('#mainMenu .categories').css('cursor', '-webkit-grabbing');
+		$('#mainMenuCategories').css('cursor', '-webkit-grabbing');
 
 		var clickEvent = event;
-		var scrollOnStart = $('#mainMenu .categories').scrollLeft();
+		var scrollOnStart = $('#mainMenuCategories').scrollLeft();
 		$('body').on('mousemove', function(event){
-			drag($('#mainMenu .categories'), clickEvent, event, scrollOnStart);
+			drag($('#mainMenuCategories'), clickEvent, event, scrollOnStart);
 		});
 	});
 	$('body').on('mouseup', function(event) {
-		$('#mainMenu .categories').css('cursor', '-webkit-grab');
+		$('#mainMenuCategories').css('cursor', '-webkit-grab');
 		$('body').off('mousemove');
 	});
-	$('#mainMenu .categories a').on('click', function(event) {
+	$('#mainMenuCategories a').on('click', function(event) {
 		if (menuDragDistance > 5) {
 			menuDragDistance = 0;
 			event.preventDefault();
@@ -353,7 +353,7 @@ $(function() {
 	$(window).on('scroll', function(event) {
 		var requiredOffset = $('header').outerHeight() - $('#mainMenu').outerHeight();
 
-		if ($(window).scrollTop() > requiredOffset) {
+		if ($(window).scrollTop() > requiredOffset || $(window).scrollTop() == requiredOffset) {
 			$('#mainMenu').addClass('fixed-top');
 			$('body').addClass('fixed-nav');
 		} else {
@@ -456,8 +456,9 @@ function setDDHeight(dropdown) {
 		headHeight	= $(menu).find('.dd-menu-header').length ? $(menu).find('.dd-menu-header').outerHeight() : 0,
 		footHeight	= $(menu).find('.dd-menu-footer').length ? $(menu).find('.dd-menu-footer').outerHeight() : 0,
 		target		= $(menu).find('.dd-menu-body') ? (menu).find('.dd-menu-body') : $(menu);
+	console.log();
 
-	var maxHeight 	= $(window).outerHeight() - $(reference).offset().top - $(reference).outerHeight() - headHeight - footHeight - 24;
+	var maxHeight 	= $(window).outerHeight() - reference.getBoundingClientRect().top - $(reference).outerHeight() - headHeight - footHeight - 24;
 
 	$(target).css({
 		maxHeight: maxHeight + 'px',

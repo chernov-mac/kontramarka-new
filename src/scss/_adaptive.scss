@@ -2,6 +2,10 @@
 	#mainMenu {
 		.main-menu {
 			.menu-body {
+			    margin: {
+					right: -$container-padding-x;
+					left: -$container-padding-x;
+				}
 				overflow-y: auto;
 				@include accent;
 			}
@@ -10,7 +14,7 @@
 			.nav-link,
 			.dropdown-item > a {
 				// color: $black;
-				padding: 12px 16px;
+				padding: 12px $container-padding-x;
 				line-height: 20px;
 				font-size: 18px;
 			}
@@ -292,20 +296,32 @@
 			margin: 0 -16px;
 			padding: 0 16px;
 
-			.menu-body {
-				overflow: hidden;
+			.menu-wrapper {
 				height: 56px;
+				margin-left: -24px;
+				margin-right: auto;
 
+				.drag-item {
+					padding: {
+						right: 8px;
+						left: 8px;
+					}
+					// hiding scrollbar for Firefox
+			        height: 80px;
+			        padding-bottom: 24px;
+				}
+			}
+
+			.menu-body {
+                // reset styles of dropdown
 				position: relative;
 				top: 0;
 				left: auto;
 				right: auto;
 	            z-index: 1;
-
 				display: block !important;
 				flex: 0 1 auto;
-				padding: 0 8px;
-				// margin-right: auto !important;
+				padding: 0;
 				border-top: none;
 
 				.categories {
@@ -318,18 +334,6 @@
 			            content: '';
 			            display: none;
 			        }
-
-					// hiding scrollbar
-					height: 80px;
-					padding-bottom: 24px;
-		            overflow-x: auto;
-		            overflow-y: hidden;
-		            -ms-overflow-style: none;
-		            &::-webkit-scrollbar {
-		                width: 0 !important;
-		                height: 0 !important;
-		            }
-					cursor: -webkit-grab;
 
 					.badge {
 						display: none;
@@ -394,21 +398,15 @@
 						bottom: 0;
 					}
 					.nav-indicator {
-						bottom: 24px;
+						bottom: auto;
+						top: 54px;
 					}
 				}
 			}
 
-			.fog-left { order: 5; }
-			.menu-body { order: 6; }
-			.fog-right { order: 7; }
-			.skins { order: 20; }
-			.dropdown.date { order: 21; }
-			.dropdown.city { order: 22; }
-			.phone { order: 25; }
-			.cart { order: 30; }
-			.login,
-			.profile { order: 35; }
+			// ordering
+			.drag-wrapper { order: 1; }
+			.menu-item { order: 2 }
 
 
 			.dropdown {
