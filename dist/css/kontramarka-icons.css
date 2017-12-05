@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'kontramarka-icons';
-  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?74021735');
-  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?74021735#iefix') format('embedded-opentype'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.woff2?74021735') format('woff2'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.woff?74021735') format('woff'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.ttf?74021735') format('truetype'),
-       url('../fonts/kontramarka-icons/kontramarka-icons.svg?74021735#kontramarka-icons') format('svg');
+  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?41949361');
+  src: url('../fonts/kontramarka-icons/kontramarka-icons.eot?41949361#iefix') format('embedded-opentype'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.woff2?41949361') format('woff2'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.woff?41949361') format('woff'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.ttf?41949361') format('truetype'),
+       url('../fonts/kontramarka-icons/kontramarka-icons.svg?41949361#kontramarka-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'kontramarka-icons';
-    src: url('../font/kontramarka-icons.svg?74021735#kontramarka-icons') format('svg');
+    src: url('../font/kontramarka-icons.svg?41949361#kontramarka-icons') format('svg');
   }
 }
 */
@@ -64,6 +64,7 @@
 .icon-user:before { content: '\e806'; } /* '' */
 .icon-basket:before { content: '\e807'; } /* '' */
 .icon-phone:before { content: '\e808'; } /* '' */
+.icon-sign-in:before { content: '\e809'; } /* '' */
 .icon-check:before { content: '\e80f'; } /* '' */
 .icon-watch:before { content: '\e810'; } /* '' */
 .icon-exclamation-circle:before { content: '\e811'; } /* '' */
