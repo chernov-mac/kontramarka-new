@@ -114,6 +114,15 @@ $(function() {
 		});
 	});
 
+	// Detect ios 11_0_x affected
+    var ua = navigator.userAgent,
+    	iOS = /iPad|iPhone|iPod/.test(ua),
+    	iOS11 = /OS 11_(\d{1,2})(_{0,1})(\d{1,2})/.test(ua);
+    // ios 11 bug caret position
+    if ( iOS && iOS11 ) {
+        $('body').addClass('iosBugFixCaret');
+    }
+
 
 	// Events
 
