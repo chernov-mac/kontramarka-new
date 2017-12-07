@@ -463,9 +463,13 @@ ol, ul, dl {
 // Bug fixes
 
 // input inside modal caret bug in iOS11
-body.iosBugFixCaret.modal-open {
-    position: fixed;
-    width: 100%;
+body.modal-open {
+    padding-right: 0 !important;
+    
+    &.iosBugFixCaret {
+        position: fixed;
+        width: 100%;
+    }
 }
 
 
