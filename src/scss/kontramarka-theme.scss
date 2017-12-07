@@ -77,11 +77,12 @@ $btn-arrow-width: 64px;
 
 // Cards
 $card-body-line-height: 20px;
-$card-title-height: $card-body-line-height * 3;
+$card-title-height: ($card-body-line-height + 1) * 3;
 $card-date-height: $card-body-line-height;
 
 $card-cities-max-amount: 5;
 $card-cities-height: $card-body-line-height * $card-cities-max-amount;
+// $card-cities-height: $card-body-line-height;
 
 $card-info-height: $card-date-height + $card-cities-height;
 
@@ -293,6 +294,13 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
         }
     }
 }
+@mixin link-appearance {
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+        border-color: initial;
+    }
+};
 
 // Setting vertical margins to columns with opposite margins on row
 @mixin row-y-offsets($offsets-map) {
@@ -465,7 +473,7 @@ ol, ul, dl {
 // input inside modal caret bug in iOS11
 body.modal-open {
     padding-right: 0 !important;
-    
+
     &.iosBugFixCaret {
         position: fixed;
         width: 100%;
@@ -507,10 +515,6 @@ body {
 }
 a {
     cursor: pointer;
-
-    &[href]:hover {
-        border-bottom: 1px solid;
-    }
 }
 p {
 	font-size: 16px;
@@ -569,15 +573,16 @@ a, button, .btn {
         }
     }
 
-    @each $color in map-keys($theme-colors) {
-        &.btn-outline-#{$color} {
-            $btn-border: theme-color($color);
-            $btn-color: theme-color($color);
+    @each $color, $value in $theme-colors {
 
-            @if ($color == 'light') {
-                $btn-border: rgba($black, .32);
-                $btn-color: rgba($black, .8);
-            }
+        &.btn-outline-#{$color} {
+            $btn-border: $value;
+            $btn-color: $value;
+
+            // @if ($color == 'light') {
+            //     $btn-border: rgba($black, .32);
+            //     $btn-color: rgba($black, .8);
+            // }
 
             border: 1px solid $btn-border;
             color: $btn-color;
@@ -613,6 +618,7 @@ a, button, .btn {
     &:active,
     &:focus {
         outline: none;
+        border-bottom: none;
     }
 }
 #scrollToTop {
@@ -997,114 +1003,112 @@ a, button, .btn {
     position: relative;
     overflow-y: hidden;
     padding-bottom: $card-title-height + $card-spacer-y * 2;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
     transition: box-shadow $card-sliding-speed ease;
 
-    .card {
-        &-img {
-            width: 100%;
+    &-img {
+        width: 100%;
 
-            &-fixed {
-                height: 190px;
+        &-fixed {
+            height: 190px;
 
-                @media (min-width: 448px) {
-                    height: 280px;
-                }
+            @media (min-width: 448px) {
+                height: 280px;
+            }
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
         }
-        &-body {
-            position: absolute;
-            top: auto;
-            right: 0;
-            bottom: -($card-spacer-y * 2 + $card-info-height);
-            left: 0;
-            overflow: hidden;
-            background: $white;
-            transition: bottom $card-sliding-speed ease;
+    }
+    &-body {
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: -($card-spacer-y * 2 + $card-info-height);
+        left: 0;
+        overflow: hidden;
+        background: $white;
+        transition: bottom $card-sliding-speed ease;
 
-            .action {
-                margin-top: -($card-spacer-y + $btn-height);
-                opacity: 0;
-                transition:
-                    margin-top $card-sliding-speed ease,
-                    opacity $card-sliding-speed * 5/7 ease;
+        .action {
+            margin-top: -($card-spacer-y + $btn-height);
+            opacity: 0;
+            transition:
+                margin-top $card-sliding-speed ease,
+                opacity $card-sliding-speed * 5/7 ease;
 
-                @include media-breakpoint-down(md) {
-                    padding: 11px 6px;
-                    margin-top: -($card-spacer-y + 10px * 2 + 20px);
-                    font-size: 16px;
-                };
-            }
-        }
-        &-info {
-            margin-top: $card-spacer-y;
-            line-height: $card-body-line-height;
-
-            .title {
-                display: block;
-                height: $card-title-height;
-                overflow: hidden;
-                margin-bottom: $card-spacer-y;
+            @include media-breakpoint-down(md) {
+                padding: 11px 6px;
+                margin-top: -($card-spacer-y + 10px * 2 + 20px);
                 font-size: 16px;
-                color: inherit;
-                text-decoration: none;
-            }
-            .date {
-                position: relative;
-                z-index: 2;
+            };
+        }
+    }
+    &-info {
+        margin-top: $card-spacer-y;
+        line-height: $card-body-line-height;
+        color: $gray-600;
+
+        a {
+            @include link-appearance;
+        }
+
+        .title {
+            display: block;
+            height: $card-title-height;
+            overflow: hidden;
+            margin-bottom: $card-spacer-y;
+            font-size: 17px;
+            line-height: 20px;
+            color: theme-color(secondary);
+            text-decoration: none;
+        }
+        .date {
+            position: relative;
+            z-index: 2;
+            @include overflow-ellipsis;
+        }
+        .cities {
+            position: relative;
+            z-index: 1;
+            max-height: $card-body-line-height * 5 + 1;
+            height: $card-cities-height;
+            margin-top: $card-spacer-y;
+            padding-left: 24px;
+            transition: all $card-sliding-speed ease;
+
+            li {
+                transition: all $card-sliding-speed * .8 ease-out;
+                opacity: 0;
                 @include overflow-ellipsis;
 
-                &:before {
-                    content: '\f133';
-                    font-family: 'FontAwesome';
-                    display: inline-block;
-                    width: 24px;
+                &:first-child {
+                    opacity: 1;
+                }
+                &:last-child {
+                    line-height: $card-body-line-height + 1;
                 }
             }
-            .cities {
-                position: relative;
-                z-index: 1;
-                max-height: $card-body-line-height * 5;
-                height: $card-cities-height;
-                margin-top: $card-spacer-y;
-                padding-left: 24px;
+            .multiple-places {
+                position: absolute;
+                top: 0;
+                display: list-item;
 
-                li {
-                    transition: all $card-sliding-speed * .8 ease-out;
-                    opacity: 0;
-                    @include overflow-ellipsis;
-
-                    &:first-child {
-                        opacity: 1;
-                    }
+                ~ li {
+                    transform: translateY($card-body-line-height);
                 }
-                .multiple-places {
-                    position: absolute;
-                    top: 0;
-                    display: list-item;
+            }
 
-                    ~ li {
-                        transform: translateY($card-body-line-height);
-                    }
-                }
-
-                a {
-                    text-decoration: underline;
-                    @include light-text;
-                }
-
-                &:before {
-                    content: '\f041';
-                    font-family: 'FontAwesome';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
+            &:before {
+                content: '\e805';
+                font-family: 'kontramarka-icons';
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: $gray-500;
             }
         }
     }
@@ -1122,6 +1126,8 @@ a, button, .btn {
                     margin-top: 0;
                     opacity: 1;
                 }
+            }
+            &-info {
                 .cities {
                     li:not(.multiple-places) {
                         transform: translateY(0);
@@ -1139,6 +1145,7 @@ a, button, .btn {
 .event-full-width {
     max-height: 200px;
     margin: 24px 0;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
 
     @include media-breakpoint-up(xl) {
         margin: 32px auto;
@@ -1954,8 +1961,6 @@ input.form-control {
         position: relative;
 
         #scrollToTop {
-
-
             @include media-breakpoint-down(xs) {
                 top: auto;
                 right: $container-padding-x;
@@ -1969,6 +1974,10 @@ input.form-control {
     }
     .links-list {
         padding-bottom: 24px;
+
+        a {
+            @include link-appearance;
+        }
     }
 }
 #footMenuAccordion {
@@ -2027,6 +2036,9 @@ input.form-control {
 #footInfo {
     padding: 10px 0 24px;
 
+    a {
+        @include link-appearance;
+    }
     .row.text {
         text-align: center;
 
@@ -2225,6 +2237,7 @@ input.form-control {
         color: $black;
         text-decoration: none;
         font-weight: normal;
+        @include link-appearance;
     }
     i {
         margin: 0 10px;

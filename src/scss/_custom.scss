@@ -23,7 +23,7 @@ $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #a4a4a4;
-$gray-600: #868e96 !default;
+$gray-600: #666;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
@@ -53,9 +53,9 @@ $theme-colors: (
 //
 // Style anchor elements.
 
-$link-color:            lighten(theme-color('secondary'), 10%);
+$link-color:            theme-color('secondary');
 $link-decoration:       none;
-$link-hover-color:      $link-color;// darken($link-color, 15%);
+$link-hover-color:      lighten(theme-color('secondary'), 10%);// darken($link-color, 15%);
 $link-hover-decoration: none;
 
 // Links
