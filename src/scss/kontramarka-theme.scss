@@ -1325,6 +1325,7 @@ a, button, .btn {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 3;
         display: inline-table;
         max-width: 100%;
         padding: 20px 30px;
@@ -1332,9 +1333,9 @@ a, button, .btn {
         line-height: 20px;
         @include transition;
 
-        &.over-input {
-            z-index: 3;
-        }
+        // &.over-input {
+        //     z-index: 3;
+        // }
 
         &.pull {
             &-right {

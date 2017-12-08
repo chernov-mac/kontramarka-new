@@ -1429,8 +1429,8 @@
 					<form>
 						<div class="input-group">
 							<div class="form-control border-0">
-								<input type="text" data-placeholder="example@mail.com">
-								<span class="placeholder centered">Введите email</span>
+								<input type="email" data-placeholder="example@mail.com" id="subscribe_email">
+								<label for="subscribe_email" class="placeholder centered">Введите email</label>
 							</div>
 							<button class="btn bg-primary" type="submit">Подписаться</button>
 						</div>
@@ -1587,11 +1587,11 @@
 								<div class="form-group">
 									<div class="form-control">
 										<input type="email" name="login_name" id="login_name" data-placeholder="example@mail.com">
-										<span class="placeholder">E-mail</span>
+										<label for="login_name" class="placeholder">E-mail</label>
 									</div>
 									<div class="form-control">
 										<input type="password" name="login_password" id="login_password">
-										<span class="placeholder">Пароль</span>
+										<label for="login_password" class="placeholder">Пароль</label>
 										<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
 									</div>
 								</div>
@@ -1615,16 +1615,16 @@
 								<div class="form-group">
 									<!-- NOTE: you may apply classes '.has-XXX' to .form-control, where XXX is one from [success, warning, danger] -->
 									<div class="form-control">
-										<input type="email" name="login_name" id="register_name" data-placeholder="example@mail.com">
-										<span class="placeholder">E-mail</span>
+										<input type="email" name="register_name" id="register_name" data-placeholder="example@mail.com">
+										<label for="register_name" class="placeholder">E-mail</label>
 									</div>
 									<div class="form-control">
-										<input type="password" name="login_password" id="register_password">
-										<span class="placeholder">Пароль</span>
+										<input type="password" name="register_password" id="register_password">
+										<label for="register_password" class="placeholder">Пароль</label>
 									</div>
 									<div class="form-control">
-										<input type="password" name="login_password" id="register_password_check">
-										<span class="placeholder">Пароль ещё раз</span>
+										<input type="password" name="register_password_check" id="register_password_check">
+										<label for="register_password_check" class="placeholder">Пароль ещё раз</label>
 									</div>
 								</div>
 								<input name="login" type="hidden" id="register" value="submit">
