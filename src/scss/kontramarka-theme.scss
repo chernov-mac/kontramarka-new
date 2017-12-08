@@ -1112,6 +1112,18 @@ a, button, .btn {
             }
         }
     }
+    &-hover {
+        &-only {
+            opacity: 0;
+            display: none;
+            visibility: none;
+        }
+        &-none {
+            display: inline;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
 
     &:hover,
     &:active,
@@ -1136,6 +1148,7 @@ a, button, .btn {
                     li.multiple-places {
                         top: -$card-body-line-height;
                         opacity: 0;
+                        visibility: hidden;
                     }
 
                     &.only-one {
@@ -1143,6 +1156,18 @@ a, button, .btn {
                             white-space: normal;
                         }
                     }
+                }
+            }
+            &-hover {
+                &-only {
+                    display: inline;
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &-none {
+                    opacity: 0;
+                    display: none;
+                    visibility: none;
                 }
             }
         }
