@@ -1,0 +1,105 @@
+.dropdown {
+    &-toggle {
+        &:after {
+            content: '\f078';
+            width: auto;
+            height: auto;
+            margin-left: 0.8em;
+            margin-top: -.2em;
+            line-height: .7em;
+            font-family: 'FontAwesome';
+            font-size: .6em;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+        }
+    }
+    &-menu {
+        box-shadow: 0 4px 40px 0 rgba($black, .18);
+
+        .list-search {
+            position: relative;
+            border-bottom: 1px solid rgba($black, .08);
+
+            input {
+                position: relative;
+                z-index: 2;
+                display: block;
+                width: 100%;
+                height: 55px;
+                padding: $dd-item-padding $dd-item-padding * 2 $dd-item-padding 50px;
+                line-height: 23px;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                box-shadow: none;
+                background: transparent;
+            }
+            i {
+                position: absolute;
+                top: 50%;
+                left: 25px;
+                z-index: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        ul {
+            margin-bottom: 0;
+
+            .message {
+                padding: $dd-item-padding;
+                text-align: center;
+                min-height: 112px;
+                line-height: 80px;
+                font-size: 14px;
+
+                &:hover {
+                    background: $white;
+                }
+            }
+        }
+
+        &.show {
+            display: block !important;
+        }
+        &.fixed {
+            z-index: $zindex-modal + 1;
+        }
+        &.fixed-width {
+            min-width: 268px;
+        }
+    }
+    &-item {
+        position: relative;
+
+        a {
+            display: block;
+            padding: $dd-item-padding;
+            color: inherit;
+            text-decoration: none;
+        }
+        &, > a {
+            line-height: $dd-item-line-height;
+            font-size: 18px;
+
+            &.empty {
+                @include light-text;
+            }
+        }
+
+        .flag {
+            box-shadow: 0 2px 8px 0px rgba(0,0,0,0.18);
+        }
+        .badge {
+            float: right;
+            margin-left: 6px;
+        }
+
+        &.active {
+            background: theme-color(primary);
+        }
+    }
+    &-item + &-item {
+        border-top: $dd-item-border-width solid rgba($black, .08);
+    }
+}

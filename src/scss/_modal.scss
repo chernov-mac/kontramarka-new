@@ -1,0 +1,38 @@
+.modal {
+    &-header {
+        border-bottom: 2px solid $body-bg;
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            font-size: 1rem;
+            line-height: 24px;
+            cursor: pointer;
+            color: $black;
+            opacity: 1;
+        }
+    }
+    @include media-breakpoint-up(sm) {
+        &-xs {
+            max-width: 300px;
+        }
+    };
+}
+
+#loginModal {
+    .modal-header {
+        padding: 0;
+        border-bottom-width: 0;
+
+        .nav-tabs {
+            flex: 1 1 100%;
+            padding: 0 14px;
+
+            .nav-link {
+                padding: 22px 0;
+            }
+        }
+    }
+}

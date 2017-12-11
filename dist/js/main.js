@@ -15,6 +15,34 @@ $(function() {
 		});
 	}
 
+	// Popovers
+	$('[data-toggle="popover"]').popover();
+	$.each($('#topSlider .cities .hint-popover'), function(i, hint) {
+		$(hint).popover({
+			html: true,
+			// trigger: 'click',
+			trigger: 'manual',
+			placement: 'top',
+			offset: '100%, 10',
+			content: $(hint).closest('.cities').find('.full-list'),
+			// template: '<div class="popover cities" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+		})
+		.on("mouseenter", function () {
+		    var _this = this;
+		    $(this).popover("show");
+		    $(".popover").on("mouseleave", function () {
+		        $(_this).popover('hide');
+		    });
+		}).on("mouseleave", function () {
+		    var _this = this;
+		    setTimeout(function () {
+		        if (!$(".popover:hover").length) {
+		            $(_this).popover("hide");
+		        }
+		    }, 300);
+		});
+	});
+
 	// Slider
 	var topSliderOptions = {
 		speed: 500,

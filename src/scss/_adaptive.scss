@@ -64,15 +64,6 @@
 	.btn {
 		@include button-size(.625rem, 1rem, 18px, 1.6, 0);
 	}
-	.card {
-		.card {
-			&-img {
-				&-fixed {
-					height: 230px;
-				}
-			}
-		}
-	}
 
 	#concert_select {
 		.title,
@@ -188,37 +179,6 @@
 	    &-action {
 	        margin: $margin * 2 auto;
 	    }
-	}
-	.card {
-		$btn-height: 48px;
-		$card-spacer-y: 16px;
-		$card-spacer-x: 16px;
-		$card-title-height: ($card-body-line-height + 1) * 2;
-
-		padding-bottom: $card-spacer-y * 2 + $card-title-height + $card-date-height + $card-body-line-height + 8px * 2;
-
-		.card {
-			&-img {
-				&-fixed {
-					height: 310px;
-				}
-			}
-			&-body {
-				bottom: -($card-spacer-y * 2 + $card-info-height - ($card-title-height + $card-date-height + $card-body-line-height - 8px));
-				padding: $card-spacer-y $card-spacer-x;
-
-				.action {
-					margin-top: -($card-spacer-y + $btn-height);
-				}
-			}
-			&-info {
-				margin-top: $card-spacer-y;
-
-				.title {
-					height: $card-title-height;
-				}
-			}
-		}
 	}
 
 	#topMenu {
@@ -436,7 +396,7 @@
 					.caption {
 						top: 54px;
 						right: $btn-arrow-width;
-						bottom: 64px;
+						bottom: 106px;
 						left: $btn-arrow-width;
 					}
 
@@ -447,7 +407,8 @@
 		            }
 				}
 				.pagination {
-		            bottom: 32px;
+		            bottom: 40px;
+					left: $btn-arrow-width;
 				}
 			}
 		}

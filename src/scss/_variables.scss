@@ -1,0 +1,90 @@
+// Variables
+//
+// Some variables are initialised right in rule blocks
+
+// Grid
+$container-padding-x: 24px;
+
+// $grid-gutters: (
+//     xs: 8px,
+//     sm: 16px,
+//     md: 16px,
+//     lg: 24px,
+//     xl: 32px
+// );
+$grid-gutters: (
+    xs: 10px,
+    sm: 20px,
+    md: 20px,
+    lg: 20px,
+    xl: 30px
+);
+$grid-cols: (
+    xs: 2,
+    sm: 3,
+    md: 4,
+    lg: 5,
+    xl: 6
+);
+
+$cities-cols: (
+    xs: 2,
+    sm: 2,
+    md: 2,
+    lg: 3,
+    xl: 4
+);
+$events-cols: (
+    xs: 2,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 5
+);
+
+// Buttons
+$btn-padding-y: 12px;
+$btn-padding-x: 16px;
+$btn-line-height: 24px;
+$btn-font-size: 18px;
+$btn-height: $btn-padding-y * 2 + $btn-line-height;
+
+// Dropdown
+$dd-item-padding: 16px;
+$dd-item-line-height: 23px;
+$dd-item-border-width: 1px;
+
+// Navbar
+$nav-item-border: 1px solid rgba($white, 0.12);
+$nav-link-padding-y: 20px;
+$nav-link-padding-x: 24px;
+$nav-link-line-height: 24px;
+$nav-link-height: $nav-link-padding-y * 2 + $nav-link-line-height;
+
+// Slider
+$top-slider-height: 258px;
+$btn-arrow-width: 64px;
+
+// Events
+$event-body-padding-y: 14px;
+$card-body-line-height: 20px;
+$card-title-height: ($card-body-line-height + 1) * 2;
+$card-date-height: $card-body-line-height;
+
+$card-cities-max-amount: 5;
+$card-cities-height: $card-body-line-height * $card-cities-max-amount;
+// $card-cities-height: $card-body-line-height;
+
+$card-info-height: $card-date-height + $card-cities-height;
+
+// Utilities
+$light-text: rgba($white, .48);
+
+// Animations and transitions
+$card-sliding-speed: .225s;
+
+$spin-time: 1s;
+$spin-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow in (end)
+
+$city-bg-scaling-speed: .325s;
+$city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow in (end)

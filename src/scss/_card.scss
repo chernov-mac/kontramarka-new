@@ -1,0 +1,43 @@
+@mixin card {
+    position: relative;
+    box-shadow: 0 2px 10px 0 rgba($black, .12);
+    transition: box-shadow $card-sliding-speed ease;
+
+    &__body {
+        display: block;
+    }
+    &__img {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &--fix {
+            position: relative;
+            padding-bottom: 71%;
+            
+            img {
+                position: absolute;
+            }
+        }
+        &--a4 {
+            position: relative;
+            padding-bottom: 141.43%; // A4 proportion height to width
+
+            img {
+                position: absolute;
+            }
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        box-shadow: 0 4px 40px 0 rgba($black, .18);
+    }
+}
+
+.card {
+    @include card;
+}

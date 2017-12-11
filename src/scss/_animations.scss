@@ -1,0 +1,36 @@
+// Animations
+//
+// Contains @keyframes, animation rules itself are used in particular elements
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    75%, 100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes optional-move-in {
+    0% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes optional-move-out {
+    0% {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+}

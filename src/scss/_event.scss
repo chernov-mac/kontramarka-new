@@ -1,0 +1,179 @@
+.event {
+    @include card;
+
+    overflow-y: hidden;
+    padding-bottom: 118px;
+    @include media-breakpoint-up(sm) {
+        padding-bottom: 130px;
+    };
+
+    .block-title {
+        display: block;
+        height: $card-title-height;
+        line-height: $card-body-line-height;
+        overflow: hidden;
+        padding: 0;
+        margin-bottom: 8px;
+        font-size: 17px;
+
+        &__text {
+            white-space: normal;
+        }
+    }
+
+    &__body {
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: -76px;
+        left: 0;
+        padding: 8px;
+        overflow: hidden;
+        background: $white;
+        transition: bottom $card-sliding-speed ease;
+
+        .action {
+            display: block;
+            margin-top: -($card-spacer-y + $btn-height);
+            margin-bottom: $card-spacer-y;
+            opacity: 0;
+            transition:
+                margin-top $card-sliding-speed ease,
+                opacity $card-sliding-speed * 5/7 ease;
+        }
+
+        @include media-breakpoint-up(sm) {
+            padding: 14px 20px;
+        };
+    }
+    &__info {
+        margin-top: $card-spacer-y;
+        line-height: $card-body-line-height;
+        color: $gray-600;
+
+        a {
+            @include link-appearance;
+        }
+
+        &-item {
+            box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
+        }
+    }
+    &__date {
+        position: relative;
+        z-index: 2;
+        margin-bottom: $card-spacer-y;
+        @include overflow-ellipsis;
+    }
+    &__cities {
+        position: relative;
+        z-index: 1;
+        max-height: $card-body-line-height * 5 + 1;
+        height: $card-cities-height;
+        margin-top: $card-spacer-y;
+        padding-left: 24px;
+        transition: all $card-sliding-speed ease;
+
+        li {
+            transition: all $card-sliding-speed * .8 ease-out;
+            opacity: 0;
+            @include overflow-ellipsis;
+
+            &:first-child {
+                opacity: 1;
+            }
+            &:last-child {
+                line-height: $card-body-line-height + 1;
+            }
+        }
+        .multiple-places {
+            position: absolute;
+            top: 0;
+            display: list-item;
+
+            ~ li {
+                transform: translateY($card-body-line-height);
+            }
+        }
+
+        &:before {
+            content: '\e805';
+            font-family: 'kontramarka-icons';
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: $gray-500;
+        }
+    }
+    &__hover {
+        &-only {
+            opacity: 0;
+            display: none;
+            visibility: none;
+        }
+        &-none {
+            display: inline;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &--full-width {
+        max-height: 200px;
+        padding: 0;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        .action {
+            margin-top: 0;
+            opacity: 1;
+        }
+        .event {
+            &__body {
+                bottom: 0;
+                @include accent;
+            }
+            &__cities {
+                li:not(.multiple-places) {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                li.multiple-places {
+                    top: -$card-body-line-height;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                &.only-one {
+                    li {
+                        white-space: normal;
+                    }
+                }
+            }
+            &__hover {
+                &--only {
+                    display: inline;
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &--none {
+                    opacity: 0;
+                    display: none;
+                    visibility: none;
+                }
+            }
+        }
+    }
+}

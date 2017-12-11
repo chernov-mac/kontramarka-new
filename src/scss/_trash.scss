@@ -1,0 +1,202 @@
+
+.event2 {
+    position: relative;
+
+    $line-height: $card-body-line-height;
+    $lines-count: 1;
+    $event-width: (
+        xs: 145px,
+        sm: 150px,
+        md: 153px,
+        lg: 166px,
+        xl: 175px
+    );
+    $event-body-padding-y: (
+        xs: 8px,
+        sm: 12px,
+        md: 12px,
+        lg: 12px,
+        xl: 12px
+    );
+    $event-body-padding-x: (
+        xs: 8px,
+        sm: 8px,
+        md: 12px,
+        lg: 12px,
+        xl: 12px
+    );
+
+    @each $bp in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($bp) {
+            $width: map-get($event-width, $bp);
+            $img-height: 297 * $width / 210; // A4 format: 210x297
+            $padding-y: map-get($event-body-padding-y, $bp);
+            $padding-x: map-get($event-body-padding-x, $bp);
+
+            width: $width;
+            height: $img-height + 48px;
+
+            &__img {
+                width: $width;
+                height: $img-height;
+            }
+            &__body {
+                padding: 0 $padding-x 48px;
+            }
+            &__title {
+                // right: $padding-x;
+                right: 0;
+                bottom: $padding-y;
+                // left: $padding-x;
+                left: 24px;
+            }
+            &:hover,
+            &:active,
+            &:focus {
+                z-index: 10;
+
+                .event2 {
+                    &__body {
+                        // top: -24px;
+                        // right: -100%;
+                        right: -($width + 24);
+                        // left: -24px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__body {
+        position: absolute;
+        z-index: 1;
+        // top: 0;
+        right: 0;
+        bottom: 0;
+        // left: 0;
+
+            top: -24px;
+            // right: -100%;
+            left: -24px;
+            padding: 24px;
+
+        overflow: hidden;
+        // background: $white;
+        background: transparent;
+        // box-shadow: 0 2px 8px 0 rgba($black, .18);
+        // @include transition;
+        transition: background .2s ease-in-out;
+    }
+    &__img {
+        position: relative;
+        z-index: 2;
+        // width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__title {
+        position: absolute;
+        display: block;
+        font-size: 17px;
+        color: $link-color;
+        @include overflow-ellipsis;
+        // @include transition;
+
+        a {
+            @include link-appearance;
+        }
+    }
+    &__info {
+        padding-left: 24px;
+        line-height: $line-height;
+        color: $gray-600;
+        opacity: 0;
+        // @include transition;
+
+        a:not(.btn) {
+            @include link-appearance;
+        }
+        .action {
+            margin-bottom: 8px;
+        }
+    }
+    &__date {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 8px;
+    }
+    &__cities {
+        position: relative;
+        padding-left: 24px;
+
+        li {
+            @include overflow-ellipsis;
+
+            @include media-breakpoint-down(md) {
+                &:not(.all):nth-of-type(6) {
+                    display: none;
+                }
+            };
+        }
+
+        &:before {
+            content: '\e805';
+            font-family: 'kontramarka-icons';
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: $gray-500;
+        }
+    }
+    &__hover {
+        &-only {
+            opacity: 0;
+            display: none;
+            visibility: none;
+        }
+        &-none {
+            display: inline;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        z-index: 10;
+
+        .event2 {
+            &__body {
+                background: $white;
+                @include accent;
+            }
+            &__title {
+                right: 24px;
+                // bottom: $padding-y;
+                left: 24px;
+            }
+            &__info {
+                width: 50%;
+                margin-left: 50%;
+                opacity: 1;
+            }
+            &__hover {
+                &-only {
+                    display: inline;
+                    opacity: 1;
+                    visibility: visible;
+                }
+                &-none {
+                    opacity: 0;
+                    display: none;
+                    visibility: none;
+                }
+            }
+        }
+    }
+}

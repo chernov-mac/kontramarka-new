@@ -1,0 +1,160 @@
+// Mixins
+//
+// Custom utilities
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}
+@mixin light-text($color: $black, $opacity: 0.48) {
+    color: rgba($color, $opacity);
+}
+@mixin masked-link($no-text-decoration: false) {
+    &, &:hover, &:active {
+        color: inherit;
+        text-decoration: none;
+
+        @if ($no-text-decoration) {
+            text-decoration: none;
+        }
+    }
+}
+@mixin horz-indent-off {
+    margin-right: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+@mixin overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin text-muted {
+    line-height: 13px;
+    @include light-text($black, 0.48);
+}
+@mixin accent {
+    box-shadow: 0 4px 40px 0 rgba($black, .18);
+}
+@mixin link-appearance {
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+        border-color: initial;
+    }
+};
+
+// Setting vertical margins to columns with opposite margins on row
+@mixin row-y-offsets($offsets-map) {
+    .row {
+        @each $dimension in map-keys($grid-breakpoints) {
+            @include media-breakpoint-up($dimension) {
+                $value: map-get($offsets-map, $dimension) / 2;
+
+                margin: {
+                    top: -$value;
+                    bottom: -$value;
+                }
+
+                > .col,
+                > [class*="col-"] {
+                    margin: {
+                        top: $value;
+                        bottom: $value;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Setting custom grid gutters on the right/left
+@mixin row-x-offsets($offsets-map) {
+    .row {
+        @each $dimension in map-keys($grid-breakpoints) {
+            @include media-breakpoint-up($dimension) {
+                $value: map-get($offsets-map, $dimension) / 2;
+
+                margin: {
+                    right: -$value;
+                    left: -$value;
+                }
+
+                > .col,
+                > [class*="col-"] {
+                    padding: {
+                        right: $value;
+                        left: $value;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Custom grid
+@mixin custom-grid($offset-map: $grid-gutters, $cols-map: $grid-cols) {
+
+    @include make-row();
+    @include media-breakpoint-down(xs) {
+        margin: {
+            right: -$container-padding-x;
+            left: -$container-padding-x;
+        }
+        padding: {
+            right: map-get($offset-map, xs) / 2;
+            left:  map-get($offset-map, xs) / 2;
+        }
+    };
+
+    &__item {
+        @include make-col-ready();
+        @include make-col(6, map-get($cols-map, xs));
+        padding: {
+            right: map-get($offset-map, xs) / 2;
+            left:  map-get($offset-map, xs) / 2;
+        }
+    }
+
+    @each $dimension in map-keys($grid-breakpoints) {
+        @include media-breakpoint-up($dimension) {
+            $value: map-get($offset-map, $dimension) / 2;
+
+            margin: {
+                right: -$value;
+                left: -$value;
+            }
+
+            & > &__item {
+                @include make-col(1, map-get($cols-map, $dimension));
+            }
+            & > &__item,
+            & > [class*="col-"] {
+                margin: {
+                    top: $value;
+                    bottom: $value;
+                }
+                padding: {
+                    right: $value;
+                    left: $value;
+                }
+            }
+        }
+    }
+}

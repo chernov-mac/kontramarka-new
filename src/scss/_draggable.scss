@@ -1,0 +1,62 @@
+@mixin draggable {
+    position: relative;
+    overflow: hidden;
+    // height: 100%;
+
+    .drag-fog {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+        display: block;
+        width: $container-padding-x;
+
+        &.left {
+            left: 0;
+            background: linear-gradient(90deg, $white, rgba($white, 0));
+        }
+        &.right {
+            right: 0;
+            background: linear-gradient(-90deg, $white, rgba($white, 0));
+        }
+    }
+    .drag-item {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        cursor: -webkit-grab;
+        // hiding scrollbar for most browsers
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            width: 0 !important;
+            height: 0 !important;
+        }
+    }
+}
+
+%draggable {
+    @include draggable;
+}
+.draggable {
+    @extend %draggable;
+
+    @each $viewport in map-keys($grid-breakpoints) {
+        &-#{$viewport}-up {
+            @include media-breakpoint-up(#{$viewport}) {
+                @include draggable;
+            };
+        }
+        &-#{$viewport}-down {
+            @include media-breakpoint-down(#{$viewport}) {
+                @include draggable;
+            };
+        }
+        &-#{$viewport}-only {
+            @include media-breakpoint-only(#{$viewport}) {
+                @include draggable;
+            };
+        }
+    }
+}

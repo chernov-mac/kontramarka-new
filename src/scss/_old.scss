@@ -1,0 +1,237 @@
+#tour_info {
+    .tour {
+        &-pic {
+            width: 250px;
+            max-width: 100%;
+            margin: 0 auto $container-padding-x;
+
+            img {
+                width: 250px;
+                max-width: 100%;
+            }
+            .btn {
+                margin-top: 16px;
+                @include media-breakpoint-down(md) {
+                    padding: 11px 6px;
+                    font-size: 16px;
+                };
+
+                i {
+                    margin-right: 10px;
+                    color: $black;
+                }
+            }
+        }
+        &-info {
+            overflow: hidden;
+
+            &.collapsed {
+                position: relative;
+
+                .expand {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 2;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    height: 64px;
+                    background: linear-gradient(0, $white, $white 33%, rgba($white, 0));
+                }
+            }
+        }
+    }
+    .box-body {
+        padding: $container-padding-x;
+    }
+}
+#concert_select {
+    .box {
+        &-header,
+        &-body {
+            padding: 0;
+        }
+    }
+
+    .title,
+    .inner {
+        display: flex;
+        flex-wrap: wrap;
+
+        > div {
+            // min-width: 200px;
+            // text-align: center;
+
+            &.concert {
+                &_date {
+                    min-width: 80px;
+                    text-align: left;
+
+                    .time {
+                        display: block;
+                    }
+                }
+                &_city {
+                    // flex: 1 0 auto;
+                    flex: 1 1 0%;
+                    // margin: 0 16px;
+                    text-align: left;
+                    margin-left: 12px;
+                }
+                &_btn {
+                    flex: 1 0 100%;
+                    min-width: 50px;
+                    text-align: center;
+
+                    .btn {
+                        display: block;
+                        width: 100%;
+                        margin-top: 8px;
+                    }
+                }
+            }
+
+            .btn-mobile {
+                &:before {
+                    content: '\f07a';
+                    font-family: 'FontAwesome';
+                }
+            }
+        }
+    }
+    .title {
+        padding: 16px 24px;
+        background: theme-color(secondary);
+        color: $white;
+
+        i {
+            margin-right: 5px;
+        }
+        > div + div {
+            border-color: rgba($white, 0.12);
+        }
+    }
+    .inner {
+        padding: 8px 24px 16px;
+
+        > div + div {
+            border-color: rgba($black, 0.12);
+        }
+        .concert {
+            &_date,
+            &_city {
+                font-size: 14px;
+
+                > div:first-of-type {
+                    font-size: 16px;
+                }
+            }
+            &_date {
+                @include light-text();
+
+                > div:first-of-type {
+                    font-weight: bold;
+                    color: $black;
+                }
+
+                .time {
+                    &:before {
+                        content: '\f017';
+                        font-family: 'FontAwesome';
+                        margin-right: 4px;
+                    }
+                }
+            }
+            &_city {
+                position: relative;
+
+                > div:first-of-type {
+                    color: theme-color(secondary);
+                }
+                .eticket {
+                    position: absolute;
+                    right: $container-padding-x;
+                    top: $container-padding-x;
+                    color: theme-color(secondary);
+                    font-size: 24px;
+                }
+            }
+        }
+
+        & + .inner {
+            border-top: 1px solid rgba($black, 0.12);
+        }
+
+        &.last-events {
+            display: block;
+            margin: 0;
+            padding: 16px $container-padding-x;
+            background: $body-bg;
+            border-top-width: 0;
+            text-align: center;
+            @include light-text();
+
+            & + .inner {
+                border-top-width: 0;
+            }
+        }
+    }
+}
+#tour_comments {
+    .comm {
+        &-itm {
+            @extend .box;
+            @extend .box-body;
+            @extend .e2e-off-xs-down;
+            margin-bottom: 24px;
+        }
+        &-username {
+            font-size: 18px;
+            color: theme-color(secondary);
+        }
+        &-date,
+        &-time {
+            font-size: 14px;
+            @include light-text;
+
+            &:before {
+                font-family: 'FontAwesome';
+                margin-right: 4px;
+            }
+        }
+        &-date {
+            &:before {
+                content: '\f133';
+            }
+
+            & + .comm-time {
+                margin-left: 4px;
+            }
+        }
+        &-time {
+            &:before {
+                content: '\f017';
+            }
+        }
+        &-info {
+            margin-bottom: 12px;
+        }
+        &-content,
+        &-content p {
+            font-size: 16px;
+            color: $black;
+        }
+    }
+}
+#recommendations {
+    .event:not(:last-child) {
+        margin-bottom: 24px;
+    }
+}

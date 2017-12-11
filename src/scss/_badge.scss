@@ -1,0 +1,24 @@
+.badge {
+    display: inline-block;
+    min-width: 20px;
+    padding: 3px 5px 3px;
+    line-height: 1;
+    border-radius: 10px;
+    font-size: 12px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-weight: bold;
+    border: 1px solid $gray-400;
+    background: $white;
+    color: $gray-500;
+
+    @each $color in map-keys($theme-colors) {
+        &.badge-#{$color} {
+            background: theme-color($color);
+            border-color: theme-color($color);
+            color: $white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.24);
+        }
+    }
+}

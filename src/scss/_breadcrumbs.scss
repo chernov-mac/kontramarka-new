@@ -1,0 +1,18 @@
+.breadcrumbs {
+    background: $white;
+    // margin-top: -2px;
+    padding: 6px 0 10px;
+    // border-top: 2px solid $body-bg;
+    font-weight: bold;
+    @include light-text;
+
+    a {
+        color: $black;
+        text-decoration: none;
+        font-weight: normal;
+        @include link-appearance;
+    }
+    i {
+        margin: 0 10px;
+    }
+}

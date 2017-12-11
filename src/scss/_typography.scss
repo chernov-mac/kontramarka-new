@@ -1,0 +1,44 @@
+// Typography
+//
+// Fonts and text styles
+
+// FontAwesome
+$fa-font-path: '../fonts/font-awesome';
+@import "font-awesome/font-awesome.scss";
+
+// Source Sans Pro
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Regular.otf');
+	font-weight: normal;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Bold.otf');
+	font-weight: bold;
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/source-sans-pro/SourceSansPro-Light.otf');
+	font-weight: 300;
+}
+
+body {
+    font-family: 'Source Sans Pro';
+    font-size: 16px;
+    font-weight: normal;
+    color: $black;
+	-webkit-font-smoothing: antialiased;
+}
+a {
+    cursor: pointer;
+}
+p {
+	font-size: 16px;
+	line-height: 1.5;
+	@include light-text;
+}
+small, .small {
+	font-size: 12px;
+    font-weight: inherit;
+}

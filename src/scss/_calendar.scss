@@ -1,0 +1,100 @@
+.calendar {
+    font-weight: 400;
+
+    .title, .dates {
+        max-width: 268px;
+        margin: 0 auto;
+    }
+    .title {
+        display: flex;
+        padding: 10px 8px;
+        line-height: 23px;
+
+        a {
+            display: inline-block;
+            padding: 6px 8px;
+            border-radius: 2px;
+            @include masked-link(true);
+
+            &.prev {
+                text-align: left;
+
+                &:before {
+                    content: '\f177';
+                }
+            }
+            &.next {
+                text-align: right;
+
+                &:before {
+                    content: '\f178';
+                }
+            }
+            &.prev, &.next {
+                font-family: 'FontAwesome';
+                cursor: pointer;
+            }
+            &.month {
+                flex: 1 0 auto;
+                margin: 0 8px;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            &:hover {
+                background: $body-bg;
+            }
+        }
+    }
+    .dates {
+        padding: 0 15px 15px;
+
+        table {
+            width: 100%;
+
+            $cell-size: 32px;
+
+            th, td {
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            thead {
+                th {
+                    $head-padding: 8px;
+                    height: $cell-size + $head-padding * 2;
+                    line-height: $cell-size + $head-padding * 2;
+                    font-size: 12px;
+                    font-weight: 600;
+                    @include light-text($black, .2);
+                }
+            }
+            tbody {
+                td {
+                    height: $cell-size;
+                    line-height: $cell-size;
+                    padding: 1px;
+
+                    a, span {
+                        display: block;
+                        height: 100%;
+                    }
+                    a[href] {
+                        background: theme-color(primary);
+                        @include masked-link;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    .today {
+                        background: rgba($black, 0.06);
+                    }
+                    .old, .new {
+                        @include light-text;
+                    }
+                }
+            }
+        }
+    }
+}

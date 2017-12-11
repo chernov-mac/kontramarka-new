@@ -1,0 +1,22 @@
+.autocomplete {
+    .autocomplete-results {
+        .highlite {
+            border-bottom: 2px solid theme-color(primary);
+        }
+    }
+    .close {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        right: 16px;
+        padding: 0 5px;
+        transform: translate(50%, -50%);
+        cursor: pointer;
+    }
+
+    &.error {
+        .list-search {
+            box-shadow: 0 0 40px 0 rgba($red, .48);
+        }
+    }
+}

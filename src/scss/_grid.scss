@@ -1,0 +1,13 @@
+// Grid extension
+//
+// This provides extended Bootstrap's grid classes to use in theme cases
+
+// 5-column grid
+@each $dimension in map-keys($grid-breakpoints) {
+    .col-#{$dimension}-5th {
+        @include media-breakpoint-up($dimension) {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+}

@@ -126,5 +126,24 @@ $tooltip-bg:                  $white;
 $tooltip-padding-y:           6px;
 $tooltip-padding-x:           6px !default;
 
+// Popovers
+$popover-inner-padding:  0;
+$popover-border-width:   0;
+$popover-box-shadow:     0 4px 40px 0 rgba(0,0,0,0.18);
+
+$popover-header-bg:        theme-color(secondary);
+$popover-header-color:     $white;
+$popover-header-padding-y: 8px !default;
+$popover-header-padding-x: 20px;
+
+$popover-body-color:     $gray-600;
+$popover-body-padding-y: 14px;
+$popover-body-padding-x: 20px;
+
+$popover-arrow-width:        0;
+$popover-arrow-height:       0;
+$popover-arrow-outer-width:  0;
+$popover-arrow-outer-color:  $white;
+
 // Forms
 $form-check-margin-bottom:  1rem;

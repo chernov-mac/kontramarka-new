@@ -1,0 +1,29 @@
+.lang {
+    padding: 8px;
+    text-decoration: none;
+    @include light-text;
+
+    .flag {
+        display: inline-block;
+        width: 24px;
+        height: 1em;
+        vertical-align: -0.15em;
+
+        $langs: de ru;
+        @each $lang in $langs {
+            &.#{$lang} {
+                background: url('../images/lang/#{$lang}.svg') center no-repeat;
+                background-size: contain;
+            }
+        }
+
+        & + span {
+            margin-left: 8px;
+        }
+    }
+}
+.curr-lang {
+    .flag {
+        margin-top: 0.18em;
+    }
+}

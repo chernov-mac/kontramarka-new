@@ -1,0 +1,59 @@
+.box {
+    margin-bottom: 32px;
+    background: $white;
+    @include clearfix;
+    @extend .e2e;
+    @extend .e2e-off-sm-up;
+
+    &-header,
+    &-body,
+    &-footer {
+        padding: 16px $container-padding-x;
+        border-style: solid;
+        border-color: $body-bg;
+    }
+
+    &-header {
+        border-bottom-width: 2px;
+        font-size: 18px;
+        transition: all 0.3s ease;
+
+        &[data-toggle] {
+            position: relative;
+            cursor: pointer;
+        }
+        &[data-toggle="collapse"] {
+            @include clearfix;
+
+            &:before {
+                content: '\f106';
+                font-family: 'FontAwesome';
+                float: right;
+                line-height: 1;
+                font-size: 24px;
+                margin-left: 16px;
+                @include light-text;
+            }
+
+            &[aria-expanded="false"] {
+                border-bottom-width: 0;
+
+                &:before {
+                    content: '\f107';
+                }
+            }
+        }
+    }
+    &-footer {
+        border-top-width: 2px;
+    }
+
+    // a:not(.btn) {
+    //     text-decoration: underline;
+    //     @include light-text();
+    //
+    //     &:hover {
+    //         color: $black;
+    //     }
+    // }
+}
