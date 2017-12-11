@@ -3,6 +3,7 @@
 
     overflow-y: hidden;
     padding-bottom: 118px;
+    background: $white;
     @include media-breakpoint-up(sm) {
         padding-bottom: 130px;
     };

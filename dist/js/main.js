@@ -5,9 +5,7 @@ $(function() {
 	// Initialization
 
     // Preloading images
-	$('img.fade').on('load', function(){
-		$(this).addClass('show');
-	});
+	showFadedImages();
 
 	// Tooltips
 	$('[data-toggle="tooltip"]').tooltip({
@@ -76,11 +74,6 @@ $(function() {
 				}
 			}, topSliderOptions.checkTime);
 		});
-		// $('#topSlider .controls.fade').on('init', function(event, slick){
-		// 	setTimeout(function(){
-		// 		$('#topSlider .controls.fade').addClass('show');
-		// 	}, topSliderOptions.checkTime);
-		// });
 
 		$('#topSlider .slides').slick({
 			infinite: topSliderOptions.infinite,
@@ -595,7 +588,6 @@ function hideMainMenuDD() {
 	});
 }
 function isImageLoaded(img) {
-	console.log(img);
 	if (!img.complete) {
         return false;
     }
@@ -604,6 +596,34 @@ function isImageLoaded(img) {
     }
 
     return true;
+}
+function showFadedImages(selector, maxPending) {
+	selector = selector || 'img.fade:not(.show)';
+	maxPending = maxPending || 10000;
+
+	$(selector).each(function(i, img){
+		img = $(img)[0];
+		var started = performance.now();
+
+		var checkTime = 100;
+		setTimeout(function check(){
+			var timepass = performance.now() - started;
+
+			if (!isImageLoaded(img)) {
+
+				if (timepass > 1000) checkTime = 500;
+
+				if (maxPending > timepass) {
+					setTimeout(check, checkTime);
+				} else {
+					console.error('Image (src="' + $(img).attr('src') + '") not loaded: pending time exceeded.');
+				}
+
+			} else {
+				$(img).addClass('show');
+			}
+		}, checkTime);
+	});
 }
 
 // function initScheme() {
