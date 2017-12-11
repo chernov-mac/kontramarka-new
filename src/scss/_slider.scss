@@ -1,281 +1,216 @@
-#topSlider {
-    @include media-breakpoint-down(xs) {
-        margin-top: 0;
-    };
+.slider {
+    .slides {
+        .slide {
+            overflow: hidden;
+            position: relative;
 
-    .slides,
-    .slides .slide {
-        height: $top-slider-height;
-    }
-    @include media-breakpoint-up(md) {
-        .slides,
-        .slides .slide {
-            height: 320px;
-        }
-    };
-    @include media-breakpoint-up(lg) {
-        .slides,
-        .slides .slide {
-            height: 400px;
-        }
-    };
-    @include media-breakpoint-up(xl) {
-        .slides,
-        .slides .slide {
-            height: 510px;
-        }
-    };
-
-    .slider {
-        @include accent;
-
-        .slides {
-            .slide {
-                overflow: hidden;
-                position: relative;
-
-                // Black background
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    display: block;
-                    background: rgba($black, .5);
-
-                    @include media-breakpoint-up(lg) {
-                        right: 25%;
-                        background: linear-gradient(90deg, rgba($black, .64), transparent);
-                    };
-                }
-
-                img {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    z-index: 1;
-                }
-
-                .caption {
-                    position: absolute;
-                    top: 24px;
-                    right: $container-padding-x;
-                    max-width: 600px;
-                    bottom: 36px;
-                    left: $container-padding-x;
-                    z-index: 10;
-                    padding: 0;
-                    text-align: left;
-                    // @include light-text($white);
-                    color: $gray-300;
-
-                    @include media-breakpoint-up(lg) {
-                        top: 40px;
-                        right: $btn-arrow-width;
-                        bottom: 80px;
-                        left: $btn-arrow-width;
-                    };
-
-                    .btn {
-                        // position: absolute;
-                        // bottom: 0;
-                        // left: 0;
-                        margin-top: 18px;
-                        min-width: 170px;
-                    }
-                }
-
-                .event {
-                    &-title {
-                        display: inline-block;
-                        max-width: 600px;
-                        max-height: 100px;
-                        overflow: hidden;
-                        margin-bottom: 0;
-                        margin-right: auto;
-                        line-height: 1.04;
-                        font-size: 32px;
-                        letter-spacing: -1px;
-                        color: $white;
-                        text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-
-                        @include media-breakpoint-up(lg) {
-                            max-height: 102px;
-    		                font-size: 48px;
-    		                font-weight: 300;
-                        };
-                        @include media-breakpoint-up(xl) {
-                            max-height: 206px;
-    		                font-size: 64px;
-    		                font-weight: 300;
-                        };
-                    }
-                    &-info {
-                        max-width: 400px;
-
-                        &-item {
-                            margin-bottom: 6px;
-                            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
-
-                            &.date {
-                                &:before {
-                                    content: '\e804';
-                                }
-                            }
-                            &.cities-list {
-                                position: relative;
-                                padding-left: 26px;
-
-                                @include media-breakpoint-down(sm) {
-                                    display: none;
-                                };
-
-                                // a {
-                                //     display: inline-block;
-                                //     margin-top: 6px;
-                                //     text-decoration: underline;
-                                //     color: $white;
-                                // }
-
-                                .hint-popover {
-                                    margin-left: .255em;
-                                    color: theme-color(primary);
-                                }
-                                .full-list {
-                                    display: none;
-                                }
-
-                                &:before {
-                                    content: '\e805';
-                                    position: absolute;
-                                    padding-left: 2px;
-                                    top: 0;
-                                    left: 0;
-                                }
-                            }
-
-                            &:before {
-                                display: inline-block;
-                                font-family: 'kontramarka-icons';
-                                color: $white;
-                                width: 26px;
-                            }
-                        }
-                    }
-                }
-            }
-            .pagination {
+            // Black background
+            &:before {
+                content: '';
                 position: absolute;
-                left: $container-padding-x;
-                bottom: 20px;
-                // transform: translateY(50%);
-                display: flex;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: block;
+                background: rgba($black, .5);
 
-                // @include media-breakpoint-down(sm) {
-                //     display: none !important;
-                // };
                 @include media-breakpoint-up(lg) {
-                    bottom: 40px;
+                    right: 25%;
+                    background: linear-gradient(90deg, rgba($black, .64), transparent);
+                };
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+            }
+
+            .caption {
+                position: absolute;
+                top: 24px;
+                right: $container-padding-x;
+                max-width: 600px;
+                bottom: 36px;
+                left: $container-padding-x;
+                z-index: 10;
+                padding: 0;
+                text-align: left;
+                // @include light-text($white);
+                color: $gray-300;
+
+                @include media-breakpoint-up(lg) {
+                    top: 40px;
+                    right: $btn-arrow-width;
+                    bottom: 80px;
                     left: $btn-arrow-width;
                 };
 
-                li {
-                    $slick-button-size: 4px;
+                .btn {
+                    // position: absolute;
+                    // bottom: 0;
+                    // left: 0;
+                    margin-top: 18px;
+                    min-width: 170px;
+                }
+            }
 
-                    padding: $slick-button-size * 2;
-                    cursor: pointer;
+            .event {
+                &-title {
+                    display: inline-block;
+                    max-width: 600px;
+                    max-height: 100px;
+                    overflow: hidden;
+                    margin-bottom: 0;
+                    margin-right: auto;
+                    line-height: 1.04;
+                    font-size: 32px;
+                    letter-spacing: -1px;
+                    color: $white;
+                    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 
-                    button {
-                        font-size: 0;
-                        line-height: 0;
-                        display: block;
-                        width: $slick-button-size * 2;
-                        height: $slick-button-size * 2;
-                        color: transparent;
-                        border-radius: 50%;
-                        outline: none;
-                        background: $gray-500;
-                        border: none;
-                        cursor: pointer;
-                        transition: box-shadow .085s ease;
-                    }
+                    @include media-breakpoint-up(lg) {
+                        max-height: 102px;
+                        font-size: 48px;
+                        font-weight: 300;
+                    };
+                    @include media-breakpoint-up(xl) {
+                        max-height: 206px;
+                        font-size: 64px;
+                        font-weight: 300;
+                    };
+                }
+                &-info {
+                    max-width: 400px;
 
-                    &:hover {
-                        button {
-                            box-shadow: 0 0 0 $slick-button-size rgba($gray-500, 0.38);
+                    &-item {
+                        margin-bottom: 6px;
+                        text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
+
+                        &.date {
+                            &:before {
+                                content: '\e804';
+                            }
                         }
-                    }
-                    &.slick-active {
-                        border-color: rgba(theme-color(primary), .38);
+                        &.cities-list {
+                            position: relative;
+                            padding-left: 26px;
 
-                        button {
-                            background: theme-color(primary);
-                            box-shadow: 0 0 0 $slick-button-size rgba(theme-color(primary), 0.38);
+                            @include media-breakpoint-down(sm) {
+                                display: none;
+                            };
+
+                            // a {
+                            //     display: inline-block;
+                            //     margin-top: 6px;
+                            //     text-decoration: underline;
+                            //     color: $white;
+                            // }
+
+                            .hint-popover {
+                                margin-left: .255em;
+                                color: theme-color(primary);
+                            }
+                            .full-list {
+                                display: none;
+                            }
+
+                            &:before {
+                                content: '\e805';
+                                position: absolute;
+                                padding-left: 2px;
+                                top: 0;
+                                left: 0;
+                            }
+                        }
+
+                        &:before {
+                            display: inline-block;
+                            font-family: 'kontramarka-icons';
+                            color: $white;
+                            width: 26px;
                         }
                     }
                 }
             }
         }
-        .controls {
-            $indicator-size: 4px;
-
+        .pagination {
+            position: absolute;
+            left: $container-padding-x;
+            bottom: 20px;
+            // transform: translateY(50%);
             display: flex;
-            height: 82px;
-            border-top: 1px solid theme-color(light);
 
-            &-arrow {
-                position: relative;
-                flex: 0 0 auto;
-                width: $btn-arrow-width;
-                font-size: 20px;
+            // @include media-breakpoint-down(sm) {
+            //     display: none !important;
+            // };
+            @include media-breakpoint-up(lg) {
+                bottom: 40px;
+                left: $btn-arrow-width;
+            };
+
+            li {
+                $slick-button-size: 4px;
+
+                padding: $slick-button-size * 2;
                 cursor: pointer;
 
-                &.prev {
-                    &:after {
-                        content: '\e815';
-                        font-family: 'kontramarka-icons';
-                        transform: rotate(90deg);
+                button {
+                    font-size: 0;
+                    line-height: 0;
+                    display: block;
+                    width: $slick-button-size * 2;
+                    height: $slick-button-size * 2;
+                    color: transparent;
+                    border-radius: 50%;
+                    outline: none;
+                    background: $gray-500;
+                    border: none;
+                    cursor: pointer;
+                    transition: box-shadow .085s ease;
+                }
+
+                &:hover {
+                    button {
+                        box-shadow: 0 0 0 $slick-button-size rgba($gray-500, 0.38);
                     }
                 }
-                &.next {
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        left: 0;
-                        border-left: 1px solid theme-color(light);
+                &.slick-active {
+                    border-color: rgba(theme-color(primary), .38);
+
+                    button {
+                        background: theme-color(primary);
+                        box-shadow: 0 0 0 $slick-button-size rgba(theme-color(primary), 0.38);
                     }
-                    &:after {
-                        content: '\e813';
-                        font-family: 'kontramarka-icons';
-                        transform: rotate(-90deg);
-                    }
-                }
-                &[aria-disabled=true] {
-                    cursor: default;
-                    @include light-text;
                 }
             }
+        }
+    }
+    .controls {
+        $indicator-size: 4px;
 
-            .slick-list {
-                flex: 1 1 auto;
-                display: block;
-                margin-top: - $indicator-size;
-                padding-top: $indicator-size;
+        display: flex;
+        height: 82px;
+        border-top: 1px solid theme-color(light);
+
+        &-arrow {
+            position: relative;
+            flex: 0 0 auto;
+            width: $btn-arrow-width;
+            font-size: 20px;
+            cursor: pointer;
+
+            &.prev {
+                &:after {
+                    content: '\e815';
+                    font-family: 'kontramarka-icons';
+                    transform: rotate(90deg);
+                }
             }
-
-            .thumbs {
-                position: relative;
-                display: flex;
-                align-items: center;
-                padding: 16px;
-                background: $white;
-                @include light-text;
-
+            &.next {
                 &:before {
                     content: '';
                     position: absolute;
@@ -284,48 +219,82 @@
                     left: 0;
                     border-left: 1px solid theme-color(light);
                 }
-
-                &-img {
-                    flex-shrink: 0;
-                    width: 50px;
-                    height: 50px;
-
-                    img {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-
-                    @include media-breakpoint-down(xs) {
-                        max-width: 100%;
-                        width: auto;
-                    };
+                &:after {
+                    content: '\e813';
+                    font-family: 'kontramarka-icons';
+                    transform: rotate(-90deg);
                 }
-                &-info {
-                    flex: 1 1 auto;
-                    max-height: 50px;
-                    // line-height: 1.15em; // original
-                    line-height: 1.1em;
-                    overflow: hidden;
-                    margin-left: 16px;
+            }
+            &[aria-disabled=true] {
+                cursor: default;
+                @include light-text;
+            }
+        }
 
-                    @include media-breakpoint-down(sm) {
-                        display: none;
-                    };
+        .slick-list {
+            flex: 1 1 auto;
+            display: block;
+            margin-top: - $indicator-size;
+            padding-top: $indicator-size;
+        }
+
+        .thumbs {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: $white;
+            @include light-text;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                border-left: 1px solid theme-color(light);
+            }
+
+            &-img {
+                flex-shrink: 0;
+                width: 50px;
+                height: 50px;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
 
-                &.slick-current {
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        top: - $indicator-size;
-                        right: -1px;
-                        left: 0;
-                        display: block;
-                        height: $indicator-size;
-                        background: theme-color(primary);
-                    }
+                @include media-breakpoint-down(xs) {
+                    max-width: 100%;
+                    width: auto;
+                };
+            }
+            &-info {
+                flex: 1 1 auto;
+                max-height: 50px;
+                // line-height: 1.15em; // original
+                line-height: 1.1em;
+                overflow: hidden;
+                margin-left: 16px;
+
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                };
+            }
+
+            &.slick-current {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: - $indicator-size;
+                    right: -1px;
+                    left: 0;
+                    display: block;
+                    height: $indicator-size;
+                    background: theme-color(primary);
                 }
             }
         }

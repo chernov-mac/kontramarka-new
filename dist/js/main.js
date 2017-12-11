@@ -168,6 +168,10 @@ $(function() {
 		});
 	});
 
+	setTimeout(function(){
+		$('#topSlider.fade').addClass('show');
+	}, 300);
+
 	// Detect ios 11_0_x affected
     var ua = navigator.userAgent,
     	iOS = /iPad|iPhone|iPod/.test(ua),

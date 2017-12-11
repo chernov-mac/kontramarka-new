@@ -1,0 +1,49 @@
+.benefit {
+    @include clearfix;
+
+    &__icon {
+        float: left;
+		display: inline-block;
+	    height: 84px;
+	    width: 80px;
+		margin-right: 24px;
+
+	    $types: convenience profit taste;
+	    @each $type in $types {
+	        &.#{$type} {
+	            background: url('../images/svg/#{$type}.svg') no-repeat center;
+	            background-size: contain;
+	        }
+	    }
+    }
+	&__header {
+		display: flex;
+		align-items: center;
+
+		@include media-breakpoint-down(xs) {
+			height: 84px;
+			line-height: 84px;
+		};
+		@include media-breakpoint-up(lg) {
+			height: 84px;
+			line-height: 84px;
+		};
+	}
+	&__title {
+		margin: 0;
+		font-size: 28px;
+		line-height: 1.25;
+
+		@include media-breakpoint-up(xl) {
+			font-size: 32px;
+		};
+	}
+	&__description {
+		@include media-breakpoint-between(sm, md) {
+			overflow: hidden;
+		};
+		p {
+			margin-top: 8px;
+		}
+	}
+}

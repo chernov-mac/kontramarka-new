@@ -31,6 +31,7 @@
 @import "event";
 @import "box";
 @import "breadcrumbs";
+@import "benefit";
 
 
 
@@ -51,6 +52,7 @@ body {
 
     main {
         flex: 1 0 auto;
+        padding-bottom: 32px;
     }
 }
 ol, ul, dl {
@@ -349,6 +351,10 @@ a, button, .btn {
 .cities {
     @include custom-grid($grid-gutters, $cities-cols);
 }
+// Benefits row
+.benefits {
+    @include custom-grid($grid-gutters, $benefits-cols);
+}
 
 // .eticket {
 //     .fa-barcode {
@@ -366,6 +372,8 @@ a, button, .btn {
 //         font-weight: bold;
 //     }
 // }
+
+
 
 
 
@@ -661,87 +669,40 @@ a, button, .btn {
 
 // Main page
 @import "slider";
-// #topSlider
+#topSlider {
+    @include media-breakpoint-down(xs) {
+        margin-top: 0;
+    };
+
+    .slides,
+    .slides .slide {
+        height: $top-slider-height;
+    }
+    @include media-breakpoint-up(md) {
+        .slides,
+        .slides .slide {
+            height: 320px;
+        }
+    };
+    @include media-breakpoint-up(lg) {
+        .slides,
+        .slides .slide {
+            height: 400px;
+        }
+    };
+    @include media-breakpoint-up(xl) {
+        .slides,
+        .slides .slide {
+            height: 510px;
+        }
+    };
+    .slider {
+        @include accent;
+    }
+}
 #currentEvents {
     .events {
         @include row-y-offsets($grid-gutters);
-    }
-}
-#cities {
-    $cities-gutters: (
-        xs: 8px,
-        sm: 16px,
-        md: 16px,
-        lg: 24px,
-        xl: 24px
-    );
-    @include row-y-offsets($cities-gutters);
-
-    $cities: berlin hamburg munchen bern koln stuttgart dusseldorf dortmund;
-    @each $city in $cities {
-        .city.#{$city}:before {
-            background: url('../images/cities/#{$city}.png') center center / cover no-repeat;
-        }
-    }
-    .city {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: 116px;
-        overflow: hidden;
-        color: $white;
-
-        &:before,
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            transition: all $city-bg-scaling-speed $city-bg-scaling-easing;
-        }
-        // image background
-        &:before {
-            z-index: 1;
-        }
-        // backdrop
-        &:after {
-            z-index: 2;
-            background: $black;
-            opacity: .32;
-        }
-
-        span {
-            position: absolute;
-            z-index: 3;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 95%;
-            margin: auto;
-            font-size: 24px;
-            font-weight: bold;
-            transition: all $city-bg-scaling-speed / 5 linear;
-            @include overflow-ellipsis;
-        }
-
-        &:hover,
-        &:active,
-        &:focus {
-            &:before {
-                top: -10%;
-                right: -10%;
-                bottom: -10%;
-                left: -10%;
-            }
-            &:after {
-                opacity: .64;
-            }
-            span {
-                font-size: 20px;
-            }
-        }
     }
 }
 #metaInfo {
@@ -750,9 +711,6 @@ a, button, .btn {
     	line-height: 1.56; // 28px
     }
 }
-
-
-
 #captcha {
     img {
         height: 82px;
