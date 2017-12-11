@@ -588,6 +588,7 @@ function hideMainMenuDD() {
 	});
 }
 function isImageLoaded(img) {
+	// console.log(img.complete);
 	if (!img.complete) {
         return false;
     }

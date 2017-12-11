@@ -9,6 +9,10 @@
         z-index: 3;
     }
     &__img {
+        position: relative;
+        display: table;
+        width: 100%;
+
         img {
             position: relative;
             z-index: 2;
