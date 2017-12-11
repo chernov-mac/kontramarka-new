@@ -5,9 +5,13 @@
 
     &__body {
         display: block;
+        position: relative;
+        z-index: 3;
     }
     &__img {
         img {
+            position: relative;
+            z-index: 2;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -16,7 +20,7 @@
         &--fix {
             position: relative;
             padding-bottom: 71%;
-            
+
             img {
                 position: absolute;
             }

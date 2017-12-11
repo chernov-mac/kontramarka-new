@@ -1,5 +1,9 @@
 .slider {
+    overflow: hidden;
+
     .slides {
+        z-index: 1;
+
         .slide {
             overflow: hidden;
             position: relative;
@@ -194,7 +198,9 @@
 
         display: flex;
         height: 82px;
+        background: $white;
         border-top: 1px solid theme-color(light);
+        z-index: 1;
 
         &-arrow {
             position: relative;

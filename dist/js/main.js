@@ -4,6 +4,11 @@ $(function() {
 
 	// Initialization
 
+    // Preloading images
+	$('img.fade').on('load', function(){
+		$(this).addClass('show');
+	});
+
 	// Tooltips
 	$('[data-toggle="tooltip"]').tooltip({
 		delay: 200
@@ -53,10 +58,30 @@ $(function() {
 			md: 3,
 			sm: 4,
 			xs: 2
-		}
+		},
+		checkTime: 100
 	};
 
 	if ($('#topSlider').length) {
+		$('#topSlider .slides.fade').on('init', function(event, slick){
+			var firstSlideImg = $('#topSlider .slide:first-child').find('img');
+
+			setTimeout(function check(){
+				if (!isImageLoaded($(firstSlideImg)[0])) {
+					setTimeout(check, topSliderOptions.checkTime);
+				} else {
+					$('#topSlider .slides.fade').addClass('show');
+					$('#topSlider .controls.fade').addClass('show');
+					$('#topSlider .slider').addClass('accent');
+				}
+			}, topSliderOptions.checkTime);
+		});
+		// $('#topSlider .controls.fade').on('init', function(event, slick){
+		// 	setTimeout(function(){
+		// 		$('#topSlider .controls.fade').addClass('show');
+		// 	}, topSliderOptions.checkTime);
+		// });
+
 		$('#topSlider .slides').slick({
 			infinite: topSliderOptions.infinite,
 			autoplay: topSliderOptions.autoplay,
@@ -167,10 +192,6 @@ $(function() {
 			}
 		});
 	});
-
-	setTimeout(function(){
-		$('#topSlider.fade').addClass('show');
-	}, 300);
 
 	// Detect ios 11_0_x affected
     var ua = navigator.userAgent,
@@ -572,6 +593,17 @@ function hideMainMenuDD() {
 			$(menu).removeAttr('style').removeClass('fixed').hide().detach()
 		).removeClass('show');
 	});
+}
+function isImageLoaded(img) {
+	console.log(img);
+	if (!img.complete) {
+        return false;
+    }
+    if (img.naturalWidth === 0) {
+        return false;
+    }
+
+    return true;
 }
 
 // function initScheme() {
