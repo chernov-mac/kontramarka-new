@@ -377,6 +377,7 @@ img.fade {
         @include link-appearance;
     }
     &__label {
+        flex-shrink: 0;
         margin-left: 8px;
         @include light-text;
     }
