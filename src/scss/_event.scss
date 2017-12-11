@@ -4,6 +4,7 @@
     overflow-y: hidden;
     padding-bottom: 118px;
     background: $white;
+
     @include media-breakpoint-up(sm) {
         padding-bottom: 130px;
     };
@@ -41,6 +42,11 @@
             transition:
                 margin-top $card-sliding-speed ease,
                 opacity $card-sliding-speed * 5/7 ease;
+
+            @include media-breakpoint-down(xs) {
+                padding: 12px 8px;
+                font-size: 16px;
+            };
         }
 
         @include media-breakpoint-up(sm) {
