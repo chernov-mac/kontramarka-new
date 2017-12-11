@@ -20,18 +20,18 @@
                 text-align: left;
 
                 &:before {
-                    content: '\f177';
+                    content: '\e815';
                 }
             }
             &.next {
                 text-align: right;
 
                 &:before {
-                    content: '\f178';
+                    content: '\e813';
                 }
             }
             &.prev, &.next {
-                font-family: 'FontAwesome';
+                font-family: 'kontramarka-icons';
                 cursor: pointer;
             }
             &.month {

@@ -17,17 +17,14 @@ $(function() {
 
 	// Popovers
 	$('[data-toggle="popover"]').popover();
-	$.each($('#topSlider .cities .hint-popover'), function(i, hint) {
+	$.each($('#topSlider .cities-list .hint-popover'), function(i, hint) {
 		$(hint).popover({
 			html: true,
-			// trigger: 'click',
 			trigger: 'manual',
 			placement: 'top',
 			offset: '100%, 10',
-			content: $(hint).closest('.cities').find('.full-list'),
-			// template: '<div class="popover cities" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
-		})
-		.on("mouseenter", function () {
+			content: $(hint).closest('.cities-list').find('.full-list'),
+		}).on("mouseenter", function () {
 		    var _this = this;
 		    $(this).popover("show");
 		    $(".popover").on("mouseleave", function () {
@@ -52,7 +49,10 @@ $(function() {
 		autoplaySpeed: 5000,
 		thumbsCount: {
 			xl: 5,
-			lg: 3
+			lg: 4,
+			md: 3,
+			sm: 4,
+			xs: 2
 		}
 	};
 
@@ -67,7 +67,15 @@ $(function() {
 			dots: true,
 			dotsClass: 'pagination',
 			cssEase: 'ease-in-out',
-			lazyLoading: 'progressive'
+			lazyLoading: 'progressive',
+			responsive: [
+				{
+					breakpoint: 992,
+					settings: {
+						dots: false
+					}
+				}
+			]
 		});
 		$('#topSlider .controls').slick({
 			infinite: topSliderOptions.infinite,
@@ -88,6 +96,24 @@ $(function() {
 					breakpoint: 1266,
 					settings: {
 						slidesToShow: topSliderOptions.thumbsCount.lg
+					}
+				},
+				{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: topSliderOptions.thumbsCount.md
+					}
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: topSliderOptions.thumbsCount.sm
+					}
+				},
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: topSliderOptions.thumbsCount.xs
 					}
 				}
 			]

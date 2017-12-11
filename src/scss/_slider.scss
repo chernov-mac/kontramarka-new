@@ -1,16 +1,37 @@
 #topSlider {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(xs) {
         margin-top: 0;
     };
-    
+
+    .slides,
+    .slides .slide {
+        height: $top-slider-height;
+    }
+    @include media-breakpoint-up(md) {
+        .slides,
+        .slides .slide {
+            height: 320px;
+        }
+    };
+    @include media-breakpoint-up(lg) {
+        .slides,
+        .slides .slide {
+            height: 400px;
+        }
+    };
+    @include media-breakpoint-up(xl) {
+        .slides,
+        .slides .slide {
+            height: 510px;
+        }
+    };
+
     .slider {
-        overflow: hidden;
+        @include accent;
 
         .slides {
-            height: $top-slider-height;
-
             .slide {
-                height: $top-slider-height;
+                overflow: hidden;
                 position: relative;
 
                 // Black background
@@ -23,6 +44,11 @@
                     left: 0;
                     display: block;
                     background: rgba($black, .5);
+
+                    @include media-breakpoint-up(lg) {
+                        right: 25%;
+                        background: linear-gradient(90deg, rgba($black, .64), transparent);
+                    };
                 }
 
                 img {
@@ -35,10 +61,10 @@
 
                 .caption {
                     position: absolute;
-                    top: 18px;
+                    top: 24px;
                     right: $container-padding-x;
                     max-width: 600px;
-                    bottom: 56px;
+                    bottom: 36px;
                     left: $container-padding-x;
                     z-index: 10;
                     padding: 0;
@@ -46,14 +72,19 @@
                     // @include light-text($white);
                     color: $gray-300;
 
+                    @include media-breakpoint-up(lg) {
+                        top: 40px;
+                        right: $btn-arrow-width;
+                        bottom: 80px;
+                        left: $btn-arrow-width;
+                    };
+
                     .btn {
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
+                        // position: absolute;
+                        // bottom: 0;
+                        // left: 0;
+                        margin-top: 18px;
                         min-width: 170px;
-                        @include media-breakpoint-down(xs) {
-                            width: 100%;
-                        };
                     }
                 }
 
@@ -61,20 +92,32 @@
                     &-title {
                         display: inline-block;
                         max-width: 600px;
-                        max-height: 134px;
+                        max-height: 100px;
                         overflow: hidden;
                         margin-bottom: 0;
                         margin-right: auto;
                         line-height: 1.04;
+                        font-size: 32px;
                         letter-spacing: -1px;
                         color: $white;
                         text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+
+                        @include media-breakpoint-up(lg) {
+                            max-height: 102px;
+    		                font-size: 48px;
+    		                font-weight: 300;
+                        };
+                        @include media-breakpoint-up(xl) {
+                            max-height: 206px;
+    		                font-size: 64px;
+    		                font-weight: 300;
+                        };
                     }
                     &-info {
                         max-width: 400px;
 
                         &-item {
-                            margin-top: 6px;
+                            margin-bottom: 6px;
                             text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
 
                             &.date {
@@ -85,6 +128,10 @@
                             &.cities-list {
                                 position: relative;
                                 padding-left: 26px;
+
+                                @include media-breakpoint-down(sm) {
+                                    display: none;
+                                };
 
                                 // a {
                                 //     display: inline-block;
@@ -123,9 +170,17 @@
             .pagination {
                 position: absolute;
                 left: $container-padding-x;
-                bottom: 28px;
+                bottom: 20px;
                 // transform: translateY(50%);
                 display: flex;
+
+                // @include media-breakpoint-down(sm) {
+                //     display: none !important;
+                // };
+                @include media-breakpoint-up(lg) {
+                    bottom: 40px;
+                    left: $btn-arrow-width;
+                };
 
                 li {
                     $slick-button-size: 4px;
@@ -180,8 +235,9 @@
 
                 &.prev {
                     &:after {
-                        content: '\f177';
-                        font-family: 'FontAwesome';
+                        content: '\e815';
+                        font-family: 'kontramarka-icons';
+                        transform: rotate(90deg);
                     }
                 }
                 &.next {
@@ -194,8 +250,9 @@
                         border-left: 1px solid theme-color(light);
                     }
                     &:after {
-                        content: '\f178';
-                        font-family: 'FontAwesome';
+                        content: '\e813';
+                        font-family: 'kontramarka-icons';
+                        transform: rotate(-90deg);
                     }
                 }
                 &[aria-disabled=true] {
@@ -232,7 +289,6 @@
                     flex-shrink: 0;
                     width: 50px;
                     height: 50px;
-                    margin-right: 16px;
 
                     img {
                         display: block;
@@ -240,6 +296,11 @@
                         height: 100%;
                         object-fit: cover;
                     }
+
+                    @include media-breakpoint-down(xs) {
+                        max-width: 100%;
+                        width: auto;
+                    };
                 }
                 &-info {
                     flex: 1 1 auto;
@@ -247,6 +308,11 @@
                     // line-height: 1.15em; // original
                     line-height: 1.1em;
                     overflow: hidden;
+                    margin-left: 16px;
+
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    };
                 }
 
                 &.slick-current {
