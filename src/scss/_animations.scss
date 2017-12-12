@@ -10,6 +10,14 @@
         transform: rotate(360deg);
     }
 }
+@keyframes spin-steps {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 @keyframes optional-move-in {
     0% {
         visibility: hidden;

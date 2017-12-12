@@ -24,6 +24,7 @@
         &--fix {
             position: relative;
             padding-bottom: 71%;
+            overflow: hidden;
 
             img {
                 position: absolute;
@@ -32,9 +33,17 @@
         &--a4 {
             position: relative;
             padding-bottom: 141.43%; // A4 proportion height to width
+            overflow: hidden;
 
             img {
                 position: absolute;
+            }
+        }
+        &--animated {
+            overflow: hidden;
+
+            img {
+                transition: transform $city-bg-scaling-speed $city-bg-scaling-easing;
             }
         }
     }
@@ -48,4 +57,12 @@
 
 .card {
     @include card;
+
+    &:hover,
+    &:active,
+    &:focus {
+        .card__img--animated img {
+            transform: scale3d(1.1, 1.1, 1);
+        }
+    }
 }

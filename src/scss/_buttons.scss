@@ -11,8 +11,13 @@
     cursor: pointer;
 
     &.processing {
-        i.fa-refresh {
+        i {
+            display: inline-block;
             animation: $spin-time $spin-easing 0s infinite normal spin;
+        }
+
+        &--steps i {
+            animation: $spin-time * 2 steps(4) 0s infinite normal spin-steps;
         }
     }
     &-mobile {
