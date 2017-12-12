@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'kontramarka-icons';
+  src: url('#{$icons-font-path}/kontramarka-icons.eot?38284140');
+  src: url('#{$icons-font-path}/kontramarka-icons.eot?38284140#iefix') format('embedded-opentype'),
+       url('#{$icons-font-path}/kontramarka-icons.woff2?38284140') format('woff2'),
+       url('#{$icons-font-path}/kontramarka-icons.woff?38284140') format('woff'),
+       url('#{$icons-font-path}/kontramarka-icons.ttf?38284140') format('truetype'),
+       url('#{$icons-font-path}/kontramarka-icons.svg?38284140#kontramarka-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'kontramarka-icons';
+    src: url('../font/kontramarka-icons.svg?38284140#kontramarka-icons') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "kontramarka-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-search:before { content: '\f002'; } /* '' */
+.icon-user:before { content: '\f007'; } /* '' */
+.icon-check:before { content: '\f00c'; } /* '' */
+.icon-times:before { content: '\f00d'; } /* '' */
+.icon-watch:before { content: '\f017'; } /* '' */
+.icon-refresh:before { content: '\f021'; } /* '' */
+.icon-print:before { content: '\f02f'; } /* '' */
+.icon-map-marker:before { content: '\f041'; } /* '' */
+.icon-chevron-left:before { content: '\f053'; } /* '' */
+.icon-chevron-right:before { content: '\f054'; } /* '' */
+.icon-plus:before { content: '\f067'; } /* '' */
+.icon-minus:before { content: '\f068'; } /* '' */
+.icon-exclamation-circle:before { content: '\f06a'; } /* '' */
+.icon-chevron-up:before { content: '\f077'; } /* '' */
+.icon-chevron-down:before { content: '\f078'; } /* '' */
+.icon-sign-out:before { content: '\f08b'; } /* '' */
+.icon-sign-in:before { content: '\f090'; } /* '' */
+.icon-phone:before { content: '\f095'; } /* '' */
+.icon-envelope:before { content: '\f0e0'; } /* '' */
+.icon-brand-logo:before { content: '\f123'; } /* '' */
+.icon-secure:before { content: '\f132'; } /* '' */
+.icon-calendar:before { content: '\f133'; } /* '' */
+.icon-tickets:before { content: '\f145'; } /* '' */
+.icon-coin:before { content: '\f153'; } /* '' */
+.icon-basket:before { content: '\f291'; } /* '' */
+.icon-id-card:before { content: '\f2c2'; } /* '' */

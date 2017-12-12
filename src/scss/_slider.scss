@@ -96,7 +96,7 @@
 
                         &.date {
                             &:before {
-                                content: '\e804';
+                                content: '\f133';
                             }
                         }
                         &.cities-list {
@@ -123,7 +123,7 @@
                             }
 
                             &:before {
-                                content: '\e805';
+                                content: '\f041';
                                 position: absolute;
                                 padding-left: 2px;
                                 top: 0;
@@ -211,7 +211,7 @@
 
             &.prev {
                 &:after {
-                    content: '\e815';
+                    content: '\f053';
                     font-family: 'kontramarka-icons';
                     transform: rotate(90deg);
                 }
@@ -226,7 +226,7 @@
                     border-left: 1px solid theme-color(light);
                 }
                 &:after {
-                    content: '\e813';
+                    content: '\f054';
                     font-family: 'kontramarka-icons';
                     transform: rotate(-90deg);
                 }

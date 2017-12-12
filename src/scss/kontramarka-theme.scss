@@ -6,10 +6,14 @@
 //
 // Version 0.1
 
+// Plugins
+@import "slick/slick.scss";
 
+// Bootstrap
 @import "base";
-
 @import "variables";
+
+// Custom
 @import "mixins";
 @import "animations";
 
@@ -144,7 +148,7 @@ a, button, .btn {
         z-index: 0;
     }
     &:after {
-        content: '\e816';
+        content: '\f123';
         font-family: 'kontramarka-icons';
         position: absolute;
         top: 0;
@@ -460,6 +464,26 @@ img.fade {
 }
 @import "top-menu";
 @import "main-menu";
+
+#mainMenu {
+    margin-bottom: 2px;
+    background: $white;
+    transition: box-shadow .225s ease;
+
+    a {
+        white-space: nowrap;
+    }
+
+    &:not(.fixed-top) {
+        position: relative;
+    }
+    &.fixed-top {
+        box-shadow: 0 3px 18px 0 rgba(0,0,0,0.18);
+    }
+    &.open {
+        z-index: $zindex-modal;
+    }
+}
 
 
 // Footer
