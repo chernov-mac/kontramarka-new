@@ -184,3 +184,48 @@
         }
     }
 }
+
+.event-horz {
+    @include card;
+
+    display: flex;
+    padding: 24px;
+    background: $white;
+
+    .block-title {
+        display: inline;
+        padding: 0;
+        line-height: 1.2em;
+        font-size: 18px;
+
+        span {
+            white-space: normal;
+        }
+    }
+    .part-left {
+        margin-right: 24px;
+        flex: 0 0 140px;
+    }
+    .action {
+        display: block;
+        margin-top: 12px;
+        margin-bottom: 0;
+        opacity: 1;
+    }
+    .event {
+        &__img {
+
+        }
+        &__body {
+            position: relative;
+            bottom: auto;
+            flex: 1 1 auto;
+            padding: 0;
+        }
+        &__cities {
+            li {
+                opacity: 1;
+            }
+        }
+    }
+}

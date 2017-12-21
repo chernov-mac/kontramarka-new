@@ -397,6 +397,16 @@ img.fade {
 .events {
     @include custom-grid($grid-gutters, $events-cols);
 }
+.events-4 {
+    @include custom-grid($grid-gutters, $events-cols-4);
+}
+
+.events-horz-3 {
+    @include custom-grid($grid-gutters, $events-horz-cols-3);
+}
+.events-horz-2 {
+    @include custom-grid($grid-gutters, $events-horz-cols-2);
+}
 // Cities row
 .cities {
     @include custom-grid($grid-gutters, $cities-cols);
@@ -789,6 +799,33 @@ img.fade {
     }
     a {
         display: block;
+    }
+}
+
+.scroll-to-top {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    transform: translate3d(0, $btn-line-height + $btn-padding-y * 2 + $container-padding-x, 0);
+    will-change: transform;
+    transition: transform .215s cubic-bezier(0.22, 0.61, 0.36, 1),
+                opacity .145s cubic-bezier(0.22, 0.61, 0.36, 1) .07s;
+
+    .btn {
+        position: absolute;
+        right: $container-padding-x;
+        bottom: $container-padding-x;
+        background: $white;
+        @include accent;
+    }
+
+    .show-to-top > & {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 

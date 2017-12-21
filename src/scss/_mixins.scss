@@ -136,10 +136,7 @@
         @include media-breakpoint-up($dimension) {
             $value: map-get($offset-map, $dimension) / 2;
 
-            margin: {
-                right: -$value;
-                left: -$value;
-            }
+            margin: -$value;
 
             & > &__item {
                 @include make-col(1, map-get($cols-map, $dimension));

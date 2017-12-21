@@ -11,3 +11,29 @@
         }
     }
 }
+.row-5 {
+    @include make-row();
+
+    .col-1 {
+        @include make-col(1, 5);
+        // flex: 0 0 20%;
+        // max-width: 20%;
+    }
+    .col-2 {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+    .col-3 {
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+    .col-4 {
+        @include make-col(4, 5);
+        // flex: 0 0 80%;
+        // max-width: 80%;
+    }
+    .col-5 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
