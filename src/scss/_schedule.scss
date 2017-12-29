@@ -134,9 +134,13 @@
 			padding: 12px;
 		};
 		@include media-breakpoint-up(md) {
-			font-size: 20px;
+			// font-size: 20px;
 			padding: 12px 36px;
 		};
+
+		i {
+			margin-left: -4px;
+		}
 
 		&:before {
 			content: '';
@@ -154,6 +158,7 @@
 	}
 	.day {
 		@include media-breakpoint-up(md) {
+			padding-right: 3px;
 			display: inline-block;
 		};
 	}

@@ -57,12 +57,15 @@
 			margin-right: 30px;
 			width: 145px;
 		};
+		@include media-breakpoint-up(md) {
+			width: 210px;
+		};
 		@include media-breakpoint-up(lg) {
-			width: 200px;
+			width: 213px;
 			margin-bottom: 24px;
 		};
 		@include media-breakpoint-up(xl) {
-			width: 220px;
+			width: 216px;
 		};
 	}
 
