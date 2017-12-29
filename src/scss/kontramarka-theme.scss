@@ -63,6 +63,10 @@ ol, ul, dl {
     margin-top: 0;
     margin-bottom: 0;
 }
+img {
+    position: relative;
+    z-index: 1;
+}
 .container {
     @include row-x-offsets($grid-gutters);
 
@@ -119,6 +123,9 @@ ol, ul, dl {
 }
 
 // Icons
+a, button {
+    cursor: pointer;
+}
 a, button, .btn {
     i + span {
         margin-left: .255em;
@@ -126,13 +133,7 @@ a, button, .btn {
 }
 
 
-
-
-
-
-
-
-
+// Components
 .preloading {
     position: relative;
     // box-shadow: none;
@@ -166,6 +167,10 @@ a, button, .btn {
         z-index: 0;
     }
 
+    img {
+        z-index: 1;
+    }
+
     &--sm {
         &:after {
             width: 42px;
@@ -174,9 +179,6 @@ a, button, .btn {
             font-size: 42px;
         }
     }
-}
-img.fade {
-    z-index: 2;
 }
 
 .bg-secondary {
@@ -276,7 +278,11 @@ img.fade {
     &-inner {
         font-size: 14px;
         line-height: 1.25;
+        @include accent;
     }
+}
+.a4 {
+    @include a4;
 }
 
 .full-list {
@@ -696,11 +702,11 @@ img.fade {
     }
 }
 
-// Main (page blocks)
+// Page blocks
 .page-title {
     text-align: left;
     font-size: 24px;
-    margin: 32px 0 0;
+    margin: 32px 0;
 
     .undertitle {
         margin-top: 4px;
@@ -713,6 +719,15 @@ img.fade {
             margin-right: 10px;
             margin-left: 1px;
         }
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 36px;
+    }
+
+    .box & {
+		margin: 0;
+		line-height: 1.2;
+	    margin-bottom: 32px;
     }
 }
 .page-block {
@@ -735,16 +750,24 @@ img.fade {
         };
     }
 
-    ul.list {
-        margin-bottom: 24px;
-        padding-left: 32px;
-        list-style-type: disc;
-        @include light-text();
-    }
-
     .box {
         background: $white;
     }
+
+    @include media-breakpoint-up(lg) {
+        $margin: 32px;
+
+        margin: $margin auto;
+
+        &-title {
+            margin-bottom: $margin;
+            text-align: center;
+            font-size: 32px;
+        }
+        &-action {
+            margin: $margin * 2 auto;
+        }
+    };
 }
 
 // Main page
@@ -792,16 +815,14 @@ img.fade {
     	line-height: 1.56; // 28px
     }
 }
-
 #captcha {
     img {
-        height: 82px;
+        height: 88px;
     }
     a {
         display: block;
     }
 }
-
 .scroll-to-top {
     position: fixed;
     z-index: 1000;
@@ -828,6 +849,13 @@ img.fade {
         transform: translate3d(0, 0, 0);
     }
 }
+
+@import "gallery";
+@import "tour";
+@import "schedule";
+@import "comments";
+// TODO: remove file with old styles
+@import "old";
 
 // Modals
 @import "modal";

@@ -21,11 +21,11 @@ $black:  #000 !default;
 $gray-100: rgba($black, .08);
 $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
+$gray-400: #bbb;
 $gray-500: #a4a4a4;
 $gray-600: #666;
 $gray-700: #495057 !default;
-$gray-800: #343a40 !default;
+$gray-800: #333;
 $gray-900: #212529 !default;
 
 $body-bg: #f7f7f7;
@@ -97,9 +97,9 @@ $card-spacer-x: 8px;
 $card-border-width: 0;
 
 // Headings
-$h1-font-size: 52px;
-$h2-font-size: 32px;
-$h3-font-size: 22px;
+$h1-font-size: 36px;
+$h2-font-size: 28px;
+$h3-font-size: 24px;
 $h4-font-size: 20px;
 $h5-font-size: 18px;
 $h6-font-size: 16px;
@@ -125,6 +125,7 @@ $tooltip-bg:                  $white;
 // $tooltip-opacity:             .55; // doesn't work
 $tooltip-padding-y:           6px;
 $tooltip-padding-x:           6px !default;
+$tooltip-color:               $gray-600;
 
 // Popovers
 $popover-inner-padding:  0;

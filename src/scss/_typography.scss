@@ -47,9 +47,23 @@ a {
 p {
 	font-size: 16px;
 	line-height: 1.5;
-	@include light-text;
 }
 small, .small {
 	font-size: 12px;
     font-weight: inherit;
 }
+
+@include media-breakpoint-down(md){
+    h1, .h1 {
+        font-size: 24px;
+    }
+    h2, .h2 {
+        font-size: 20px;
+    }
+    h3, .h3 {
+        font-size: 18px;
+    }
+    h4, .h4 {
+        font-size: 16px;
+    }
+};

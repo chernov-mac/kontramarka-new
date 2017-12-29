@@ -6,7 +6,7 @@
     background: $white;
 
     @include media-breakpoint-up(sm) {
-        padding-bottom: 130px;
+        padding-bottom: 142px;
     };
 
     .block-title {
@@ -50,7 +50,7 @@
         }
 
         @include media-breakpoint-up(sm) {
-            padding: 14px 20px;
+            padding: 20px;
         };
     }
     &__info {
@@ -126,6 +126,7 @@
     }
 
     &--full-width {
+        min-height: 180px;
         max-height: 200px;
         padding: 0;
 

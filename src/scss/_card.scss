@@ -1,6 +1,6 @@
 @mixin card {
     position: relative;
-    box-shadow: 0 2px 10px 0 rgba($black, .12);
+    box-shadow: $card-shadow;
     transition: box-shadow $card-sliding-speed ease;
 
     &__body {
@@ -31,13 +31,7 @@
             }
         }
         &--a4 {
-            position: relative;
-            padding-bottom: 141.43%; // A4 proportion height to width
-            overflow: hidden;
-
-            img {
-                position: absolute;
-            }
+            @include a4;
         }
         &--animated {
             overflow: hidden;

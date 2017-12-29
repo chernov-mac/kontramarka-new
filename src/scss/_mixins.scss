@@ -59,6 +59,18 @@
         border-color: initial;
     }
 };
+@mixin a4 {
+    position: relative;
+    padding-bottom: 141.43%; // A4 proportion height to width
+    overflow: hidden;
+
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
 
 // Setting vertical margins to columns with opposite margins on row
 @mixin row-y-offsets($offsets-map) {
@@ -155,3 +167,9 @@
         }
     }
 }
+
+
+// Functions
+@function light($color: $black, $opacity: 0.12) {
+    @return rgba($color, $opacity);
+};

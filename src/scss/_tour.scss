@@ -1,0 +1,151 @@
+.tour {
+	position: relative;
+	@extend .e2e;
+	@extend .e2e-off-sm-up;
+
+	&__wrapper {
+		display: inline-block;
+		width: 100%;
+	}
+
+	&__body {
+		position: relative;
+		height: auto;
+		padding-bottom: 0;
+		overflow: hidden;
+		@include clearfix;
+
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 144px;
+			display: block;
+			height: 0;
+			background: linear-gradient(0, $white, rgba($white, 0));
+
+			@include media-breakpoint-up(sm) {
+				left: 176px;
+			};
+			@include media-breakpoint-up(lg) {
+				left: 230px;
+			};
+			@include media-breakpoint-up(xl) {
+				left: 250px;
+			};
+		}
+
+		.collapsed > & {
+			&:after {
+				height: 50px;
+			}
+		}
+	}
+
+	&__pic {
+		float: left;
+		display: inline-block;
+		max-width: 250px;
+		width: 120px;
+		margin-right: 12px;
+
+		@media (max-width: 320px) {
+			max-width: none;
+		}
+		@include media-breakpoint-up(sm) {
+			margin-right: 30px;
+			width: 145px;
+		};
+		@include media-breakpoint-up(lg) {
+			width: 200px;
+			margin-bottom: 24px;
+		};
+		@include media-breakpoint-up(xl) {
+			width: 220px;
+		};
+	}
+
+	&__title {
+		@include media-breakpoint-down(lg) {
+			font-size: 24px;
+		};
+		.box & {
+			padding-right: 124px;
+		}
+	}
+
+	&__tools {
+		// position: absolute;
+		// right: 0;
+		// bottom: 0;
+		// left: 0;
+		// padding: 12px 24px 24px;
+		background: $white;
+		// background: aquamarine;
+		padding-top: 0;
+
+		// @include media-breakpoint-up(sm) {
+		// 	padding-bottom: 30px;
+		// };
+	}
+
+	&__gallery {
+		padding: 0;
+		border-top: 1px solid light($black);
+	}
+
+	.favorites {
+		display: block;
+		text-align: center;
+		margin: 12px auto 12px;
+
+		@include media-breakpoint-up(lg) {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			font-size: 18px;
+
+			i {
+				font-size: 20px;
+			}
+		};
+		@include media-breakpoint-up(xl) {
+			top: 30px;
+			z-index: 2;
+		};
+	}
+	.toggle-body {
+		&:before {
+			font-family: 'FontAwesome';
+			margin-right: .34em;
+		}
+	}
+
+
+	&:not(.collapsed) {
+		.toggle-body:before {
+			content: '\f106';
+		}
+		.collapsed-only {
+			display: none;
+		}
+	}
+	&.collapsed {
+		.tour__pic {
+			margin-bottom: 24px;
+		}
+		.toggle-body:before {
+			content: '\f107';
+		}
+		.uncollapsed-only {
+			display: none;
+		}
+		.favorites {
+			@include media-breakpoint-down(md) {
+				display: none;
+			};
+		}
+	}
+
+}

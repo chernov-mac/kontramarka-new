@@ -1,16 +1,37 @@
 .box {
     margin-bottom: 32px;
     background: $white;
+    box-shadow: $box-shadow;
     @include clearfix;
-    @extend .e2e;
-    @extend .e2e-off-sm-up;
+    // @extend .e2e;
+    // @extend .e2e-off-sm-up;
 
     &-header,
     &-body,
     &-footer {
-        padding: 16px $container-padding-x;
         border-style: solid;
         border-color: $body-bg;
+    }
+    &-header,
+    &-footer {
+        padding: 16px 24px;
+
+        @include media-breakpoint-up(sm) {
+            padding: {
+                right: 30px;
+                left: 30px;
+            };
+        };
+    }
+    &-body {
+        padding: 24px;
+        font-size: 16px;
+    	line-height: 1.5;
+        color: $gray-600;
+
+        @include media-breakpoint-up(sm) {
+            padding: 30px;
+        };
     }
 
     &-header {
@@ -48,12 +69,14 @@
         border-top-width: 2px;
     }
 
-    // a:not(.btn) {
-    //     text-decoration: underline;
-    //     @include light-text();
-    //
-    //     &:hover {
-    //         color: $black;
-    //     }
-    // }
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: $gray-800;
+    }
+
+    ul {
+        margin-bottom: 1rem;
+        padding-left: 1em;
+        list-style-type: disc;
+    }
 }

@@ -1,0 +1,46 @@
+.comment {
+	@extend .box;
+	@extend .box-body;
+	@extend .e2e-off-xs-down;
+
+	& + & {
+		margin-top: 24px;
+	}
+
+	&__username {
+		font-size: 18px;
+		color: theme-color(secondary);
+	}
+	&__date,
+	&__time {
+		font-size: 14px;
+		@include light-text;
+
+		&:before {
+			font-family: 'FontAwesome';
+			margin-right: 4px;
+		}
+	}
+	&__date {
+		&:before {
+			content: '\f133';
+		}
+
+		& + .comm-time {
+			margin-left: 4px;
+		}
+	}
+	&__time {
+		&:before {
+			content: '\f017';
+		}
+	}
+	&__info {
+		margin-bottom: 12px;
+	}
+	&__content,
+	&__content p {
+		font-size: 16px;
+		color: $black;
+	}
+}

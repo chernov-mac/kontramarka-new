@@ -19,332 +19,514 @@
         </section>
         <section id="topMenu" class="bg-secondary">
             <div class="container">
-                <nav class="navbar navbar-expand-xl">
+                <nav class="navbar">
                     <a class="navbar-brand" href="/"></a>
-                    <div class="lang-select d-lg-none">
-                        <a href="#" class="lang curr-lang" id="topMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="flag de"></span><span class="d-none d-xl-block">Deutsch</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="topMenuLangSelect">
-                            <a href="#" class="dropdown-item lang active" data-lang-val="de">
-                                <span class="flag de"></span><span>Deutsch</span>
-                            </a>
-                            <a href="#" class="dropdown-item lang" data-lang-val="ru">
-                                <span class="flag ru"></span><span>Русский</span>
-                            </a>
-                        </div>
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false">
-                        <span class="line"></span>
-                        <span class="line"></span>
-                        <span class="line"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-secondary e2e e2e-off-xl-up" id="navbar">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item search">
-                                <i class="fa fa-search"></i>
-                                <form id="search">
-                                    <input type="text" placeholder="поиск мероприятий">
-                                    <button type="submit" hidden>Search</button>
-                                </form>
-                            </li>
-                            <li class="nav-item dropdown date">
-                                <a class="nav-link dropdown-toggle" id="mainMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-calendar-o"></i>Даты
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="mainMenuDate">
-                                    <div id="calendar" class="calendar">
-                                        <div class="title">
-                                            <a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
-                                            <a class="month" href="/2017-september/">Cентябрь 2017</a>
-                                            <a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
-                                        </div>
-                                        <div class="divider"></div>
-                                        <div class="dates">
-                                            <table cellpadding="0" cellspacing="0">
-                                                <thead>
-                                                    <tr class="week">
-                                                        <th>Пн</th>
-                                                        <th>Вт</th>
-                                                        <th>Ср</th>
-                                                        <th>Чт</th>
-                                                        <th>Пт</th>
-                                                        <th>Сб</th>
-                                                        <th>Вс</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><span class="old">28</span></td>
-                                                        <td><span class="old">29</span></td>
-                                                        <td><span class="old">30</span></td>
-                                                        <td><span class="old">31</span></td>
-                                                        <td><span>1</span></td>
-                                                        <td><span>2</span></td>
-                                                        <td><span>3</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span>4</span></td>
-                                                        <td><span>5</span></td>
-                                                        <td><span>6</span></td>
-                                                        <td><span>7</span></td>
-                                                        <td><span>8</span></td>
-                                                        <td><span>9</span></td>
-                                                        <td><span>10</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span>11</span></td>
-                                                        <td><span>12</span></td>
-                                                        <td><span>13</span></td>
-                                                        <td><span>14</span></td>
-                                                        <td><span>15</span></td>
-                                                        <td><span>16</span></td>
-                                                        <td><span>17</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span>18</span></td>
-                                                        <td><span>19</span></td>
-                                                        <td><span>20</span></td>
-                                                        <td><span class="today">21</span></td>
-                                                        <td><a href="/date/viewday/2017-09-22/">22</a></td>
-                                                        <td><span>23</span></td>
-                                                        <td><span>24</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span>25</span></td>
-                                                        <td><a href="/date/viewday/2017-09-26/">26</a></td>
-                                                        <td><a href="/date/viewday/2017-09-27/">27</a></td>
-                                                        <td><a href="/date/viewday/2017-09-28/">28</a></td>
-                                                        <td><a href="/date/viewday/2017-09-29/">29</a></td>
-                                                        <td><a href="/date/viewday/2017-09-30/">30</a></td>
-                                                        <td><span class="new">1</span></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><span class="new">2</span></td>
-                                                        <td><span class="new">3</span></td>
-                                                        <td><span class="new">4</span></td>
-                                                        <td><span class="new">5</span></td>
-                                                        <td><span class="new">6</span></td>
-                                                        <td><span class="new">7</span></td>
-                                                        <td><span class="new">8</span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown city">
-                                <a class="nav-link dropdown-toggle" id="mainMenuCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-map-marker"></i>Выбор города
-                                </a>
-                                <div class="dropdown-menu autocomplete" aria-labelledby="mainMenuCity">
-                                    <div class="list-search">
-                                        <i class="fa fa-search"></i>
-                                        <input type="text" data-autocomplete="cities" placeholder="Искать город">
-                                    </div>
-                                    <ul class="autocomplete-results">
-                                        <li class="active"><a href="/city/view/aachen/">Aachen</a></li>
-                                        <li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
-                                        <li><a href="/city/view/altoetting/">Altötting</a></li>
-                                        <li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
-                                        <li><a href="/city/view/amberg/">Amberg</a></li>
-                                        <li><a href="/city/view/ansbach/">Ansbach</a></li>
-                                        <li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
-                                        <li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
-                                        <li><a href="/city/view/bamberg/">Bamberg</a></li>
-                                        <li><a href="/city/view/bayreuth/">Bayreuth</a></li>
-                                        <li><a href="/city/view/berlin/">Berlin</a></li>
-                                        <li><a href="/city/view/bielefeld/">Bielefeld</a></li>
-                                        <li><a href="/city/view/boeblingen/">Böblingen</a></li>
-                                        <li><a href="/city/view/bonn/">Bonn</a></li>
-                                        <li><a href="/city/view/bremen/">Bremen</a></li>
-                                        <li><a href="/city/view/buende/">Bünde</a></li>
-                                        <li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
-                                        <li><a href="/city/view/coburg/">Coburg</a></li>
-                                        <li><a href="/city/view/coesfeld/">Coesfeld</a></li>
-                                        <li><a href="/city/view/darmstadt/">Darmstadt</a></li>
-                                        <li><a href="/city/view/deggendorf/">Deggendorf</a></li>
-                                        <li><a href="/city/view/delbrueck/">Delbrück</a></li>
-                                        <li><a href="/city/view/detmold/">Detmold</a></li>
-                                        <li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
-                                        <li><a href="/city/view/dortmund/">Dortmund</a></li>
-                                        <li><a href="/city/view/duisburg/">Duisburg</a></li>
-                                        <li><a href="/city/view/dueren/">Düren</a></li>
-                                        <li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
-                                        <li><a href="/city/view/erlangen/">Erlangen</a></li>
-                                        <li><a href="/city/view/essen/">Essen</a></li>
-                                        <li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
-                                        <li><a href="/city/view/freiburg/">Freiburg</a></li>
-                                        <li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
-                                        <li><a href="/city/view/fulda/">Fulda</a></li>
-                                        <li><a href="/city/view/fuerth/">Fürth</a></li>
-                                        <li><a href="/city/view/giessen/">Gießen</a></li>
-                                        <li><a href="/city/view/goettingen/">Göttingen</a></li>
-                                        <li><a href="/city/view/gummersbach/">Gummersbach</a></li>
-                                        <li><a href="/city/view/guetersloh/">Gütersloh</a></li>
-                                        <li><a href="/city/view/gamburg/">Hamburg</a></li>
-                                        <li><a href="/city/view/hamm/">Hamm</a></li>
-                                        <li><a href="/city/view/hanau/">Hanau</a></li>
-                                        <li><a href="/city/view/hannover/">Hannover</a></li>
-                                        <li><a href="/city/view/heidenheim/">Heidenheim</a></li>
-                                        <li><a href="/city/view/heilbronn/">Heilbronn</a></li>
-                                        <li><a href="/city/view/herford/">Herford</a></li>
-                                        <li><a href="/city/view/hilden/">Hilden</a></li>
-                                        <li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
-                                        <li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
-                                        <li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
-                                        <li><a href="/city/view/kleve/">Kleve</a></li>
-                                        <li><a href="/city/view/koeln/">Köln</a></li>
-                                        <li><a href="/city/view/krefeld/">Krefeld</a></li>
-                                        <li><a href="/city/view/lahnstein/">Lahnstein</a></li>
-                                        <li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
-                                        <li><a href="/city/view/leipzig/">Leipzig</a></li>
-                                        <li><a href="/city/view/lemgo/">Lemgo</a></li>
-                                        <li><a href="/city/view/limburg/">Limburg</a></li>
-                                        <li><a href="/city/view/lingen/">Lingen</a></li>
-                                        <li><a href="/city/view/luebbecke/">Lübbecke</a></li>
-                                        <li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
-                                        <li><a href="/city/view/memmingen/">Memmingen</a></li>
-                                        <li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
-                                        <li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
-                                        <li><a href="/city/view/muenchen/">München</a></li>
-                                        <li><a href="/city/view/muenster/">Münster</a></li>
-                                        <li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
-                                        <li><a href="/city/view/neuss/">Neuss</a></li>
-                                        <li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
-                                        <li><a href="/city/view/nienburg/">Nienburg</a></li>
-                                        <li><a href="/city/view/neurnberg/">Nürnberg</a></li>
-                                        <li><a href="/city/view/offenbach/">Offenbach</a></li>
-                                        <li><a href="/city/view/oldenburg/">Oldenburg</a></li>
-                                        <li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
-                                        <li><a href="/city/view/paderborn/">Paderborn</a></li>
-                                        <li><a href="/city/view/pforzheim/">Pforzheim</a></li>
-                                        <li><a href="/city/view/pocking/">Pocking</a></li>
-                                        <li><a href="/city/view/praha/">Praha</a></li>
-                                        <li><a href="/city/view/rastatt/">Rastatt</a></li>
-                                        <li><a href="/city/view/ratingen/">Ratingen</a></li>
-                                        <li><a href="/city/view/regensburg/">Regensburg</a></li>
-                                        <li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
-                                        <li><a href="/city/view/rheine/">Rheine</a></li>
-                                        <li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
-                                        <li><a href="/city/view/siegen/">Siegen</a></li>
-                                        <li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
-                                        <li><a href="/city/view/singen/">Singen</a></li>
-                                        <li><a href="/city/view/stuttgart/">Stuttgart</a></li>
-                                        <li><a href="/city/view/trier/">Trier</a></li>
-                                        <li><a href="/city/view/trossingen/">Trossingen</a></li>
-                                        <li><a href="/city/view/ulm/">Ulm</a></li>
-                                        <li><a href="/city/view/vechta/">Vechta</a></li>
-                                        <li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
-                                        <li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
-                                        <li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
-                                        <li><a href="/city/view/werl/">Werl</a></li>
-                                        <li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
-                                        <li><a href="/city/view/wuerzburg/">Würzburg</a></li>
-                                        <li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link"><i class="fa fa-map"></i>Карта событий</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav navbar-inline right">
-                            <li class="nav-item cart">
-                                <a href="#" class="nav-link">
-                                    <span class="cart-outer">
-                                        <i class="fa fa-shopping-basket"></i>
-                                        <span class="nav-item-text d-xl-none">Корзина</span>
-                                        <span class="cart-count">2</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item user">
-                                <a class="nav-link" data-toggle="modal" data-target="#loginModal">
-									<i class="fa fa-user"></i>
-									<span class="nav-item-text">Войти</span>
-								</a>
-								<!-- <a class="nav-link" data-toggle="modal" data-target="#profileModal">
-									<i class="fa fa-user"></i>
-									<span class="nav-item-text">Профиль</span>
-								</a> -->
-                            </li>
-                        </ul>
-                        <div class="navbar-nav d-xl-none">
-                            <div class="nav-item phone-wrap">
-                                <div class="phone">
-                                    <i class="fa fa-phone"></i>
-                                    <a href="tel:+493078712860">
-                                        <span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
-                                        <div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<ul class="navbar-nav" id="navbar">
+						<li class="nav-item search">
+							<a class="nav-link">
+								<i class="icon-search"></i>
+							</a>
+							<form id="search">
+								<input type="text" placeholder="Поиск">
+								<button type="submit" hidden>Search</button>
+							</form>
+						</li>
+						<li class="nav-item dropdown date">
+							<a class="nav-link dropdown-toggle" id="topMenuDate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-calendar"></i><span class="d-none d-md-inline">Дата</span>
+							</a>
+							<div class="dropdown-menu fixed-width" aria-labelledby="topMenuDate">
+								<div id="topMenuCalendar" class="calendar">
+									<div class="title">
+										<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
+										<a class="month" href="/2017-september/">Cентябрь 2017</a>
+										<a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
+									</div>
+									<div class="divider"></div>
+									<div class="dates">
+										<table cellpadding="0" cellspacing="0">
+											<thead>
+												<tr class="week">
+													<th>Пн</th>
+													<th>Вт</th>
+													<th>Ср</th>
+													<th>Чт</th>
+													<th>Пт</th>
+													<th>Сб</th>
+													<th>Вс</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><span class="old">28</span></td>
+													<td><span class="old">29</span></td>
+													<td><span class="old">30</span></td>
+													<td><span class="old">31</span></td>
+													<td><span>1</span></td>
+													<td><span>2</span></td>
+													<td><span>3</span></td>
+												</tr>
+												<tr>
+													<td><span>4</span></td>
+													<td><span>5</span></td>
+													<td><span>6</span></td>
+													<td><span>7</span></td>
+													<td><span>8</span></td>
+													<td><span>9</span></td>
+													<td><span>10</span></td>
+												</tr>
+												<tr>
+													<td><span>11</span></td>
+													<td><span>12</span></td>
+													<td><span>13</span></td>
+													<td><span>14</span></td>
+													<td><span>15</span></td>
+													<td><span>16</span></td>
+													<td><span>17</span></td>
+												</tr>
+												<tr>
+													<td><span>18</span></td>
+													<td><span>19</span></td>
+													<td><span>20</span></td>
+													<td><span class="today">21</span></td>
+													<td><a href="/date/viewday/2017-09-22/">22</a></td>
+													<td><span>23</span></td>
+													<td><span>24</span></td>
+												</tr>
+												<tr>
+													<td><span>25</span></td>
+													<td><a href="/date/viewday/2017-09-26/">26</a></td>
+													<td><a href="/date/viewday/2017-09-27/">27</a></td>
+													<td><a href="/date/viewday/2017-09-28/">28</a></td>
+													<td><a href="/date/viewday/2017-09-29/">29</a></td>
+													<td><a href="/date/viewday/2017-09-30/">30</a></td>
+													<td><span class="new">1</span></td>
+												</tr>
+												<tr>
+													<td><span class="new">2</span></td>
+													<td><span class="new">3</span></td>
+													<td><span class="new">4</span></td>
+													<td><span class="new">5</span></td>
+													<td><span class="new">6</span></td>
+													<td><span class="new">7</span></td>
+													<td><span class="new">8</span></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown city">
+							<a class="nav-link dropdown-toggle" id="topMenuCity" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="icon-map-marker"></i>
+								<span class="d-none d-md-inline">Город</span>
+							</a>
+							<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="topMenuCity">
+								<div class="list-search">
+									<i class="icon-search"></i>
+									<input type="text" data-autocomplete="cities" placeholder="Искать город">
+								</div>
+								<ul class="autocomplete-results">
+									<li class="active"><a href="/city/view/aachen/">Aachen</a></li>
+									<li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
+									<li><a href="/city/view/altoetting/">Altötting</a></li>
+									<li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
+									<li><a href="/city/view/amberg/">Amberg</a></li>
+									<li><a href="/city/view/ansbach/">Ansbach</a></li>
+									<li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
+									<li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
+									<li><a href="/city/view/bamberg/">Bamberg</a></li>
+									<li><a href="/city/view/bayreuth/">Bayreuth</a></li>
+									<li><a href="/city/view/berlin/">Berlin</a></li>
+									<li><a href="/city/view/bielefeld/">Bielefeld</a></li>
+									<li><a href="/city/view/boeblingen/">Böblingen</a></li>
+									<li><a href="/city/view/bonn/">Bonn</a></li>
+									<li><a href="/city/view/bremen/">Bremen</a></li>
+									<li><a href="/city/view/buende/">Bünde</a></li>
+									<li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
+									<li><a href="/city/view/coburg/">Coburg</a></li>
+									<li><a href="/city/view/coesfeld/">Coesfeld</a></li>
+									<li><a href="/city/view/darmstadt/">Darmstadt</a></li>
+									<li><a href="/city/view/deggendorf/">Deggendorf</a></li>
+									<li><a href="/city/view/delbrueck/">Delbrück</a></li>
+									<li><a href="/city/view/detmold/">Detmold</a></li>
+									<li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
+									<li><a href="/city/view/dortmund/">Dortmund</a></li>
+									<li><a href="/city/view/duisburg/">Duisburg</a></li>
+									<li><a href="/city/view/dueren/">Düren</a></li>
+									<li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
+									<li><a href="/city/view/erlangen/">Erlangen</a></li>
+									<li><a href="/city/view/essen/">Essen</a></li>
+									<li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
+									<li><a href="/city/view/freiburg/">Freiburg</a></li>
+									<li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
+									<li><a href="/city/view/fulda/">Fulda</a></li>
+									<li><a href="/city/view/fuerth/">Fürth</a></li>
+									<li><a href="/city/view/giessen/">Gießen</a></li>
+									<li><a href="/city/view/goettingen/">Göttingen</a></li>
+									<li><a href="/city/view/gummersbach/">Gummersbach</a></li>
+									<li><a href="/city/view/guetersloh/">Gütersloh</a></li>
+									<li><a href="/city/view/gamburg/">Hamburg</a></li>
+									<li><a href="/city/view/hamm/">Hamm</a></li>
+									<li><a href="/city/view/hanau/">Hanau</a></li>
+									<li><a href="/city/view/hannover/">Hannover</a></li>
+									<li><a href="/city/view/heidenheim/">Heidenheim</a></li>
+									<li><a href="/city/view/heilbronn/">Heilbronn</a></li>
+									<li><a href="/city/view/herford/">Herford</a></li>
+									<li><a href="/city/view/hilden/">Hilden</a></li>
+									<li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
+									<li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
+									<li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
+									<li><a href="/city/view/kleve/">Kleve</a></li>
+									<li><a href="/city/view/koeln/">Köln</a></li>
+									<li><a href="/city/view/krefeld/">Krefeld</a></li>
+									<li><a href="/city/view/lahnstein/">Lahnstein</a></li>
+									<li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
+									<li><a href="/city/view/leipzig/">Leipzig</a></li>
+									<li><a href="/city/view/lemgo/">Lemgo</a></li>
+									<li><a href="/city/view/limburg/">Limburg</a></li>
+									<li><a href="/city/view/lingen/">Lingen</a></li>
+									<li><a href="/city/view/luebbecke/">Lübbecke</a></li>
+									<li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
+									<li><a href="/city/view/memmingen/">Memmingen</a></li>
+									<li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
+									<li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
+									<li><a href="/city/view/muenchen/">München</a></li>
+									<li><a href="/city/view/muenster/">Münster</a></li>
+									<li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
+									<li><a href="/city/view/neuss/">Neuss</a></li>
+									<li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
+									<li><a href="/city/view/nienburg/">Nienburg</a></li>
+									<li><a href="/city/view/neurnberg/">Nürnberg</a></li>
+									<li><a href="/city/view/offenbach/">Offenbach</a></li>
+									<li><a href="/city/view/oldenburg/">Oldenburg</a></li>
+									<li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
+									<li><a href="/city/view/paderborn/">Paderborn</a></li>
+									<li><a href="/city/view/pforzheim/">Pforzheim</a></li>
+									<li><a href="/city/view/pocking/">Pocking</a></li>
+									<li><a href="/city/view/praha/">Praha</a></li>
+									<li><a href="/city/view/rastatt/">Rastatt</a></li>
+									<li><a href="/city/view/ratingen/">Ratingen</a></li>
+									<li><a href="/city/view/regensburg/">Regensburg</a></li>
+									<li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
+									<li><a href="/city/view/rheine/">Rheine</a></li>
+									<li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
+									<li><a href="/city/view/siegen/">Siegen</a></li>
+									<li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
+									<li><a href="/city/view/singen/">Singen</a></li>
+									<li><a href="/city/view/stuttgart/">Stuttgart</a></li>
+									<li><a href="/city/view/trier/">Trier</a></li>
+									<li><a href="/city/view/trossingen/">Trossingen</a></li>
+									<li><a href="/city/view/ulm/">Ulm</a></li>
+									<li><a href="/city/view/vechta/">Vechta</a></li>
+									<li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
+									<li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
+									<li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
+									<li><a href="/city/view/werl/">Werl</a></li>
+									<li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
+									<li><a href="/city/view/wuerzburg/">Würzburg</a></li>
+									<li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
+								</ul>
+							</div>
+						</li>
+						<li class="nav-item d-none d-md-block" data-d-none="true">
+							<a href="#" class="nav-link"><i class="fa fa-map"></i><span>Карта<span class="d-none d-lg-inline"> событий</span></span></a>
+						</li>
+						<li class="nav-item dropdown lang-select">
+							<a href="#" class="lang curr-lang nav-link dropdown-toggle" id="topMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="flag de"></span><span class="d-none d-xl-inline">Deutsch</span>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="topMenuLangSelect">
+								<li class="dropdown-item active">
+									<a href="#" class="lang" data-lang-val="de">
+										<span class="flag de"></span><span>Deutsch</span>
+									</a>
+								</li>
+								<li class="dropdown-item">
+									<a href="#" class="lang" data-lang-val="ru">
+										<span class="flag ru"></span><span>Русский</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<a class="navbar-close-nav d-none">&times;</a>
                 </nav>
             </div>
         </section>
-        <section id="subMenu" class="bg-white">
-            <div class="slidable container">
-                <div class="sliding-box sliding-md e2e e2e-container">
-					<ul class="categories nav nav-tabs indicated mr-auto">
-						<li class="nav-item"><a href="#" class="nav-link active" title="Все события">Все события</a></li>
-						<li class="nav-item"><a href="#" class="nav-link" title="Концерты">Концерты</a></li>
-						<li class="nav-item dropdown expand-hover">
-							<a href="#" class="nav-link" title="Театры">Театры</a>
-							<ul class="sub-menu dropdown-menu">
-								<li class="dropdown-item"><a href="#">Балет</a></li>
-								<li class="dropdown-item"><a href="#">Спектакли</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a href="#" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
-						<li class="nav-item dropdown expand-hover">
-							<a href="#" class="nav-link" title="Детям">Детям</a>
-							<ul class="sub-menu dropdown-menu">
-								<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a href="#" class="nav-link" title="Юмор">Юмор</a></li>
-					</ul>
-					<div class="right-block">
-						<div class="right-block-elem skins d-none d-lg-block">
-	                        <a href="#" id="skinConfig" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i>Skins</a>
-	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="skinConfig">
-	                            <a href="#" class="dropdown-item active">Default</a>
-	                            <a href="#" class="dropdown-item">Kontramarka</a>
-	                        </div>
-	                    </div>
-	                    <div class="right-block-elem phone d-none d-xl-block">
-	                        <i class="fa fa-phone"></i>
-	                        <a href="tel:+493078712860">
-	                            <span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
-	                            <div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
-	                        </a>
-	                    </div>
-	                    <div class="right-block-elem lang-select d-none d-lg-block">
-	                        <a href="#" class="lang curr-lang" id="subMenuLangSelect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            <span class="flag de"></span><span class="d-none d-xl-block">Deutsch</span>
-	                        </a>
-	                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="subMenuLangSelect">
-	                            <a href="#" class="dropdown-item lang active" data-lang-val="de">
-	                                <span class="flag de"></span><span>Deutsch</span>
-	                            </a>
-	                            <a href="#" class="dropdown-item lang" data-lang-val="ru">
-	                                <span class="flag ru"></span><span>Русский</span>
-	                            </a>
-	                        </div>
-	                    </div>
+        <section id="mainMenu">
+			<div class="container">
+				<div class="main-menu">
+					<!-- first toggler -->
+					<a class="menu-toggler collapsed d-lg-none mr-auto" data-toggle="collapse" href="#mainMenuCategories" aria-expanded="false" aria-controls="mainMenuCategories"><span class="d-none d-sm-inline">Меню</span></a>
+
+					<!-- than other elements in menu heading (that are on the right) -->
+					<!-- first of this will have margin left 40px -->
+					<!-- <div class="menu-item dropdown reference skins">
+						<a href="#" id="skinConfig" data-toggle="dropdown"><i class="fa fa-cogs"></i><span class="d-none d-md-inline">Skins</span></a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="skinConfig">
+							<li class="dropdown-item active"><a href="#" class="dropdown-item active">Default</a></li>
+							<li class="dropdown-item"><a href="#" class="dropdown-item">Kontramarka</a></li>
+						</div>
+					</div> -->
+
+					<div class="menu-item optional out dropdown reference date">
+						<a id="mainMenuDate" data-toggle="dropdown" data-flip="false">
+							<i class="icon-calendar"></i><span class="d-none d-xl-inline">Дата</span>
+						</a>
+						<div class="dropdown-menu fixed-width" aria-labelledby="mainMenuDate">
+							<div id="mainMenuCalendar" class="calendar">
+								<div class="title dd-menu-header">
+									<a class="prev" onclick="listMonth('2017-08', 'ru');" title="Предыдущий месяц"></a>
+									<a class="month" href="/2017-september/">Cентябрь 2017</a>
+									<a class="next" onclick="listMonth('2017-10', 'ru');" title="Следующий месяц"></a>
+								</div>
+								<div class="divider"></div>
+								<div class="dates dd-menu-body">
+									<table cellpadding="0" cellspacing="0">
+										<thead>
+											<tr class="week">
+												<th>Пн</th>
+												<th>Вт</th>
+												<th>Ср</th>
+												<th>Чт</th>
+												<th>Пт</th>
+												<th>Сб</th>
+												<th>Вс</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><span class="old">28</span></td>
+												<td><span class="old">29</span></td>
+												<td><span class="old">30</span></td>
+												<td><span class="old">31</span></td>
+												<td><span>1</span></td>
+												<td><span>2</span></td>
+												<td><span>3</span></td>
+											</tr>
+											<tr>
+												<td><span>4</span></td>
+												<td><span>5</span></td>
+												<td><span>6</span></td>
+												<td><span>7</span></td>
+												<td><span>8</span></td>
+												<td><span>9</span></td>
+												<td><span>10</span></td>
+											</tr>
+											<tr>
+												<td><span>11</span></td>
+												<td><span>12</span></td>
+												<td><span>13</span></td>
+												<td><span>14</span></td>
+												<td><span>15</span></td>
+												<td><span>16</span></td>
+												<td><span>17</span></td>
+											</tr>
+											<tr>
+												<td><span>18</span></td>
+												<td><span>19</span></td>
+												<td><span>20</span></td>
+												<td><span class="today">21</span></td>
+												<td><a href="/date/viewday/2017-09-22/">22</a></td>
+												<td><span>23</span></td>
+												<td><span>24</span></td>
+											</tr>
+											<tr>
+												<td><span>25</span></td>
+												<td><a href="/date/viewday/2017-09-26/">26</a></td>
+												<td><a href="/date/viewday/2017-09-27/">27</a></td>
+												<td><a href="/date/viewday/2017-09-28/">28</a></td>
+												<td><a href="/date/viewday/2017-09-29/">29</a></td>
+												<td><a href="/date/viewday/2017-09-30/">30</a></td>
+												<td><span class="new">1</span></td>
+											</tr>
+											<tr>
+												<td><span class="new">2</span></td>
+												<td><span class="new">3</span></td>
+												<td><span class="new">4</span></td>
+												<td><span class="new">5</span></td>
+												<td><span class="new">6</span></td>
+												<td><span class="new">7</span></td>
+												<td><span class="new">8</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
 					</div>
-                </div>
-            </div>
-			<div class="fake-offset"></div>
+					<div class="menu-item optional out dropdown reference city">
+						<a id="mainMenuCity" data-toggle="dropdown" data-flip="false">
+							<i class="icon-map-marker"></i>
+							<span class="d-none d-xl-inline">Город</span>
+						</a>
+						<div class="dropdown-menu fixed-width autocomplete" aria-labelledby="mainMenuCity">
+							<div class="dd-menu-header list-search">
+								<i class="icon-search"></i>
+								<input type="text" data-autocomplete="cities" placeholder="Искать город">
+							</div>
+							<ul class="dd-menu-body autocomplete-results">
+								<li class="active"><a href="/city/view/aachen/">Aachen</a></li>
+								<li><a href="/city/view/altenkirchen/">Altenkirchen</a></li>
+								<li><a href="/city/view/altoetting/">Altötting</a></li>
+								<li><a href="/city/view/alzey-kirchheimbolanden/">Alzey-Kirchheimbolanden</a></li>
+								<li><a href="/city/view/amberg/">Amberg</a></li>
+								<li><a href="/city/view/ansbach/">Ansbach</a></li>
+								<li><a href="/city/view/aschaffenburg/">Aschaffenburg</a></li>
+								<li><a href="/city/view/bad-godesberg/">Bad Godesberg (Bonn)</a></li>
+								<li><a href="/city/view/bamberg/">Bamberg</a></li>
+								<li><a href="/city/view/bayreuth/">Bayreuth</a></li>
+								<li><a href="/city/view/berlin/">Berlin</a></li>
+								<li><a href="/city/view/bielefeld/">Bielefeld</a></li>
+								<li><a href="/city/view/boeblingen/">Böblingen</a></li>
+								<li><a href="/city/view/bonn/">Bonn</a></li>
+								<li><a href="/city/view/bremen/">Bremen</a></li>
+								<li><a href="/city/view/buende/">Bünde</a></li>
+								<li><a href="/city/view/cloppenburg/">Cloppenburg</a></li>
+								<li><a href="/city/view/coburg/">Coburg</a></li>
+								<li><a href="/city/view/coesfeld/">Coesfeld</a></li>
+								<li><a href="/city/view/darmstadt/">Darmstadt</a></li>
+								<li><a href="/city/view/deggendorf/">Deggendorf</a></li>
+								<li><a href="/city/view/delbrueck/">Delbrück</a></li>
+								<li><a href="/city/view/detmold/">Detmold</a></li>
+								<li><a href="/city/view/dillingen-saar/">Dillingen Saar</a></li>
+								<li><a href="/city/view/dortmund/">Dortmund</a></li>
+								<li><a href="/city/view/duisburg/">Duisburg</a></li>
+								<li><a href="/city/view/dueren/">Düren</a></li>
+								<li><a href="/city/view/duesseldorf/">Düsseldorf</a></li>
+								<li><a href="/city/view/erlangen/">Erlangen</a></li>
+								<li><a href="/city/view/essen/">Essen</a></li>
+								<li><a href="/city/view/frankfurt-am-main/">Frankfurt am Main</a></li>
+								<li><a href="/city/view/freiburg/">Freiburg</a></li>
+								<li><a href="/city/view/friedrichshafen/">Friedrichshafen</a></li>
+								<li><a href="/city/view/fulda/">Fulda</a></li>
+								<li><a href="/city/view/fuerth/">Fürth</a></li>
+								<li><a href="/city/view/giessen/">Gießen</a></li>
+								<li><a href="/city/view/goettingen/">Göttingen</a></li>
+								<li><a href="/city/view/gummersbach/">Gummersbach</a></li>
+								<li><a href="/city/view/guetersloh/">Gütersloh</a></li>
+								<li><a href="/city/view/gamburg/">Hamburg</a></li>
+								<li><a href="/city/view/hamm/">Hamm</a></li>
+								<li><a href="/city/view/hanau/">Hanau</a></li>
+								<li><a href="/city/view/hannover/">Hannover</a></li>
+								<li><a href="/city/view/heidenheim/">Heidenheim</a></li>
+								<li><a href="/city/view/heilbronn/">Heilbronn</a></li>
+								<li><a href="/city/view/herford/">Herford</a></li>
+								<li><a href="/city/view/hilden/">Hilden</a></li>
+								<li><a href="/city/view/idar-oberstein/">Idar-Oberstein</a></li>
+								<li><a href="/city/view/ingolstadt/">Ingolstadt</a></li>
+								<li><a href="/city/view/karlsruhe/">Karlsruhe</a></li>
+								<li><a href="/city/view/kleve/">Kleve</a></li>
+								<li><a href="/city/view/koeln/">Köln</a></li>
+								<li><a href="/city/view/krefeld/">Krefeld</a></li>
+								<li><a href="/city/view/lahnstein/">Lahnstein</a></li>
+								<li><a href="/city/view/leinfelden-echterdingen/">Leinfelden-Echterdingen</a></li>
+								<li><a href="/city/view/leipzig/">Leipzig</a></li>
+								<li><a href="/city/view/lemgo/">Lemgo</a></li>
+								<li><a href="/city/view/limburg/">Limburg</a></li>
+								<li><a href="/city/view/lingen/">Lingen</a></li>
+								<li><a href="/city/view/luebbecke/">Lübbecke</a></li>
+								<li><a href="/city/view/ludwigshafen-am-rhein/">Ludwigshafen am Rhein</a></li>
+								<li><a href="/city/view/memmingen/">Memmingen</a></li>
+								<li><a href="/city/view/moenchengladbach/">Mönchengladbach</a></li>
+								<li><a href="/city/view/muehlheim/">Mülheim an der Ruhr</a></li>
+								<li><a href="/city/view/muenchen/">München</a></li>
+								<li><a href="/city/view/muenster/">Münster</a></li>
+								<li><a href="/city/view/neu-ulm/">Neu Ulm</a></li>
+								<li><a href="/city/view/neuss/">Neuss</a></li>
+								<li><a href="/city/view/neuwied-koblenz/">Neuwied (Koblenz)</a></li>
+								<li><a href="/city/view/nienburg/">Nienburg</a></li>
+								<li><a href="/city/view/neurnberg/">Nürnberg</a></li>
+								<li><a href="/city/view/offenbach/">Offenbach</a></li>
+								<li><a href="/city/view/oldenburg/">Oldenburg</a></li>
+								<li><a href="/city/view/osnabrueck/">Osnabrück</a></li>
+								<li><a href="/city/view/paderborn/">Paderborn</a></li>
+								<li><a href="/city/view/pforzheim/">Pforzheim</a></li>
+								<li><a href="/city/view/pocking/">Pocking</a></li>
+								<li><a href="/city/view/praha/">Praha</a></li>
+								<li><a href="/city/view/rastatt/">Rastatt</a></li>
+								<li><a href="/city/view/ratingen/">Ratingen</a></li>
+								<li><a href="/city/view/regensburg/">Regensburg</a></li>
+								<li><a href="/city/view/rheinbach/">Rheinbach (Bonn)</a></li>
+								<li><a href="/city/view/rheine/">Rheine</a></li>
+								<li><a href="/city/view/saarbruecken/">Saarbrücken</a></li>
+								<li><a href="/city/view/siegen/">Siegen</a></li>
+								<li><a href="/city/view/sigmaringen/">Sigmaringen</a></li>
+								<li><a href="/city/view/singen/">Singen</a></li>
+								<li><a href="/city/view/stuttgart/">Stuttgart</a></li>
+								<li><a href="/city/view/trier/">Trier</a></li>
+								<li><a href="/city/view/trossingen/">Trossingen</a></li>
+								<li><a href="/city/view/ulm/">Ulm</a></li>
+								<li><a href="/city/view/vechta/">Vechta</a></li>
+								<li><a href="/city/view/veitshoechheim-wuerzburg/">Veitshöchheim (Würzburg)</a></li>
+								<li><a href="/city/view/villingen-schwenningen/">Villingen-Schwenningen</a></li>
+								<li><a href="/city/view/wattenscheid-bochum/">Wattenscheid (Bochum)</a></li>
+								<li><a href="/city/view/werl/">Werl</a></li>
+								<li><a href="/city/view/wolfsburg/">Wolfsburg</a></li>
+								<li><a href="/city/view/wuerzburg/">Würzburg</a></li>
+								<li><a href="/city/view/zweibruecken/">Zweibrücken</a></li>
+							</ul>
+						</div>
+					</div>
+					<a href="tel:+493078712860" class="phone menu-item">
+						<i class="icon-phone"></i>
+						<div class="d-none d-lg-inline-block">
+							<span class="number"><span class="code text-muted">+49</span> 30 7871 2860</span>
+							<div class="time text-muted">Пн - Пт с 12:00 до 16:00</div>
+						</div>
+					</a>
+					<a href="#" class="menu-item cart">
+						<span class="cart-outer">
+							<i class="icon-basket"></i>
+							<!-- <span class="d-none d-md-inline">Корзина</span> -->
+							<span class="badge badge-accent cart-count">2</span>
+						</span>
+					</a>
+					<a class="menu-item login" data-toggle="modal" data-target="#loginModal">
+						<i class="icon-sign-in"></i>
+						<span class="nav-item-text d-none d-md-inline">Войти</span>
+					</a>
+
+					<!-- categories list -->
+					<div class="menu-wrapper draggable-lg-up">
+						<div class="drag-fog left d-none d-lg-block"></div>
+						<div class="drag-item menu-body collapse" id="mainMenuCategories">
+							<ul class="categories">
+								<li class="nav-item"><a href="/" class="nav-link active" title="Все события">Все события</a></li>
+								<li class="nav-item"><a href="/concerts/" class="nav-link" title="Концерты">Концерты</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_theaters">
+									<a href="/" class="nav-link" title="Театры">Театры</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_theaters">
+										<li class="dropdown-item"><a href="#">Балет</a></li>
+										<li class="dropdown-item"><a href="#">Спектакли</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Шоу и мюзиклы">Шоу и мюзиклы</a></li>
+								<li class="nav-item dropdown reference" id="mainMenu_children">
+									<a href="javascript:void(0)" class="nav-link" title="Детям">Детям</a>
+									<a class="arrow"><i class="fa fa-angle-down"></i></a>
+									<ul class="sub-categories dropdown-menu" aria-labelledby="mainMenu_children">
+										<li class="dropdown-item"><a href="#">Новогодняя ёлка</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link" title="Юмор">Юмор</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+								<li class="nav-item"><a href="javascript:void(0)" class="nav-link">text</a></li>
+							</ul>
+						</div>
+						<div class="drag-fog right d-none d-lg-block mr-auto"></div>
+					</div>
+				</div>
+			</div>
         </section>
     </header>
 
     <main>
-		<section id="breadcrumbs" class="bg-white d-none d-lg-block">
+		<section class="breadcrumbs">
 			<div class="container">
 				<div id="speedbar">
 			        <div xmlns:v="http://rdf.data-vocabulary.org/#">
@@ -352,586 +534,709 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						<a href="/concerts/">Концерты</a>
+						<a href="/teatri/">Театры</a>
 						<i class="fa fa-angle-right"></i>
-						Ани Лорак в Германии - Шоу Каролина на Бис
+						Балет
 					</div>
 			    </div>
 			</div>
 		</section>
-		<div class="container">
-			<h1 class="page-title tour-title">
-				Ани Лорак в Германии - Шоу Каролина на Бис
-				<div class="undertitle tour-date">с 03 ноября 2017 по 13 ноября 2017</div>
-			</h1>
-			<div class="row">
-				<div class="col-xl-9">
-					<section id="tour_info" class="page-block">
-						<div class="box accent">
-							<div class="box-body">
-								<div class="tour-pic">
-									<img src="/images/public/events/ani-lorak-v-germanii-2017-b.jpg" width="250" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
-									<div class="favorite">
-										<a class="fav-plus btn btn-primary d-block" id="fav-id-422" href="javascript:void(0)" onclick="doFavorites(422, 'plus'); return false;" data-toggle="tooltip" title="Добавить в свои закладки на сайте"><i class="fa fa-star-o"></i><span>Добавить в избранное</span></a>
-									</div>
+		<section class="page-block">
+			<div class="container">
+				<h1 class="page-title tour__title">
+					Семинар Виктории Чердаковой - Актуальные проблемы вашей жизни
+					<div class="undertitle">с 03 ноября 2017 по 13 ноября 2017</div>
+				</h1>
+				<div class="box tour collapsed">
+					<div class="box-body tour__body">
+						<div class="tour__wrapper">
+							<div class="tour__pic">
+								<div class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
 								</div>
-								<div class="tour-info">
-									<h3 class="h2 tour-desc-title">Описание мероприятия</h3>
-									<div class="tour-desc">
-										<p>Ани Лорак продолжает покорять европейский музыкальный рынок. Яркая, обворожительная и безгранично талантливая украинская певица презентует новую программу в Германии в ноябре 2017 года. Купить билеты и узнать стоимость бронирования мест вы можете на сайте Kontramarka.de.</p>
-										<h2 class="h3">Концертный тур Ани Лорак в Германии &ndash; шоу, которое зажигает сердца</h2>
-										<p>Ани Лорак в Германии ждут тысячи поклонников, для которых певица исполнит новые и уже ставшие хитами песни. Настолько ярких танцевальных постановок, красочных декораций и звуковых эффектов еще не было ни на одном другом концерте &laquo;Каролины&raquo;. Предстоящее шоу будет по-настоящему незабываемым. Не откажите себе в удовольствии вновь услышать чарующий голос певицы, купите билеты на сайте Kontramarka.de и приходите на концерт Ани Лорак в Германии вместе с друзьями, родными и близкими.</p>
-										<p>Продажа билетов ведется онлайн и по телефону, просто определите дату посещения выступления Ани Лорак в Германии в 2017 году, выберите место в зале и оформите заказ, потратив не более 5-ти минут. Напоминаем, что Kontramarka.de &ndash; это театральная онлайн-касса, где билеты можно купить дешевле, чем в городских кассах. Продажа осуществляется по номинальной цене. Дополнительно оплачивается лишь стоимость доставки.</p>
-										<h2 class="h3">Певица, покорившая мир</h2>
-										<p>Ани Лорак - самая титулованная украинская певица. &nbsp;&laquo;Каролина&raquo;:</p>
-										<ul class="list">
-											<li>обладательница 5 &laquo;золотых&raquo; и 2 &laquo;платиновых&raquo; альбомов;</li>
-											<li>народная артистка Украины;</li>
-											<li>участница и песенного конкурса &laquo;Евровидение 2008&raquo;, где заняла 2-е место;</li>
-											<li>обладательница 5 &laquo;Золотых граммофонов&raquo;.</li>
-										</ul>
-										<p>Это лишь малая часть музыкальных достижений Ани Лорак, она продолжает их приумножать, покоряя своим талантом страны на всех континентах земного шара.</p>
-										<h2 class="h3">&laquo;Каролина на бис&raquo; &ndash; долгожданное музыкальное шоу 2017 года в Германии</h2>
-										<p>Шоу &laquo;Каролина на бис&raquo;, которое пройдет в Германии в ноябре следующего года, порадует зрителей приятными сюрпризами. Каждое выступление &laquo;Каролины&raquo; отличается от предыдущего, артистка охотно общается с публикой, заряжает энергией своих песен и дарит незабываемые впечатления. Уверяем, новое шоу Ани Лорак в Германии приведет в восторг каждого, кто пожелает его посмотреть.</p>
-										<p>Купить билет на концерт Ани Лорак в Германии вы можете прямо сейчас, оформив заказ у нас на сайте. Цены соответствуют указанным на сайте и не будут повышаться до начала концертного тура. Воспользуйтесь шансом выгодно купить билеты на концерт Ани Лорак в Германии в онлайн-кассе Kontramarka.de и приходите, чтобы насладиться по-настоящему прекрасной музыкой и красивой хореографией.</p>
-									</div>
-								</div>
+								<a class="fav-plus favorites" id="fav-id-422" href="javascript:void(0)" onclick="doFavorites(422, 'plus'); return false;" data-toggle="tooltip" title="Добавить в закладки профиля на сайте"><i class="fa fa-star-o"></i><span>В избранное</span></a>
+							</div>
+							<div class="tour__desc">
+								<p>Ани Лорак продолжает покорять европейский музыкальный рынок. Яркая, обворожительная и безгранично талантливая украинская певица презентует новую программу в Германии в ноябре 2017 года. Купить билеты и узнать стоимость бронирования мест вы можете на сайте Kontramarka.de.</p>
+								<h2>Концертный тур Ани Лорак в Германии &ndash; шоу, которое зажигает сердца</h2>
+								<p>Ани Лорак в Германии ждут тысячи поклонников, для которых певица исполнит новые и уже ставшие хитами песни. Настолько ярких танцевальных постановок, красочных декораций и звуковых эффектов еще не было ни на одном другом концерте &laquo;Каролины&raquo;. Предстоящее шоу будет по-настоящему незабываемым. Не откажите себе в удовольствии вновь услышать чарующий голос певицы, купите билеты на сайте Kontramarka.de и приходите на концерт Ани Лорак в Германии вместе с друзьями, родными и близкими.</p>
+								<p>Продажа билетов ведется онлайн и по телефону, просто определите дату посещения выступления Ани Лорак в Германии в 2017 году, выберите место в зале и оформите заказ, потратив не более 5-ти минут. Напоминаем, что Kontramarka.de &ndash; это театральная онлайн-касса, где билеты можно купить дешевле, чем в городских кассах. Продажа осуществляется по номинальной цене. Дополнительно оплачивается лишь стоимость доставки.</p>
+								<h3>Певица, покорившая мир</h3>
+								<p>Ани Лорак - самая титулованная украинская певица. &nbsp;&laquo;Каролина&raquo;:</p>
+								<ul>
+									<li>обладательница 5 &laquo;золотых&raquo; и 2 &laquo;платиновых&raquo; альбомов;</li>
+									<li>народная артистка Украины;</li>
+									<li>участница и песенного конкурса &laquo;Евровидение 2008&raquo;, где заняла 2-е место;</li>
+									<li>обладательница 5 &laquo;Золотых граммофонов&raquo;.</li>
+								</ul>
+								<p>Это лишь малая часть музыкальных достижений Ани Лорак, она продолжает их приумножать, покоряя своим талантом страны на всех континентах земного шара.</p>
+								<h4>&laquo;Каролина на бис&raquo; &ndash; долгожданное музыкальное шоу 2017 года в Германии</h4>
+								<p>Шоу &laquo;Каролина на бис&raquo;, которое пройдет в Германии в ноябре следующего года, порадует зрителей приятными сюрпризами. Каждое выступление &laquo;Каролины&raquo; отличается от предыдущего, артистка охотно общается с публикой, заряжает энергией своих песен и дарит незабываемые впечатления. Уверяем, новое шоу Ани Лорак в Германии приведет в восторг каждого, кто пожелает его посмотреть.</p>
+								<p>Купить билет на концерт Ани Лорак в Германии вы можете прямо сейчас, оформив заказ у нас на сайте. Цены соответствуют указанным на сайте и не будут повышаться до начала концертного тура. Воспользуйтесь шансом выгодно купить билеты на концерт Ани Лорак в Германии в онлайн-кассе Kontramarka.de и приходите, чтобы насладиться по-настоящему прекрасной музыкой и красивой хореографией.</p>
+
 							</div>
 						</div>
-					</section><!-- /section#tour_info -->
-					<section id="concert_select" class="page-block">
-						<h2 class="page-block-title">Места проведения</h2>
-						<div class="box">
-							<div class="box-header title d-none d-sm-flex">
-								<div class="concert_date"><i class="fa fa-calendar-o"></i> Дата</div>
-								<div class="concert_city"><i class="fa fa-map-marker"></i> Город и концертная площадка</div>
-								<div class="concert_btn"><i class="fa fa-shopping-cart"></i> <span class="d-none d-lg-inline">Заказ билетов</span></div>
-							</div>
-							<div class="box-body">
-								<div class="inner">
-									<div class="concert_date">
-										<div>05.11.2017</div>Воскресенье<span class="time">18:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Ludwigshafen am Rhein</div>Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<button class="btn btn-outline-light btn-mobile" disabled><span class="d-inline d-sm-none d-lg-inline-block">Продажа закончена</span></button>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>07.11.2017</div>Вторник<span class="time">20:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Offenbach</div>Stadthalle, Waldstr. 312, 63071
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<a href="#" class="btn btn-primary btn-mobile"><span class="d-inline d-sm-none d-lg-inline-block">Заказать билеты</span></a>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>08.11.2017</div>Среда<span class="time">20:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Lemgo</div>Lipperlandhalle, Bunsenstr. 39, 32657
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<a href="#" class="btn btn-primary btn-mobile"><span class="d-inline d-sm-none d-lg-inline-block">Заказать билеты</span></a>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>10.11.2017</div>Пятница<span class="time">20:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Dortmund</div>Westfalenhalle 3A, Rheinlanddamm 200, 44139
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<a href="#" class="btn btn-primary btn-mobile"><span class="d-inline d-sm-none d-lg-inline-block">Заказать билеты</span></a>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>11.11.2017</div>Суббота<span class="time">19:30</span>
-									</div>
-									<div class="concert_city">
-										<div>Hamburg</div>Mehr! Theater, Banksstr. 28, 20097
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<a href="#" class="btn btn-primary btn-mobile"><span class="d-inline d-sm-none d-lg-inline-block">Заказать билеты</span></a>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>13.11.2017</div>Понедельник<span class="time">20:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Berlin</div>Admiralspalast, Friedrichstr. 101, 10117
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<a href="#" class="btn btn-primary btn-mobile"><span class="d-inline d-sm-none d-lg-inline-block">Заказать билеты</span></a>
-									</div>
-								</div>
-								<div class="inner last-events h3">Прошедшие мероприятия</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>03.11.2017</div>Пятница<span class="time">20:00</span>
-									</div>
-									<div class="concert_city">
-										<div>Böblingen</div>
-										Kongresshalle Böblingen, Ida-Ehre-Platz 1, 71032
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<button class="btn btn-outline-light btn-mobile" disabled><span class="d-sm-none d-lg-inline-block">Продажа закончена</span></button>
-									</div>
-								</div>
-								<div class="inner">
-									<div class="concert_date">
-										<div>04.11.2017</div>Суббота<span class="time">19:30</span>
-									</div>
-									<div class="concert_city">
-										<div>Nürnberg</div>
-										Meistersingerhalle großer Saal, Münchener Str. 21, 90478
-										<span class="eticket fa-stack fa-lg d-none d-lg-inline-block" title="Для данного концерта доступен e-Ticket с бесплатной доставкой">
-											<i class="fa fa-file fa-stack-2x"></i>
-											<i class="fa fa-barcode fa-stack-1x fa-inverse"></i>
-										</span>
-									</div>
-									<div class="concert_btn">
-										<button class="btn btn-outline-light btn-mobile" disabled><span class="d-sm-none d-lg-inline-block">Продажа закончена</span></button>
-									</div>
+					</div>
+					<div class="box-body tour__tools">
+						<a href="javascript:void(0)" class="toggle-body">
+							<span class="collapsed-only">Развернуть</span>
+							<span class="uncollapsed-only">Свернуть</span>
+						</a>
+					</div>
+					<div class="box-body tour__gallery">
+						<div class="gallery">
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/events/ex.png" alt="Дима Билан.">
 								</div>
 							</div>
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
+								</div>
+							</div>
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
+								</div>
+							</div>
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
+								</div>
+							</div>
+							<!-- <div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
+								</div>
+							</div>
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/slider/bilan.png" alt="Дима Билан.">
+								</div>
+							</div>
+							<div class="gallery__item">
+								<div class="preloading">
+									<img src="/images/public/events/ex.png" alt="Дима Билан.">
+								</div>
+							</div> -->
 						</div>
-					</section><!-- /section#concert_select -->
-					<section id="tour_comments" class="page-block">
-						<h2 class="page-block-title">Комментарии</h2>
-						<div class="box e2e-off-xs-down accent">
-							<div class="box-header" data-toggle="collapse" data-target="#commentForm" aria-expanded="false" aria-controls="commentForm">
-								Оставить комментарий
-							</div>
-							<div class="collapse" id="commentForm">
-								<div class="box-body">
-									<form action="" method="POST" id="addotzivform">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Ваше имя:</label>
-													<input type="text" name="com_name" class="form-control edit bk" maxlength="100" placeholder="Укажите своё имя">
-								                </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Ваш email:</label>
-								                    <input type="text" name="com_email" class="form-control" maxlength="100" placeholder="example@mail.com">
-								                </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label>Ваш телефон:</label>
-								                    <input type="text" name="com_phone" class="form-control" maxlength="100" placeholder="+380951112233">
-								                </div>
-											</div>
-										</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<h2 class="page-block-title">Места проведения</h2>
+				<div class="schedule">
+					<div class="schedule__row schedule__row--header">
+						<div class="schedule__col schedule__col--date"><i class="icon-calendar"></i> Когда</div>
+						<div class="schedule__col schedule__col--place"><i class="icon-map-marker"></i> Где</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00</div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<button class="btn btn-primary">Купить билет</button>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<div class="btn">Продажа на сайте закончена</div>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<div class="btn">Билеты распроданы</div>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<div class="btn">Скоро в продаже</div>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<div class="btn text-danger"><i class="icon-exclamation-circle"></i> Отменено</div>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<div class="btn">Перенесено</div>
+						</div>
+					</div>
+					<h5 class="title">Прошедшие мероприятия</h5>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<div class="btn">Билеты распроданы</div>
+						</div>
+					</div>
+					<div class="schedule__row">
+						<div class="schedule__col schedule__col--date">
+							<div class="date">05.10.2017</div>
+							<div class="day">воскресенье</div>
+							<div class="time">18:00<span class="time-finish">20:30</span></div>
+						</div>
+						<div class="schedule__col schedule__col--place">
+							<div class="city">Ludwigshafen am Rhein</div>
+							<div class="place">Friedrich-Ebert-Halle, Erzbergerstr. 89, 67063</div>
+						</div>
+						<div class="schedule__col schedule__col--action">
+							<span class="eticket icon-print" data-toggle="tooltip" title="Для данного концерта доступен e-Ticket с бесплатной доставкой"></span>
+							<div class="btn">Билеты распроданы</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<h2 class="page-block-title">Комментарии</h2>
+				<div class="box e2e-off-xs-down accent">
+					<div class="box-header" data-toggle="collapse" data-target="#commentForm" aria-expanded="false" aria-controls="commentForm">
+						Оставить комментарий
+					</div>
+					<div class="collapse" id="commentForm">
+						<div class="box-body">
+							<form action="" method="POST" id="addotzivform">
+								<div class="row">
+									<div class="col-md-4">
 										<div class="form-group">
-											<label>Ваш отзыв:</label>
-											<textarea class="form-control edit bk" name="com_text" placeholder="Введите текст отзыва" style="resize: vertical"></textarea>
-										</div>
-										<div class="row" id="captcha">
-											<div class="col-xs-12 col-md-7 col-lg-7 col-xl-5">
-												<div class="form-group">
-													<label>Введите код, изображенный на картинке:</label>
-													<input type="text" name="sec_code" maxlength="10" class="form-control edit bk" placeholder="Введите код: ХХХХХХ">
-												</div>
-											</div>
-											<div class="col">
-												<div class="form-group">
-													<img src="/images/public/captcha.png" alt="Включите эту картинку для отображения кода безопасности">
-													<a onclick="captcha_reload(); return false;" href="javascript:void(0)">Обновить, если не виден код</a>
-												</div>
+											<div class="form-control">
+												<input type="text" name="com_name" id="addotzivform_name" class="edit bk" data-placeholder="Например: Viktor">
+												<label for="addotzivform_name" class="placeholder">Ваше имя</label>
 											</div>
 										</div>
+									</div>
+									<div class="col-md-4">
 										<div class="form-group">
-							                <a href="javascript:void(0)" class="btn btn-primary comm-add" onclick="addOtziv(448,'ru');">Отправить</a>
+											<div class="form-control">
+												<input type="text" name="com_email" id="addotzivform_email" maxlength="100" data-placeholder="Например: Viktor">
+												<label for="addotzivform_email" class="placeholder">Ваш email</label>
+											</div>
 										</div>
-						            </form>
-								</div>
-							</div>
-				        </div>
-						<div class="comments">
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">Антон</div>
-									<span class="comm-date">21 октября 2017</span>
-									<span class="comm-time">23:55</span>
-								</div>
-								<div class="comm-content">Очень хотелось бы увидеть Басту в живую на ЮГЕ Германии !</div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">АндреяЛ</div>
-									<span class="comm-date">8 сентября 2017</span>
-									<span class="comm-time">20:31</span>
-								</div>
-								<div class="comm-content">Почему редко в Штуттгарте, на юг почему неприезжают.....</div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username text-accent">Kontramarka.de Team</div>
-									<span class="comm-date">3 августа 2017</span>
-									<span class="comm-time">12:14</span>
-								</div>
-								<div class="comm-content">Уля, к сожалению, мы не можем точно ответить на Ваш вопрос. Организаторы предоставили только стоячие контингенты.</div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">Уля</div>
-									<span class="comm-date">3 августа 2017</span>
-									<span class="comm-time">11:59</span>
-								</div>
-								<div class="comm-content">Здравствуйте,<br><br>у меня вопрос насчёт мест в westfalenhalle в Дортмунде. Там только стоять можно будет или все сидячие места уже раскупили?</div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username text-accent">Kontramarka.de Team</div>
-									<span class="comm-date">1 августа 2017</span>
-									<span class="comm-time">13:54</span>
-								</div>
-								<div class="comm-content">Демид, мы понимаем, что Вам хотелось бы узнать больше о концерте. Однако, зачастую концерты объявляются именно так, как Вы видите на нашем сайте. Мы надеемся, что организаторы в будущем будут рассказывать больше о том или ином событии. Тем не менее Баста от этого не станет другим. Баста - все тот же. Приходите!</div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">Demid</div>
-									<span class="comm-date">1 августа 2017</span>
-									<span class="comm-time">13:23</span>
-								</div>
-								<div class="comm-content"><p>Вообще, ничего нового ни о Басте, ни конкрено о самом "концерте в Германии" озвучено не было (как ни странно). <br /> Складывается ощущение, что и самим организаторам этого не известно.<br /><br />А очень жаль!</p></div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">Дима</div>
-									<span class="comm-date">4 февраля 2017</span>
-									<span class="comm-time">22:48</span>
-								</div>
-								<div class="comm-content"><p>Ну блин ну почему очень редко на юг германии приезжают, ну очень трудно ездить так далеко среди недели, совмещать работу с этим...</p></div>
-							</div>
-							<div class="comm-itm">
-								<div class="comm-info">
-									<div class="comm-username">Денис</div>
-									<span class="comm-date">23 января 2017</span>
-									<span class="comm-time">20:21</span>
-								</div>
-								<div class="comm-content">Очень жду!!!</div>
-							</div>
-						</div>
-					</section><!-- /section#tour_comments -->
-				</div><!-- /.col-xl-9 -->
-				<div class="col-xl-3 sidebar d-none d-xl-block">
-					<section class="page-block" id="recommendations">
-						<div class="box top-10">
-							<div class="box-header">
-								Топ 10 популярных
-							</div>
-							<div class="box-body">
-								<ol class="top-list">
-									<li><a href="#"><span class="number">1.</span>Ани Лорак в Германии - Шоу Каролина на Бис</a></li>
-									<li><a href="#"><span class="number">2.</span>Наргиз в Германии</a></li>
-									<li><a href="#"><span class="number">3.</span>Хор Турецкого в Германии 2017</a></li>
-									<li><a href="#"><span class="number">4.</span>Стас Михайлов в Германии 2018</a></li>
-									<li><a href="#"><span class="number">5.</span>Слава с программой "Откровенно" в Германии</a></li>
-									<li><a href="#"><span class="number">6.</span>Новые Русские Бабки в Германии 2017</a></li>
-									<li><a href="#"><span class="number">7.</span>Новогодний шоу-спектакль "Ледяное сердце“</a></li>
-									<li><a href="#"><span class="number">8.</span>Песня Года в Германии</a></li>
-									<li><a href="#"><span class="number">9.</span>Новогодняя Елка. Фиксики "Спасатели времени"</a></li>
-									<li><a href="#"><span class="number">10.</span>Евгений Петросян - Шутка за шуткой 2017</a></li>
-								</ol>
-							</div>
-						</div>
-						<div class="event card">
-							<!-- <div class="card-img-fixed">
-								<img src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							</div> -->
-							<img class="card-img" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
-							<div class="card-body">
-								<a href="#" class="btn btn-primary action d-block">Купить билет</a>
-								<div class="card-info">
-									<h6 class="title">Ах Астахова - Поэтический вечер</h6>
-									<div class="date">
-										<div class="d-inline d-lg-none">21.08.2017</div>
-										<div class="d-none d-lg-inline">21 августа 2017</div>
 									</div>
-									<ul class="cities">
-										<li>Berlin</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="event card">
-							<!-- <div class="card-img-fixed">
-								<img src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
-							</div> -->
-							<img class="card-img" src="/images/public/events/7.png" alt="Рок-группа Стаса Намина “Цветы”">
-							<div class="card-body">
-								<a href="#" class="btn btn-primary action d-block">Купить билет</a>
-								<div class="card-info">
-									<h6 class="title">Рок-группа Стаса Намина “Цветы”</h6>
-									<div class="date">
-										<div class="d-inline d-lg-none">с 17.09.2017</div>
-										<div class="d-none d-lg-inline">с 17 сентября 2017</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<div class="form-control">
+												<input type="text" name="com_phone" id="addotzivform_phone" maxlength="100" data-placeholder="Например: +380951112233">
+												<label for="addotzivform_phone" class="placeholder">Ваш телефон</label>
+											</div>
+										</div>
 									</div>
-									<ul class="cities">
-										<li>Münich</li>
-									</ul>
 								</div>
-							</div>
+								<div class="form-group">
+									<div class="form-control">
+										<textarea type="text" rows="2" name="com_text" id="addotzivform_text" class="edit bk" data-placeholder="Введите текст отзыва" style="resize: vertical"></textarea>
+										<label for="addotzivform_text" class="placeholder">Ваш отзыв</label>
+									</div>
+								</div>
+								<div class="row" id="captcha">
+									<div class="col-xs-12 col-md-7 col-lg-7 col-xl-5">
+										<div class="form-group">
+											<div class="form-control">
+												<input type="text" name="sec_code" id="addotzivform_captcha" maxlength="10" class="edit bk" data-placeholder="Например: 6sf3a7">
+												<label for="addotzivform_captcha" class="placeholder pull-left">Код</label>
+												<a onclick="captcha_reload(); return false;" href="javascript:void(0)" class="placeholder pull-right">Обновить</a>
+											</div>
+											<small>Введите код, изображенный на картинке рядом.</small>
+										</div>
+									</div>
+									<div class="col">
+										<div class="form-group">
+											<img src="/images/public/captcha.png" alt="Включите эту картинку для отображения кода безопасности">
+											<!-- <a onclick="captcha_reload(); return false;" href="javascript:void(0)">Обновить, если не виден код</a> -->
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<a href="javascript:void(0)" class="btn btn-primary comment__add" onclick="addOtziv(448,'ru');">Отправить</a>
+								</div>
+							</form>
 						</div>
-						<div class="event card">
-							<!-- <div class="card-img-fixed">
-								<img src="/images/public/events/3.png" alt="Полина Гагарина">
-							</div> -->
-							<img class="card-img" src="/images/public/events/3.png" alt="Полина Гагарина">
-							<div class="card-body">
-								<a href="#" class="btn btn-primary action d-block">Купить билет</a>
-								<div class="card-info">
-									<h6 class="title">Полина Гагарина</h6>
-									<div class="date">
-										<div class="d-inline d-lg-none">с 17.08.2017</div>
+					</div>
+				</div>
+				<div class="comments">
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">Антон</div>
+							<span class="comment__date">21 октября 2017</span>
+							<span class="comment__time">23:55</span>
+						</div>
+						<div class="comment__content">Очень хотелось бы увидеть Басту в живую на ЮГЕ Германии !</div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">АндреяЛ</div>
+							<span class="comment__date">8 сентября 2017</span>
+							<span class="comment__time">20:31</span>
+						</div>
+						<div class="comment__content">Почему редко в Штуттгарте, на юг почему неприезжают.....</div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username text-accent">Kontramarka.de Team</div>
+							<span class="comment__date">3 августа 2017</span>
+							<span class="comment__time">12:14</span>
+						</div>
+						<div class="comment__content">Уля, к сожалению, мы не можем точно ответить на Ваш вопрос. Организаторы предоставили только стоячие контингенты.</div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">Уля</div>
+							<span class="comment__date">3 августа 2017</span>
+							<span class="comment__time">11:59</span>
+						</div>
+						<div class="comment__content">Здравствуйте,<br><br>у меня вопрос насчёт мест в westfalenhalle в Дортмунде. Там только стоять можно будет или все сидячие места уже раскупили?</div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username text-accent">Kontramarka.de Team</div>
+							<span class="comment__date">1 августа 2017</span>
+							<span class="comment__time">13:54</span>
+						</div>
+						<div class="comment__content">Демид, мы понимаем, что Вам хотелось бы узнать больше о концерте. Однако, зачастую концерты объявляются именно так, как Вы видите на нашем сайте. Мы надеемся, что организаторы в будущем будут рассказывать больше о том или ином событии. Тем не менее Баста от этого не станет другим. Баста - все тот же. Приходите!</div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">Demid</div>
+							<span class="comment__date">1 августа 2017</span>
+							<span class="comment__time">13:23</span>
+						</div>
+						<div class="comment__content"><p>Вообще, ничего нового ни о Басте, ни конкрено о самом "концерте в Германии" озвучено не было (как ни странно). <br /> Складывается ощущение, что и самим организаторам этого не известно.<br /><br />А очень жаль!</p></div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">Дима</div>
+							<span class="comment__date">4 февраля 2017</span>
+							<span class="comment__time">22:48</span>
+						</div>
+						<div class="comment__content"><p>Ну блин ну почему очень редко на юг германии приезжают, ну очень трудно ездить так далеко среди недели, совмещать работу с этим...</p></div>
+					</div>
+					<div class="comment">
+						<div class="comment__info">
+							<div class="comment__username">Денис</div>
+							<span class="comment__date">23 января 2017</span>
+							<span class="comment__time">20:21</span>
+						</div>
+						<div class="comment__content">Очень жду!!!</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- /section#tour_comments -->
+		<section class="page-block">
+			<div class="container">
+				<h2 class="page-block-title">Наши рекомендации</h2>
+				<div class="events">
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
 										<div class="d-none d-lg-inline">с 17 августа 2017</div>
 									</div>
-									<ul class="cities">
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
 										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
 									</ul>
 								</div>
 							</div>
 						</div>
-						<div class="event card">
-							<!-- <div class="card-img-fixed">
-								<img src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
-							</div> -->
-							<img class="card-img" src="/images/public/events/6.png" alt="LOVE STORY от “THE NEW ORCHESTRA”">
-							<div class="card-body">
-								<a href="#" class="btn btn-primary action d-block">Купить билет</a>
-								<div class="card-info">
-									<h6 class="title">LOVE STORY от “THE NEW ORCHESTRA”</h6>
-									<div class="date">
-										<div class="d-inline d-lg-none">16.08.2017</div>
-										<div class="d-none d-lg-inline">16.08.2017</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-lg-inline">21 августа 2017</div>
 									</div>
-									<ul class="cities">
+									<ul class="event__cities">
+										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Полина Гагарина</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
 										<li>Münich</li>
 									</ul>
 								</div>
 							</div>
 						</div>
-					</section><!-- /section#recommendations -->
-				</div><!-- /.col-xl-3.sidebar -->
-			</div><!-- /.row -->
-		</div><!-- /.container -->
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Спектакль “Игра на вылет”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 3</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
     </main>
 
-    <footer>
-        <section id="footMenu" class="bg-white">
+	<footer>
+		<section id="subscribe" class="bg-secondary">
+			<div class="container">
+				<div class="title">Хочешь быть в курсе новинок?</div>
+				<div class="form">
+					<form>
+						<div class="input-group">
+							<div class="form-control border-0">
+								<input type="email" data-placeholder="example@mail.com" id="subscribe_email">
+								<label for="subscribe_email" class="placeholder centered">Введите email</label>
+							</div>
+							<button class="btn btn-primary" type="submit">Подписаться</button>
+						</div>
+					</form>
+				</div>
+				<div class="secure">
+					<i class="icon-secure"></i><span>Никакого спама!</span>
+				</div>
+			</div>
+		</section>
+		<section id="footMenu" class="bg-white">
             <div class="container">
-				<button id="scrollToTop" class="btn btn-round"><i class="fa fa-long-arrow-up"></i></button>
                 <div class="row">
-                    <div class="col-sm-6 col-md-3 d-none d-sm-block">
-                        <h4>Категории</h4>
-                        <ul class="links-list">
-                            <li><a href="#">Все события</a></li>
-                            <li><a href="#">Концерты</a></li>
-                            <li><a href="#">Театры</a></li>
-                            <li><a href="#">Шоу и мюзиклы</a></li>
-                            <li><a href="#">Детям</a></li>
-                            <li><a href="#">Юмор</a></li>
-                            <li><a href="#">Архив</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 d-none d-sm-block">
-                        <h4>Сервис</h4>
-                        <ul class="links-list">
-                            <li><a href="#">Отмены, переносы</a></li>
-                            <li><a href="#">Оплата и доставка</a></li>
-                            <li><a href="#">Возврат билетов</a></li>
-                            <li><a href="#">Подарочный сертификат</a></li>
-                            <li><a href="#">Организаторам</a></li>
-                            <li><a href="#">Партнерская программа</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 d-none d-sm-block">
-                        <h4>Kontramarka.de</h4>
-                        <ul class="links-list">
-                            <li><a href="#">О нас</a></li>
-                            <li><a href="#">Реклама на сайте</a></li>
-                            <li><a href="#">Политика приватности</a></li>
-                            <li><a href="#">Impressum</a></li>
-                            <li><a href="#">Карьера</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">AGB</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-12 d-block d-sm-none">
-                        <div id="footMenuAccordion" role="tablist" class="hidden-sm">
-                            <div class="foot-menu-block">
-                                <h4><a data-toggle="collapse" href="#footCategories" aria-expanded="false" aria-controls="footCategories">Категории</a></h4>
-                                <div id="footCategories" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
-                                    <ul class="links-list">
-                                        <li><a href="#">Все события</a></li>
-                                        <li><a href="#">Концерты</a></li>
-                                        <li><a href="#">Театры</a></li>
-                                        <li><a href="#">Шоу и мюзиклы</a></li>
-                                        <li><a href="#">Детям</a></li>
-                                        <li><a href="#">Юмор</a></li>
-                                        <li><a href="#">Архив</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="divider e2e"></div>
-                            <div class="foot-menu-block">
-                                <h4><a data-toggle="collapse" href="#footService" aria-expanded="false" aria-controls="footService">Сервис</a></h4>
-                                <div id="footService" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
-                                    <ul class="links-list">
-                                        <li><a href="#">Отмены, переносы</a></li>
-                                        <li><a href="#">Оплата и доставка</a></li>
-                                        <li><a href="#">Возврат билетов</a></li>
-                                        <li><a href="#">Подарочный сертификат</a></li>
-                                        <li><a href="#">Организаторам</a></li>
-                                        <li><a href="#">Партнерская программа</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="divider e2e"></div>
-                            <div class="foot-menu-block">
-                                <h4><a data-toggle="collapse" href="#footInfo" aria-expanded="false" aria-controls="footInfo">Kontramarka.de</a></h4>
-                                <div id="footInfo" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
-                                    <ul class="links-list">
-                                        <li><a href="#">О нас</a></li>
-                                        <li><a href="#">Реклама на сайте</a></li>
-                                        <li><a href="#">Политика приватности</a></li>
-                                        <li><a href="#">Impressum</a></li>
-                                        <li><a href="#">Карьера</a></li>
-                                        <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">AGB</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="divider e2e"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-3">
+					<div class="col-lg-7 col-xl-8">
+						<div class="row">
+							<div class="col-sm-4 d-none d-sm-block">
+		                        <h4>Категории</h4>
+		                        <ul class="links-list">
+		                            <li><a href="#">Все события</a></li>
+		                            <li><a href="#">Концерты</a></li>
+		                            <li><a href="#">Театры</a></li>
+		                            <li><a href="#">Шоу и мюзиклы</a></li>
+		                            <li><a href="#">Детям</a></li>
+		                            <li><a href="#">Юмор</a></li>
+		                            <li><a href="#">Архив</a></li>
+		                        </ul>
+		                    </div>
+		                    <div class="col-sm-4 d-none d-sm-block">
+		                        <h4>Сервис</h4>
+		                        <ul class="links-list">
+		                            <li><a href="#">Отмены, переносы</a></li>
+		                            <li><a href="#">Оплата и доставка</a></li>
+		                            <li><a href="#">Возврат билетов</a></li>
+		                            <li><a href="#">Подарочный сертификат</a></li>
+		                            <li><a href="#">Организаторам</a></li>
+		                            <li><a href="#">Партнерская программа</a></li>
+		                        </ul>
+		                    </div>
+		                    <div class="col-sm-4 d-none d-sm-block">
+		                        <h4>Kontramarka.de</h4>
+		                        <ul class="links-list">
+		                            <li><a href="#">О нас</a></li>
+		                            <li><a href="#">Реклама на сайте</a></li>
+		                            <li><a href="#">Политика приватности</a></li>
+		                            <li><a href="#">Impressum</a></li>
+		                            <li><a href="#">Карьера</a></li>
+		                            <li><a href="#">FAQ</a></li>
+		                            <li><a href="#">AGB</a></li>
+		                        </ul>
+		                    </div>
+							<div class="col-12 d-sm-none">
+								<div id="footMenuAccordion" role="tablist" class="hidden-sm">
+									<div class="foot-menu-block">
+										<h4><a data-toggle="collapse" href="#footMenu_categories" aria-expanded="false" aria-controls="footMenu_categories">Категории</a></h4>
+										<div id="footMenu_categories" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
+											<ul class="links-list">
+												<li><a href="#">Все события</a></li>
+												<li><a href="#">Концерты</a></li>
+												<li><a href="#">Театры</a></li>
+												<li><a href="#">Шоу и мюзиклы</a></li>
+												<li><a href="#">Детям</a></li>
+												<li><a href="#">Юмор</a></li>
+												<li><a href="#">Архив</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="divider e2e"></div>
+									<div class="foot-menu-block">
+										<h4><a data-toggle="collapse" href="#footMenu_service" aria-expanded="false" aria-controls="footMenu_service">Сервис</a></h4>
+										<div id="footMenu_service" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
+											<ul class="links-list">
+												<li><a href="#">Отмены, переносы</a></li>
+												<li><a href="#">Оплата и доставка</a></li>
+												<li><a href="#">Возврат билетов</a></li>
+												<li><a href="#">Подарочный сертификат</a></li>
+												<li><a href="#">Организаторам</a></li>
+												<li><a href="#">Партнерская программа</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="divider e2e"></div>
+									<div class="foot-menu-block">
+										<h4><a data-toggle="collapse" href="#footMenu_info" aria-expanded="false" aria-controls="footMenu_info">Kontramarka.de</a></h4>
+										<div id="footMenu_info" class="collapse" role="tabpanel" data-parent="#footMenuAccordion">
+											<ul class="links-list">
+												<li><a href="#">О нас</a></li>
+												<li><a href="#">Реклама на сайте</a></li>
+												<li><a href="#">Политика приватности</a></li>
+												<li><a href="#">Impressum</a></li>
+												<li><a href="#">Карьера</a></li>
+												<li><a href="#">FAQ</a></li>
+												<li><a href="#">AGB</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="divider e2e"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="d-none d-lg-block col-lg-5 col-xl-4">
                         <div id="facebookWidget"></div>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="footSubInfo" class="bg-secondary">
-            <div class="container">
-                <div class="row">
-                    <div class="copyright col-sm-6 col-lg-4">
-                        <div class="divider e2e d-block d-sm-none"></div>
-                        <div class="logo"></div>
-                        <ul>
-                            <li>&copy; Copyright 2017. <a href="http://kontramarka.de">www.kontramarka.de</a></li>
-                            <li>Наши партнеры: <a href="http://bileter.de" target="_blank">www.bileter.de</a></li>
-                        </ul>
-                    </div>
-                    <div class="payment-methods col-sm-6 col-lg">
-                        <div class="divider e2e d-block d-sm-none"></div>
-                        <h4>Способы оплаты</h4>
-                        <ul>
-                            <li class="method"><div class="mastercard" title="MasterCard"></div></li>
-                            <li class="method"><div class="visa" title="Visa"></div></li>
-                            <li class="method"><div class="paypal" title="PayPal"></div></li>
-                            <li class="method"><div class="vorkasse" title="Vorkasse"></div></li>
-                        </ul>
-                    </div>
-                    <div class="newsletter col-lg-3">
-                        <h4>Новостная рассылка</h4>
-                        <form>
-                            <div class="input-group">
-                                <input type="text" class="form-control border-0" placeholder="Введите email">
-                                <span class="input-group-btn">
-                                    <button class="btn bg-primary btn-square" type="submit">
-                                        <i class="fa fa-arrow-right"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <small class="form-text text-muted">Никакого спама. Отписаться можно в любое время</small>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </footer>
+		<section id="footInfo" class="bg-white">
+			<div class="container">
+				<div class="copyright">
+					<div class="row">
+						<div class="col-lg-7 col-xl-8">
+							<div class="row text">
+								<div class="col-12 col-lg-5 col-xl-4 copyright">&copy; Kontramarka.de, 2017</div>
+								<div class="col-12 col-lg-7 col-xl-8">
+									<a href="#" class="text-center">Политика конфиденциальности</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-5 col-xl-4">
+							<ul class="payment-methods">
+								<li class="method"><div class="visa" title="Visa"></div></li>
+	                            <li class="method"><div class="mastercard" title="MasterCard"></div></li>
+	                            <li class="method"><div class="paypal" title="PayPal"></div></li>
+	                            <li class="method"><div class="vorkasse" title="Vorkasse"></div></li>
+	                        </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</footer>
+
+	<div class="container scroll-to-top">
+		<button id="scrollToTop" class="btn btn-square"><i class="icon-chevron-up"></i></button>
+	</div>
 
 <!-- Modals -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog modal-sm" role="document">
+	<div class="modal-dialog modal-xs" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<!-- <h5 class="modal-title">Добро пожаловать!</h5> -->
-				<!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button> -->
-				<div class="nav nav-tabs nav-fill indicated">
-					<div class="nav-item"><a data-toggle="tab" href="#signin" class="nav-link active">Вход</a></div>
-					<div class="nav-item"><a href="/register.html" class="nav-link">Регистрация</a></div>
+				<div class="nav nav-tabs indicated">
+					<div class="nav-item"><a data-toggle="tab" href="#loginModal_signIn" class="nav-link active">Вход</a></div>
+					<div class="nav-item"><a data-toggle="tab" href="#loginModal_signUp" class="nav-link">Регистрация</a></div>
 				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="icon-times" aria-hidden="true"></i>
+				</button>
 			</div>
 			<div class="modal-body">
-				<form method="post" action="" autocomplete="off">
-					<div class="logform">
-						<div class="form-group">
-							<!-- <label for="login_name">Электронная почта</label> -->
-							<input type="email" name="login_name" class="form-control" id="login_name" placeholder="Введите e-mail">
-						</div>
-						<div class="form-group">
-							<!-- <label for="login_password">Пароль</label> -->
-							<input type="password" name="login_password" class="form-control" id="login_password" placeholder="Введите пароль">
-							<small class="form-text text-muted"><a href="/lostpassword/">Забыли?</a></small>
-						</div>
-						<div class="form-check">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-								Не запоминать меня на этом компьютере
-							</label>
-						</div>
-						<input name="login" type="hidden" id="login" value="submit">
-						<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
-							<i class="fa fa-sign-in"></i><span>Войти</span>
-						</button>
-						<button class="btn pull-right" title="Войти" data-dismiss="modal">Отмена</button>
+				<div class="tab-content">
+					<div class="tab-pane active" id="loginModal_signIn" role="tabpanel">
+						<form method="post" action="" autocomplete="off">
+							<div class="logform">
+								<div class="form-group">
+									<div class="form-control">
+										<input type="email" name="login_name" id="login_name" data-placeholder="example@mail.com">
+										<label for="login_name" class="placeholder">E-mail</label>
+									</div>
+									<div class="form-control">
+										<input type="password" name="login_password" id="login_password">
+										<label for="login_password" class="placeholder">Пароль</label>
+										<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
+									</div>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
+										Не запоминать меня на этом компьютере
+									</label>
+								</div>
+								<input name="login" type="hidden" id="login" value="submit">
+								<button class="btn btn-primary mr-auto" onclick="submit();" type="submit" title="Войти">
+									<i class="icon-sign-in"></i><span>Войти</span>
+								</button>
+								<button class="btn pull-right" title="Отмена" data-dismiss="modal">Отмена</button>
+							</div>
+						</form>
 					</div>
-				</form>
+					<div class="tab-pane" id="loginModal_signUp" role="tabpanel">
+						<form method="post" action="" autocomplete="off">
+							<div class="registerform">
+								<div class="form-group">
+									<!-- NOTE: you may apply classes '.has-XXX' to .form-control, where XXX is one from [success, warning, danger] -->
+									<div class="form-control">
+										<input type="email" name="register_name" id="register_name" data-placeholder="example@mail.com">
+										<label for="register_name" class="placeholder">E-mail</label>
+									</div>
+									<div class="form-control">
+										<input type="password" name="register_password" id="register_password">
+										<label for="register_password" class="placeholder">Пароль</label>
+									</div>
+									<div class="form-control">
+										<input type="password" name="register_password_check" id="register_password_check">
+										<label for="register_password_check" class="placeholder">Пароль ещё раз</label>
+									</div>
+								</div>
+								<input name="login" type="hidden" id="register" value="submit">
+								<button class="btn btn-primary btn-block" onclick="submit();" type="submit" title="Войти">Зарегистрироваться</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
@@ -948,7 +1253,7 @@
 			<div class="modal-body">
 				<ul class="sub-menu">
 			        <li class="avatar cover-box">
-						<img src="/images/public/events/mikhailov.png" alt="Логин">
+						<img class="fade" src="/images/public/events/mikhailov.png" alt="Логин">
 					</li>
 			        <li class="username">Viktor Chernov</li>
 			        <li><a href="/admin/">Админпанель</a></li>

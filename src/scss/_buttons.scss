@@ -5,10 +5,11 @@
 .btn {
     padding: $btn-padding-y $btn-padding-x;
     line-height: $btn-line-height;
-    font-size: $btn-font-size;
-    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
 	text-decoration: none;
-    cursor: pointer;
+    outline: none;
 
     &.processing {
         i {
@@ -18,12 +19,6 @@
 
         &--steps i {
             animation: $spin-time * 2 steps(4) 0s infinite normal spin-steps;
-        }
-    }
-    &-mobile {
-        span {
-            display: none;
-            margin-left: $btn-padding-x - 4;
         }
     }
 
@@ -79,4 +74,8 @@
     &:focus {
         outline: none;
     }
+
+    // @include media-breakpoint-up(sm) {
+	// 	@include button-size(.625rem, 1rem, 18px, 1.6, 0);
+    // }
 }

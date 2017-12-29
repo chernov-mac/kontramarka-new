@@ -1,0 +1,54 @@
+.gallery {
+	display: flex;
+
+	img {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__control {
+		flex: 0 0 auto;
+		width: 64px;
+		font-size: 20px;
+		cursor: pointer;
+
+		&:before {
+		    font-family: 'kontramarka-icons';
+		}
+
+		&.prev {
+			border-right: 1px solid light($black);
+
+			&:before {
+				content: '\f053';
+			}
+		}
+		&.next {
+			border-left: 1px solid light($black);
+
+			&:before {
+				content: '\f054';
+			}
+		}
+	}
+
+	&__item {
+		padding: 30px 15px;
+
+		img {
+			height: 200px;
+		}
+	}
+
+	.slick {
+		&-list {
+			padding: 0 15px;
+			flex: 1 1 auto;
+			display: block;
+		}
+		&-disabled {
+			color: $gray-300;
+			cursor: default;
+		}
+	}
+}

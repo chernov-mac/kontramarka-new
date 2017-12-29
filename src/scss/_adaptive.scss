@@ -61,10 +61,6 @@
 }
 
 @include media-breakpoint-up(sm) {
-	.btn {
-		@include button-size(.625rem, 1rem, 18px, 1.6, 0);
-	}
-
 	#concert_select {
 		.title,
 		.inner {
@@ -87,16 +83,12 @@
 			padding-bottom: 8px;
 		}
 	}
-
 	#footMenu {
 		padding: 32px 0 24px;
 		border-bottom: 1px solid $body-bg;
 	}
 };
 @include media-breakpoint-up(md) {
-	.page-title {
-	    font-size: 36px;
-	}
 	#topMenu {
 		.navbar {
 			&-brand {
@@ -156,31 +148,8 @@
             }
 		}
 	}
-	#tour_info {
-		.tour {
-			&-pic {
-				float: left;
-				margin: 0 $container-padding-x 0 0 !important;
-			}
-		}
-	}
 }
 @include media-breakpoint-up(lg) {
-	.page-block {
-	    $margin: 32px;
-
-	    margin: $margin auto;
-
-	    &-title {
-	        margin-bottom: $margin;
-			text-align: center;
-	        font-size: 32px;
-	    }
-	    &-action {
-	        margin: $margin * 2 auto;
-	    }
-	}
-
 	#topMenu {
 		.navbar {
 			&-brand {
@@ -382,11 +351,6 @@
 		.city {
 			height: 156px;
 		}
-	}
-	#tour_info {
-		.page-block-title {
-	        text-align: left;
-	    }
 	}
 	#concert_select {
 		.title,
