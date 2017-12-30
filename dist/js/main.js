@@ -706,9 +706,17 @@ function setStoryState(selector, item) {
 
 	basisHeight += parseInt($(item).find(selector + '__body').css('padding-top')) + parseInt($(item).find(selector + '__body').css('padding-bottom'));
 
-	$(item).find(selector + '__body')
-		.clearQueue().stop()
-		.animate({'height': basisHeight + 'px'}, 'medium');
+	// $(item).find(selector + '__body')
+	// 	.clearQueue().stop()
+	// 	.animate({'height': basisHeight + 'px'}, 'medium');
+	if (basis == 'wrapper') {
+		$(item).find(selector + '__body')
+			.css({
+				'max-height': basisHeight + 'px'
+			});
+	} else {
+		$(item).find(selector + '__body').removeAttr('style');
+	}
 }
 function adjustStories(selector) {
 	$.each($(selector), function(i, eventStory){
@@ -722,10 +730,10 @@ function adjustStories(selector) {
 
 			setStoryState(selector, eventStory);
 
-			if ($(eventStory).hasClass('collapsed') && $(selector + '__title').length) {
-				var scrollTarget = $(selector + '__title').offset().top - $('.main-menu').outerHeight();
-				$("html, body").animate({ scrollTop: scrollTarget - 32 });
-			}
+			// if ($(eventStory).hasClass('collapsed') && $(selector + '__title').length) {
+			// 	var scrollTarget = $(selector + '__title').offset().top - $('.main-menu').outerHeight();
+			// 	$("html, body").animate({ scrollTop: scrollTarget - 32 });
+			// }
 		});
 
 	});
