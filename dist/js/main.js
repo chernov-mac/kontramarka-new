@@ -1,5 +1,7 @@
 var menuDragDistance = 0;
 
+// some changes
+
 $(function() {
 
 	// Initialization
