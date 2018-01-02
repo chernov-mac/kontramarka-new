@@ -466,23 +466,25 @@ $(function() {
 	});
 
 	// Gallery
-	$('.gallery').slick({
-		infinite: false,
-		speed: topSliderOptions.speed,
-		dots: false,
-		swipe: false,
-		focusOnSelect: true,
-		slidesToScroll: 1,
-		cssEase: 'ease-in-out',
-		lazyLoading: 'progressive',
-		prevArrow: '<button class="gallery__control prev"></button>',
-		nextArrow: '<button class="gallery__control next"></button>',
-		slide: '.gallery__item',
-		variableWidth: true
-	});
-	$('.gallery').on('afterChange', function(event, slick, currentSlide) {
-		setNextButtonState(slick, currentSlide);
-	});
+	if ($('.gallery').length) {
+		$('.gallery').slick({
+			infinite: false,
+			speed: topSliderOptions.speed,
+			dots: false,
+			swipe: false,
+			focusOnSelect: true,
+			slidesToScroll: 1,
+			cssEase: 'ease-in-out',
+			lazyLoading: 'progressive',
+			prevArrow: '<button class="gallery__control prev"></button>',
+			nextArrow: '<button class="gallery__control next"></button>',
+			slide: '.gallery__item',
+			variableWidth: true
+		});
+		$('.gallery').on('afterChange', function(event, slick, currentSlide) {
+			setNextButtonState(slick, currentSlide);
+		});
+	}
 
 });
 
