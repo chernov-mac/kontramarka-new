@@ -11,6 +11,12 @@
 	text-decoration: none;
     outline: none;
 
+    &-text {
+        font-size: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
     &.processing {
         i {
             display: inline-block;

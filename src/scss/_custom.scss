@@ -33,15 +33,16 @@ $red:     #d0011b;
 $green:   #28a745 !default;
 $blue:    #00398c;
 $yellow:  #ffc800;
+$orange:  #ff6b00;
 $cyan:    #17a2b8 !default;
 $purple:  #bd25b2;
 
 $theme-colors: (
   primary: $yellow,
   secondary: $blue,
-  success: $green,
-  info: $cyan,
-  warning: $yellow,
+  success: $yellow,
+  info: $blue,
+  warning: $orange,
   danger: $red,
   light: $gray-100,
   dark: $black,

@@ -8,7 +8,7 @@ $fa-font-path: '../fonts/font-awesome';
 
 // Kontramarka Icons
 $icons-font-path: '../fonts/kontramarka-icons';
-@import "icons/kontramarka-icons.scss";
+@import "icons/_kontramarka-icons.scss";
 // url('../font/kontramarka-icons.
 // url('#{$icons-font-path}/kontramarka-icons.
 [class^="icon-"]:before,

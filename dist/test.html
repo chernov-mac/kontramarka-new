@@ -5,11 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Kontramarka</title>
 	<link rel="stylesheet" href="/css/kontramarka-theme.min.css">
+	<link rel="stylesheet" href="/plugins/css/toastr.min.css">
 </head>
 <body>
 
 	<header>
-
+		<div class="page-block">
+			<div class="container">
+				<a href="javascript:ShowAlert()" class="btn btn-outline btn-primary">Показать Alert</a>
+				<a href="javascript:ShowConfirm()" class="btn btn-outline btn-primary">Показать Confirm</a>
+				<a href="javascript:ShowPrompt()" class="btn btn-outline btn-primary">Показать Prompt</a>
+			</div>
+		</div>
 	</header>
 
 	<main id="test">
@@ -681,21 +688,57 @@
 		</section>
 	</main>
 
-	<footer>
+	<footer></footer>
 
-	</footer>
+<script>
+function ShowAlert(){
+    CMSalert('Это body модалки', 'Это заголовок модалки', {
+		id: 'MyModal',
+		size: 'xs',
+		btnOk: 'Согласен',
+		mode: 'info'
+	});
+}
+function ShowConfirm() {
+	CMSconfirm('... and my dynamical body!', 'This is my dynamical head', whenOkPressed, {
+		id: 'idMyModal',
+		btnCancel: 'Get out of here!',
+		btnOk: 'Let\'s do this!',
+		size: 'sm',
+		mode: 'danger',
+		removeOnDismiss: false
+	});
+}
+function ShowPrompt(){
+    CMSprompt('Плейсхлодер инпута', '', 'Это заголовок модалки prompt', whenOkPressed, {
+		id: 'idMyPrompt',
+		btnCancel: 'Cancel',
+		btnOk: 'Try',
+		size: 'sm',
+		mode: 'accent',
+		removeOnDismiss: false
+	});
+}
+
+function whenOkPressed() {
+	console.log('OK pressed...');
+}
+</script>
 
 <!-- jQuery -->
 <script src="/plugins/js/jquery.min.js"></script>
+<script src="/plugins/js/jqueryui.js"></script>
 <!-- Bootstrap -->
 <script src="/plugins/js/popper.min.js"></script>
 <script src="/plugins/js/bootstrap.min.js"></script>
-<!-- <script src="/es6/my-dropdown.js"></script> -->
+<!-- Toastr -->
+<script src="/plugins/js/toastr.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
 <!-- Main -->
+<script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

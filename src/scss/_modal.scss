@@ -1,19 +1,56 @@
 .modal {
-    &-header {
-        border-bottom: 2px solid $body-bg;
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 24px;
+        cursor: pointer;
+        color: $black;
+        opacity: 1;
+    }
 
-        .close {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 20px;
-            font-size: 1rem;
-            line-height: 24px;
-            cursor: pointer;
-            color: $black;
-            opacity: 1;
+    &-header {
+        padding: 20px $modal-inner-padding;
+        line-height: 24px;
+        font-size: 18px;
+        border-bottom: 1px solid light($black, .1);
+        justify-content: flex-start;
+
+        @each $color in map-keys($theme-colors) {
+            .modal-#{$color} &:before {
+                $content: '';
+                @if ($color == 'success') {
+                    $content: '\f00c';
+                    font-family: 'kontramarka-icons';
+                } @elseif ($color == 'primary') {
+                    $content: '\f00c';
+                    font-family: 'kontramarka-icons';
+                } @elseif ($color == 'danger') {
+                    $content: '\f06a';
+                    font-family: 'kontramarka-icons';
+                } @elseif ($color == 'warning') {
+                    $content: '\f06a';
+                    font-family: 'kontramarka-icons';
+                } @elseif ($color == 'info') {
+                    $content: '\f05a';
+                    font-family: 'FontAwesome';
+                }
+
+                @if ($content != '') {
+                    content: $content;
+                    display: inline-block;
+                    margin-right: .5em;
+                    color: theme-color($color);
+                }
+            }
         }
     }
+    &-footer {
+        padding: 0 $modal-inner-padding $modal-inner-padding;
+    }
+
     @include media-breakpoint-up(sm) {
         &-xs {
             max-width: 300px;
