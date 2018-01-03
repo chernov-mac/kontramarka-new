@@ -391,8 +391,8 @@ function CMSconfirm(bodyContent, headContent, okCallback, options) {
     $(modal).modal();
 
 	if (options.btnOk != '' && okCallback) {
-        $(modal).on('hidden.bs.modal', okCallback.bind(modal));
 		$(modal).find('.btn-ok').on('click', function(){
+            $(modal).on('hidden.bs.modal', okCallback.bind(modal));
             $(modal).modal('hide');
         });
 	}
@@ -463,8 +463,8 @@ function CMSprompt(promptText, value, headContent, okCallback, options) {
     $(modal).modal();
 
 	if (options.btnOk != '' && okCallback) {
-        $(modal).on('hidden.bs.modal', okCallback.bind(modal));
 		$(modal).find('.btn-ok').on('click', function(){
+            $(modal).on('hidden.bs.modal', okCallback.bind(modal, $(modal).find('input').val()));
             $(modal).modal('hide');
         });
 	}
