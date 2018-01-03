@@ -391,7 +391,10 @@ function CMSconfirm(bodyContent, headContent, okCallback, options) {
     $(modal).modal();
 
 	if (options.btnOk != '' && okCallback) {
-		$(modal).find('.btn-ok').on('click', okCallback.bind(modal));
+        $(modal).on('hidden.bs.modal', okCallback.bind(modal));
+		$(modal).find('.btn-ok').on('click', function(){
+            $(modal).modal('hide');
+        });
 	}
 
 	if (options.removeOnDismiss) {
@@ -460,7 +463,10 @@ function CMSprompt(promptText, value, headContent, okCallback, options) {
     $(modal).modal();
 
 	if (options.btnOk != '' && okCallback) {
-		$(modal).find('.btn-ok').on('click', okCallback.bind(modal));
+        $(modal).on('hidden.bs.modal', okCallback.bind(modal));
+		$(modal).find('.btn-ok').on('click', function(){
+            $(modal).modal('hide');
+        });
 	}
 
 	if (options.removeOnDismiss) {
