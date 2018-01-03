@@ -208,15 +208,17 @@ function scrollTopState() {
 	}
 
 	if (scroll + $(window).height() - 48 >= $('footer').offset().top) {
-		$('.scroll-to-top').css({
-			position: 'absolute',
-			bottom: $('footer').outerHeight() - ($('.scroll-to-top').offset().top - $('#scrollToTop').offset().top) + $('#scrollToTop').outerHeight() / 2 + 'px'
-		});
+		$('.scroll-to-top').addClass('at-footer');
+		// $('.scroll-to-top').css({
+		// 	position: 'absolute',
+		// 	bottom: $('footer').outerHeight() - ($('.scroll-to-top').offset().top - $('#scrollToTop').offset().top) + $('#scrollToTop').outerHeight() / 2 + 'px'
+		// });
 	} else {
-		$('.scroll-to-top').css({
-			position: 'fixed',
-			bottom: '0px'
-		});
+		$('.scroll-to-top').removeClass('at-footer');
+		// $('.scroll-to-top').css({
+		// 	position: 'fixed',
+		// 	bottom: '0px'
+		// });
 	}
 }
 function setTourTitlePos() {

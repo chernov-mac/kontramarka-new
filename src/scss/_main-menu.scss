@@ -1,5 +1,6 @@
 .main-menu {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -131,16 +132,17 @@
 
 .loader {
     position: absolute;
-    // bottom: -8px;
+    z-index: 1;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    // height: 8px;
     background: transparent;
-    // background: aqua;
-    z-index: 10;
     overflow: hidden;
+
+    .pace-running & {
+        z-index: 1000;
+    }
 
     .pace {
         position: absolute;
@@ -149,13 +151,10 @@
         width: 100%;
 
         .pace-progress {
-            // position: relative;
             position: absolute;
             top: auto;
             bottom: 0;
-            // width: 100%;
             background: $pace-color;
-            // transform: translate3d(93.8758%, 0px, 0px);
         }
         .pace-progress-inner {
             box-shadow: 0 0 10px $pace-color, 0 0 5px $pace-color;
@@ -169,7 +168,6 @@
             border-left-color: $pace-color;
 
             @include media-breakpoint-down(xs) {
-                // display: none;
                 right: auto;
                 left: 54px;
             };

@@ -27,9 +27,6 @@ $(function() {
 	        return rtn;
 	    };
 	});
-	window.paceOptions = {
-		target: '#mainMenu .loader'
-	};
 
 	setTourTitlePos()
 

@@ -824,6 +824,11 @@ a, button, .btn {
         display: block;
     }
 }
+header,
+footer,
+main {
+    position: relative;
+}
 .scroll-to-top {
     position: fixed;
     z-index: 1000;
@@ -845,9 +850,14 @@ a, button, .btn {
         @include accent;
     }
 
-    .show-to-top > & {
+    .show-to-top & {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+    &.at-footer {
+        position: absolute;
+        bottom: auto;
+        top: $container-padding-x + $btn-padding-y + $btn-line-height / 2;
     }
 }
 

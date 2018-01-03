@@ -1220,25 +1220,6 @@ function ShowPrompt(){
 function whenOkPressed() {
 	CMSalert('Done', 'Information');
 }
-
-$(function(){
-	$('.refresh').on('click', function(){
-		$.ajax({
-			url: "test.php?action=getdata_for_preloader",
-			action: 'getdata_for_preloader'
-		}).done(function(response) {
-			CMSalert('Server respond: ' + response.responseText, 'Response!', {
-				size: 'xs',
-				mode: 'success'
-			});
-		}).fail(function() {
-			CMSalert('Server does not respond.', 'AJAX-Request failed', {
-				size: 'xs',
-				mode: 'warning'
-			});
-		});
-	});
-});
 </script>
 
 <!-- Options -->
@@ -1264,7 +1245,24 @@ $(function(){
 <script src="/js/main.js"></script>
 
 <script>
-
+$(function(){
+	$('.refresh').on('click', function(){
+		$.ajax({
+			url: "test.php?action=getdata_for_preloader",
+			action: 'getdata_for_preloader'
+		}).done(function(response) {
+			CMSalert('Server respond: ' + response.responseText, 'Response!', {
+				size: 'xs',
+				mode: 'success'
+			});
+		}).fail(function() {
+			CMSalert('Server does not respond.', 'AJAX-Request failed', {
+				size: 'xs',
+				mode: 'warning'
+			});
+		});
+	});
+});
 </script>
 </body>
 </html>
