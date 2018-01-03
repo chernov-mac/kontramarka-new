@@ -6,6 +6,31 @@ $(function() {
 
 	// Initialization
 
+	// Pace
+	$.each(['get', 'post'], function(i, method) {
+	    $[method] = function(url, data, callback, type) {
+	        var rtn;
+	        if ($.isFunction(data)) {
+	            type = type || callback;
+	            callback = data;
+	            data = undefined;
+	        }
+	        Pace.track(function (){
+	            rtn = $.ajax($.extend({
+	                url: url,
+	                type: method,
+	                dataType: type,
+	                data: data,
+	                success: callback
+	            }, $.isPlainObject(url) && url));
+	        });
+	        return rtn;
+	    };
+	});
+	window.paceOptions = {
+		target: '#mainMenu .loader'
+	};
+
 	setTourTitlePos()
 
     // Preloading images

@@ -122,3 +122,6 @@ $city-bg-scaling-easing: cubic-bezier(0.4, 0, 0.2, 1); // fast out (start), slow
 // Shadows
 $box-shadow: 0 2px 10px 0 rgba($black, .12);
 $card-shadow: $box-shadow;
+
+// Pace
+$pace-color: theme-color(primary);
