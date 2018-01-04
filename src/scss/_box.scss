@@ -10,13 +10,13 @@
     &-body,
     &-footer {
         border-style: solid;
-        border-color: $body-bg;
+        border-color: light($black);
     }
     &-header,
     &-footer {
-        padding: 16px 24px;
+        padding: 16px 20px;
 
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(lg) {
             padding: {
                 right: 30px;
                 left: 30px;
@@ -35,7 +35,7 @@
     }
 
     &-header {
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
         font-size: 18px;
         transition: all 0.3s ease;
 
@@ -66,7 +66,7 @@
         }
     }
     &-footer {
-        border-top-width: 2px;
+        border-top-width: 1px;
     }
 
     h1, h2, h3, h4, h5, h6,

@@ -862,11 +862,10 @@ main {
 }
 
 @import "gallery";
+@import "event-info";
 @import "tour";
 @import "schedule";
 @import "comments";
-// TODO: remove file with old styles
-@import "old";
 
 // Modals
 @import "modal";

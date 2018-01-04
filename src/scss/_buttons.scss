@@ -12,7 +12,7 @@
     outline: none;
 
     &-text {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         text-transform: uppercase;
     }
@@ -89,4 +89,17 @@
     // @include media-breakpoint-up(sm) {
 	// 	@include button-size(.625rem, 1rem, 18px, 1.6, 0);
     // }
+}
+.go-back {
+    display: inline-block;
+    @include clearfix;
+
+    &:before {
+        content: '\f053';
+        font-family: 'kontramarka-icons';
+        float: left;
+        font-size: .7em;
+        margin-top: .44em;
+        margin-right: .7em;
+    }
 }

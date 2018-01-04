@@ -29,13 +29,18 @@ $gray-800: #333;
 $gray-900: #212529 !default;
 
 $body-bg: #f7f7f7;
-$red:     #d0011b;
-$green:   #28a745 !default;
+$red:     #c40e00;
+$green:   #46c512;
 $blue:    #00398c;
 $yellow:  #ffc800;
-$orange:  #ff6b00;
-$cyan:    #17a2b8 !default;
+$orange:  #f7ae00;
+$cyan:    #12b6c5;
 $purple:  #bd25b2;
+
+$light-green: #67e532;
+$light-blue: #267aed;
+$pink: #e815af;
+$cherry: #860e0e;
 
 $theme-colors: (
   primary: $yellow,

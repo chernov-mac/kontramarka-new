@@ -288,6 +288,14 @@ function setNextButtonState(gallery, currentSlide) {
 	}
 }
 
+function positionColorPrices() {
+	if ($(window).outerWidth() < 992) {
+		$('.event-scheme').prepend($('.color-prices').detach());
+	} else {
+		$('.ticketbox').before($('.color-prices').detach());
+	}
+}
+
 // Modals
 function CMSalert(bodyContent, headContent, options) {
     headContent = headContent || '';

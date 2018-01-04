@@ -28,6 +28,10 @@ $(function() {
 	    };
 	});
 
+	if ($('.event-scheme').length) {
+		positionColorPrices();
+	}
+
 	setTourTitlePos()
 
     // Preloading images
@@ -425,6 +429,10 @@ $(function() {
 		setMenuHeight();
 		setTourTitlePos();
 		adjustStories('.tour');
+
+		if ($('.event-scheme').length) {
+			positionColorPrices();
+		}
 
 		$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {
 			setTimeout(function(){
