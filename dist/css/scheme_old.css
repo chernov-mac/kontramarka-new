@@ -114,18 +114,18 @@ td#maindata_wrapper {
 
 
 .place-double.left.sold_label, .place-double.right.sold_label { background-position: 0 -68px!important;}
-.place-double.left.reserve_label, place-double.right.reserve_label { background-position: 0 -102px!important;}
+.place-double.left.reserve_label, .place-double.right.reserve_label { background-position: 0 -102px!important;}
 .place-double.left.blue_label, .place-double.right.blue_label { background-position: 0 -136px!important;}
 .place-double.left.brown_label, .place-double.right.brown_label { background-position: 0 -170px!important;}
 .place-double.left.crimson_label, .place-double.right.crimson_label { background-position: 0 -204px!important;}
-.place-double.left.cyan_label, place-double.right.cyan_label {  background-position: 0 -238px!important;}
+.place-double.left.cyan_label, .place-double.right.cyan_label {  background-position: 0 -238px!important;}
 .place-double.left.darkblue_label, .place-double.right.darkblue_label { background-position: 0 -272px!important;}
 .place-double.left.green_label, .place-double.right.green_label { background-position: 0 -306px!important;}
 .place-double.left.magenta_label, .place-double.right.magenta_label { background-position: 0 -340px!important;}
 .place-double.left.orange_label, .place-double.right.orange_label { background-position: 0 -374px!important;}
 .place-double.left.purple_label, .place-double.right.purple_label { background-position: 0 -408px!important;}
 .place-double.left.yellow_label, .place-double.right.yellow_label {background-position: 0 -442px!important; }
-.place-double.left.lightgreen_label, place-double.right.lightgreen_label { background-position: 0 -476px!important;}
+.place-double.left.lightgreen_label, .place-double.right.lightgreen_label { background-position: 0 -476px!important;}
 .place-double.left.cherry_label, .place-double.right.cherry_label { background-position: 0 -510px!important;}
 
 .place-double.blue_label:hover,
@@ -139,10 +139,16 @@ td#maindata_wrapper {
 .place-double.purple_label:hover,
 .place-double.yellow_label:hover,
 .place-double.lightgreen_label:hover,
-.place-double.cherry_label:hover
-{background-position: 0 -544px!important;}
+.place-double.cherry_label:hover {
+    background-position: 0 -544px!important;
+}
 
-.place-double.left.marker, .place-double.right.marker, .place-double.left.marker:hover, .place-double.right.marker:hover{background-position: 0 -34px!important;}
+.place-double.left.marker,
+.place-double.right.marker,
+.place-double.left.marker:hover,
+.place-double.right.marker:hover {
+    background-position: 0 -34px!important;
+}
 
 .place_new {
     position: absolute;

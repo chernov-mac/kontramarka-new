@@ -3,13 +3,17 @@
 // /////////////////////////////// //
 
 // Colors
+$black: #000;
 $default: #f7f7f7;
 $light-gray: #e0e0e0;
 $secondary: #00398c;
 
-// Patterns
-$patterns: (
+// Labels
+$label-colors: (
     empty: #f7f7f7,
+    marker: $black,
+    sold: #ef0000,
+    reserve: #ef0000,
     blue: #21aad2,
     brown: #652e0c,
     crimson: #8e1222,
@@ -21,8 +25,33 @@ $patterns: (
     purple: #e815af,
     yellow: #f2b603,
     lightgreen: #67e532,
-    cherry: #a21447
+    cherry: #a21447,
+    highlight: #ef0000,
+    salmon: #fa8072,
+    khaki: #8b864e
 );
+$label-positions: (
+    empty:        0,  // gray round with gray stroke
+    marker:       1,  // no bg, white checkmark
+    sold:         2,  // white round with red stroke
+    reserve:      3,  // red 'R', white round with red stroke
+    blue:         4,  // #21aad2
+    brown:        5,  // #652e0c
+    crimson:      6,  // #8e1222
+    cyan:         7,  // #12b6c5
+    darkblue:     8,  // #267aed
+    green:        9,  // #46c512
+    magenta:      10, // #291065
+    orange:       11, // #ea7208
+    purple:       12, // #e815af
+    yellow:       13, // #f2b603
+    lightgreen:   14, // #67e532
+    cherry:       15, // #a21447
+    highlight:    16, // #ef0000
+    salmon:       17, // #fa8072
+    khaki:        18  // #8b864e
+);
+$labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, purple, cherry, highlight, salmon, khaki);
 
 
 // /////////////////////////////// //
@@ -54,6 +83,7 @@ $patterns: (
 
     &:not(.scheme-ready) {
         td:first-child {
+            width: 100%;
             overflow: hidden;
         }
     }
@@ -62,6 +92,7 @@ $patterns: (
 // tr that contains Places container
 #scheme_row {
     td:first-child {
+        width: 100%;
         overflow: hidden;
     }
 }
@@ -115,31 +146,23 @@ $patterns: (
 // Ticket-price groups
 .tickets_group {
     display: flex;
+    height: 24px;
     line-height: 24px;
+    padding-left: 30px;
 
-    &:before {
-        content: '';
-        display: block;
-        float: left;
-        width: 24px;
-        height: 24px;
-        margin-right: 8px;
-        background: $default;
-        vertical-align: middle;
-        border-radius: 50%;
-    }
+    $labels-num: length($label-positions);
+    background: url('http://kontramarka/images/svg/labels.svg') 0 0 / 24px #{$labels-num * 24px} no-repeat;
+    @each $name, $position in $label-positions {
+        &.#{$name}_label {
+            background: url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
 
-    &:after {
-        content: '';
-        display: table;
-        clear: both;
-    }
-
-    &.empty_label {
-        &:before {
-            border: 2px solid rgba(0, 0, 0, .06);
+            &.marker {
+                background:
+                    url('http://kontramarka/images/svg/labels.svg') 0 #{map-get($label-positions, marker) * -24px} / 24px #{$labels-num * 24px} no-repeat,
+                    url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
+            }
         }
-    }
+    };
 }
 #groupbox {
     width: 100%;
@@ -289,6 +312,116 @@ $patterns: (
     }
 }
 
+// Places
+.place {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    font-family: "Trebuchet MS", "Helvetica CY", sans-serif;
+    font-size: 8px;
+    text-align: center;
+    line-height: 16px;
+    overflow: hidden;
+    transition: box-shadow .1s ease;
+
+    &.marker,
+    &.empty_label,
+    &.marker_label,
+    &.sold_label,
+    &.reserve_label {
+        font-size: 0em;
+        line-height: 0;
+        text-indent: 0;
+    }
+    &:not(.empty_label) {
+        cursor: pointer;
+    }
+
+    $labels-num: length($label-positions);
+    background: url('http://kontramarka/images/svg/labels.svg') 0 0 / 16px #{$labels-num * 16px} no-repeat;
+    // background-size: 16px;
+    @each $name, $position in $label-positions {
+        &.#{$name}_label {
+            // background-position-y: -($position * 16px);
+            background: url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
+
+            &.marker {
+                box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
+                background:
+                    url('http://kontramarka/images/svg/labels.svg') 0 #{map-get($label-positions, marker) * -16px} / 16px #{$labels-num * 16px} no-repeat,
+                    url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
+            }
+
+            &:hover {
+                box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
+            }
+        }
+    };
+
+    color: #111;
+    &.bileter {
+        color: #221b40;
+    }
+    @each $name in $labels-white-text {
+        &.#{$name}_label {
+            color: #fff;
+        }
+    };
+
+
+    &-double {
+        @extend .place;
+        background: url('http://kontramarka/images/svg/labels-double.svg') no-repeat;
+        cursor: pointer;
+
+        &.left {
+            width: 28px !important;
+            height: 29px !important;
+            background: url('http://kontramarka/images/svg/labels-double-left.svg') no-repeat !important;
+        }
+        &.right {
+            width: 28px !important;
+            height: 29px !important;
+            background: url('http://kontramarka/images/svg/labels-double-right.svg') no-repeat !important;
+        }
+
+        &.left.sold_label, &.right.sold_label { background-position: 0 -68px!important;}
+        &.left.reserve_label, &.right.reserve_label { background-position: 0 -102px!important;}
+        &.left.blue_label, &.right.blue_label { background-position: 0 -136px!important;}
+        &.left.brown_label, &.right.brown_label { background-position: 0 -170px!important;}
+        &.left.crimson_label, &.right.crimson_label { background-position: 0 -204px!important;}
+        &.left.cyan_label, &.right.cyan_label {  background-position: 0 -238px!important;}
+        &.left.darkblue_label, &.right.darkblue_label { background-position: 0 -272px!important;}
+        &.left.green_label, &.right.green_label { background-position: 0 -306px!important;}
+        &.left.magenta_label, &.right.magenta_label { background-position: 0 -340px!important;}
+        &.left.orange_label, &.right.orange_label { background-position: 0 -374px!important;}
+        &.left.purple_label, &.right.purple_label { background-position: 0 -408px!important;}
+        &.left.yellow_label, &.right.yellow_label {background-position: 0 -442px!important; }
+        &.left.lightgreen_label, &.right.lightgreen_label { background-position: 0 -476px!important;}
+        &.left.cherry_label, &.right.cherry_label { background-position: 0 -510px!important;}
+
+        &.blue_label:hover,
+        &.brown_label:hover,
+        &.crimson_label:hover,
+        &.cyan_label:hover,
+        &.darkblue_label:hover,
+        &.green_label:hover,
+        &.magenta_label:hover,
+        &.orange_label:hover,
+        &.purple_label:hover,
+        &.yellow_label:hover,
+        &.lightgreen_label:hover,
+        &.cherry_label:hover {
+            background-position: 0 -544px!important;
+        }
+
+        &.bileter {
+            height: 34px!important;
+        }
+    }
+}
+
 // Pgroups
 .pgroups {
     position: absolute;
@@ -374,8 +507,9 @@ p.sthpltz {
     line-height: 25px;
 }
 
-@each $name, $color in $patterns {
-    .#{$name}_label:before {
-        background: $color;
-    }
-}
+
+// @each $name, $color in $patterns {
+//     .#{$name}_label:before {
+//         background: $color;
+//     }
+// }
