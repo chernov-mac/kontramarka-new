@@ -556,60 +556,61 @@
 							</div>
 							<a class="fav-plus favorites" id="fav-id-422" href="javascript:void(0)" data-toggle="tooltip" title="Добавить в закладки профиля на сайте"><i class="fa fa-star-o"></i><span>Добавить в избранное</span></a>
 						</div>
-						<link rel="stylesheet" href="/css/scheme.css">
-						<table cellpadding="0" cellspacing="0" id="plan_t">
-						    <tbody>
-								<tr>
-							        <td>
-							            <div id="ZoomPlaceholder">
-											<!-- width: 398px; height: 535px;  -->
-							                <div id="DataCopy" style="width: 2200px; height: 1286px; background: url('http://admin.parsoft.ru/upload/schemes/bileter.de/images/stadthalle-waldstrae-312.jpg') no-repeat; left: -252px; top: -55px;">
-											</div>
+						<div class="tickets-block">
+				        	<form id="ticketslist">
+				                <div class="tickets-category">
+				                    <div class="tickets-category__descr">Parkett A</div>
+				                    <div class="tickets-category__price">38,00 €</div>
+				                    <div class="tickets-category__amount">
+										<div class="form-select counter counter-off-sm-down">
+											<div class="counter__control prev"><i class="icon-minus"></i></div>
+											<select name="amount5877">
+												<option value="0" selected>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+											<div class="counter__control next"><i class="icon-plus"></i></div>
 										</div>
-									</td>
-									<td id="maindata_wrapper">
-										<!-- width: 250px; height: 336px;  -->
-							            <div id="MainData" style="position: relative;width: 250px;height: 146px;background: url('http://admin.parsoft.ru/router/modules/image_generator_square.php?id_koncert=3428&id_place=25&width=250&height=146') no-repeat;') no-repeat;">
-							                <div id="helper" style="width: 85px; height: 79px; display: block; right: auto; bottom: auto; left: 28px; top: 6px;"></div>
-							            </div>
-										<div id="ticketbox">
-											<div id="ticketbox_title">Выбранные билеты</div>
-											<div id="ticketbox_inner" class="noborder">
-												<div id="ticket_Block_A-4-18" class="ticket_point">
-													<p>Block A</p>
-													Ряд: 4, Место: 18, Цена: 59 €
-													<div class="delplace_btn" title="Удалить" onclick="delPlace('Block_A-4-18', 0, 59, '€');">X</div>
-												</div>
-												<div id="ticket_Block_A-4-17" class="ticket_point"><p>Block A</p>Ряд: 4, Место: 17, Цена: 59 € <div class="delplace_btn" title="Удалить" onclick="delPlace('Block_A-4-17', 0, 59, '€');">X</div></div>
-											</div>
-											<div id="ticketbox_form">
-												<p id="tickets_info">Итого: <b>0 билетов</b> на сумму <b>0 €</b></p>
-											</div>
-											<a id="ticketbox_form_btn" onclick="addTicketsToCart(3428, '', '€', 'EUR');">Добавить в корзину</a>
+				                    </div>
+				                </div>
+								<div class="tickets-category">
+				                    <div class="tickets-category__descr">Sitzplatz (Freie Platzwahl)</div>
+				                    <div class="tickets-category__price">38,00 €</div>
+				                    <div class="tickets-category__amount">
+										<div class="form-select counter counter-off-sm-down">
+											<div class="counter__control prev"><i class="icon-minus"></i></div>
+											<select name="amount5877">
+												<option value="0" selected>0</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+											<div class="counter__control next"><i class="icon-plus"></i></div>
 										</div>
-										<div id="groupbox">
-											<div id="groupbox_title">Ценовые категории билетов</div>
-											<div id="groupbox_inner">
-												<div id="left_ticket_group">
-													<div class="tickets_group darkblue_label"> - 79 €</div>
-													<div class="tickets_group purple_label"> - 69 €</div>
-													<div class="tickets_group green_label"> - 59 €</div>
-												</div>
-												<div id="right_ticket_group">
-													<div class="tickets_group orange_label"> - 49 €</div>
-													<div class="tickets_group cherry_label"> - 39 €</div>
-													<div class="tickets_group blue_label"> - 29 €</div>
-												</div>
-											</div>
-											<div class="tickets_group empty_label"> - место недоступно для заказа</div>
-										</div>
-							        </td>
-								</tr>
-							</tbody>
-						</table>
+				                    </div>
+				                </div>
+							</form>
+					    </div>
+					    <div>Цены указаны без услуги агентства. Сервисный сбор оплачивается дополнительно.<br>Размер сервисного сбора устанавливается индивидуально для каждого мероприятия. Просим внимательно изучить информацию при оформлении заказа.</div>
 					</div>
 					<div class="box-footer">
 						<a href="tour.html" class="btn-text go-back">Назад</a>
+						<button class="btn btn-primary pull-right" onclick="addToCart(3490, 'ru');">Добавить в корзину</button>
 					</div>
 				</div>
 			</div>
@@ -889,7 +890,7 @@
 <script src="/js/main.js"></script>
 
 <script>
-	function addTicketsToCart() {
+	function addToCart() {
 		CMSconfirm('Билеты добавлены в корзину!', null, function(){
 			window.location.href = 'http://kontramarka/cart.html';
 		}, {

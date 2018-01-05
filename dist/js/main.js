@@ -28,11 +28,20 @@ $(function() {
 	    };
 	});
 
-	if ($('.event-scheme').length) {
-		positionColorPrices();
-	}
+	if ($('#plan_t').length) {
+		$('#plan_t tbody')
+			.prepend('<tr id="pre_scheme"></tr>')
+			.append('<tr id="post_scheme"></tr>');
+		$('#DataCopy').closest('tr').attr('id', 'scheme_row');
 
-	setTourTitlePos()
+		positionGroupbox();
+
+		$('#plan_t').addClass('scheme-ready');
+	}
+	
+	initCounters();
+
+	setTourTitlePos();
 
     // Preloading images
 	showFadedImages();
@@ -430,8 +439,8 @@ $(function() {
 		setTourTitlePos();
 		adjustStories('.tour');
 
-		if ($('.event-scheme').length) {
-			positionColorPrices();
+		if ($('#plan_t').length) {
+			positionGroupbox();
 		}
 
 		$.each($('.nav-tabs.indicated, #mainMenu .categories'), function(i, nav) {

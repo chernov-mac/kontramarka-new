@@ -1,0 +1,58 @@
+.tickets-block {
+    @extend %action-block;
+    @extend %action-block-big;
+
+    margin-bottom: 20px;
+}
+
+.tickets-category {
+    position: relative;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px 0;
+    line-height: 22px;
+
+    @include media-breakpoint-down(xs){
+        padding-right: 48px;
+    };
+
+    & + & {
+        border-top: 1px solid light($black);
+    }
+
+    &__descr {
+        order: 1;
+        flex: 1 1 auto;
+
+        @include media-breakpoint-down(xs){
+            width: 100%;
+        };
+    }
+    &__price {
+        order: 3;
+        min-width: 80px;
+        text-align: right;
+
+        @include media-breakpoint-down(xs){
+            text-align: left;
+        };
+        @include media-breakpoint-up(lg){
+            min-width: 200px;
+        };
+    }
+    &__amount {
+        order: 2;
+        min-width: 80px;
+        text-align: right;
+
+        @include media-breakpoint-down(xs) {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        };
+        @include media-breakpoint-up(lg){
+            min-width: 200px;
+        };
+    }
+}

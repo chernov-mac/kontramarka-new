@@ -438,6 +438,20 @@ a, button, .btn {
 //         font-weight: bold;
 //     }
 // }
+%action-block {
+    display: block;
+    width: 100%;
+    padding: 0 18px;
+    border: 2px solid #e0e0e0;
+    font-size: 18px;
+    color: $black;
+}
+%action-block-big {
+    padding: 0 20px;
+    @include media-breakpoint-up(md){
+        padding: 0 30px;
+    };
+}
 
 
 
@@ -863,6 +877,7 @@ main {
 
 @import "gallery";
 @import "event-info";
+@import "tickets-block";
 @import "tour";
 @import "schedule";
 @import "comments";

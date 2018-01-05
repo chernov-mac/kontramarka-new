@@ -288,12 +288,102 @@ function setNextButtonState(gallery, currentSlide) {
 	}
 }
 
-function positionColorPrices() {
+function positionGroupbox() {
 	if ($(window).outerWidth() < 992) {
-		$('.event-scheme').prepend($('.color-prices').detach());
+		$('#pre_scheme').html($('#groupbox').detach());
+		$('#post_scheme').html($('#ticketbox').detach());
 	} else {
-		$('.ticketbox').before($('.color-prices').detach());
+		$('#maindata_wrapper')
+			.append($('#groupbox').detach())
+			.append($('#ticketbox').detach());
 	}
+}
+
+function initCounters() {
+	if ($('.counter').length) {
+		$.each($('.counter'), function(i, counter){
+			checkCounter(counter);
+			$(counter).find('select').on('change', function(){
+				console.log('something changed');
+				var curValue = $(counter).find('select').val();
+				var curOption = $(counter).find('option[value="' + curValue + '"]');
+				$(counter).find('option').removeAttr('selected');
+				$(curOption).attr('selected', 'selected');
+				console.log('after some changes curOption: ');
+				console.log(curOption);
+				// $('.counter').find('option[value="' + choosed + '"]').attr('selected', 'selected');
+				checkCounter(counter);
+			});
+		});
+	}
+}
+function checkCounter(counter) {
+	$(counter).find('.prev, .next').off('click');
+
+	var curValue = $(counter).find('select').val();
+	var curOption = $(counter).find('option[value="' + curValue + '"]');
+	console.log('curValue: ' + curValue);
+
+	if ($(curOption).is(':first-child')) {
+		$(counter).find('.prev')
+			.addClass('disabled');
+	} else {
+		$(counter).find('.prev')
+			.removeClass('disabled')
+			.on('click', function(){
+				counterSelectPrev(counter);
+			});
+	}
+
+	if ($(curOption).is(':last-child')) {
+		$(counter).find('.next')
+			.addClass('disabled');
+	} else {
+		$(counter).find('.next')
+			.removeClass('disabled')
+			.on('click', function(){
+				counterSelectNext(counter);
+			});
+	}
+	console.log('________________');
+}
+function counterSelectPrev(counter) {
+	console.log('go back');
+	var curValue = $(counter).find('select').val();
+	var curOption = $(counter).find('option[value="' + curValue + '"]');
+	var prevOption = $(curOption).prev('option').attr('selected', 'selected');
+	console.log('curValue: ' + curValue);
+
+	// $(counter).find('select').val($(prevOption).attr('value'));
+
+	$(counter).find('option').removeAttr('selected');
+	$(prevOption).attr('selected', 'selected');
+
+	// $(counter)
+	// 	.find('option:selected').removeAttr('selected')
+	// 	.prev('option').attr('selected', 'selected');
+	console.log('end operation');
+	checkCounter(counter);
+}
+function counterSelectNext(counter) {
+	console.log('go next');
+	var curValue = $(counter).find('select').val();
+	var curOption = $(counter).find('option[value="' + curValue + '"]');
+	console.log(curOption);
+	var nextOption = $(curOption).next('option').attr('selected', 'selected');
+	console.log(nextOption);
+	console.log('curValue: ' + curValue);
+
+	// $(counter).find('select').val($(nextOption).attr('value'));
+
+	$(counter).find('option').removeAttr('selected');
+	$(nextOption).attr('selected', 'selected');
+
+	// $(counter)
+	// 	.find('option:selected').removeAttr('selected')
+	// 	.next('option').attr('selected', 'selected');
+	console.log('end operation');
+	// checkCounter(counter);
 }
 
 // Modals

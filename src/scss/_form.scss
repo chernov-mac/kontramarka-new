@@ -128,3 +128,136 @@ input.form-control {
         line-height: 1.45em;
     }
 }
+
+.form-select {
+    position: relative;
+
+    select {
+        -webkit-appearance: none;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        background: none;
+        position: relative;
+        z-index: 2;
+        padding-right: 16px;
+        cursor: pointer;
+    }
+
+    &:after {
+        content: '\f078';
+        display: block;
+        font-family: 'FontAwesome';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: theme-color(primary);
+    }
+}
+
+@mixin counter {
+    position: relative;
+    display: flex;
+    width: 100px;
+
+    &__control {
+        display: block;
+        width: 25%;
+        font-size: 16px;
+        text-align: center;
+        color: theme-color(primary);
+        cursor: pointer;
+
+        &:hover {
+            color: theme-color(secondary);
+        }
+
+        &.disabled {
+            color: $gray-400;
+        }
+    }
+    select {
+        position: relative;
+        display: block;
+        padding-right: 0;
+        width: 50%;
+        text-align: center;
+        text-align-last:center;
+
+        option {
+            text-align: left;
+        }
+    }
+
+    &:after {
+        // display: none;
+        visibility: hidden;
+    }
+}
+
+.counter {
+    @include counter;
+
+    @each $viewport in map-keys($grid-breakpoints) {
+        &-#{$viewport}-up {
+            @include media-breakpoint-up(#{$viewport}) {
+                @include counter;
+            };
+        }
+        &-#{$viewport}-down {
+            @include media-breakpoint-down(#{$viewport}) {
+                @include counter;
+            };
+        }
+
+        &-off-#{$viewport}-up {
+            @include media-breakpoint-up(#{$viewport}) {
+                .counter__control {
+                    display: none;
+                }
+                &.form-select {
+                    display: inline-block;
+                    width: auto;
+
+                    select {
+                        position: relative;
+                        display: inline-block;
+                        padding-right: 16px;
+                        width: auto;
+                        text-align: left;
+                        text-align-last: left;
+                    }
+                    &:after {
+                        visibility: visible;
+                    }
+                }
+            };
+        }
+        &-off-#{$viewport}-down {
+            @include media-breakpoint-down(#{$viewport}) {
+                .counter__control {
+                    display: none;
+                }
+                &.form-select {
+                    display: inline-block;
+                    width: auto;
+
+                    select {
+                        position: relative;
+                        display: inline-block;
+                        padding-right: 16px;
+                        width: auto;
+                        text-align: left;
+                        text-align-last: left;
+                    }
+                    &:after {
+                        visibility: visible;
+                    }
+                }
+            };
+        }
+    }
+}
