@@ -38,7 +38,7 @@ $(function() {
 
 		$('#plan_t').addClass('scheme-ready');
 	}
-	
+
 	initCounters();
 
 	setTourTitlePos();
@@ -67,6 +67,33 @@ $(function() {
 			offset: '100%, 10',
 			content: $(hint).closest('.cities-list').find('.full-list'),
 		}).on("mouseenter", function () {
+		    var _this = this;
+		    $(this).popover("show");
+		    $(".popover").on("mouseleave", function () {
+		        $(_this).popover('hide');
+		    });
+		}).on("mouseleave", function () {
+		    var _this = this;
+		    setTimeout(function () {
+		        if (!$(".popover:hover").length) {
+		            $(_this).popover("hide");
+		        }
+		    }, 300);
+		});
+	});
+	$.each($('#DataCopy .place'), function(i, place) {
+		$(place).popover({
+			html: true,
+			trigger: 'manual',
+			placement: 'top',
+			offset: '100%, 10',
+			template: '<div class="popover popover-scheme" role="tooltip"><div class="popover-body"></div></div>',
+			// title: '',
+			content: $(this).attr('title'),
+		}).on("mouseenter", function () {
+			$('.popover-scheme').popover('hide', {
+				animation: false
+			});
 		    var _this = this;
 		    $(this).popover("show");
 		    $(".popover").on("mouseleave", function () {

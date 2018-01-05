@@ -273,6 +273,21 @@ a, button, .btn {
             display: block;
         }
     }
+
+    &-scheme {
+        p {
+            display: flex;
+            min-width: 120px;
+            margin-bottom: 0;
+            padding: 4px 0;
+            font-size: 14px;
+
+            b {
+                flex: 0 1 auto;
+                width: 50%;
+            }
+        }
+    }
 }
 .tooltip {
     &-inner {

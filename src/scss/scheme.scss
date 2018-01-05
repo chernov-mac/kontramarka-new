@@ -347,12 +347,13 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
             background: url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
 
             &.marker {
-                box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
+                // box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
                 background:
                     url('http://kontramarka/images/svg/labels.svg') 0 #{map-get($label-positions, marker) * -16px} / 16px #{$labels-num * 16px} no-repeat,
                     url('http://kontramarka/images/svg/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
             }
 
+            &.active,
             &:hover {
                 box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
             }
