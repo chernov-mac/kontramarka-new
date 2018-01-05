@@ -85,7 +85,6 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
         td:first-child {
             width: 100%;
             overflow: hidden;
-            background: #f7f5f8;
         }
     }
 }
@@ -95,7 +94,6 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     td:first-child {
         width: 100%;
         overflow: hidden;
-        background: #f7f5f8;
     }
 }
 
@@ -105,6 +103,7 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     width: 100%;
     max-width: 100%;
     overflow: hidden;
+    background: #f7f5f8;
     border: 2px solid $light-gray;
 
     height: 425px;
@@ -153,15 +152,15 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     padding-left: 30px;
 
     $labels-num: length($label-positions);
-    background: url('http://upload/schemes/labels.svg') 0 0 / 24px #{$labels-num * 24px} no-repeat;
+    background: url('/upload/schemes/labels.svg') 0 0 / 24px #{$labels-num * 24px} no-repeat;
     @each $name, $position in $label-positions {
         &.#{$name}_label {
-            background: url('http://upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
+            background: url('/upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
 
             &.marker {
                 background:
-                    url('http://upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -24px} / 24px #{$labels-num * 24px} no-repeat,
-                    url('http://upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
+                    url('/upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -24px} / 24px #{$labels-num * 24px} no-repeat,
+                    url('/upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
             }
         }
     };
@@ -341,18 +340,18 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     }
 
     $labels-num: length($label-positions);
-    background: url('http://upload/schemes/labels.svg') 0 0 / 16px #{$labels-num * 16px} no-repeat;
+    background: url('/upload/schemes/labels.svg') 0 0 / 16px #{$labels-num * 16px} no-repeat;
     // background-size: 16px;
     @each $name, $position in $label-positions {
         &.#{$name}_label {
             // background-position-y: -($position * 16px);
-            background: url('http://upload/schemes/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
+            background: url('/upload/schemes/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
 
             &.marker {
                 // box-shadow: 0 0 0 2px rgba(map-get($label-colors, $name), 0.24);
                 background:
-                    url('http://upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -16px} / 16px #{$labels-num * 16px} no-repeat,
-                    url('http://upload/schemes/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
+                    url('/upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -16px} / 16px #{$labels-num * 16px} no-repeat,
+                    url('/upload/schemes/labels.svg') 0 #{$position * -16px} / 16px #{$labels-num * 16px} no-repeat;
             }
 
             &.active,
@@ -375,18 +374,18 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
 
     &-double {
         @extend .place;
-        background: url('http://upload/schemes/labels-double.svg') no-repeat;
+        background: url('/upload/schemes/labels-double.svg') no-repeat;
         cursor: pointer;
 
         &.left {
             width: 28px !important;
             height: 29px !important;
-            background: url('http://upload/schemes/labels-double-left.svg') no-repeat !important;
+            background: url('/upload/schemes/labels-double-left.svg') no-repeat !important;
         }
         &.right {
             width: 28px !important;
             height: 29px !important;
-            background: url('http://upload/schemes/labels-double-right.svg') no-repeat !important;
+            background: url('/upload/schemes/labels-double-right.svg') no-repeat !important;
         }
 
         &.left.sold_label, &.right.sold_label { background-position: 0 -68px!important;}

@@ -21,13 +21,11 @@
 #plan_t:not(.scheme-ready) td:first-child {
   width: 100%;
   overflow: hidden;
-  background: #f7f5f8;
 }
 
 #scheme_row td:first-child {
   width: 100%;
   overflow: hidden;
-  background: #f7f5f8;
 }
 
 #ZoomPlaceholder {
@@ -35,6 +33,7 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
+  background: #f7f5f8;
   border: 2px solid #e0e0e0;
   height: 425px;
 }
@@ -79,121 +78,121 @@
   height: 24px;
   line-height: 24px;
   padding-left: 30px;
-  background: url("http://upload/schemes/labels.svg") 0 0/24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 0/24px 456px no-repeat;
 }
 .tickets_group.empty_label {
-  background: url("http://upload/schemes/labels.svg") 0 0px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 0px / 24px 456px no-repeat;
 }
 .tickets_group.empty_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 0px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 0px / 24px 456px no-repeat;
 }
 .tickets_group.marker_label {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat;
 }
 .tickets_group.marker_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat;
 }
 .tickets_group.sold_label {
-  background: url("http://upload/schemes/labels.svg") 0 -48px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -48px / 24px 456px no-repeat;
 }
 .tickets_group.sold_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -48px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -48px / 24px 456px no-repeat;
 }
 .tickets_group.reserve_label {
-  background: url("http://upload/schemes/labels.svg") 0 -72px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -72px / 24px 456px no-repeat;
 }
 .tickets_group.reserve_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -72px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -72px / 24px 456px no-repeat;
 }
 .tickets_group.blue_label {
-  background: url("http://upload/schemes/labels.svg") 0 -96px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -96px / 24px 456px no-repeat;
 }
 .tickets_group.blue_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -96px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -96px / 24px 456px no-repeat;
 }
 .tickets_group.brown_label {
-  background: url("http://upload/schemes/labels.svg") 0 -120px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -120px / 24px 456px no-repeat;
 }
 .tickets_group.brown_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -120px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -120px / 24px 456px no-repeat;
 }
 .tickets_group.crimson_label {
-  background: url("http://upload/schemes/labels.svg") 0 -144px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -144px / 24px 456px no-repeat;
 }
 .tickets_group.crimson_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -144px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -144px / 24px 456px no-repeat;
 }
 .tickets_group.cyan_label {
-  background: url("http://upload/schemes/labels.svg") 0 -168px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -168px / 24px 456px no-repeat;
 }
 .tickets_group.cyan_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -168px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -168px / 24px 456px no-repeat;
 }
 .tickets_group.darkblue_label {
-  background: url("http://upload/schemes/labels.svg") 0 -192px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -192px / 24px 456px no-repeat;
 }
 .tickets_group.darkblue_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -192px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -192px / 24px 456px no-repeat;
 }
 .tickets_group.green_label {
-  background: url("http://upload/schemes/labels.svg") 0 -216px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -216px / 24px 456px no-repeat;
 }
 .tickets_group.green_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -216px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -216px / 24px 456px no-repeat;
 }
 .tickets_group.magenta_label {
-  background: url("http://upload/schemes/labels.svg") 0 -240px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -240px / 24px 456px no-repeat;
 }
 .tickets_group.magenta_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -240px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -240px / 24px 456px no-repeat;
 }
 .tickets_group.orange_label {
-  background: url("http://upload/schemes/labels.svg") 0 -264px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -264px / 24px 456px no-repeat;
 }
 .tickets_group.orange_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -264px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -264px / 24px 456px no-repeat;
 }
 .tickets_group.purple_label {
-  background: url("http://upload/schemes/labels.svg") 0 -288px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -288px / 24px 456px no-repeat;
 }
 .tickets_group.purple_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -288px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -288px / 24px 456px no-repeat;
 }
 .tickets_group.yellow_label {
-  background: url("http://upload/schemes/labels.svg") 0 -312px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -312px / 24px 456px no-repeat;
 }
 .tickets_group.yellow_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -312px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -312px / 24px 456px no-repeat;
 }
 .tickets_group.lightgreen_label {
-  background: url("http://upload/schemes/labels.svg") 0 -336px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -336px / 24px 456px no-repeat;
 }
 .tickets_group.lightgreen_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -336px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -336px / 24px 456px no-repeat;
 }
 .tickets_group.cherry_label {
-  background: url("http://upload/schemes/labels.svg") 0 -360px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -360px / 24px 456px no-repeat;
 }
 .tickets_group.cherry_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -360px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -360px / 24px 456px no-repeat;
 }
 .tickets_group.highlight_label {
-  background: url("http://upload/schemes/labels.svg") 0 -384px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -384px / 24px 456px no-repeat;
 }
 .tickets_group.highlight_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -384px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -384px / 24px 456px no-repeat;
 }
 .tickets_group.salmon_label {
-  background: url("http://upload/schemes/labels.svg") 0 -408px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -408px / 24px 456px no-repeat;
 }
 .tickets_group.salmon_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -408px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -408px / 24px 456px no-repeat;
 }
 .tickets_group.khaki_label {
-  background: url("http://upload/schemes/labels.svg") 0 -432px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -432px / 24px 456px no-repeat;
 }
 .tickets_group.khaki_label.marker {
-  background: url("http://upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("http://upload/schemes/labels.svg") 0 -432px / 24px 456px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -24px / 24px 456px no-repeat, url("/upload/schemes/labels.svg") 0 -432px / 24px 456px no-repeat;
 }
 
 #groupbox {
@@ -319,7 +318,7 @@
   line-height: 16px;
   overflow: hidden;
   transition: box-shadow .1s ease;
-  background: url("http://upload/schemes/labels.svg") 0 0/16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 0/16px 304px no-repeat;
   color: #111;
 }
 .place.marker, .marker.place-double, .place.empty_label, .empty_label.place-double, .place.marker_label, .marker_label.place-double, .place.sold_label, .sold_label.place-double, .place.reserve_label, .reserve_label.place-double {
@@ -331,172 +330,172 @@
   cursor: pointer;
 }
 .place.empty_label, .empty_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
 }
 .place.empty_label.marker, .empty_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 0px / 16px 304px no-repeat;
 }
 .place.empty_label.active, .empty_label.active.place-double, .place.empty_label:hover, .empty_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(247, 247, 247, 0.24);
 }
 .place.marker_label, .marker_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
 }
 .place.marker_label.marker, .marker_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat;
 }
 .place.marker_label.active, .marker_label.active.place-double, .place.marker_label:hover, .marker_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.24);
 }
 .place.sold_label, .sold_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
 }
 .place.sold_label.marker, .sold_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -32px / 16px 304px no-repeat;
 }
 .place.sold_label.active, .sold_label.active.place-double, .place.sold_label:hover, .sold_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
 }
 .place.reserve_label, .reserve_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
 }
 .place.reserve_label.marker, .reserve_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -48px / 16px 304px no-repeat;
 }
 .place.reserve_label.active, .reserve_label.active.place-double, .place.reserve_label:hover, .reserve_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
 }
 .place.blue_label, .blue_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
 }
 .place.blue_label.marker, .blue_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -64px / 16px 304px no-repeat;
 }
 .place.blue_label.active, .blue_label.active.place-double, .place.blue_label:hover, .blue_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(33, 170, 210, 0.24);
 }
 .place.brown_label, .brown_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
 }
 .place.brown_label.marker, .brown_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -80px / 16px 304px no-repeat;
 }
 .place.brown_label.active, .brown_label.active.place-double, .place.brown_label:hover, .brown_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(101, 46, 12, 0.24);
 }
 .place.crimson_label, .crimson_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
 }
 .place.crimson_label.marker, .crimson_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -96px / 16px 304px no-repeat;
 }
 .place.crimson_label.active, .crimson_label.active.place-double, .place.crimson_label:hover, .crimson_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(142, 18, 34, 0.24);
 }
 .place.cyan_label, .cyan_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
 }
 .place.cyan_label.marker, .cyan_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -112px / 16px 304px no-repeat;
 }
 .place.cyan_label.active, .cyan_label.active.place-double, .place.cyan_label:hover, .cyan_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(18, 182, 197, 0.24);
 }
 .place.darkblue_label, .darkblue_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
 }
 .place.darkblue_label.marker, .darkblue_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -128px / 16px 304px no-repeat;
 }
 .place.darkblue_label.active, .darkblue_label.active.place-double, .place.darkblue_label:hover, .darkblue_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(38, 122, 237, 0.24);
 }
 .place.green_label, .green_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
 }
 .place.green_label.marker, .green_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -144px / 16px 304px no-repeat;
 }
 .place.green_label.active, .green_label.active.place-double, .place.green_label:hover, .green_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(70, 197, 18, 0.24);
 }
 .place.magenta_label, .magenta_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
 }
 .place.magenta_label.marker, .magenta_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -160px / 16px 304px no-repeat;
 }
 .place.magenta_label.active, .magenta_label.active.place-double, .place.magenta_label:hover, .magenta_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(41, 16, 101, 0.24);
 }
 .place.orange_label, .orange_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
 }
 .place.orange_label.marker, .orange_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -176px / 16px 304px no-repeat;
 }
 .place.orange_label.active, .orange_label.active.place-double, .place.orange_label:hover, .orange_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(234, 114, 8, 0.24);
 }
 .place.purple_label, .purple_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
 }
 .place.purple_label.marker, .purple_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -192px / 16px 304px no-repeat;
 }
 .place.purple_label.active, .purple_label.active.place-double, .place.purple_label:hover, .purple_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(232, 21, 175, 0.24);
 }
 .place.yellow_label, .yellow_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
 }
 .place.yellow_label.marker, .yellow_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -208px / 16px 304px no-repeat;
 }
 .place.yellow_label.active, .yellow_label.active.place-double, .place.yellow_label:hover, .yellow_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(242, 182, 3, 0.24);
 }
 .place.lightgreen_label, .lightgreen_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
 }
 .place.lightgreen_label.marker, .lightgreen_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -224px / 16px 304px no-repeat;
 }
 .place.lightgreen_label.active, .lightgreen_label.active.place-double, .place.lightgreen_label:hover, .lightgreen_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(103, 229, 50, 0.24);
 }
 .place.cherry_label, .cherry_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
 }
 .place.cherry_label.marker, .cherry_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -240px / 16px 304px no-repeat;
 }
 .place.cherry_label.active, .cherry_label.active.place-double, .place.cherry_label:hover, .cherry_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(162, 20, 71, 0.24);
 }
 .place.highlight_label, .highlight_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
 }
 .place.highlight_label.marker, .highlight_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -256px / 16px 304px no-repeat;
 }
 .place.highlight_label.active, .highlight_label.active.place-double, .place.highlight_label:hover, .highlight_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(239, 0, 0, 0.24);
 }
 .place.salmon_label, .salmon_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
 }
 .place.salmon_label.marker, .salmon_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -272px / 16px 304px no-repeat;
 }
 .place.salmon_label.active, .salmon_label.active.place-double, .place.salmon_label:hover, .salmon_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(250, 128, 114, 0.24);
 }
 .place.khaki_label, .khaki_label.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
 }
 .place.khaki_label.marker, .khaki_label.marker.place-double {
-  background: url("http://upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("http://upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
+  background: url("/upload/schemes/labels.svg") 0 -16px / 16px 304px no-repeat, url("/upload/schemes/labels.svg") 0 -288px / 16px 304px no-repeat;
 }
 .place.khaki_label.active, .khaki_label.active.place-double, .place.khaki_label:hover, .khaki_label.place-double:hover {
   box-shadow: 0 0 0 2px rgba(139, 134, 78, 0.24);
@@ -541,18 +540,18 @@
   color: #fff;
 }
 .place-double {
-  background: url("http://upload/schemes/labels-double.svg") no-repeat;
+  background: url("/upload/schemes/labels-double.svg") no-repeat;
   cursor: pointer;
 }
 .place-double.left {
   width: 28px !important;
   height: 29px !important;
-  background: url("http://upload/schemes/labels-double-left.svg") no-repeat !important;
+  background: url("/upload/schemes/labels-double-left.svg") no-repeat !important;
 }
 .place-double.right {
   width: 28px !important;
   height: 29px !important;
-  background: url("http://upload/schemes/labels-double-right.svg") no-repeat !important;
+  background: url("/upload/schemes/labels-double-right.svg") no-repeat !important;
 }
 .place-double.left.sold_label, .place-double.right.sold_label {
   background-position: 0 -68px !important;
