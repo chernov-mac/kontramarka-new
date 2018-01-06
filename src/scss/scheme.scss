@@ -10,25 +10,25 @@ $secondary: #00398c;
 
 // Labels
 $label-colors: (
-    empty: #f7f7f7,
-    marker: $black,
-    sold: #ef0000,
-    reserve: #ef0000,
-    blue: #21aad2,
-    brown: #652e0c,
-    crimson: #8e1222,
-    cyan: #12b6c5,
-    darkblue: #267aed,
-    green: #46c512,
-    magenta: #291065,
-    orange: #ea7208,
-    purple: #e815af,
-    yellow: #f2b603,
-    lightgreen: #67e532,
-    cherry: #a21447,
-    highlight: #ef0000,
-    salmon: #fa8072,
-    khaki: #8b864e
+    empty:        #f7f7f7,
+    marker:       #000000,
+    sold:         #ef0000,
+    reserve:      #ef0000,
+    blue:         #21aad2,
+    brown:        #652e0c,
+    crimson:      #8e1222,
+    cyan:         #12b6c5,
+    darkblue:     #267aed,
+    green:        #46c512,
+    magenta:      #291065,
+    orange:       #ea7208,
+    purple:       #e815af,
+    yellow:       #f2b603,
+    lightgreen:   #67e532,
+    cherry:       #a21447,
+    highlight:    #ef0000,
+    salmon:       #fa8072,
+    khaki:        #8b864e
 );
 $label-positions: (
     empty:        0,  // gray round with gray stroke
@@ -51,7 +51,7 @@ $label-positions: (
     salmon:       17, // #fa8072
     khaki:        18  // #8b864e
 );
-$labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, purple, cherry, highlight, salmon, khaki);
+$labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orange, purple, cherry, highlight, salmon, khaki);
 
 
 // /////////////////////////////// //
@@ -139,7 +139,7 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     display: none;
     position: absolute;
     border: 2px solid $secondary;
-    background: url('../images/svg/move-circle.svg') no-repeat center center;
+    background: url('/upload/schemes/move-circle.svg') no-repeat center center;
     background-size: 38px 38px;
     cursor: move;
 }
@@ -147,31 +147,36 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
 // Ticket-price groups
 .tickets_group {
     display: flex;
-    height: 24px;
-    line-height: 24px;
-    padding-left: 30px;
+    height: 18px;
+    line-height: 18px;
+    // padding-left: 30px;
 
     $labels-num: length($label-positions);
-    background: url('/upload/schemes/labels.svg') 0 0 / 24px #{$labels-num * 24px} no-repeat;
-    @each $name, $position in $label-positions {
-        &.#{$name}_label {
-            background: url('/upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
+    &:before {
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-right: 4px;
+        border-radius: 50%;
+        background: url('/upload/schemes/labels.svg') 0 0 / 18px #{$labels-num * 18px} no-repeat;
+    }
 
-            &.marker {
-                background:
-                    url('/upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -24px} / 24px #{$labels-num * 24px} no-repeat,
-                    url('/upload/schemes/labels.svg') 0 #{$position * -24px} / 24px #{$labels-num * 24px} no-repeat;
-            }
+    @each $name, $position in $label-positions {
+        &.#{$name}_label:before {
+            background: url('/upload/schemes/labels.svg') 0 #{$position * -18px} / 18px #{$labels-num * 18px} no-repeat;
+        }
+
+        &.marker:before {
+            background:
+                url('/upload/schemes/labels.svg') 0 #{map-get($label-positions, marker) * -18px} / 18px #{$labels-num * 18px} no-repeat,
+                url('/upload/schemes/labels.svg') 0 #{$position * -18px} / 18px #{$labels-num * 18px} no-repeat;
         }
     };
 }
 #groupbox {
     width: 100%;
-    margin: {
-        right: 0;
-        bottom: 15px;
-        left: 0;
-    }
+    margin: 20px 0;
     color: #000;
 
     [id*="_ticket_group"] {
@@ -231,7 +236,7 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
 #ticketbox {
     display: block;
     width: 100%;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 0 18px;
     border: 2px solid $light-gray;
     font-size: 18px;
@@ -245,12 +250,12 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
         position: relative;
 
         .ticket_point {
-            &:first-child {
-                border-top: 1px solid $light-gray;
-            }
-            &:last-child {
-                border-bottom: 1px solid $light-gray;
-            }
+            // &:first-child {
+            //     border-top: 1px solid $light-gray;
+            // }
+            // &:last-child {
+            //     border-bottom: 1px solid $light-gray;
+            // }
         }
         .ticket_point + .ticket_point {
             border-top: 1px solid $light-gray;
@@ -294,6 +299,53 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
                 box-shadow: 0 0 0 3px rgba(255,200,0,0.5);
             }
         }
+    }
+}
+.scroll-shadow {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 2;
+        right: 20px;
+        left: 0;
+        height: 10px;
+        transition: background-size .2s ease;
+    }
+
+    &:before {
+        top: 0;
+        background: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, .18), rgba(0, 0, 0, 0)) 100% 0;
+        background-repeat: no-repeat;
+        background-size: 100% 0;
+    }
+    &:after {
+        bottom: 0;
+        border-top-width: 1px;
+        background: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .18), rgba(0, 0, 0, 0)) 0 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 0;
+    }
+
+    &__scroll {
+        position: relative;
+        z-index: 1;
+        overflow: scroll;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+
+    &.not-start:before {
+        background-size: 100% 8px;
+    }
+    &.not-end:after {
+        background-size: 100% 8px;
     }
 }
 
@@ -424,31 +476,169 @@ $labels-white-text: (blue, brown, crimson, darkblue, green, magenta, orange, pur
     }
 }
 
-// Pgroups
-.pgroups {
+// Popovers
+.popover {
     position: absolute;
-    display: none;
-    background-color: yellow;
-    border: 1px solid #222;
-    color: #222;
-    font-family: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
-    font-size: 11px;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    display: block;
+    max-width: 276px;
+    padding: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: .875rem;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0 solid rgba(0,0,0,0.2);
+    border-radius: 0;
+}
+.popover {
+    max-width: 320px;
+    box-shadow: 0 4px 40px 0 rgba(0,0,0,0.18);
+
+    &-content {
+        display: none;
+
+        .popover & {
+            display: block;
+        }
+    }
+    &-body {
+        padding: 14px 20px;
+        color: #666;
+    }
+
+    .arrow {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #fff;
+        border-left: 8px solid transparent;
+        transform: translateY(100%);
+    }
+    &.bs-popover-top .arrow,
+    &.bs-popover-auto[x-placement^="top"] .arrow {
+        bottom: 0;
+    }
+
+    .close {
+        display: none;
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        font-size: 24px;
+        line-height: 18px;
+        color: #ffc800;
+        cursor: pointer;
+    }
+}
+.popover-scheme {
+    display: table;
+    margin-bottom: 0;
 
     p {
-        margin: 0;
-        padding: 2px 40px 2px 2px;
-        position: relative;
+        display: table-row;
+        // flex-wrap: nowrap;
+        min-width: 120px;
+        margin-bottom: 0;
+        padding: 4px 0;
+        font-size: 14px;
+
+        b {
+            display: table-cell;
+            padding-right: 10px;
+            // flex: 0 0 auto;
+            // width: 50%;
+            white-space: nowrap;
+        }
+    }
+
+    .arrow {
+        border-right: 8px solid transparent;
+        border-top: 8px solid #fff;
+        border-left: 8px solid transparent;
+        transform: translateY(100%);
+    }
+
+    &.pgroups-activated {
+        .pgroups {
+            display: table;
+        }
+        .close {
+            display: block;
+        }
+    }
+}
+.pgroups {
+    // position: absolute;
+    display: none;
+    color: #111;
+    font-family: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
+    font-size: 14px;
+    padding: 0 12px;
+    border: 2px solid $light-gray;
+
+    // p {
+    //     margin: 0;
+    //     // padding: 2px 40px 2px 2px;
+    //     // position: relative;
+    //     cursor: pointer;
+    //
+    //     // span {
+    //     //     position: absolute;
+    //     //     top: 2px;
+    //     //     right: 2px;
+    //     // }
+    //
+    //     &:hover {
+    //         background-color: #fed944;
+    //     }
+    // }
+
+    &-title {
+        margin-bottom: 10px;
+    }
+    p {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: 120px;
+        margin: 0 -12px;
+        padding: 6px 12px;
+        font-size: 14px;
+        white-space: nowrap;
         cursor: pointer;
 
         span {
-            position: absolute;
-            top: 2px;
-            right: 2px;
+            // display: table-cell;
+            margin-left: auto;
+            padding-left: 12px;
+            // flex: 0 0 auto;
+            // width: 50%;
         }
 
         &:hover {
-            background-color: #fed944;
+            background-color: #ffc800;
         }
+    }
+
+    p + p {
+        border-top: 1px solid $light-gray;
     }
 }
 

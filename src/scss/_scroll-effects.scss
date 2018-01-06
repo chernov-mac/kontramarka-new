@@ -1,0 +1,47 @@
+.scroll-shadow {
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 2;
+        right: 20px;
+        left: 0;
+        height: 10px;
+        transition: background-size .2s ease;
+    }
+
+    &:before {
+        top: 0;
+        background: radial-gradient(farthest-side at 50% 0%, rgba(0, 0, 0, .18), rgba(0, 0, 0, 0)) 100% 0;
+        background-repeat: no-repeat;
+        background-size: 100% 0;
+    }
+    &:after {
+        bottom: 0;
+        border-top-width: 1px;
+        background: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, .18), rgba(0, 0, 0, 0)) 0 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 0;
+    }
+
+    &__scroll {
+        position: relative;
+        z-index: 1;
+        overflow: scroll;
+        margin-right: -20px;
+        padding-right: 20px;
+    }
+
+    &.not-start:before {
+        background-size: 100% 8px;
+    }
+    &.not-end:after {
+        background-size: 100% 8px;
+    }
+}

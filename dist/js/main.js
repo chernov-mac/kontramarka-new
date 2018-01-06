@@ -33,11 +33,15 @@ $(function() {
 			.prepend('<tr id="pre_scheme"></tr>')
 			.append('<tr id="post_scheme"></tr>');
 		$('#DataCopy').closest('tr').attr('id', 'scheme_row');
+		$('#ticketbox_inner').wrap('<div id="ticketbox_wrapper"></div>');
 
 		positionGroupbox();
+		wrapScrollShadow($('#ticketbox_inner'), '195px');
 
 		$('#plan_t').addClass('scheme-ready');
 	}
+
+	initScrollShadow();
 
 	initCounters();
 
@@ -84,10 +88,11 @@ $(function() {
 	$.each($('#DataCopy .place'), function(i, place) {
 		$(place).popover({
 			html: true,
+			animation: false,
 			trigger: 'manual',
 			placement: 'top',
-			offset: '100%, 10',
-			template: '<div class="popover popover-scheme" role="tooltip"><div class="popover-body"></div></div>',
+			offset: '0, 14',
+			template: '<div class="popover popover-scheme" role="tooltip"><div class="arrow"></div><div class="close">×</div><div class="popover-body"></div></div>',
 			// title: '',
 			content: $(this).attr('title'),
 		}).on("mouseenter", function () {
@@ -96,9 +101,12 @@ $(function() {
 			});
 		    var _this = this;
 		    $(this).popover("show");
-		    $(".popover").on("mouseleave", function () {
+		    $(".popover-scheme").on("mouseleave", function () {
 		        $(_this).popover('hide');
 		    });
+			$('.popover-scheme .close').on('click', function () {
+				$(_this).popover('hide');
+			});
 		}).on("mouseleave", function () {
 		    var _this = this;
 		    setTimeout(function () {
@@ -106,6 +114,10 @@ $(function() {
 		            $(_this).popover("hide");
 		        }
 		    }, 300);
+		});
+		$(place).on('hide.bs.popover', function() {
+			var popoverId = $(place).attr('aria-describedby');
+			$('#' + popoverId).removeClass('pgroups-activated');
 		});
 	});
 

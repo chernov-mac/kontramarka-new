@@ -29,6 +29,7 @@
 @import "calendar";
 @import "slidable";
 @import "draggable";
+@import "scroll-effects";
 @import "nav-tabs";
 @import "badge";
 @import "card";
@@ -57,6 +58,10 @@ body {
     main {
         flex: 1 0 auto;
         padding-bottom: 32px;
+
+        @include media-breakpoint-up(lg) {
+            padding-bottom: 100px;
+        };
     }
 }
 ol, ul, dl {
@@ -129,6 +134,22 @@ a, button {
 a, button, .btn {
     i + span {
         margin-left: .255em;
+    }
+}
+a.external {
+    @include link-appearance;
+
+    position: relative;
+
+    &:after {
+        content: '\f08e';
+        font-family: 'kontramarka-icons';
+        position: absolute;
+        right: 0;
+        bottom: .4em;
+        padding-left: .4em;
+        transform: translateX(100%);
+        font-size: .7em;
     }
 }
 
@@ -271,21 +292,6 @@ a, button, .btn {
 
         .popover & {
             display: block;
-        }
-    }
-
-    &-scheme {
-        p {
-            display: flex;
-            min-width: 120px;
-            margin-bottom: 0;
-            padding: 4px 0;
-            font-size: 14px;
-
-            b {
-                flex: 0 1 auto;
-                width: 50%;
-            }
         }
     }
 }

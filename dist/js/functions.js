@@ -294,8 +294,8 @@ function positionGroupbox() {
 		$('#post_scheme').html($('#ticketbox').detach());
 	} else {
 		$('#maindata_wrapper')
-			.append($('#groupbox').detach())
-			.append($('#ticketbox').detach());
+			.append($('#ticketbox').detach())
+			.append($('#groupbox').detach());
 	}
 }
 
@@ -354,6 +354,51 @@ function counterSelectNext(counter) {
 		$(counter).find(".next").addClass('disabled').tooltip($(this).data('title'));
 		$(counter).find(".next").tooltip('show');
 	}
+}
+
+function wrapScrollShadow(element, height) {
+	$(element)
+		.addClass('scroll-shadow__target')
+		.wrap('<div class="scroll-shadow"></div>')
+		.wrap('<div class="scroll-shadow__scroll" style="max-height: ' + height + '"></div>');
+	initScrollShadow();
+}
+function initScrollShadow() {
+	$.each($('.scroll-shadow__target'), function(i, target){
+		checkScrollShadowPos(target);
+
+		$(target).closest('.scroll-shadow__scroll').on('scroll', function(event){
+			checkScrollShadowPos(target);
+		});
+	});
+}
+function checkScrollShadowPos(target) {
+	var $target = $(target),
+		$scrollContainer = $target.closest('.scroll-shadow__scroll'),
+		$wrapper = $scrollContainer.closest('.scroll-shadow')
+		scrollEnd = $target.outerHeight() - $scrollContainer.outerHeight();
+
+	if ($scrollContainer.scrollTop() > 0) {
+		$wrapper.addClass('not-start');
+	} else {
+		$wrapper.removeClass('not-start');
+	}
+
+	if (scrollEnd <= 0 || $scrollContainer.scrollTop() < scrollEnd) {
+		$wrapper.addClass('not-end');
+	} else {
+		$wrapper.removeClass('not-end');
+	}
+}
+
+function showGroupsField(id, elem) {
+	var popoverId = $(elem).attr('aria-describedby');
+	$('#' + popoverId)
+		.addClass('pgroups-activated')
+		.find('.popover-body')
+			.html('<div class="pgroups-title">Выберите категорию:</div>')
+			.append($('#' + id).clone());
+	$(elem).popover('update');
 }
 
 // Modals

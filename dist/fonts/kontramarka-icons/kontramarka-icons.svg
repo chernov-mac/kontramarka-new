@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg">
-<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<metadata>Copyright (C) 2018 by original authors @ fontello.com</metadata>
 <defs>
 <font id="kontramarka-icons" horiz-adv-x="1000" >
 <font-face font-family="kontramarka-icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
@@ -37,6 +37,8 @@
 <glyph glyph-name="chevron-down" unicode="&#xf078;" d="M91 572l409-268 408 268 77-115-485-323-480 318" horiz-adv-x="1000" />
 
 <glyph glyph-name="sign-out" unicode="&#xf08b;" d="M1000 350l-312 250v-175h-314v-150h314v-175l312 250z m-565-217v-153h-305v740h305v-154h130v284h-565v-1000h565v283z" horiz-adv-x="1000" />
+
+<glyph glyph-name="external-link" unicode="&#xf08e;" d="M1000 850l-313-35 89-90-386-386 99-99 386 386 90-89z m-280-529v-351h-600v600h351l120 120h-591v-840h840v591z" horiz-adv-x="1000" />
 
 <glyph glyph-name="sign-in" unicode="&#xf090;" d="M976 850h-541v-180l130-104v154h305v-740h-305v154l-130-104v-180h565v1000z m-351-500l-312 250v-175h-314v-150h314v-175z" horiz-adv-x="1000" />
 
