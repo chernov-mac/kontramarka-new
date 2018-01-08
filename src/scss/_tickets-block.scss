@@ -56,3 +56,15 @@
         };
     }
 }
+
+.tickets-total {
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    color: $black;
+
+    @include media-breakpoint-up(sm) {
+        text-align: right;
+    };
+}

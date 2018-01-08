@@ -64,6 +64,7 @@
         font-size: 16px;
     	line-height: 1.5;
         color: $gray-600;
+        @include clearfix;
 
         @include media-breakpoint-up(sm) {
             padding: 30px;
@@ -80,6 +81,13 @@
         @include media-breakpoint-up(lg) {
             padding: 30px;
         };
+
+        &__left {
+            flex: 1 0 auto;
+        }
+        &__right {
+            flex: 0 1 auto;
+        }
     }
 
     h1, h2, h3, h4, h5, h6,
