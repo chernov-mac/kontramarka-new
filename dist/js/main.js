@@ -38,6 +38,22 @@ $(function() {
 		positionGroupbox();
 		wrapScrollShadow($('#ticketbox_inner'), '195px');
 
+		if ($('.buttons-stehplatz').length) {
+			$.each($('.buttons-stehplatz .cat-itm'), function(i, item) {
+				$(item).append('<div class="actions"></div>');
+				$(item).find('.actions').append('<div class="catprice"></div>');
+				$(item).find('.catprice').append($(item).find('.catname b').html());
+				$(item).find('.catname b').remove();
+
+				$(item).find('.actions').append('<div class="counter"></div>')
+
+				$(item).find('.counter')
+					.append($(item).find('.minusnum').detach())
+					.append($(item).find('.stehplatz_num').detach())
+					.append($(item).find('.plusnum').detach());
+			});
+		}
+
 		$('#plan_t').addClass('scheme-ready');
 	}
 

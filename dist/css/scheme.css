@@ -776,59 +776,70 @@
   border-top: 1px solid #e0e0e0;
 }
 
-.buttons-stehplatz {
-  margin-bottom: 25px;
-}
-
-.stehplatz {
-  position: absolute;
-}
 .stehplatz-btn {
   display: inline-block;
   width: 24px;
   height: 24px;
   line-height: 22px;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
-  color: white;
+  color: #ffc800;
   vertical-align: middle;
   text-decoration: none;
   border-radius: 3px;
   overflow: hidden;
 }
-
-.cat-itm {
-  font-size: 1.0em;
-  line-height: 38px;
+.stehplatz-btn:hover {
+  color: #00398c;
 }
-.cat-itm .catname {
-  display: inline-block;
-  width: 163px;
-  line-height: 15px;
-  vertical-align: middle;
-  margin-left: 3px;
-}
-
-.plusnum {
-  background-color: #009640;
-}
-
-.minusnum {
-  background-color: #e97208;
-}
-
 .stehplatz_num {
-  width: 20px;
-  height: 25px;
-  line-height: 25px;
-  padding: 2px;
-  font-size: 14px;
-  font-weight: bold;
-  /*color:#3A3A3A;*/
-  vertical-align: middle;
   display: inline-block;
+  min-width: 50px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: bold;
   text-align: center;
+}
+
+.buttons-stehplatz .cat-itm {
+  position: relative;
+  padding: 12px 0;
+  line-height: 16px;
+}
+.buttons-stehplatz .cat-itm .catname {
+  margin: 0;
+  line-height: 24px;
+  font-size: 18px;
+}
+.buttons-stehplatz .cat-itm .actions {
+  display: flex;
+  align-items: center;
+}
+.buttons-stehplatz .cat-itm .actions .catprice {
+  flex: 1 0 auto;
+  font-size: 16px;
+  margin-right: auto;
+}
+.buttons-stehplatz .cat-itm .actions .counter {
+  display: flex;
+  width: 80px;
+}
+.buttons-stehplatz .cat-itm .actions .counter .stehplatz-btn {
+  display: block;
+  width: 25%;
+  height: 25%;
+}
+.buttons-stehplatz .cat-itm .actions .counter .stehplatz_num {
+  display: block;
+  min-width: 50%;
+  height: 24px;
+  line-height: 24px;
+}
+
+.stehplatz {
+  position: absolute;
 }
 
 p.sthpltz {
