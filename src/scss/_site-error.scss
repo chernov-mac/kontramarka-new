@@ -1,0 +1,93 @@
+.site-error {
+    padding: 56px 0;
+    text-align: center;
+
+    .kontramarka-logo {
+        display: inline-block;
+        width: 250px;
+        height: 60px;
+        margin-bottom: 30px;
+
+        @include media-breakpoint-up(sm) {
+            width: 300px;
+            height: 70px;
+        };
+    }
+
+    &__title {
+        margin-bottom: 0.4rem;
+
+        @include media-breakpoint-up(md){
+            font-size: 36px;
+        };
+    }
+    &__descr {
+        font-size: 18px;
+        @include light-text();
+    }
+
+    .fence {
+        position: relative;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        width: 757px;
+        height: 398px;
+        background: url('../images/fence.png') center center no-repeat;
+        background-position: -2px 0;
+        background-size: contain;
+
+        &__plate {
+            position: absolute;
+            top: 135px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 70px;
+            font-weight: bold;
+            color: white;
+
+            @include media-breakpoint-between(sm, sm) {
+                top: 100px;
+                font-size: 54px;
+            };
+        }
+
+        .btn {
+            position: absolute;
+            top: 268px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            @include media-breakpoint-between(sm, sm) {
+                top: 212px;
+            };
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            @include light-text();
+
+            @include media-breakpoint-between(sm, sm) {
+                bottom: -40px;
+            };
+        }
+
+        @include media-breakpoint-between(sm, sm) {
+            width: 570px;
+            height: 300px;
+        };
+        @include media-breakpoint-up(sm) {
+            top: -30px;
+        }
+    }
+}
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

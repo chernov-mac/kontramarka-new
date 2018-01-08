@@ -506,33 +506,15 @@ $(function() {
 
 	// Scroll
 	$(window).on('scroll', function(event) {
-		var requiredOffset = $('header').outerHeight() - $('#mainMenu').outerHeight();
 
-		if ($(window).scrollTop() > requiredOffset || $(window).scrollTop() == requiredOffset) {
-			$('#mainMenu').addClass('fixed-top');
-			$('body').addClass('fixed-nav');
-
-			if (!$('#mainMenu .menu-item.optional').hasClass('in')) {
-				$('#mainMenu .menu-item.optional').removeClass('out').addClass('moving in');
-				setTimeout(function(){
-					$('#mainMenu .menu-item.optional').removeClass('moving');
-				}, 225);
-			}
-		} else {
-			$('body').removeClass('fixed-nav');
-			$('#mainMenu').removeClass('fixed-top');
-
-			if (!$('#mainMenu .menu-item.optional').hasClass('out')) {
-				$('#mainMenu .menu-item.optional').removeClass('in').addClass('moving out');
-				setTimeout(function(){
-					$('#mainMenu .menu-item.optional').removeClass('moving');
-				}, 225);
-			}
+		if ($('.main-menu').length) {
+			setOptionalMenuItems();
+			setShownDDMenuPos();
 		}
 
-
-		setShownDDMenuPos();
-		scrollTopState();
+		if ($('.scroll-to-top').length) {
+			scrollTopState();
+		}
 
 	});
 	$('#mainMenuCategories').on('scroll', function() {

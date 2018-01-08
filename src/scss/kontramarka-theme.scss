@@ -37,6 +37,7 @@
 @import "box";
 @import "breadcrumbs";
 @import "benefit";
+@import "site-error";
 
 
 
@@ -55,12 +56,14 @@ body {
     overflow: hidden;
     min-height: 100%;
 
-    main {
+    > main {
         flex: 1 0 auto;
-        padding-bottom: 32px;
+    }
+    > footer {
+        margin-top: 32px;
 
         @include media-breakpoint-up(lg) {
-            padding-bottom: 100px;
+            margin-top: 100px;
         };
     }
 }
@@ -472,6 +475,11 @@ a.external {
     @include media-breakpoint-up(md){
         padding: 0 30px;
     };
+}
+
+.kontramarka-logo {
+    background: url('../images/logo.svg') center center no-repeat;
+    background-size: contain;
 }
 
 
