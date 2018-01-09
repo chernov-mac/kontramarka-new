@@ -403,6 +403,13 @@ function checkScrollShadowPos(target) {
 		$wrapper = $scrollContainer.closest('.scroll-shadow')
 		scrollEnd = $target.outerHeight() - $scrollContainer.outerHeight();
 
+	if ($target.outerHeight() == $scrollContainer.outerHeight()) {
+		$wrapper
+		.removeClass('not-start')
+		.removeClass('not-end');
+		return;
+	}
+
 	if ($scrollContainer.scrollTop() > 0) {
 		$wrapper.addClass('not-start');
 	} else {
