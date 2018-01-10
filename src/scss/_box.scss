@@ -32,6 +32,10 @@
             };
         };
 
+        .title {
+            font-size: 24px;
+        }
+
         &[data-toggle] {
             position: relative;
             cursor: pointer;
@@ -100,5 +104,13 @@
         margin-bottom: 1rem;
         padding-left: 1em;
         list-style-type: disc;
+    }
+
+    @each $dimension in map-keys($grid-breakpoints) {
+        &.#{$dimension}-clearbox {
+            @include media-breakpoint-down($dimension) {
+                @include clearbox;
+            }
+        }
     }
 }

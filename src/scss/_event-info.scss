@@ -1,17 +1,30 @@
 .event-info {
     position: relative;
-    margin-bottom: 20px;
     @include clearfix;
-    @include media-breakpoint-up(xl) {
-        margin-bottom: 30px;
-    };
+    // margin-bottom: 20px;
+    // @include media-breakpoint-up(xl) {
+    //     margin-bottom: 30px;
+    // };
 
-    &__text-wrapper {
+    &__main {
         display: flex;
         flex-direction: column;
-        min-height: 100px;
+        // min-height: 100px;
         justify-content: space-between;
         // overflow: hidden;
+        @include media-breakpoint-up(lg) {
+            padding-right: 240px;
+        };
+    }
+    &:not(.extended) &__main {
+        min-height: 63px;
+        @include media-breakpoint-up(sm) {
+            min-height: 100px;
+        };
+    }
+    &__extend {
+        position: relative;
+        margin-top: 20px;
     }
 
     &__pic {
@@ -21,24 +34,29 @@
         width: 45px;
         margin-right: 14px;
 
-        @include media-breakpoint-up(sm) {
-            width: 70px;
-        };
-        // @include media-breakpoint-up(xl) {
-        //     width: 216px;
-        // };
+        .event-info:not(.extended) > & {
+            @include media-breakpoint-up(sm) {
+                width: 70px;
+            };
+        }
+        .extended > & {
+            @include media-breakpoint-up(md) {
+                width: 220px;
+                max-width: 220px;margin-right: 24px;
+            };
+        }
     }
 
     &__title {
         display: block;
         margin-bottom: 0;
-        padding-right: 48px;
+        // padding-right: 48px; // for favorites button
         font-size: 20px;
         line-height: 1;
         color: $gray-800;
 
         @include media-breakpoint-up(md) {
-            padding-right: 230px;
+            // padding-right: 230px; // for favorites button
             font-size: 24px;
             color: theme-color(secondary);
         };
@@ -47,16 +65,20 @@
     &__datetime,
     &__place {
         margin-top: 4px;
+        // margin-top: 12px;
         line-height: 19px;
         font-size: 16px;
         color: $gray-600;
 
+        @include media-breakpoint-up(sm) {
+            margin-top: 4px;
+        };
         @include media-breakpoint-up(md) {
-            // margin-top: 16px;
+            margin-top: 6px;
             font-size: 18px;
         };
     }
-    &__place .place-text {
+    &__place {
         &:before {
             content: '\f041';
             font-family: 'kontramarka-icons';
@@ -82,13 +104,22 @@
         };
     }
     .place-on-plan {
-        margin-top: 20px;
+        // margin-top: 20px;
+        margin-bottom: 20px;
 
         @include media-breakpoint-up(lg) {
             position: absolute;
             // top: 32px;
-            bottom: 0;
+            // bottom: 0;
+            top: -20px;
+            transform: translateY(-100%);
             right: 0;
+        };
+    }
+
+    & + .scheme {
+        @include media-breakpoint-up(lg) {
+            margin-top: 20px;
         };
     }
 }

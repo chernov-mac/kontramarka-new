@@ -29,7 +29,83 @@
         }
     }
 
-    .container > & {
+    &.steps {
+        display: flex;
+
+        .nav-item {
+            flex: 1 0 auto;
+            padding: 0;
+            border-style: solid;
+            border-color: $gray-300;
+            border-left-width: 1px;
+            border-right-width: 1px;
+
+            &:first-child {
+                border-left-width: 0;
+            }
+            &:last-child {
+                border-right-width: 0;
+            }
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: {
+                    right: 6px;
+                    left: 6px;
+                }
+                color: $gray-400;
+                text-align: center;
+                font-size: 18px;
+                text-transform: none;
+                font-weight: normal;
+
+                .tab-num {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    line-height: 24px;
+                    border-radius: 50%;
+                    text-align: center;
+                    background: $gray-400;
+                    color: $white;
+                }
+                .tab-text {
+                    line-height: 24px;
+
+                    @include media-breakpoint-down(sm) {
+                        display: none;
+                    };
+                }
+                .tab-num + .tab-text {
+                    margin-left: .4em;
+                }
+
+                &.active {
+                    background: theme-color(primary);
+                    color: $black;
+
+                    .tab {
+                        &-num {
+                            background: $white;
+                            color: $black;
+                        }
+                        &-text {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+
+            @include media-breakpoint-up(lg) {
+                flex: 1 0 1%;
+            };
+        }
+    }
+
+    .container > &:not(.steps) {
         margin: {
             left: -16px;
             right: -16px;

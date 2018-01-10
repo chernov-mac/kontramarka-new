@@ -1,70 +1,141 @@
-.tickets-block {
-    @extend %action-block;
-    @extend %action-block-big;
-
-    margin: 20px 0;
-}
-
-.tickets-category {
-    position: relative;
+.tickets {
+    &-block {
+        @extend %action-block;
+        @extend %action-block-big;
+    }
     display: flex;
-    flex-flow: row wrap;
-    padding: 10px 0;
-    line-height: 22px;
+    flex-direction: column;
+    // margin: 20px 0;
 
-    @include media-breakpoint-down(xs){
-        padding-right: 48px;
-    };
-
-    & + & {
-        border-top: 1px solid light($black);
+    &:not(&-block) {
+        border-top: 1px solid $gray-300;
+        border-bottom: 1px solid $gray-300;
     }
 
-    &__descr {
-        order: 1;
-        flex: 1 1 auto;
+    &-item {
+        display: flex;
+        padding: 12px 0;
+        font-size: 18px;
+        color: $black;
+        line-height: 24px;
+
+        & + & {
+            border-top: 1px solid $gray-300;
+        }
+
+        &__descr {
+            flex: 1 0 auto;
+        }
+        &__amount {
+            width: 60px;
+        }
+        &__price {
+            width: 80px;
+        }
+        &__remove {
+            margin: -6px -6px -6px 0;
+            padding: 6px;
+            font-weight: bold;
+            font-size: 1.8em;
+            line-height: inherit;
+            color: theme-color(primary);
+            cursor: pointer;
+        }
+    }
+    &-category {
+        position: relative;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 10px 0;
+        line-height: 22px;
 
         @include media-breakpoint-down(xs){
-            width: 100%;
+            padding-right: 48px;
+        };
+
+        & + & {
+            border-top: 1px solid light($black);
+        }
+
+        &__descr {
+            order: 1;
+            flex: 1 1 auto;
+
+            @include media-breakpoint-down(xs){
+                width: 100%;
+            };
+        }
+        &__price {
+            order: 3;
+            min-width: 70px;
+            text-align: right;
+
+            @include media-breakpoint-down(xs){
+                text-align: left;
+            };
+            @include media-breakpoint-up(lg){
+                min-width: 100px;
+            };
+            @include media-breakpoint-up(xl){
+                min-width: 200px;
+            };
+        }
+        &__amount {
+            order: 2;
+            min-width: 60px;
+            text-align: right;
+
+            .counter {
+                display: inline-flex;
+            }
+
+            @include media-breakpoint-down(xs) {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            };
+            @include media-breakpoint-up(lg){
+                min-width: 100px;
+            };
+            @include media-breakpoint-up(xl){
+                min-width: 200px;
+            };
+        }
+
+        &.sold-out {
+            color: $gray-500;
+            @include media-breakpoint-down(xs){
+                padding-right: 0;
+            };
+        }
+        &.sold-out &__amount {
+            flex: 0 0 auto;
+            width: 110px;
+
+            @include media-breakpoint-down(xs) {
+                flex: 1 0 auto;
+                position: relative;
+                top: 0;
+                transform: translateY(0);
+                order: 3;
+                width: 100%;
+                text-align: left;
+            };
+        }
+
+        @include media-breakpoint-up(sm) {
+            flex-wrap: nowrap;
         };
     }
-    &__price {
-        order: 3;
-        min-width: 80px;
-        text-align: right;
 
-        @include media-breakpoint-down(xs){
-            text-align: left;
-        };
-        @include media-breakpoint-up(lg){
-            min-width: 200px;
-        };
+    &-total {
+        display: block;
+        margin-top: 20px;
+        text-transform: uppercase;
+        text-align: right;
+        font-size: 20px;
+        color: $black;
     }
-    &__amount {
-        order: 2;
-        min-width: 80px;
-        text-align: right;
-
-        @include media-breakpoint-down(xs) {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-        };
-        @include media-breakpoint-up(lg){
-            min-width: 200px;
-        };
-    }
-}
-
-.tickets-total {
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    font-size: 20px;
-    color: $black;
-
-    @include media-breakpoint-up(sm) {
-        text-align: right;
-    };
 }

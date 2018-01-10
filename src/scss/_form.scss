@@ -121,6 +121,68 @@ input.form-control {
         //     border-top-width: 1px;
         // }
     }
+    .btn {
+        display: block;
+        width: 100%;
+    }
+}
+
+@mixin form-group-inline {
+    display: flex;
+
+    .form-control,
+    .btn {
+        flex: 1 0 1%;
+    }
+    .form-control:not(:last-of-type) {
+        border-bottom-width: 2px;
+    }
+    .form-control + .form-control {
+        margin-left: 20px;
+    }
+}
+
+.form-group-inline {
+    @include form-group-inline;
+
+    &-xs {
+        @include media-breakpoint-down(xs) {
+            @include form-group-inline;
+        }
+    }
+    &-sm {
+        @include media-breakpoint-between(sm, sm) {
+            @include form-group-inline;
+        }
+    }
+    &-md {
+        @include media-breakpoint-between(md, md) {
+            @include form-group-inline;
+        }
+    }
+    &-lg {
+        @include media-breakpoint-between(lg, lg) {
+            @include form-group-inline;
+        }
+    }
+    &-xl {
+        @include media-breakpoint-up(xl) {
+            @include form-group-inline;
+        }
+    }
+
+    @each $dimension in map-keys($grid-breakpoints) {
+        &-#{$dimension}-up {
+            @include media-breakpoint-up($dimension) {
+                @include form-group-inline;
+            }
+        }
+        &-#{$dimension}-down {
+            @include media-breakpoint-down($dimension) {
+                @include form-group-inline;
+            }
+        }
+    }
 }
 
 .form-check {
@@ -176,7 +238,8 @@ input.form-control {
         }
 
         &.disabled {
-            color: $gray-400;
+            color: $gray-300;
+            cursor: default;
         }
     }
     select {

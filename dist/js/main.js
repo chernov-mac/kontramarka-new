@@ -56,6 +56,11 @@ $(function() {
 
 		$('#plan_t').addClass('scheme-ready');
 	}
+	if ($('.beauty-scroll').length) {
+		$.each($('.beauty-scroll'), function(i, ticketsList){
+			wrapScrollShadow(ticketsList, $(ticketsList).data('max-height'));
+		});
+	}
 
 	initScrollShadow();
 

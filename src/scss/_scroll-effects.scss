@@ -37,6 +37,10 @@
         margin-right: -20px;
         padding-right: 20px;
     }
+    &__target {
+        border-top-width: 0 !important;
+        border-bottom-width: 0 !important;
+    }
 
     &.not-start:before {
         background-size: 100% 8px;

@@ -11,12 +11,6 @@
 	text-decoration: none;
     outline: none;
 
-    &-text {
-        font-size: 16px;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
     &.processing {
         i {
             display: inline-block;
@@ -52,7 +46,13 @@
     &[class^="btn-outline"] {
         padding: ($btn-padding-y - 1) ($btn-padding-x - 1);
     }
-    &.btn-round {
+
+    &-text {
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &-round {
         display: block;
         width: $container-padding-x * 2;
         height: $container-padding-x * 2;
@@ -63,7 +63,7 @@
             margin-right: 0;
         }
     }
-    &.btn-square {
+    &-square {
         padding-left: 0;
         padding-right: 0;
         text-align: center;
@@ -73,6 +73,9 @@
         i {
             margin-right: 0;
         }
+    }
+    &-lg {
+        padding: $btn-padding-y * 1.5 $btn-padding-x * 1.5;
     }
 
     &.disabled,

@@ -464,15 +464,16 @@ a.external {
 // }
 %action-block {
     display: block;
-    width: 100%;
     padding: 0 18px;
-    border: 2px solid #e0e0e0;
+    border-style: solid;
+    border-color: $gray-200;
+    border-width: 2px;
     font-size: 18px;
     color: $black;
 }
 %action-block-big {
     padding: 0 20px;
-    @include media-breakpoint-up(md){
+    @include media-breakpoint-up(lg){
         padding: 0 30px;
     };
 }
@@ -480,6 +481,64 @@ a.external {
 .kontramarka-logo {
     background: url('../images/logo.svg') center center no-repeat;
     background-size: contain;
+}
+
+
+.checklist {
+    &__item {
+        position: relative;
+        line-height: 24px;
+        margin-bottom: 4px;
+        padding-left: 1.6em;
+
+        &:before {
+            content: '\f00c';
+            font-family: 'kontramarka-icons';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            margin-right: .6em;
+            font-size: .8em;
+            color: theme-color(secondary);
+        }
+    }
+}
+
+.cart-box {
+    @include media-breakpoint-down(md) {
+        .checklist {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+
+            .checklist__item {
+                flex: 1 0 50%;
+            }
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        .box-body {
+            position: relative;
+            min-height: 286px
+        }
+        &.login {
+            .btn {
+                position: relative;
+                top: 20px;
+            }
+        }
+
+        &.register,
+        &.guest {
+            .btn {
+                position: absolute;
+                right: 30px;
+                bottom: 30px;
+                left: 30px;
+            }
+        }
+    }
 }
 
 
@@ -910,6 +969,7 @@ main {
 @import "tour";
 @import "schedule";
 @import "comments";
+@import "cart";
 
 // Modals
 @import "modal";

@@ -517,91 +517,232 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						<a href="/teatri/">Театры</a>
-						<i class="fa fa-angle-right"></i>
-						Балет
+						Оформление заказа &mdash; гость
 					</div>
 			    </div>
 			</div>
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<h1 class="page-title tour__title">
-					Семинар Виктории Чердаковой - Актуальные проблемы вашей жизни
-					<!-- <div class="undertitle">с 03 ноября 2017 по 13 ноября 2017</div> -->
-				</h1>
-				<div class="box event-info">
+				<div class="box nav nav-tabs steps">
+					<div class="nav-item">
+						<a href="/cart.html" data-toggle="tab" class="nav-link active">
+							<span class="tab-num">1</span>
+							<span class="tab-text">Корзина</span>
+						</a>
+					</div>
+					<div class="nav-item">
+						<a href="/cart-2.html" data-toggle="tab" class="nav-link">
+							<span class="tab-num">2</span>
+							<span class="tab-text">Оформление заказа</span>
+						</a>
+					</div>
+					<div class="nav-item">
+						<a href="/cart-3.html" data-toggle="tab" class="nav-link">
+							<span class="tab-num">3</span>
+							<span class="tab-text">Обзор заказа</span>
+						</a>
+					</div>
+					<div class="nav-item">
+						<a href="/cart-4.html" data-toggle="tab" class="nav-link">
+							<span class="tab-num">4</span>
+							<span class="tab-text">Подтверждение</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box">
 					<div class="box-body">
-						<div class="event-info__body">
+						<div class="countdown">
+							<div class="countdown__time">
+								<i class="icon-watch"></i><span id="cartCountdown"></span>
+							</div>
+							<div class="countdown__text">
+								<h5>Время на оформление заказа</h5>
+								<p>Пожалуйста, обратите внимание на время, в течение которого ваши билеты будут находиться в резерве</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body">
+						<div class="event-info extended">
 							<div class="event-info__pic">
 								<div class="a4 preloading">
 									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
 								</div>
 							</div>
-							<div class="event-info__text-wrapper">
-								<a href="tour.html" class="event-info__title">Хор турецкого в германии</a>
-								<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
-								<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
-							</div>
-							<a class="fav-plus favorites" id="fav-id-422" href="javascript:void(0)" data-toggle="tooltip" title="Добавить в закладки профиля на сайте"><i class="fa fa-star-o"></i><span>Добавить в избранное</span></a>
-						</div>
-						<div class="event-scheme">
-							<div class="event-scheme__body">
-								<div class="scheme preloading"></div>
-							</div>
-							<div class="event-scheme__sidebar">
-								<div class="scheme__minimap preloading"></div>
-								<div class="color-prices">
-									<div class="title">Ценовые категории</div>
-									<div class="color-price booked"><span class="pattern pattern--rounded"></span><span class="price">Занято</span></div>
-									<div class="color-price light-green"><span class="pattern pattern--rounded"></span><span class="price">&euro;10,00</span></div>
-									<div class="color-price green"><span class="pattern pattern--rounded"></span><span class="price">&euro;15,00</span></div>
-									<div class="color-price cyan"><span class="pattern pattern--rounded"></span><span class="price">&euro;20,00</span></div>
-									<div class="color-price light-blue"><span class="pattern pattern--rounded"></span><span class="price">&euro;25,00</span></div>
-									<div class="color-price orange"><span class="pattern pattern--rounded"></span><span class="price">&euro;30,00</span></div>
-									<div class="color-price pink"><span class="pattern pattern--rounded"></span><span class="price">&euro;35,00</span></div>
-									<div class="color-price red"><span class="pattern pattern--rounded"></span><span class="price">&euro;40,00</span></div>
-									<div class="color-price cherry"><span class="pattern pattern--rounded"></span><span class="price">&euro;45,00</span></div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="external">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
 								</div>
-								<div class="ticketbox">
-									<div class="ticketbox__title">Выбранные билеты</div>
-									<div class="ticketbox__inner">
-										<div class="ticket">
-											<div class="ticket__sector">Parkett A</div>
-											<div class="ticket__price">&euro;25,00</div>
-											<div class="ticket__remove" onclick="CMSalert('Ticket removed');"></div>
+								<div class="event-info__extend">
+									<div class="tickets beauty-scroll" data-max-height="146px">
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
 										</div>
-										<div class="ticket">
-											<div class="ticket__sector">Parkett A</div>
-											<div class="ticket__price">&euro;25,00</div>
-											<div class="ticket__remove" onclick="CMSalert('Ticket removed');"></div>
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
 										</div>
-										<div class="ticket">
-											<div class="ticket__sector">Parkett A</div>
-											<div class="ticket__price">&euro;25,00</div>
-											<div class="ticket__remove" onclick="CMSalert('Ticket removed');"></div>
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
 										</div>
-										<div class="ticket">
-											<div class="ticket__sector">Parkett A</div>
-											<div class="ticket__price">&euro;25,00</div>
-											<div class="ticket__remove" onclick="CMSalert('Ticket removed');"></div>
-										</div>
-										<div class="ticket">
-											<div class="ticket__sector">Parkett A</div>
-											<div class="ticket__price">&euro;25,00</div>
-											<div class="ticket__remove" onclick="CMSalert('Ticket removed');"></div>
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
 										</div>
 									</div>
-									<div class="ticketbox__form">
-										<div class="ticketbox__total">5 билетов на &euro;125</div>
-										<button class="btn btn-block btn-primary" onclick="addTicketsToCart();">Добавить в корзину</button>
-									</div>
+									<div class="tickets-total">Итого: €<span class="value">152,00</span></div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="box-footer">
-						<a href="tour.html" class="btn-text go-back">Назад</a>
+				</div>
+				<div class="box">
+					<div class="box-body">
+						<div class="event-info extended">
+							<div class="event-info__pic">
+								<div class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+								</div>
+							</div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="external">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+								</div>
+								<div class="event-info__extend">
+									<div class="tickets beauty-scroll" data-max-height="146px">
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
+										</div>
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
+										</div>
+										<div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
+										</div>
+										<!-- <div class="tickets-item">
+											<div class="tickets-item__descr">Parkett A</div>
+											<div class="tickets-item__amount">1шт</div>
+											<div class="tickets-item__price">38,00 €</div>
+											<div class="tickets-item__remove" title="Удалить">&times;</div>
+										</div> -->
+									</div>
+									<div class="tickets-total">Итого: €<span class="value">152,00</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-4">
+						<div class="box cart-box login sm-clearbox">
+							<div class="box-header">
+								<div class="title">Здравствуйте!</div>
+								<div>А мы вас не узнали. <span class="d-lg-none d-xl-inline">Представитесь?</span></div>
+							</div>
+							<div class="box-body d-none d-md-block">
+								<form action="">
+									<div class="row">
+										<div class="col-12 col-md-8 col-lg-12">
+											<div class="form-group form-group-inline-md">
+												<div class="form-control">
+													<input type="email" name="login_name" id="cart_login_name" data-placeholder="example@mail.com">
+													<label for="cart_login_name" class="placeholder">E-mail</label>
+												</div>
+												<div class="form-control">
+													<input type="password" name="login_password" id="cart_login_password">
+													<label for="cart_login_password" class="placeholder">Пароль</label>
+													<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
+												</div>
+											</div>
+										</div>
+										<div class="col-12 col-md-4 col-lg-12">
+											<button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
+												<i class="icon-sign-in"></i><span>Войти</span>
+											</button>
+										</div>
+									</div>
+									<!-- <button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
+										<i class="icon-sign-in"></i><span>Войти</span>
+									</button> -->
+								</form>
+							</div>
+							<div class="box-body d-md-none">
+								<button class="btn btn-block btn-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
+									<i class="icon-sign-in"></i><span>Войти</span>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4">
+						<div class="box cart-box register sm-clearbox">
+							<div class="box-header">
+								<div class="title">Регистрация</div>
+								<div>У вас еще нет аккаунта?</div>
+							</div>
+							<div class="box-body d-none d-md-block">
+								<div class="checklist">
+									<div class="checklist__item">Удобно отслеживать статус заказа</div>
+									<div class="checklist__item">Интересная рассылка новостей</div>
+									<div class="checklist__item">Защита персональных данных</div>
+									<div class="checklist__item d-lg-none d-xl-block">Удобно отслеживать статус заказа</div>
+									<div class="checklist__item d-lg-none">Интересная рассылка новостей</div>
+									<div class="checklist__item d-lg-none">Защита персональных данных</div>
+								</div>
+								<a href="register.html" class="btn btn-lg btn-primary">Зарегистрироваться</a>
+							</div>
+							<div class="box-body d-md-none">
+								<a href="register.html" class="btn btn-block btn-primary">Зарегистрироваться</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-4">
+						<div class="box cart-box guest sm-clearbox">
+							<div class="box-header">
+								<div class="title">Гостевая запись</div>
+								<div>Мы так и не познакомимся :(</div>
+							</div>
+							<div class="box-body">
+								<a href="cart-2.html" class="btn btn-block btn-secondary d-md-none">Продолжить</a>
+								<a href="cart-2.html" class="btn btn-lg btn-secondary d-none d-md-inline-block">Продолжить</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -867,6 +1008,7 @@
 
 <!-- jQuery -->
 <script src="/plugins/js/jquery.min.js"></script>
+<script src="/plugins/js/jquery.countdown.min.js"></script>
 <!-- Bootstrap -->
 <script src="/plugins/js/popper.min.js"></script>
 <script src="/plugins/js/bootstrap.min.js"></script>
@@ -879,5 +1021,17 @@
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		var start = new Date();
+		var diff = 30; // minutes
+		var afterDiff = new Date(start.getTime() + diff * 60000);
+		$('#cartCountdown')
+		.countdown(afterDiff, function(event) {
+			$(this).text(event.strftime('%M : %S'));
+		});
+	});
+</script>
 </body>
 </html>

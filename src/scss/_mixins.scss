@@ -71,6 +71,22 @@
         object-fit: cover;
     }
 }
+@mixin clearbox {
+    .box-header {
+        padding-bottom: 0;
+        border-bottom: none;
+        text-align: center;
+    }
+    .box-body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .box-footer {
+        padding-top: 0;
+        border-top: none;
+        text-align: center;
+    }
+}
 
 // Setting vertical margins to columns with opposite margins on row
 @mixin row-y-offsets($offsets-map) {
