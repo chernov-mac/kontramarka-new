@@ -540,6 +540,10 @@ a.external {
         }
     }
 }
+.d-flex-col {
+    @extend .d-flex;
+    flex-direction: column;
+}
 
 
 

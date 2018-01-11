@@ -395,9 +395,9 @@ function initScrollShadow() {
 	$.each($('.scroll-shadow__target'), function(i, target){
 		checkScrollShadowPos(target);
 
-		$(window).on('resize', checkScrollShadowPos.bind(event, target));
-		$(target).closest('.scroll-shadow__scroller').on('scroll', checkScrollShadowPos.bind(event, target));
-		$(target).on('DOMSubtreeModified', checkScrollShadowPos.bind(event, target));
+		$(window).on('resize', checkScrollShadowPos.bind(this, target));
+		$(target).closest('.scroll-shadow__scroller').on('scroll', checkScrollShadowPos.bind(this, target));
+		$(target).on('DOMSubtreeModified', checkScrollShadowPos.bind(this, target));
 	});
 }
 function checkScrollShadowPos(target) {
@@ -417,9 +417,8 @@ function checkScrollShadowPos(target) {
 		height: $target.data('max-height')
 	});
 
-
 	if ($target.outerHeight() <= $outer.outerHeight()) {
-		$wrapper
+		$parent
 		.removeClass('not-start')
 		.removeClass('not-end');
 
