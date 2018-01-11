@@ -383,43 +383,59 @@ function counterSelectNext(counter) {
 
 function wrapScrollShadow(element, height) {
 	$(element)
-		.addClass('scroll-shadow__target')
-		.wrap('<div class="scroll-shadow"></div>')
-		.wrap('<div class="scroll-shadow__scroll" style="max-height: ' + height + '"></div>');
+	.wrap('<div class="scroll-shadow"></div>')
+	.wrap('<div class="scroll-shadow__outer"></div>')
+	.wrap('<div class="scroll-shadow__scroller"></div>')
+	.wrap('<div class="scroll-shadow__inner"></div>')
+	.addClass('scroll-shadow__target');
+
 	initScrollShadow();
 }
 function initScrollShadow() {
 	$.each($('.scroll-shadow__target'), function(i, target){
 		checkScrollShadowPos(target);
 
-		$(target).closest('.scroll-shadow__scroll').on('scroll', function(event){
-			checkScrollShadowPos(target);
-		});
+		$(window).on('resize', checkScrollShadowPos.bind(event, target));
+		$(target).closest('.scroll-shadow__scroller').on('scroll', checkScrollShadowPos.bind(event, target));
+		$(target).on('DOMSubtreeModified', checkScrollShadowPos.bind(event, target));
 	});
 }
 function checkScrollShadowPos(target) {
 	var $target = $(target),
-		$scrollContainer = $target.closest('.scroll-shadow__scroll'),
-		$wrapper = $scrollContainer.closest('.scroll-shadow')
-		scrollEnd = $target.outerHeight() - $scrollContainer.outerHeight();
+		$inner = $target.closest('.scroll-shadow__inner'),
+		$scroller = $target.closest('.scroll-shadow__scroller'),
+		$outer = $inner.closest('.scroll-shadow__outer'),
+		$parent = $outer.closest('.scroll-shadow');
+	var scrollEnd = $target.outerHeight() - $outer.outerHeight();
 
-	if ($target.outerHeight() == $scrollContainer.outerHeight()) {
+	$inner.css({
+		width: $parent.width() + 'px',
+		height: $target.data('max-height')
+	});
+	$outer.css({
+		width: $parent.width() + 'px',
+		height: $target.data('max-height')
+	});
+
+
+	if ($target.outerHeight() <= $outer.outerHeight()) {
 		$wrapper
 		.removeClass('not-start')
 		.removeClass('not-end');
+
 		return;
 	}
 
-	if ($scrollContainer.scrollTop() > 0) {
-		$wrapper.addClass('not-start');
+	if ($scroller.scrollTop() > 0) {
+		$parent.addClass('not-start');
 	} else {
-		$wrapper.removeClass('not-start');
+		$parent.removeClass('not-start');
 	}
 
-	if (scrollEnd <= 0 || $scrollContainer.scrollTop() < scrollEnd) {
-		$wrapper.addClass('not-end');
+	if (scrollEnd <= 0 || $scroller.scrollTop() < scrollEnd) {
+		$parent.addClass('not-end');
 	} else {
-		$wrapper.removeClass('not-end');
+		$parent.removeClass('not-end');
 	}
 }
 

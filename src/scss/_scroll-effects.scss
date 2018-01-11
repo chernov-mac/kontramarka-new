@@ -1,6 +1,5 @@
 .scroll-shadow {
     position: relative;
-    overflow: hidden;
     border-top: 1px solid $gray-200;
     border-bottom: 1px solid $gray-200;
 
@@ -10,7 +9,7 @@
         display: block;
         position: absolute;
         z-index: 2;
-        right: 20px;
+        right: 0;
         left: 0;
         height: 10px;
         transition: background-size .2s ease;
@@ -30,16 +29,42 @@
         background-size: 100% 0;
     }
 
-    &__scroll {
+    &__outer {
         position: relative;
+        overflow: hidden;
+    }
+    &__scroller {
+
+        position: absolute;
         z-index: 1;
+        left: 0;
+        overflow-x: hidden;
         overflow-y: scroll;
-        margin-right: -20px;
-        padding-right: 20px;
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
     }
     &__target {
         border-top-width: 0 !important;
         border-bottom-width: 0 !important;
+    }
+
+    &__scrollbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 2px;
+
+        .bar {
+            position: absolute;
+            right: 0;
+            display: block;
+            width: 2px;
+            background: theme-color(primary);
+        }
     }
 
     &.not-start:before {
