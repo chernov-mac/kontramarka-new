@@ -223,11 +223,11 @@ input.form-control {
 @mixin counter {
     position: relative;
     display: flex;
-    width: 100px;
+    // width: 100px;
 
     &__control {
         display: block;
-        width: 25%;
+        width: 24px;
         font-size: 16px;
         text-align: center;
         color: theme-color(primary);
@@ -237,6 +237,12 @@ input.form-control {
             color: theme-color(secondary);
         }
 
+        &.prev {
+            margin-right: 6px;
+        }
+        &.next {
+            margin-left: 6px;
+        }
         &.disabled {
             color: $gray-300;
             cursor: default;
@@ -246,7 +252,7 @@ input.form-control {
         position: relative;
         display: block;
         padding-right: 0;
-        width: 50%;
+        // width: 50%;
         text-align: center;
         text-align-last:center;
 

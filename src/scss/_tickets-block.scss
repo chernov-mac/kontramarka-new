@@ -14,25 +14,80 @@
 
     &-item {
         display: flex;
+        align-items: start;
         padding: 12px 0;
-        font-size: 18px;
+        font-size: 16px;
         color: $black;
         line-height: 24px;
+
+        @include media-breakpoint-down(xs) {
+            flex-wrap: wrap;
+        };
+        @include media-breakpoint-up(lg) {
+            font-size: 18px;
+        };
 
         & + & {
             border-top: 1px solid $gray-300;
         }
 
+        &__amount,
+        &__price,
+        &__separator {
+            flex: 0 0 auto;
+        }
+
         &__descr {
-            flex: 1 0 auto;
+            flex: 1 1 auto;
+            order: 1;
+            padding-right: 16px;
+
+            @include media-breakpoint-down(xs) {
+                flex-basis: 0%;
+            };
         }
         &__amount {
+            order: 2;
+            min-width: 60px;
+            text-align: left;
+
+            @include media-breakpoint-down(xs) {
+                order: 10;
+                width: 100%;
+            };
+            @include media-breakpoint-up(lg) {
+                min-width: 78px;
+                text-align: center;
+            };
+        }
+        &__separator {
+            order: 3;
             width: 60px;
+            text-align: center;
+
+            @include media-breakpoint-down(md) {
+                display: none;
+            };
         }
         &__price {
-            width: 80px;
+            order: 4;
+
+            @include media-breakpoint-down(xs) {
+                text-align: right;
+                padding-right: 16px;
+            };
+            @include media-breakpoint-up(sm) {
+                min-width: 64px;
+            };
+            @include media-breakpoint-up(md) {
+                min-width: 72px;
+            };
+            @include media-breakpoint-up(lg) {
+                min-width: 80px;
+            };
         }
         &__remove {
+            order: 5;
             margin: -6px -6px -6px 0;
             padding: 6px;
             font-weight: bold;
@@ -40,6 +95,10 @@
             line-height: inherit;
             color: theme-color(primary);
             cursor: pointer;
+
+            @include media-breakpoint-up(lg) {
+                margin-left: 16px;
+            };
         }
     }
     &-category {
@@ -133,9 +192,31 @@
     &-total {
         display: block;
         margin-top: 20px;
+        padding-right: 38px;
         text-transform: uppercase;
         text-align: right;
-        font-size: 20px;
+        font-size: 18px;
         color: $black;
+
+        @include media-breakpoint-up(sm) {
+            padding-right: 0;
+
+            .value {
+                display: inline-block;
+                width: 85px;
+                text-align: left;
+            }
+        };
+        @include media-breakpoint-up(md) {
+            .value {
+                width: 94px;
+            }
+        };
+        @include media-breakpoint-up(lg) {
+            font-size: 20px;
+            .value {
+                width: 118px;
+            }
+        };
     }
 }
