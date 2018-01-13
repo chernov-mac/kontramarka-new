@@ -36,7 +36,9 @@ $(function() {
 		$('#ticketbox_inner').wrap('<div id="ticketbox_wrapper"></div>');
 
 		positionGroupbox();
-		wrapScrollShadow($('#ticketbox_inner'), '195px');
+		// wrapScrollShadow($('#ticketbox_inner'), '195px');
+		$('#ticketbox_inner').wrap('<div class="edges edges-y"></div>');
+		$('#ticketbox_inner').addClass('beauty-scroll').attr('data-max-height', '194px');
 
 		if ($('.buttons-stehplatz').length) {
 			$.each($('.buttons-stehplatz .cat-itm'), function(i, item) {
@@ -45,7 +47,7 @@ $(function() {
 				$(item).find('.catprice').append($(item).find('.catname b').html());
 				$(item).find('.catname b').remove();
 
-				$(item).find('.actions').append('<div class="counter"></div>')
+				$(item).find('.actions').append('<div class="counter"></div>');
 
 				$(item).find('.counter')
 					.append($(item).find('.minusnum').detach())

@@ -517,7 +517,7 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						Корзина
+						Оформление заказа
 					</div>
 			    </div>
 			</div>
@@ -526,19 +526,19 @@
 			<div class="container">
 				<div class="box nav nav-tabs steps">
 					<div class="nav-item">
-						<a href="/cart.html" data-toggle="tab" class="nav-link active">
+						<a href="/cart.html" data-toggle="tab" class="nav-link complete">
 							<span class="tab-num">1</span>
 							<span class="tab-text">Корзина</span>
 						</a>
 					</div>
 					<div class="nav-item">
-						<a href="/cart-2.html" data-toggle="tab" class="nav-link">
+						<a href="/cart-2.html" data-toggle="tab" class="nav-link complete">
 							<span class="tab-num">2</span>
 							<span class="tab-text">Оформление заказа</span>
 						</a>
 					</div>
 					<div class="nav-item">
-						<a href="/cart-3.html" data-toggle="tab" class="nav-link">
+						<a href="/cart-3.html" data-toggle="tab" class="nav-link active">
 							<span class="tab-num">3</span>
 							<span class="tab-text">Обзор заказа</span>
 						</a>
@@ -569,12 +569,11 @@
 				</div>
 			</div>
 		</section>
-		<section class="page-block cart-items-review">
+		<section class="page-block">
 			<div class="container">
 				<div class="box">
 					<div class="box-body">
 						<div class="event-info extended">
-							<button class="master-remove"></button>
 							<div class="event-info__pic">
 								<div class="a4 preloading">
 									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
@@ -588,62 +587,37 @@
 								</div>
 								<div class="event-info__extend">
 									<div class="d-flex-col">
-										<div class="tickets tickets-block tickets-removable">
-											<div class="beauty-scroll" data-max-height="168px">
+										<div class="edges edges-y">
+											<div class="tickets beauty-scroll" data-max-height="146px">
 												<div class="tickets-item">
 		                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
-		                                            <div class="tickets-item__amount">
-														<div class="form-select counter counter-off-md-down">
-															<div class="counter__control prev"><i class="icon-minus"></i></div>
-															<div class="counter__select">
-																<select name="amount5878">
-																	<option value="0">0</option>
-																	<option value="1">1</option>
-																	<option value="2">2</option>
-																	<option value="3" selected>3</option>
-																	<option value="4">4</option>
-																	<option value="5">5</option>
-																	<option value="6">6</option>
-																	<option value="7">7</option>
-																	<option value="8">8</option>
-																	<option value="9">9</option>
-																	<option value="999">999</option>
-																</select>
-															</div>
-															<div class="counter__control next" data-title="Вы выбрали максимальное количество билетов"><i class="icon-plus"></i></div>
-														</div>
-		                                            </div>
+		                                            <div class="tickets-item__amount">3</div>
 		                                            <div class="tickets-item__separator">&times;</div>
 		                                            <div class="tickets-item__price">42 €</div>
-		                                            <div class="tickets-item__remove" onclick="delCategory(3292, '');" title="Удалить все билеты концерта">×</div>
 		                                        </div>
 												<div class="tickets-item">
 													<div class="tickets-item__descr">Parkett A</div>
 													<div class="tickets-item__amount">1</div>
 		                                            <div class="tickets-item__separator">&times;</div>
 													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
 												</div>
 												<div class="tickets-item">
 													<div class="tickets-item__descr">Parkett A</div>
 													<div class="tickets-item__amount">1</div>
 		                                            <div class="tickets-item__separator">&times;</div>
 													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
 												</div>
 												<div class="tickets-item">
 													<div class="tickets-item__descr">Parkett A</div>
 													<div class="tickets-item__amount">1</div>
 		                                            <div class="tickets-item__separator">&times;</div>
 													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
 												</div>
 												<div class="tickets-item">
 													<div class="tickets-item__descr">Parkett A</div>
 													<div class="tickets-item__amount">1</div>
 		                                            <div class="tickets-item__separator">&times;</div>
 													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
 												</div>
 											</div>
 										</div>
@@ -654,82 +628,82 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box login sm-clearbox">
-							<div class="box-header">
-								<div class="title">Здравствуйте!</div>
-								<div>А мы вас не узнали. <span class="d-lg-none d-xl-inline">Представитесь?</span></div>
+				<div class="box">
+					<div class="box-body">
+						<div class="event-info extended">
+							<div class="event-info__pic">
+								<div class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+								</div>
 							</div>
-							<div class="box-body d-none d-md-block">
-								<form action="">
-									<div class="row">
-										<div class="col-12 col-md-8 col-lg-12">
-											<div class="form-group form-group-inline-md row-like">
-												<div class="form-control">
-													<input type="email" name="login_name" id="cart_login_name" data-placeholder="example@mail.com">
-													<label for="cart_login_name" class="placeholder">E-mail</label>
-												</div>
-												<div class="form-control">
-													<input type="password" name="login_password" id="cart_login_password">
-													<label for="cart_login_password" class="placeholder">Пароль</label>
-													<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
-												</div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="external">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+								</div>
+								<div class="event-info__extend">
+									<div class="d-flex-col">
+										<div class="tickets beauty-scroll" data-max-height="146px">
+											<div class="tickets-item">
+	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+	                                            <div class="tickets-item__amount">
+													<div class="form-select counter counter-off-md-down">
+														<div class="counter__control prev"><i class="icon-minus"></i></div>
+														<div class="counter__select">
+															<select name="amount5878">
+																<option value="0">0</option>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3" selected>3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+																<option value="7">7</option>
+																<option value="8">8</option>
+																<option value="9">9</option>
+																<option value="10">10</option>
+															</select>
+														</div>
+														<div class="counter__control next" data-title="Вы выбрали максимальное количество билетов"><i class="icon-plus"></i></div>
+													</div>
+	                                            </div>
+	                                            <div class="tickets-item__separator">&times;</div>
+	                                            <div class="tickets-item__price">42 €</div>
+	                                            <div class="tickets-item__remove" onclick="delCategory(3292, '');" title="Удалить все билеты концерта">×</div>
+	                                        </div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount">1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+												<div class="tickets-item__remove" title="Удалить">&times;</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount">1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+												<div class="tickets-item__remove" title="Удалить">&times;</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount">1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+												<div class="tickets-item__remove" title="Удалить">&times;</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount">1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+												<div class="tickets-item__remove" title="Удалить">&times;</div>
 											</div>
 										</div>
-										<div class="col-12 col-md-4 col-lg-12">
-											<button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-												<i class="icon-sign-in"></i><span>Войти</span>
-											</button>
-										</div>
 									</div>
-									<!-- <button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-										<i class="icon-sign-in"></i><span>Войти</span>
-									</button> -->
-								</form>
-							</div>
-							<div class="box-body d-md-none">
-								<button class="btn btn-block btn-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
-									<i class="icon-sign-in"></i><span>Войти</span>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box register sm-clearbox">
-							<div class="box-header">
-								<div class="title">Регистрация</div>
-								<div>У вас еще нет аккаунта?</div>
-							</div>
-							<div class="box-body d-none d-md-block">
-								<div class="checklist">
-									<div class="checklist__item">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item">Интересная рассылка новостей</div>
-									<div class="checklist__item">Защита персональных данных</div>
-									<div class="checklist__item d-lg-none d-xl-block">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item d-lg-none">Интересная рассылка новостей</div>
-									<div class="checklist__item d-lg-none">Защита персональных данных</div>
+									<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 								</div>
-								<a href="register.html" class="btn btn-lg btn-primary">Зарегистрироваться</a>
-							</div>
-							<div class="box-body d-md-none">
-								<a href="register.html" class="btn btn-block btn-primary">Зарегистрироваться</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box guest sm-clearbox">
-							<div class="box-header">
-								<div class="title">Гостевая запись</div>
-								<div>Мы так и не познакомимся :(</div>
-							</div>
-							<div class="box-body">
-								<a href="cart-2.html" class="btn btn-block btn-secondary d-md-none">Продолжить</a>
-								<a href="cart-2.html" class="btn btn-lg btn-secondary d-none d-md-inline-block">Продолжить</a>
 							</div>
 						</div>
 					</div>
@@ -917,7 +891,7 @@
 								<div class="form-check">
 									<label class="form-check-label">
 										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-										Не запоминать меня на этом компьютере
+										<span class="form-check-text">Не запоминать меня на этом компьютере</span>
 									</label>
 								</div>
 								<input name="login" type="hidden" id="login" value="submit">

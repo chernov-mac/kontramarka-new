@@ -5,7 +5,6 @@
     }
     display: flex;
     flex-direction: column;
-    // margin: 20px 0;
 
     &:not(&-block) {
         border-top: 1px solid $gray-300;
@@ -63,7 +62,7 @@
         &__separator {
             order: 3;
             width: 60px;
-            text-align: center;
+            text-align: right;
 
             @include media-breakpoint-down(md) {
                 display: none;
@@ -71,11 +70,8 @@
         }
         &__price {
             order: 4;
+            text-align: right;
 
-            @include media-breakpoint-down(xs) {
-                text-align: right;
-                padding-right: 16px;
-            };
             @include media-breakpoint-up(sm) {
                 min-width: 64px;
             };
@@ -88,16 +84,20 @@
         }
         &__remove {
             order: 5;
-            margin: -6px -6px -6px 0;
+            margin: -6px -6px -6px 16px;
             padding: 6px;
             font-weight: bold;
             font-size: 1.8em;
             line-height: inherit;
-            color: theme-color(primary);
+            color: $gray-400;
             cursor: pointer;
 
+            &:hover {
+                color: $secondary;
+            }
+
             @include media-breakpoint-up(lg) {
-                margin-left: 16px;
+                margin-left: 32px;
             };
         }
     }
@@ -192,31 +192,35 @@
     &-total {
         display: block;
         margin-top: 20px;
-        padding-right: 38px;
-        text-transform: uppercase;
         text-align: right;
         font-size: 18px;
         color: $black;
 
-        @include media-breakpoint-up(sm) {
-            padding-right: 0;
+        .value {
+            margin-left: .5em;
+            font-weight: bold;
+        }
+    }
+    &-block + &-total {
+        text-align: center;
 
-            .value {
-                display: inline-block;
-                width: 85px;
-                text-align: left;
-            }
-        };
-        @include media-breakpoint-up(md) {
-            .value {
-                width: 94px;
-            }
+        @include media-breakpoint-up(sm) {
+            margin-right: 22px;
+            text-align: right;
         };
         @include media-breakpoint-up(lg) {
-            font-size: 20px;
-            .value {
-                width: 118px;
-            }
+            margin-right: 32px;
+        };
+    }
+    &-removable + &-total {
+        text-align: right;
+        margin-right: 58px;
+
+        @include media-breakpoint-up(sm) {
+            margin-right: 58px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-right: 85px;
         };
     }
 }

@@ -237,7 +237,7 @@
   top: 12px;
   right: -4px;
   padding: 4px;
-  color: #ffc800;
+  color: #bbb;
   font-size: 0em;
   line-height: 0;
   text-indent: 0;
@@ -249,6 +249,9 @@
   font-size: 32px;
   line-height: 16px;
   text-indent: initial;
+}
+.ticket_point .delplace_btn:hover {
+  color: #00398c;
 }
 
 #ticketbox {
@@ -309,8 +312,6 @@
 .scroll-shadow {
   position: relative;
   overflow: hidden;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
 }
 .scroll-shadow:before, .scroll-shadow:after {
   content: '';

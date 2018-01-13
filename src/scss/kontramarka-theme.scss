@@ -637,6 +637,53 @@ a.external {
     color: $gray-600;
 }
 
+.master-remove {
+    $size: 32px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: $size;
+    height: $size;
+    // background: $secondary;
+    border: 2px solid $gray-400;
+    line-height: $size;
+    text-align: center;
+    cursor: pointer;
+    // color: $white;
+    // color: $secondary;
+    color: $gray-400;
+
+    &:before {
+        content: '×';
+        // font-family: 'kontramarka-icons';
+        font-weight: bold;
+        font-size: $size;
+        line-height: $size - 4px;
+    }
+
+    &:hover {
+        // background: $secondary;
+        border: 2px solid $secondary;
+        // color: $white;
+        color: $secondary;
+    }
+}
+
+.edges {
+    border-style: solid;
+    border-color: $gray-200;
+
+    &-y {
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+    }
+    &-x {
+        border-right-width: 1px;
+        border-left-width: 1px;
+    }
+}
 
 
 

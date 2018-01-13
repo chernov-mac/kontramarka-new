@@ -393,6 +393,8 @@ function counterSelectNext(counter) {
 
 function wrapScrollShadow(element, height) {
 	$(element)
+	.addClass('beauty-scroll')
+	.attr('data-max-height', height)
 	.wrap('<div class="scroll-shadow"></div>')
 	.wrap('<div class="scroll-shadow__outer"></div>')
 	.wrap('<div class="scroll-shadow__scroller"></div>')
@@ -405,9 +407,15 @@ function initScrollShadow() {
 	$.each($('.scroll-shadow__target'), function(i, target){
 		checkScrollShadowPos(target);
 
-		$(window).on('resize', checkScrollShadowPos.bind(this, target));
+		// $(window).on('resize', checkScrollShadowPos.bind(this, target));
 		$(target).closest('.scroll-shadow__scroller').on('scroll', checkScrollShadowPos.bind(this, target));
 		$(target).on('DOMSubtreeModified', checkScrollShadowPos.bind(this, target));
+	});
+
+	$(window).on('resize', function() {
+		$.each($('.scroll-shadow__target'), function(i, target){
+			checkScrollShadowPos(target);
+		});
 	});
 }
 function checkScrollShadowPos(target) {
@@ -416,15 +424,20 @@ function checkScrollShadowPos(target) {
 		$scroller = $target.closest('.scroll-shadow__scroller'),
 		$outer = $inner.closest('.scroll-shadow__outer'),
 		$parent = $outer.closest('.scroll-shadow');
+
 	var scrollEnd = $target.outerHeight() - $outer.outerHeight();
+	var height = parseInt($target.attr('data-max-height'), 10) > $target.outerHeight() ? $target.outerHeight() + 'px' : $target.attr('data-max-height');
+	console.log(parseInt($target.attr('data-max-height'), 10));
+	console.log($target.outerHeight());
+	console.log('res: ' + height);
 
 	$inner.css({
 		width: $parent.width() + 'px',
-		height: $target.data('max-height')
+		height: height
 	});
 	$outer.css({
 		width: $parent.width() + 'px',
-		height: $target.data('max-height')
+		height: height
 	});
 
 	if ($target.outerHeight() <= $outer.outerHeight()) {

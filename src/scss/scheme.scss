@@ -214,7 +214,7 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
         top: 12px;
         right: -4px;
         padding: 4px;
-        color: #ffc800;
+        color: #bbb;
         font-size: 0em;
         line-height: 0;
         text-indent: 0;
@@ -231,6 +231,10 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
             font-size: 32px;
             line-height: 16px;
             text-indent: initial;
+        }
+
+        &:hover {
+            color: $secondary;
         }
     }
 }
@@ -250,14 +254,6 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     &_inner {
         position: relative;
 
-        .ticket_point {
-            // &:first-child {
-            //     border-top: 1px solid $light-gray;
-            // }
-            // &:last-child {
-            //     border-bottom: 1px solid $light-gray;
-            // }
-        }
         .ticket_point + .ticket_point {
             border-top: 1px solid $light-gray;
         }
@@ -268,7 +264,6 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
         text-align: center;
 
         &_btn {
-            // -webkit-appearance: button;
             display: block;
             width: 100%;
             margin-bottom: 18px;
@@ -305,8 +300,6 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 .scroll-shadow {
     position: relative;
     overflow: hidden;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
 
     &:before,
     &:after {

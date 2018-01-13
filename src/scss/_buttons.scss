@@ -62,10 +62,12 @@
         i {
             margin-right: 0;
         }
+
+        &-sm {
+            width: 32px;
+        }
     }
     &-square {
-        padding-left: 0;
-        padding-right: 0;
         text-align: center;
         width: $btn-height;
         padding: $btn-padding-y 0;
@@ -73,9 +75,16 @@
         i {
             margin-right: 0;
         }
+
+        &-sm {
+            width: 32px;
+        }
     }
     &-lg {
         padding: $btn-padding-y * 1.5 $btn-padding-x * 1.5;
+    }
+    &-sm {
+        padding: $btn-padding-y * .5 $btn-padding-x * .5;
     }
 
     &.disabled,

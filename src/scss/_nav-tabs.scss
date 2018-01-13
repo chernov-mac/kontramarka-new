@@ -104,6 +104,9 @@
                         }
                     }
                 }
+                &.complete + .nav-link.complete {
+                    border-left: 1px solid light($white);
+                }
 
                 &.active {
                     background: theme-color(primary);

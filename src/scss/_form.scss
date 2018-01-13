@@ -407,11 +407,11 @@ input.form-control {
         width: 25px;
         font-size: 16px;
         text-align: center;
-        color: theme-color(primary);
+        color: $primary;
         cursor: pointer;
 
         &:hover {
-            color: theme-color(secondary);
+            color: $secondary;
         }
 
         &.prev {
