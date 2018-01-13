@@ -517,7 +517,7 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						Корзина
+						Оформление заказа
 					</div>
 			    </div>
 			</div>
@@ -526,13 +526,13 @@
 			<div class="container">
 				<div class="box nav nav-tabs steps">
 					<div class="nav-item">
-						<a href="/cart.html" data-toggle="tab" class="nav-link active">
+						<a href="/cart.html" data-toggle="tab" class="nav-link complete">
 							<span class="tab-num">1</span>
 							<span class="tab-text">Корзина</span>
 						</a>
 					</div>
 					<div class="nav-item">
-						<a href="/cart-2.html" data-toggle="tab" class="nav-link">
+						<a href="/cart-2.html" data-toggle="tab" class="nav-link active">
 							<span class="tab-num">2</span>
 							<span class="tab-text">Оформление заказа</span>
 						</a>
@@ -571,246 +571,257 @@
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<div class="box">
-					<div class="box-body">
-						<div class="event-info extended">
-							<div class="event-info__pic">
-								<div class="a4 preloading">
-									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
-								</div>
-							</div>
-							<div class="event-info__content">
-								<div class="event-info__main">
-									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="external">Хор турецкого в германии</a></h1>
-									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
-									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
-								</div>
-								<div class="event-info__extend">
-									<div class="d-flex-col">
-										<div class="tickets beauty-scroll" data-max-height="146px">
-											<div class="tickets-item">
-	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
-	                                            <div class="tickets-item__amount">
-													<div class="form-select counter counter-off-md-down">
-														<div class="counter__control prev"><i class="icon-minus"></i></div>
-														<div class="counter__select">
-															<select name="amount5878">
-																<option value="0">0</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3" selected>3</option>
-																<option value="4">4</option>
-																<option value="5">5</option>
-																<option value="6">6</option>
-																<option value="7">7</option>
-																<option value="8">8</option>
-																<option value="9">9</option>
-																<option value="999">999</option>
-															</select>
-														</div>
-														<div class="counter__control next" data-title="Вы выбрали максимальное количество билетов"><i class="icon-plus"></i></div>
+				<form action="">
+					<div class="box address-block">
+						<div class="box-body">
+							<div class="pane" id="customer">
+								<div class="row">
+									<div class="col-12 col-lg-6">
+										<h3 class="address-block__title">Контактные данные заказчика</h3>
+										<div class="note on-top">
+											<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
+										</div>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control">
+												<input type="text" name="name" id="customer_name" data-placeholder="Ganz" required>
+												<label for="customer_name" class="placeholder compact required">Имя</label>
+											</div>
+											<div class="form-control">
+												<input type="text" name="surname" id="customer_surname" data-placeholder="Rubinheigen" required>
+												<label for="customer_surname" class="placeholder compact required">Фамилия</label>
+											</div>
+										</div>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control">
+												<input type="email" name="mail" id="customer_mail" data-placeholder="example@mail.com" required>
+												<label for="customer_mail" class="placeholder compact required">E-mail</label>
+											</div>
+											<div class="form-control">
+												<input type="email" name="mail2" id="customer_mail2" data-placeholder="" required>
+												<label for="customer_mail2" class="placeholder compact required">E-mail еще раз</label>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="row no-gutters">
+												<div class="col-sm-6">
+													<div class="form-control always-open verified">
+														<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+														<input type="text" name="phone" id="customer_phone" data-placeholder="" value="123423543" required>
+														<label for="customer_phone" class="placeholder compact required">Телефон</label>
 													</div>
-	                                            </div>
-	                                            <div class="tickets-item__separator">&times;</div>
-	                                            <div class="tickets-item__price">42 €</div>
-	                                            <div class="tickets-item__remove" onclick="delCategory(3292, '');" title="Удалить все билеты концерта">×</div>
-	                                        </div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
-											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
-											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
-											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="box">
-					<div class="box-body">
-						<div class="event-info extended">
-							<div class="event-info__pic">
-								<div class="a4 preloading">
-									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
-								</div>
-							</div>
-							<div class="event-info__content">
-								<div class="event-info__main">
-									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="external">Хор турецкого в германии</a></h1>
-									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
-									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
-								</div>
-								<div class="event-info__extend">
-									<div class="d-flex-col">
-										<div class="tickets beauty-scroll" data-max-height="146px">
-											<div class="tickets-item">
-	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
-	                                            <div class="tickets-item__amount">
-													<div class="form-select counter counter-off-md-down">
-														<div class="counter__control prev"><i class="icon-minus"></i></div>
-														<div class="counter__select">
-															<select name="amount5878">
-																<option value="0">0</option>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3" selected>3</option>
-																<option value="4">4</option>
-																<option value="5">5</option>
-																<option value="6">6</option>
-																<option value="7">7</option>
-																<option value="8">8</option>
-																<option value="9">9</option>
-																<option value="10">10</option>
-															</select>
-														</div>
-														<div class="counter__control next" data-title="Вы выбрали максимальное количество билетов"><i class="icon-plus"></i></div>
-													</div>
-	                                            </div>
-	                                            <div class="tickets-item__separator">&times;</div>
-	                                            <div class="tickets-item__price">42 €</div>
-	                                            <div class="tickets-item__remove" onclick="delCategory(3292, '');" title="Удалить все билеты концерта">×</div>
-	                                        </div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
+									<div class="col-12 col-lg-6">
+										<h3 class="address-block__title">Адрес заказчика</h3>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control always-open">
+												<div class="form-select">
+													<select name="country" id="customer_country">
+														<option value="0">Deutschland</option>
+														<option value="1">Austria</option>
+														<option value="2">Belgium</option>
+														<option value="3">Czech Rep.</option>
+														<option value="4">Denmark</option>
+														<option value="5">Estonia</option>
+														<option value="6">Finland</option>
+														<option value="7">France</option>
+														<option value="8">Holland</option>
+														<option value="9">Hungary</option>
+														<option value="10">Ireland</option>
+														<option value="11">Italy</option>
+														<option value="12">Latvia</option>
+														<option value="13">Lithuania</option>
+														<option value="14">Luxemburg</option>
+														<option value="15">Norwegen</option>
+														<option value="16">Poland</option>
+														<option value="17">Russia</option>
+														<option value="18">Spain</option>
+														<option value="19">Sweden</option>
+														<option value="20">Switzerland</option>
+														<option value="21">Ukraine</option>
+														<option value="22">United Kingdom</option>
+													</select>
+												</div>
+												<label for="customer_country" class="placeholder compact required">Страна</label>
 											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
+											<div class="form-control">
+												<input type="text" name="city" id="customer_city" data-placeholder="" required>
+												<label for="customer_city" class="placeholder compact required">Город</label>
 											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
+										</div>
+										<div class="form-group form-group-inline">
+											<div class="form-control basis-half full-width-xs-down">
+												<input type="text" name="street" id="customer_street" required>
+												<label for="customer_street" class="placeholder compact required">Улица</label>
 											</div>
-											<div class="tickets-item">
-												<div class="tickets-item__descr">Parkett A</div>
-												<div class="tickets-item__amount">1</div>
-	                                            <div class="tickets-item__separator">&times;</div>
-												<div class="tickets-item__price">38,00 €</div>
-												<div class="tickets-item__remove" title="Удалить">&times;</div>
+											<div class="form-control basis-fourth">
+												<input type="text" name="house" id="customer_house" required>
+												<label for="customer_house" class="placeholder compact required">№ дома</label>
+											</div>
+											<div class="form-control basis-fourth">
+												<input type="text" name="index" id="customer_index" required>
+												<label for="customer_index" class="placeholder compact required">Индекс</label>
 											</div>
 										</div>
 									</div>
-									<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box login sm-clearbox">
-							<div class="box-header">
-								<div class="title">Здравствуйте!</div>
-								<div>А мы вас не узнали. <span class="d-lg-none d-xl-inline">Представитесь?</span></div>
-							</div>
-							<div class="box-body d-none d-md-block">
-								<form action="">
+								<div>
 									<div class="row">
-										<div class="col-12 col-md-8 col-lg-12">
-											<div class="form-group form-group-inline-md row-like">
-												<div class="form-control">
-													<input type="email" name="login_name" id="cart_login_name" data-placeholder="example@mail.com">
-													<label for="cart_login_name" class="placeholder">E-mail</label>
-												</div>
-												<div class="form-control">
-													<input type="password" name="login_password" id="cart_login_password">
-													<label for="cart_login_password" class="placeholder">Пароль</label>
-													<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
-												</div>
+										<div class="col-12 col-md-4 col-lg-6">
+											<label class="form-check-label panel-control" data-panel-control="#recipient">
+												<input class="form-check-input" type="checkbox" name="other_recepient" value="other_recepient">
+												<span class="form-check-text">Другой получатель</span>
+											</label>
+										</div>
+										<div class="col-12 col-md-8 col-lg-6">
+											<div class="note on-bottom">
+												<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
 											</div>
 										</div>
-										<div class="col-12 col-md-4 col-lg-12">
-											<button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-												<i class="icon-sign-in"></i><span>Войти</span>
-											</button>
+									</div>
+								</div>
+							</div>
+							<div class="pane collapse" id="recipient">
+								<br>
+								<div class="row">
+									<div class="col-12 col-lg-6">
+										<h3 class="address-block__title">Контактные данные получателя</h3>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control">
+												<input type="text" name="name" id="recipient_name" data-placeholder="Ganz" required>
+												<label for="recipient_name" class="placeholder compact required">Имя</label>
+											</div>
+											<div class="form-control">
+												<input type="text" name="surname" id="recipient_surname" data-placeholder="Rubinheigen" required>
+												<label for="recipient_surname" class="placeholder compact required">Фамилия</label>
+											</div>
 										</div>
 									</div>
-									<!-- <button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-										<i class="icon-sign-in"></i><span>Войти</span>
-									</button> -->
-								</form>
-							</div>
-							<div class="box-body d-md-none">
-								<button class="btn btn-block btn-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
-									<i class="icon-sign-in"></i><span>Войти</span>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box register sm-clearbox">
-							<div class="box-header">
-								<div class="title">Регистрация</div>
-								<div>У вас еще нет аккаунта?</div>
-							</div>
-							<div class="box-body d-none d-md-block">
-								<div class="checklist">
-									<div class="checklist__item">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item">Интересная рассылка новостей</div>
-									<div class="checklist__item">Защита персональных данных</div>
-									<div class="checklist__item d-lg-none d-xl-block">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item d-lg-none">Интересная рассылка новостей</div>
-									<div class="checklist__item d-lg-none">Защита персональных данных</div>
+									<div class="col-12 col-lg-6">
+										<h3 class="address-block__title">Адрес получателя</h3>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control always-open">
+												<div class="form-select">
+													<select name="country" id="recipient_country">
+														<option value="0">Deutschland</option>
+														<option value="1">Austria</option>
+														<option value="2">Belgium</option>
+														<option value="3">Czech Rep.</option>
+														<option value="4">Denmark</option>
+														<option value="5">Estonia</option>
+														<option value="6">Finland</option>
+														<option value="7">France</option>
+														<option value="8">Holland</option>
+														<option value="9">Hungary</option>
+														<option value="10">Ireland</option>
+														<option value="11">Italy</option>
+														<option value="12">Latvia</option>
+														<option value="13">Lithuania</option>
+														<option value="14">Luxemburg</option>
+														<option value="15">Norwegen</option>
+														<option value="16">Poland</option>
+														<option value="17">Russia</option>
+														<option value="18">Spain</option>
+														<option value="19">Sweden</option>
+														<option value="20">Switzerland</option>
+														<option value="21">Ukraine</option>
+														<option value="22">United Kingdom</option>
+													</select>
+												</div>
+												<label for="recipient_country" class="placeholder compact required">Страна</label>
+											</div>
+											<div class="form-control">
+												<input type="text" name="city" id="recipient_city" data-placeholder="" required>
+												<label for="recipient_city" class="placeholder compact required">Город</label>
+											</div>
+										</div>
+										<div class="form-group form-group-inline">
+											<div class="form-control basis-half full-width-xs-down">
+												<input type="text" name="street" id="recipient_street" required>
+												<label for="recipient_street" class="placeholder compact required">Улица</label>
+											</div>
+											<div class="form-control basis-fourth">
+												<input type="text" name="house" id="recipient_house" required>
+												<label for="recipient_house" class="placeholder compact required">№ дома</label>
+											</div>
+											<div class="form-control basis-fourth">
+												<input type="text" name="index" id="recipient_index" required>
+												<label for="recipient_index" class="placeholder compact required">Индекс</label>
+											</div>
+										</div>
+									</div>
 								</div>
-								<a href="register.html" class="btn btn-lg btn-primary">Зарегистрироваться</a>
-							</div>
-							<div class="box-body d-md-none">
-								<a href="register.html" class="btn btn-block btn-primary">Зарегистрироваться</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box guest sm-clearbox">
-							<div class="box-header">
-								<div class="title">Гостевая запись</div>
-								<div>Мы так и не познакомимся :(</div>
-							</div>
-							<div class="box-body">
-								<a href="cart-2.html" class="btn btn-block btn-secondary d-md-none">Продолжить</a>
-								<a href="cart-2.html" class="btn btn-lg btn-secondary d-none d-md-inline-block">Продолжить</a>
+					<div class="box delivery-block">
+						<div class="box-body">
+							<div class="row">
+								<div class="delivery col-12 col-md-6">
+									<h3 class="delivery-block__title">Способ доставки</h3>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="delivery" value="1" checked>
+										<span class="form-check-text">
+											<span class="descr">Стандартное письмо</span>
+											<span class="price">+ &euro;1,50</span>
+										</span>
+									</label>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="delivery" value="2">
+										<span class="form-check-text">
+											<span class="descr">Заказное письмо</span>
+											<span class="price">+ &euro;3,50</span>
+										</span>
+									</label>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="delivery" value="3">
+										<span class="form-check-text">
+											<span class="descr">e-Ticket</span>
+											<span class="price">Бесплатно</span>
+										</span>
+									</label>
+								</div>
+								<div class="payment col-12 col-md-6">
+									<h3 class="delivery-block__title">Способ оплаты</h3>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="paytype" value="1" checked>
+										<span class="form-check-text">
+											<span class="descr">Банковский перевод</span>
+											<span class="price">Бесплатно</span>
+										</span>
+									</label>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="paytype" value="2">
+										<span class="form-check-text">
+											<span class="descr small">
+												<img class="paypal" src="/images/brands/paypal.svg" alt="Paypal">
+											</span>
+											<span class="price">+ &euro;3,50</span>
+										</span>
+									</label>
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="paytype" value="3">
+										<span class="form-check-text">
+											<span class="descr small">
+												<img class="visa" src="/images/brands/visa.svg" alt="Visa">
+												<img class="mastercard" src="/images/brands/mastercard.svg" alt="Mastercard">
+											</span>
+											<span class="price">+ &euro;5,00</span>
+										</span>
+									</label>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+					<div class="box">
+						<div class="box-footer">
+							<a href="javascript:history.go(-1)" class="btn-text go-back">Назад</a>
+							<a href="/cart-3.html" class="btn btn-primary pull-right">Продолжить</a>
+						</div>
+					</div>
+				</form>
 			</div>
 		</section>
     </main>
@@ -994,7 +1005,7 @@
 								<div class="form-check">
 									<label class="form-check-label">
 										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-										Не запоминать меня на этом компьютере
+										<span class="form-check-text">Не запоминать меня на этом компьютере</span>
 									</label>
 								</div>
 								<input name="login" type="hidden" id="login" value="submit">

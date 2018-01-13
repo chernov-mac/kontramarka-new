@@ -1,5 +1,7 @@
 .form-control {
     position: relative;
+    z-index: 1;
+    display: flex;
     padding: 0;
     border: 2px solid $gray-200;
     font-size: 18px;
@@ -23,6 +25,7 @@
         padding: 20px 30px;
         font-size: 18px;
         line-height: 20px;
+        color: $gray-500;
         transition:
             padding .25s ease,
             line-height .25s ease,
@@ -43,11 +46,28 @@
             line-height: 16px;
             font-size: 14px;
         }
+        &.compact {
+            padding: {
+                right: 16px;
+                left: 16px;
+            }
+        }
+        &.required {
+            &:after {
+                content: '*';
+                position: relative;
+                top: -.1em;
+                right: -.1em;
+                float: right;
+                font-size: 1.2em;
+                color: $red;
+            }
+        }
     }
-    input, textarea {
+    input, textarea, select {
         position: relative;
         display: block;
-        width: 100%;
+        flex: 1 0 auto;
         margin: 0;
         padding: 24px 16px 6px 16px;
         border: none;
@@ -56,17 +76,71 @@
     }
     input {
         height: 60px;
+
+        &.countrycode {
+            flex: 0 0 auto;
+            width: 50px;
+            padding-right: 0;
+
+            + input {
+                padding-left: 0;
+            }
+        }
     }
     textarea {
         min-height: 60px;
     }
+    select {
+        width: 100%;
+        padding-right: 32px;
+    }
+
+    .form-select {
+        flex: 1 0 auto;
+
+        select {
+            line-height: 30px;
+        }
+        &:after {
+            right: 16px;
+            color: theme-color(secondary);
+            top: 30px;
+            transform: translateY(0);
+        }
+    }
+
+    &.verified {
+        padding-right: 32px;
+
+        &:after {
+            content: '\f00c';
+            font-family: 'kontramarka-icons';
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: $secondary;
+        }
+    }
 
     &.active,
-    &.filled {
+    &.filled,
+    &.always-open {
         .placeholder {
             padding: 10px 16px 3px;
             line-height: 16px;
             font-size: 14px;
+        }
+    }
+
+    &.active {
+        z-index: 2;
+        border-color: theme-color(secondary);
+
+        .placeholder {
+            color: $gray-600;
         }
     }
 
@@ -104,22 +178,10 @@ input.form-control {
 }
 
 .form-group {
-    .form-control {
-        &:not(:last-of-type) {
-            border-bottom-width: 0;
-        }
+    margin-bottom: 20px;
 
-        &.active {
-            border-color: theme-color(secondary);
-            border-bottom-width: 2px;
-
-            + .form-control {
-                border-top-width: 0;
-            }
-        }
-        // &:not(:first-of-type) {
-        //     border-top-width: 1px;
-        // }
+    .form-control + .form-control {
+        margin-top: -2px;
     }
     .btn {
         display: block;
@@ -129,16 +191,58 @@ input.form-control {
 
 @mixin form-group-inline {
     display: flex;
+    flex-wrap: wrap;
 
     .form-control,
     .btn {
         flex: 1 0 1%;
+
+        &.basis {
+            &-fourth {
+                flex-basis: 25%;
+            }
+            &-half {
+                flex-basis: 50%;
+            }
+        }
     }
-    .form-control:not(:last-of-type) {
-        border-bottom-width: 2px;
-    }
+
     .form-control + .form-control {
-        margin-left: 20px;
+        margin: {
+            top: 0;
+            left: -2px;
+        }
+    }
+
+    &.row-like {
+        .form-control + .form-control {
+            margin: {
+                top: 0;
+                left: 20px;
+            }
+        }
+    }
+
+    .form-control {
+        @each $dimension in map-keys($grid-breakpoints) {
+            &.full-width-#{$dimension}-down {
+                @include media-breakpoint-down($dimension) {
+                    flex-basis: 100%;
+                    border-right-width: 2px;
+                    border-left-width: 2px;
+
+                    + .form-control {
+                        margin-left: 0;
+                    }
+                    &:not(:first-of-type) {
+                        margin-top: -2px;
+                    }
+                    &:not(:last-of-type) {
+                        margin-bottom: -2px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -186,8 +290,82 @@ input.form-control {
 }
 
 .form-check {
+
+    &-input {
+        display: none;
+    }
+
     &-label {
         line-height: 1.45em;
+        padding-left: 0;
+    }
+    &-label:hover &-text:before {
+        border-color: $secondary;
+    }
+
+    &-text {
+        position: relative;
+        display: inline-block;
+        padding-left: 32px;
+        color: $black;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        &:before {
+            background: $white;
+            border: 2px solid $gray-200;
+            transition: border .2s cubic-bezier(0.3, 0.74, 0.36, 1);
+        }
+
+        &:after {
+            content: '\f00c';
+            font-family: 'kontramarka-icons';
+            width: 24px;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0;
+            color: $white;
+            transition: font-size .2s cubic-bezier(0.68, -0.55, 0.27, 1.55) .1s;
+        }
+    }
+    &-input:checked + &-text {
+        &:before {
+            border: 12px solid $secondary;
+        }
+        &:after {
+            font-size: 12px;
+        }
+    }
+
+    &-input[type="radio"] + &-text {
+        &:before {
+            border-radius: 50%;
+            border-width: 2px;
+        }
+        &:after {
+            content: '';
+            background: transparent;
+            border-radius: 50%;
+            transition:
+                transform .2s cubic-bezier(0.33, 1.81, 0.5, 0.5),
+                background .2s ease;
+        }
+    }
+    &-input[type="radio"]:checked + &-text {
+        &:after {
+            background: $secondary;
+            transform: scale(0.3);
+        }
     }
 }
 
@@ -223,11 +401,10 @@ input.form-control {
 @mixin counter {
     position: relative;
     display: flex;
-    // width: 100px;
 
     &__control {
         display: block;
-        width: 24px;
+        width: 25px;
         font-size: 16px;
         text-align: center;
         color: theme-color(primary);
@@ -248,16 +425,22 @@ input.form-control {
             cursor: default;
         }
     }
-    select {
-        position: relative;
-        display: block;
-        padding-right: 0;
-        // width: 50%;
-        text-align: center;
-        text-align-last:center;
 
-        option {
-            text-align: left;
+    &__select {
+        width: 30px;
+        text-align: center;
+
+        select {
+            position: relative;
+            display: inline-block;
+            padding-right: 0;
+            // width: 50%;
+            text-align: center;
+            text-align-last: center;
+
+            option {
+                text-align: left;
+            }
         }
     }
 
@@ -291,13 +474,19 @@ input.form-control {
                     display: inline-block;
                     width: auto;
 
-                    select {
-                        position: relative;
-                        display: inline-block;
-                        padding-right: 16px;
+                    .counter__select {
                         width: auto;
+                        display: inline-block;
                         text-align: left;
-                        text-align-last: left;
+
+                        select {
+                            position: relative;
+                            display: inline-block;
+                            padding-right: 16px;
+                            width: auto;
+                            text-align: left;
+                            text-align-last: left;
+                        }
                     }
                     &:after {
                         visibility: visible;
@@ -314,13 +503,19 @@ input.form-control {
                     display: inline-block;
                     width: auto;
 
-                    select {
-                        position: relative;
-                        display: inline-block;
-                        padding-right: 16px;
+                    .counter__select {
                         width: auto;
+                        display: inline-block;
                         text-align: left;
-                        text-align-last: left;
+
+                        select {
+                            position: relative;
+                            display: inline-block;
+                            padding-right: 16px;
+                            width: auto;
+                            text-align: left;
+                            text-align-last: left;
+                        }
                     }
                     &:after {
                         visibility: visible;

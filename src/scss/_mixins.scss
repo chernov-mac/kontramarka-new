@@ -87,6 +87,16 @@
         text-align: center;
     }
 }
+@mixin no-gutters {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+
+    > .col,
+    > [class*="col-"] {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
 
 // Setting vertical margins to columns with opposite margins on row
 @mixin row-y-offsets($offsets-map) {

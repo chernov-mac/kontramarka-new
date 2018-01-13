@@ -98,13 +98,14 @@ function setDDHeight(dropdown) {
 	$(dropdown).dropdown('update');
 }
 function initFormControls() {
-    $.each($('.form-control').find('input, textarea'), function(i, input) {
+    $.each($('.form-control').find('input, textarea, select'), function(i, input) {
 		$(input).off('focus');
 		$(input).off('blur');
 		$(input).off('scroll');
 
         onFormControlBlur(input);
 
+		$(input).on('click', onFormControlClick.bind(this));
 		$(input).on('focus', onFormControlFocus.bind(this));
 		$(input).on('blur', onFormControlBlur.bind(this));
 		$(input).on('scroll', onFormControlScroll.bind(this));
@@ -113,6 +114,12 @@ function initFormControls() {
             $(input).closest('.form-control').addClass('filled');
         }
 	});
+}
+function onFormControlClick(input) {
+	if ($(this).attr('readonly')) {
+		var target = $(this).closest('.form-control').find('input:not([readonly])');
+		target && $(target).focus();
+	}
 }
 function onFormControlFocus(input) {
 	$(this).closest('.form-control').addClass('active').removeClass('filled');
@@ -332,7 +339,9 @@ function initCounters() {
 	}
 }
 function checkCounter(counter) {
-	$(counter).find(".prev").addClass('disabled');
+	if ($(counter).find('select').val() == 0) {
+		$(counter).find(".prev").addClass('disabled');
+	}
 
 	$(counter).find('.prev, .next').off('click');
     $(counter).find('.next')
@@ -367,7 +376,7 @@ function counterSelectPrev(counter) {
     var prevValue = parseInt(curValue, 10) - 1;
     if(prevValue >= 0) $(counter).find('select').val(prevValue);
     if(prevValue == 0)  $(counter).find(".prev").addClass('disabled');
-
+	$(counter).find('select').trigger('change');
 }
 function counterSelectNext(counter) {
     $(counter).find(".prev").removeClass('disabled');
@@ -379,6 +388,7 @@ function counterSelectNext(counter) {
 		$(counter).find(".next").addClass('disabled').tooltip($(this).data('title'));
 		$(counter).find(".next").tooltip('show');
 	}
+	$(counter).find('select').trigger('change');
 }
 
 function wrapScrollShadow(element, height) {

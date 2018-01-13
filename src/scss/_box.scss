@@ -67,9 +67,7 @@
         padding: 24px;
         font-size: 16px;
     	line-height: 1.5;
-        color: $gray-600;
         @include clearfix;
-
         @include media-breakpoint-up(sm) {
             padding: 30px;
         };

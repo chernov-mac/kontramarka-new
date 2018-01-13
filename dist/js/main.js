@@ -437,6 +437,14 @@ $(function() {
 
 	// Form control
 	initFormControls();
+	$('.form-check-label.panel-control input[type="checkbox"]').on('change', function(event) {
+		event.stopPropagation();
+		if ($(this).is(':checked')) {
+			$('.collapse' + $(this).closest('.panel-control').data('panel-control')).stop().slideDown('fast');
+		} else {
+			$('.collapse' + $(this).closest('.panel-control').data('panel-control')).stop().slideUp('fast');
+		}
+	});
 
     // Categories dropdowns
 	$.each($('#mainMenuCategories .dropdown'), function(i, dropdown){

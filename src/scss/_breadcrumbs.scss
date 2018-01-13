@@ -15,4 +15,8 @@
     i {
         margin: 0 10px;
     }
+
+    @include media-breakpoint-down(sm) {
+        display: none;
+    };
 }

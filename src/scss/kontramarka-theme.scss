@@ -82,7 +82,12 @@ img {
         padding-right: $container-padding-x;
         padding-left: $container-padding-x;
     }
+
+    .no-gutters {
+        @include no-gutters;
+    }
 }
+
 
 
 
@@ -543,6 +548,93 @@ a.external {
 .d-flex-col {
     @extend .d-flex;
     flex-direction: column;
+}
+.address-block {
+    position: relative;
+    @include row-x-offsets($offsets-map: (xs: 20px, sm: 20px, md: 20px, lg: 20px, xl: 20px));
+
+    &__title {
+        font-size: 24px;
+    }
+
+    .note {
+        &.on {
+            &-top {
+                margin: {
+                    top: -10px;
+                    bottom: 20px;
+                }
+                font-size: 14px;
+                @include light-text;
+                @include media-breakpoint-up(md) {
+                    display: none;
+                };
+            }
+            &-bottom {
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                };
+            }
+        }
+    }
+}
+.delivery-block {
+    @include row-x-offsets($offsets-map: (xs: 20px, sm: 20px, md: 20px, lg: 20px, xl: 20px));
+
+    &__title {
+        font-size: 24px;
+    }
+
+    .payment {
+        @include media-breakpoint-down(sm) {
+            margin-top: 20px;
+        };
+    }
+
+    .form-check {
+        &-label {
+            display: block;
+        }
+        &-text {
+            display: flex;
+            flex-wrap: wrap;
+
+            .descr {
+                flex: 0 0 auto;
+                width: 100%;
+
+                img {
+                    &.paypal {
+                        height: 22px;
+                    }
+                    &.visa {
+                        height: 18px;
+                    }
+                    &.mastercard {
+                        height: 22px;
+                    }
+                }
+                img + img {
+                    margin-left: 6px;
+                }
+
+                @include media-breakpoint-up(sm) {
+                    width: 180px;
+                };
+                &.small {
+                    @include media-breakpoint-down(xs) {
+                        width: 120px;
+                    };
+                }
+            }
+        }
+    }
+    .form-check-label + .form-check-label {
+        margin-top: 1rem;
+    }
+}
+.plain-text {
+    color: $gray-600;
 }
 
 
