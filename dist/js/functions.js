@@ -427,9 +427,6 @@ function checkScrollShadowPos(target) {
 
 	var scrollEnd = $target.outerHeight() - $outer.outerHeight();
 	var height = parseInt($target.attr('data-max-height'), 10) > $target.outerHeight() ? $target.outerHeight() + 'px' : $target.attr('data-max-height');
-	console.log(parseInt($target.attr('data-max-height'), 10));
-	console.log($target.outerHeight());
-	console.log('res: ' + height);
 
 	$inner.css({
 		width: $parent.width() + 'px',
