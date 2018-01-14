@@ -636,6 +636,19 @@ a.external {
 .plain-text {
     color: $gray-600;
 }
+.cart-total {
+    text-transform: uppercase;
+    font-size: 20px;
+
+    @include media-breakpoint-down(xs){
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    };
+    @include media-breakpoint-up(sm) {
+        font-size: 22px;
+    };
+}
 
 .master-remove {
     $size: 32px;

@@ -74,9 +74,9 @@
     }
 
     &-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
         border-top-width: 1px;
 
         padding: 20px;
@@ -84,12 +84,12 @@
             padding: 30px;
         };
 
-        &__left {
-            flex: 1 0 auto;
-        }
-        &__right {
-            flex: 0 1 auto;
-        }
+        // &__left {
+        //     flex: 1 0 auto;
+        // }
+        // &__right {
+        //     flex: 0 1 auto;
+        // }
     }
 
     h1, h2, h3, h4, h5, h6,
