@@ -659,14 +659,17 @@ a.external {
     display: block;
     width: $size;
     height: $size;
-    // background: $secondary;
-    border: 2px solid $gray-400;
+    background: transparent;
+    border: 2px solid $secondary;
     line-height: $size;
     text-align: center;
     cursor: pointer;
     // color: $white;
     // color: $secondary;
-    color: $gray-400;
+    color: $secondary;
+    transition:
+        background .1s ease-in-out,
+        color .1s ease-in-out;
 
     &:before {
         content: '×';
@@ -677,10 +680,10 @@ a.external {
     }
 
     &:hover {
-        // background: $secondary;
+        background: $secondary;
         border: 2px solid $secondary;
-        // color: $white;
-        color: $secondary;
+        color: $white;
+        // color: $secondary;
     }
 }
 
