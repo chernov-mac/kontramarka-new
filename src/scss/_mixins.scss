@@ -61,6 +61,7 @@
 };
 @mixin a4 {
     position: relative;
+    display: block;
     padding-bottom: 141.43%; // A4 proportion height to width
     overflow: hidden;
 
