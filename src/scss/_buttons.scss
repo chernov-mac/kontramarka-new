@@ -116,3 +116,16 @@
         margin-right: .7em;
     }
 }
+.go-forward {
+    display: inline-block;
+    @include clearfix;
+
+    &:after {
+        content: '\f054';
+        font-family: 'kontramarka-icons';
+        float: right;
+        font-size: .7em;
+        margin-top: .44em;
+        margin-left: .7em;
+    }
+}

@@ -15,15 +15,15 @@ $icons-font-path: '../fonts/kontramarka-icons';
 [class*=" icon-"]:before {
     display: inline-block;
 }
-.btn {
-    &:not(.btn-round):not(.btn-square) {
-        [class^="icon-"] {
-            display: inline-block;
-            font-size: .64em;
-            vertical-align: middle;
-        }
-    }
-}
+// .btn {
+//     &:not(.btn-round):not(.btn-square) {
+//         [class^="icon-"] {
+//             display: inline-block;
+//             font-size: .64em;
+//             vertical-align: middle;
+//         }
+//     }
+// }
 
 
 // Source Sans Pro

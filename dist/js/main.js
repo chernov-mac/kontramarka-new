@@ -573,4 +573,12 @@ $(function() {
 		});
 	}
 
+	$('.form-check-input[name="agb"]').on('click', function(){
+		if ($('.form-check-input[name="agb"]').is(':checked')) {
+			$('.make-order').removeClass('disabled').removeAttr('disabled');
+		} else {
+			$('.make-order').addClass('disabled').attr('disabled', 'disabled');
+		}
+	});
+
 });

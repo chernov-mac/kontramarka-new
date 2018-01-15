@@ -14,6 +14,10 @@
         // overflow: hidden;
         padding-right: 32px;
 
+        a[href] {
+            @include link-appearance;
+        }
+
         @include media-breakpoint-up(lg) {
             padding-right: 240px;
         };
@@ -27,6 +31,10 @@
     &__extend {
         position: relative;
         margin-top: 20px;
+
+        a[href] {
+            @include link-appearance;
+        }
     }
 
     &__pic {
@@ -124,5 +132,32 @@
         @include media-breakpoint-up(lg) {
             margin-top: 20px;
         };
+    }
+
+    @each $dimension in map-keys($grid-breakpoints) {
+        &.short-#{$dimension}-down {
+            @include media-breakpoint-down($dimension) {
+                .event-info {
+                    &__pic {
+                        display: none;
+                    }
+                    &__main {
+                        min-height: 0;
+                    }
+                }
+            }
+        }
+        &.short-#{$dimension}-up {
+            @include media-breakpoint-up($dimension) {
+                .event-info {
+                    &__pic {
+                        display: none;
+                    }
+                    &__main {
+                        min-height: 0;
+                    }
+                }
+            }
+        }
     }
 }

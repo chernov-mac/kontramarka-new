@@ -144,20 +144,24 @@ a, button, .btn {
         margin-left: .255em;
     }
 }
+a.link {
+    @include link-appearance;
+}
 a.external {
     @include link-appearance;
 
     position: relative;
+    margin-right: 1.2em;
 
     &:after {
         content: '\f08e';
         font-family: 'kontramarka-icons';
         position: absolute;
         right: 0;
-        bottom: .4em;
+        // bottom: .4em;
         padding-left: .4em;
         transform: translateX(100%);
-        font-size: .7em;
+        font-size: .8em;
     }
 }
 
@@ -220,7 +224,7 @@ a.external {
 .divider {
     display: block;
     height: 0;
-    border-bottom: 1px solid rgba($black, .08);
+    border-bottom: 1px solid $gray-200;
     @include clearfix;
 }
 .phone {
@@ -481,6 +485,12 @@ a.external {
     @include media-breakpoint-up(lg){
         padding: 0 30px;
     };
+}
+.action-block {
+    @extend %action-block;
+    &-big {
+        @extend %action-block-big;
+    }
 }
 
 .kontramarka-logo {
@@ -1121,12 +1131,16 @@ main {
         top: $container-padding-x + $btn-padding-y + $btn-line-height / 2;
     }
 }
+#promocode {
+    max-width: 550px;
+}
 
 @import "gallery";
 @import "event-info";
 @import "tickets-block";
 @import "tour";
 @import "schedule";
+@import "flex-table";
 @import "comments";
 @import "cart";
 

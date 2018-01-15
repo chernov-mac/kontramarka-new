@@ -52,3 +52,112 @@
         };
     }
 }
+
+.order-list {
+    // @extend %action-block;
+    // @extend %action-block-big;
+    // @include media-breakpoint-up(md) {
+    //     border-top-width: 0;
+    // };
+
+    &-header {
+        display: flex;
+        padding: 12px 30px;
+        line-height: 24px;
+        font-size: 16px;
+        background: $secondary;
+        color: $white;
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        };
+    }
+}
+
+.order {
+
+    &__col {
+        flex: 0 0 auto;
+
+        &--event {
+            flex: 1 1 auto;
+        }
+
+        @include media-breakpoint-up(md) {
+            &--tickets {
+                min-width: 60px;
+                text-align: center;
+            }
+            &--total {
+                min-width: 100px;
+                text-align: right;
+                margin-left: 20px;
+            }
+        };
+
+    }
+
+    &-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        // padding: 12px 0;
+
+        @include media-breakpoint-up(md) {
+            flex-wrap: nowrap;
+        };
+
+        & + & {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid $gray-200;
+        }
+
+        .event-info__main {
+            padding-right: 0;
+        }
+    }
+
+    &-item > &__col {
+        &--tickets,
+        &--total {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+
+            @include media-breakpoint-down(sm) {
+                padding-left: 84px;
+                margin-top: 4px;
+            };
+            @include media-breakpoint-down(xs) {
+                padding-left: 59px;
+            };
+
+            @include media-breakpoint-up(md) {
+                display: inline-block;
+                width: auto;
+                font-size: 22px;
+
+                > .label {
+                    display: none;
+                }
+            };
+        }
+        &--total {
+            > .value {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .cart-total {
+        span:first-child {
+            text-align: left;
+        }
+    }
+    .value {
+        margin-left: .5em;
+    }
+
+}
