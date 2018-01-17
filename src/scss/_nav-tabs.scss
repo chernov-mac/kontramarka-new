@@ -74,7 +74,6 @@
                 background: theme-color(secondary);
                 border-color: theme-color(secondary);
                 color: $white;
-                cursor: pointer;
 
                 .tab {
                     &-num {
@@ -133,6 +132,10 @@
         }
         .nav-link {
             padding: 18px 6px;
+
+            &.complete {
+                cursor: pointer;
+            }
 
             &:hover {
                 border-bottom: none;
