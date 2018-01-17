@@ -468,9 +468,9 @@
 							<span class="badge badge-accent cart-count">2</span>
 						</span>
 					</a>
-					<a class="menu-item login" data-toggle="modal" data-target="#loginModal">
-						<i class="icon-sign-in"></i>
-						<span class="nav-item-text d-none d-md-inline">Войти</span>
+					<a class="menu-item login" data-toggle="modal" data-target="#profileModal">
+						<i class="icon-user"></i>
+						<span class="nav-item-text d-none d-md-inline">Профиль</span>
 					</a>
 					<div class="menu-wrapper draggable-lg-up">
 						<div class="drag-fog left d-none d-lg-block"></div>
@@ -960,31 +960,34 @@
 	</div>
 </div>
 <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-xs" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Modal title</h5>
+				<h5 class="modal-title">Профиль</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
+					<i class="icon-times"></i>
 				</button>
 			</div>
 			<div class="modal-body">
-				<ul class="sub-menu">
-			        <li class="avatar cover-box">
-						<img class="fade" src="/images/public/events/mikhailov.png" alt="Логин">
-					</li>
-			        <li class="username">Viktor Chernov</li>
-			        <li><a href="/admin/">Админпанель</a></li>
-			        <li><a href="/profile/">Личный кабинет</a></li>
-			        <li><a href="/profile/user-orders/">Заказы</a></li>
-			        <li><a href="/profile/user-favorites/">Избранное</a></li>
-			        <li><a href="/profile/user-comments/">Комментарии</a></li>
-			        <li><a href="/logout/">Выход</a></li>
-			    </ul>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
+				<div class="user-info mb-4">
+					<div class="avatar cover-box">
+						<img src="/images/public/events/mikhailov.png" alt="Логин">
+					</div>
+					<div class="username">Viktor Chernov</div>
+				</div>
+
+				<div class="action-block mt-4 mb-4">
+			        <a class="action-block-item" href="/admin/">Админпанель</a>
+			        <a class="action-block-item" href="/profile/">Личный кабинет</a>
+			        <a class="action-block-item" href="/profile/user-orders/">Заказы</a>
+			        <a class="action-block-item" href="/profile/user-favorites/">Избранное</a>
+			        <a class="action-block-item" href="/profile/user-comments/">Комментарии</a>
+			    </div>
+
+				<div class="d-flex justify-content-between mt-4">
+					<a href="/logout/" class="btn btn-secondary">Выход</a>
+					<button data-dismiss="modal" class="btn">Закрыть</button>
+				</div>
 			</div>
 		</div>
 	</div>
