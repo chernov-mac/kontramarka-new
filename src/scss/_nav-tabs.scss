@@ -47,6 +47,7 @@
             font-size: 18px;
             text-transform: none;
             font-weight: normal;
+            cursor: default;
 
             .tab-num {
                 display: inline-block;
@@ -73,6 +74,7 @@
                 background: theme-color(secondary);
                 border-color: theme-color(secondary);
                 color: $white;
+                cursor: pointer;
 
                 .tab {
                     &-num {
@@ -105,6 +107,7 @@
                 background: theme-color(primary);
                 border-color: theme-color(primary);
                 color: $black;
+                cursor: default;
 
                 .tab {
                     &-num {
