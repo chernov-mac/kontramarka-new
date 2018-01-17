@@ -73,6 +73,10 @@
         border: none;
         background: transparent;
         z-index: 2;
+
+        &:disabled {
+            color: $gray-500;
+        }
     }
     input {
         height: 60px;
@@ -396,6 +400,10 @@ input.form-control {
         transform: translateY(-50%);
         font-size: 12px;
         color: theme-color(primary);
+    }
+
+    &.disabled:after {
+        color: $gray-500;
     }
 }
 

@@ -15,6 +15,13 @@ $icons-font-path: '../fonts/kontramarka-icons';
 [class*=" icon-"]:before {
     display: inline-block;
 }
+.icon-check:before {
+    margin: {
+        right: 0;
+        left: 0;
+    };
+    width: 1.2em;
+}
 // .btn {
 //     &:not(.btn-round):not(.btn-square) {
 //         [class^="icon-"] {

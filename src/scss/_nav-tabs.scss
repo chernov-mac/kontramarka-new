@@ -33,112 +33,107 @@
         display: flex;
 
         .nav-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             flex: 1 0 auto;
-            padding: 0;
+            padding: 18px 6px;
+            border-style: solid;
+            border-color: $gray-300;
+            border-left-width: 1px;
+            border-right-width: 1px;
+            color: $gray-400;
+            text-align: center;
+            font-size: 18px;
+            text-transform: none;
+            font-weight: normal;
 
-            .nav-link {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                padding: {
-                    right: 6px;
-                    left: 6px;
-                }
-                border-style: solid;
-                border-color: $gray-300;
-                border-left-width: 1px;
-                border-right-width: 1px;
-                color: $gray-400;
+            .tab-num {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 50%;
                 text-align: center;
-                font-size: 18px;
-                text-transform: none;
-                font-weight: normal;
+                background: $gray-400;
+                color: $white;
+            }
+            .tab-text {
+                line-height: 24px;
 
-                .tab-num {
-                    display: inline-block;
-                    width: 24px;
-                    height: 24px;
-                    line-height: 24px;
-                    border-radius: 50%;
-                    text-align: center;
-                    background: $gray-400;
-                    color: $white;
-                }
-                .tab-text {
-                    line-height: 24px;
+                @include media-breakpoint-down(sm) {
+                    display: none;
+                };
+            }
+            .tab-num + .tab-text {
+                margin-left: .4em;
+            }
 
-                    @include media-breakpoint-down(sm) {
-                        display: none;
-                    };
-                }
-                .tab-num + .tab-text {
-                    margin-left: .4em;
-                }
+            &.complete {
+                background: theme-color(secondary);
+                border-color: theme-color(secondary);
+                color: $white;
 
-                &.complete {
-                    background: theme-color(secondary);
-                    border-color: theme-color(secondary);
-                    color: $white;
+                .tab {
+                    &-num {
+                        position: relative;
+                        background: $white;
+                        color: theme-color(secondary);
+                        font-size: 0;
 
-                    .tab {
-                        &-num {
-                            position: relative;
-                            background: $white;
-                            color: theme-color(secondary);
-                            font-size: 0;
-
-                            &:before {
-                                content: '\f00c';
-                                font-family: 'kontramarka-icons';
-                                position: absolute;
-                                top: 0;
-                                right: 0;
-                                bottom: 0;
-                                left: 0;
-                                font-size: 14px;
-                            }
-                        }
-                        &-text {
-                            color: $white;
+                        &:before {
+                            content: '\f00c';
+                            font-family: 'kontramarka-icons';
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            font-size: 14px;
                         }
                     }
-                }
-                &.complete + .nav-link.complete {
-                    border-left: 1px solid light($white);
-                }
-
-                &.active {
-                    background: theme-color(primary);
-                    border-color: theme-color(primary);
-                    color: $black;
-
-                    .tab {
-                        &-num {
-                            background: $white;
-                            color: $black;
-                        }
-                        &-text {
-                            color: $black;
-                        }
+                    &-text {
+                        color: $white;
                     }
                 }
+            }
+            &.complete + .complete {
+                border-left: 1px solid light($white);
+            }
 
-                &:hover {
-                    border-bottom: none;
+            &.active {
+                background: theme-color(primary);
+                border-color: theme-color(primary);
+                color: $black;
+
+                .tab {
+                    &-num {
+                        background: $white;
+                        color: $black;
+                    }
+                    &-text {
+                        color: $black;
+                    }
                 }
             }
 
-            &:first-child .nav-link {
+            &:first-child.nav-link {
                 border-left-width: 0;
             }
-            &:last-child .nav-link {
+            &:last-child.nav-link {
                 border-right-width: 0;
             }
 
             @include media-breakpoint-up(lg) {
                 flex: 1 0 1%;
             };
+        }
+        .nav-link {
+            padding: 18px 6px;
+
+            &:hover {
+                border-bottom: none;
+            }
         }
     }
 

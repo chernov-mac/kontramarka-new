@@ -6,6 +6,47 @@ $(function() {
 
 	// Initialization
 
+	// setTimeout(function(){
+	// 	$('.box-message__icon')
+	// 		.animate(
+	// 			{ transform: 'scale(1)' }, {
+	// 				duration: 1600,
+	// 				easing: 'easeOutElastic',
+	// 				complete: function(){
+	// 					console.log('allo');
+	// 				}
+	// 		});
+	// }, 2000);
+
+	$.each($('.box-message'), function(i, msg){
+		// var mode = 'info';
+		// if ($(msg).hasClass('message-info')) {
+		// 	mode = 'info';
+		// }
+		// if ($(msg).hasClass('message-success')) {
+		// 	mode = 'success';
+		// }
+		// if ($(msg).hasClass('message-warning')) {
+		// 	mode = 'warning';
+		// }
+		// if ($(msg).hasClass('message-danger')) {
+		// 	mode = 'danger';
+		// }
+
+		var msgOpts = {
+			container: $(msg).parent(),
+			id: $(msg).attr('id') || '',
+			size: ($(msg).hasClass('message-lg') && 'lg') || 'md',
+			mode: ($(msg).hasClass('message-success') && 'success') || ($(msg).hasClass('message-warning') && 'warning') || ($(msg).hasClass('message-danger') && 'danger') || 'info',
+			showOnInit: $(msg).hasClass('show') ? true : false,
+			animate: $(msg).hasClass('animate') ? true : false,
+			closing: $(msg).find('.close').length ? true : false
+		};
+
+		initBoxMessageEvents(msg, msgOpts);
+	});
+
+
 	// Pace
 	$.each(['get', 'post'], function(i, method) {
 	    $[method] = function(url, data, callback, type) {

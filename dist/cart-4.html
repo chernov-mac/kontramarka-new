@@ -505,6 +505,7 @@
 				</div>
 			</div>
 			<div class="loader"></div>
+			<canvas id="confetti"></canvas>
         </section>
     </header>
 
@@ -517,7 +518,7 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						Корзина
+						Подтверждение заказа
 					</div>
 			    </div>
 			</div>
@@ -525,21 +526,106 @@
 		<section class="page-block">
 			<div class="container">
 				<div class="box nav nav-tabs steps">
-					<div class="nav-item active">
+					<div class="nav-item complete">
 						<span class="tab-num">1</span>
 						<span class="tab-text">Корзина</span>
 					</div>
-					<div class="nav-item">
+					<div class="nav-item complete">
 						<span class="tab-num">2</span>
 						<span class="tab-text">Оформление заказа</span>
 					</div>
-					<div class="nav-item">
+					<div class="nav-item complete">
 						<span class="tab-num">3</span>
 						<span class="tab-text">Обзор заказа</span>
 					</div>
-					<div class="nav-item">
+					<div class="nav-item active">
 						<span class="tab-num">4</span>
 						<span class="tab-text">Подтверждение</span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div id="cartMessager"></div>
+				<div class="box">
+					<div class="box-header bg-secondary">Заказ №4700 от 22.01.2015</div>
+					<div class="box-body">
+						<div class="event-info extended">
+							<div class="event-info__pic">
+								<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+								</a>
+							</div>
+							<div class="event-info__content">
+								<div class="event-info__main">
+									<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/">Хор турецкого в германии</a></h1>
+									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+								</div>
+								<div class="event-info__extend">
+									<div class="d-flex-col">
+										<div class="tickets">
+											<div class="tickets-item">
+	                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+	                                            <div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>3</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+	                                            <div class="tickets-item__price">42 €</div>
+	                                        </div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+											<div class="tickets-item">
+												<div class="tickets-item__descr">Parkett A</div>
+												<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+	                                            <div class="tickets-item__separator">&times;</div>
+												<div class="tickets-item__price">38,00 €</div>
+											</div>
+										</div>
+										<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box">
+					<div class="box-body">
+						<div class="row">
+							<div class="col-12 col-md-6 mb-3 mb-md-0">
+								<div class="action-block-big action-block-highlited">
+									<div class="action-block-item"><span>Количество билетов:</span><span class="value">7</span></div>
+									<div class="action-block-item"><span>MwSt: 7%</span><span class="value">10,64&euro;</span></div>
+									<div class="action-block-item"><span>Сумма по билетам:</span><span class="value">152,00&euro;</span></div>
+									<div class="action-block-item"><span>Доставка:</span><span class="value">2,00&euro;</span></div>
+									<div class="action-block-item"><span>Общая стоимость заказа:</span><span class="value">154&euro;</span></div>
+								</div>
+							</div>
+							<div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-start">
+								<p>Просим оплатить Ваш заказ в течении 7 дней!<br>Напоминаем, что Ваш заказ может быть отправлен только после поступления всей суммы на наш банковский счет.</p>
+								<button class="download-btn btn btn-primary btn-block d-sm-none">Скачать реквизиты</button>
+								<button class="download-btn btn btn-primary d-none d-sm-inline-block">Скачать реквизиты</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -553,8 +639,8 @@
 								<i class="icon-watch"></i><span id="cartCountdown"></span>
 							</div>
 							<div class="countdown__text">
-								<h5>Время на оформление заказа</h5>
-								<p class="plain-text">Пожалуйста, обратите внимание на время, в течение которого ваши билеты будут находиться в резерве</p>
+								<h5>Мы уверены, что другие события также могут заинтересовать Вас.</h5>
+								<p class="plain-text">Оформите следующую покупку и получите бесплатную доставку для второго заказа!</p>
 							</div>
 						</div>
 					</div>
@@ -563,178 +649,254 @@
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<div class="box">
-					<div class="box-body">
-						<button class="close" data-toggle="tooltip" title="Удалить все билеты концерта"><i class="icon-times"></i></button>
-						<div class="event-info extended">
-							<!-- <button class="master-remove" data-toggle="tooltip" title="Удалить все билеты концерта"></button> -->
-							<div class="event-info__pic">
-								<div class="a4 preloading">
-									<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
-								</div>
+				<h2 class="page-block-title">Похожие события</h2>
+				<div class="events">
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
 							</div>
-							<div class="event-info__content">
-								<div class="event-info__main">
-									<h1 class="event-info__title"><a href="http://goo.gl/maps/0k89v" target="_blank" class="link">Хор турецкого в германии</a></h1>
-									<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
-									<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
-								</div>
-								<div class="event-info__extend">
-									<div class="d-flex-col">
-										<div class="tickets tickets-block tickets-removable">
-											<!-- <div class="beauty-scroll" data-max-height="168px"> -->
-												<div class="tickets-item">
-		                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
-		                                            <div class="tickets-item__amount">
-														<div class="form-select counter counter-off-md-down">
-															<div class="counter__control prev"><i class="icon-minus"></i></div>
-															<div class="counter__select">
-																<select name="amount5878">
-																	<option value="0">0</option>
-																	<option value="1">1</option>
-																	<option value="2">2</option>
-																	<option value="3" selected>3</option>
-																	<option value="4">4</option>
-																	<option value="5">5</option>
-																	<option value="6">6</option>
-																	<option value="7">7</option>
-																	<option value="8">8</option>
-																	<option value="9">9</option>
-																	<option value="999">999</option>
-																</select>
-															</div>
-															<div class="counter__control next" data-title="Вы выбрали максимальное количество билетов"><i class="icon-plus"></i></div>
-														</div>
-		                                            </div>
-		                                            <div class="tickets-item__separator">&times;</div>
-		                                            <div class="tickets-item__price">42 €</div>
-		                                            <div class="tickets-item__remove" onclick="delCategory(3292, '');">×</div>
-		                                        </div>
-												<div class="tickets-item">
-													<div class="tickets-item__descr">Parkett A</div>
-													<div class="tickets-item__amount">1</div>
-		                                            <div class="tickets-item__separator">&times;</div>
-													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
-												</div>
-												<div class="tickets-item">
-													<div class="tickets-item__descr">Parkett A</div>
-													<div class="tickets-item__amount">1</div>
-		                                            <div class="tickets-item__separator">&times;</div>
-													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
-												</div>
-												<div class="tickets-item">
-													<div class="tickets-item__descr">Parkett A</div>
-													<div class="tickets-item__amount">1</div>
-		                                            <div class="tickets-item__separator">&times;</div>
-													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
-												</div>
-												<div class="tickets-item">
-													<div class="tickets-item__descr">Parkett A</div>
-													<div class="tickets-item__amount">1</div>
-		                                            <div class="tickets-item__separator">&times;</div>
-													<div class="tickets-item__price">38,00 €</div>
-													<div class="tickets-item__remove" title="Удалить">&times;</div>
-												</div>
-											<!-- </div> -->
-										</div>
-										<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
 									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box login sm-clearbox">
-							<div class="box-header">
-								<div class="title">Здравствуйте!</div>
-								<div>А мы вас не узнали. <span class="d-lg-none d-xl-inline">Представитесь?</span></div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
 							</div>
-							<div class="box-body d-none d-md-block">
-								<form action="">
-									<div class="row">
-										<div class="col-12 col-md-8 col-lg-12">
-											<div class="form-group form-group-inline-md row-like">
-												<div class="form-control">
-													<input type="email" name="login_name" id="cart_login_name" data-placeholder="example@mail.com">
-													<label for="cart_login_name" class="placeholder">E-mail</label>
-												</div>
-												<div class="form-control">
-													<input type="password" name="login_password" id="cart_login_password">
-													<label for="cart_login_password" class="placeholder">Пароль</label>
-													<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-md-4 col-lg-12">
-											<button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-												<i class="icon-sign-in"></i><span>Войти</span>
-											</button>
-										</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-lg-inline">21 августа 2017</div>
 									</div>
-									<!-- <button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
-										<i class="icon-sign-in"></i><span>Войти</span>
-									</button> -->
-								</form>
-							</div>
-							<div class="box-body d-md-none">
-								<button class="btn btn-block btn-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
-									<i class="icon-sign-in"></i><span>Войти</span>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box register sm-clearbox">
-							<div class="box-header">
-								<div class="title">Регистрация</div>
-								<div>У вас еще нет аккаунта?</div>
-							</div>
-							<div class="box-body d-none d-md-block">
-								<div class="checklist">
-									<div class="checklist__item">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item">Интересная рассылка новостей</div>
-									<div class="checklist__item">Защита персональных данных</div>
-									<div class="checklist__item d-lg-none d-xl-block">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item d-lg-none">Интересная рассылка новостей</div>
-									<div class="checklist__item d-lg-none">Защита персональных данных</div>
+									<ul class="event__cities">
+										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+									</ul>
 								</div>
-								<a href="register.html" class="btn btn-lg btn-primary">Зарегистрироваться</a>
-							</div>
-							<div class="box-body d-md-none">
-								<a href="register.html" class="btn btn-block btn-primary">Зарегистрироваться</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-lg-4">
-						<div class="box cart-box guest sm-clearbox">
-							<div class="box-header">
-								<div class="title">Гостевая запись</div>
-								<div>Мы так и не познакомимся :(</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
 							</div>
-							<div class="box-body">
-								<a href="cart-2.html" class="btn btn-block btn-secondary d-md-none">Продолжить</a>
-								<a href="cart-2.html" class="btn btn-lg btn-secondary d-none d-md-inline-block">Продолжить</a>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Полина Гагарина</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Münich</li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="box">
-					<div class="box-body">
-		                <div class="d-flex justify-content-between flex-wrap">
-	                        <div class="cart-total align-self-center">Итого: <span class="value">over9000</span></div>
-		                    <a href="/cart-2.html" class="btn btn-primary btn-block d-sm-none mt-3">Продолжить</a>
-							<a href="/cart-2.html" class="btn btn-primary btn-lg d-none d-sm-inline-block">Продолжить</a>
-		                </div>
-		            </div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Спектакль “Игра на вылет”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 3</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/5.png" alt="“Чужих мужей не бывает”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">“Чужих мужей не бывает”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 3</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/4.png" alt="Спектакль “Игра на вылет”">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Спектакль “Игра на вылет”</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/3.png" alt="Полина Гагарина">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Полина Гагарина</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li>Münich</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/2.png" alt="Ах Астахова - Поэтический вечер">
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Ах Астахова - Поэтический вечер</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">21.08.2017</div>
+										<div class="d-none d-lg-inline">21 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li><span class="event__hover-none">Berlin</span><span class="event__hover-only">Alte Münze, Molkenmarkt 2, 10179 Berlin</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="events__item">
+						<div class="event">
+							<div class="event__img event__img--a4 preloading">
+								<img class="fade" src="/images/public/events/ex.png" alt="Виктор Дробыш - юбилейный концерт." />
+							</div>
+							<div class="event__body">
+								<a href="/tour.html" class="btn btn-primary action">Купить билет</a>
+								<a href="/tour.html" class="block-title">
+									<span class="block-title__text">Виктор Дробыш - юбилейный концерт.</span>
+								</a>
+								<div class="event__info">
+									<div class="event__date">
+										<div class="d-lg-none">с 17.08.2017</div>
+										<div class="d-none d-lg-inline">с 17 августа 2017</div>
+									</div>
+									<ul class="event__cities">
+										<li class="multiple-places">Городов: 7</li>
+										<li>Berlin</li>
+										<li>Münich</li>
+										<li>Hamburg</li>
+										<li>Düsseldorf</li>
+										<li><a href="/tour.html">Все города</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -919,7 +1081,7 @@
 								<div class="form-check">
 									<label class="form-check-label">
 										<input type="checkbox" class="form-check-input" name="login_not_save" value="1">
-										Не запоминать меня на этом компьютере
+										<span class="form-check-text">Не запоминать меня на этом компьютере</span>
 									</label>
 								</div>
 								<input name="login" type="hidden" id="login" value="submit">
@@ -1007,8 +1169,11 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
+<!-- <script src="/components/js/confetti.js"></script> -->
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
@@ -1016,12 +1181,25 @@
 <script type="text/javascript">
 	$(function() {
 		var start = new Date();
-		var diff = 30; // minutes
+		var diff = 60; // minutes
 		var afterDiff = new Date(start.getTime() + diff * 60000);
 		$('#cartCountdown')
 		.countdown(afterDiff, function(event) {
 			$(this).text(event.strftime('%M : %S'));
 		});
+
+		var msg = BoxMessage('Заказ №4700 оформлен. Спасибо!', 'Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.', {
+			container: '#cartMessager',
+			size: 'lg',
+			mode: 'success',
+			animate: true,
+			showOnInit: false,
+			// closing: true
+		});
+		$(msg).collapse('show');
+		// setTimeout(function(){
+		// 	$(msg).collapse('hide');
+		// }, 5000);
 	});
 </script>
 </body>

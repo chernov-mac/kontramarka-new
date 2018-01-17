@@ -468,6 +468,106 @@ function showGroupsField(id, elem) {
 	$(elem).popover('update');
 }
 
+
+function BoxMessage(title, text, options) {
+	options = options || {};
+	var opts = {
+		container: options.container || $('#messager'),
+		id: options.id || '',
+		size: options.size || 'md',
+		mode: options.mode || 'info',
+		showOnInit: options.showOnInit || false,
+		animate: options.animate || false,
+		closing: options.closing || false
+	}
+
+	var id = opts.id ? ' id="' + opts.id + '"' : '';
+	var state = opts.showOnInit ? ' show' : '';
+	var animate = opts.animate ? ' animate' : '';
+
+	var icon = '<span class="message__icon">';
+	switch (opts.mode) {
+		case 'info':
+			icon += '<i class="fa fa-info-circle"></i>';
+			break;
+		case 'success':
+			icon += '<i class="icon-check"></i>';
+			break;
+		case 'warning': case 'danger':
+			icon += '<i class="icon-exclamation-circle"></i>';
+	}
+	icon += '</span>';
+
+	var titleString = '';
+	if (opts.size != 'lg') {
+		titleString = '<div class="message__title">' + icon + ' ' + title + '</div>';
+	} else {
+		titleString = '<div class="message__title">' + title + '</div>';
+	}
+
+	var template = 	'<div ' + id + ' class="box box-message collapse ' + state + animate + '">' +
+						'<div class="box-body">' +
+							'<div class="message message-' + opts.size + ' message-' + opts.mode + '">';
+
+								if (opts.closing) {
+									template += '<button class="close"><i class="icon-times"></i></button>'
+								}
+								if (opts.size == 'lg') {
+									template += icon;
+								}
+								template += titleString;
+								template += '<div class="message__text">' + text + '</div>' +
+
+							'</div>' +
+						'</div>' +
+					'</div>';
+
+	var msg = $.parseHTML(template);
+	$(opts.container).append(msg);
+
+	initBoxMessageEvents(msg, opts);
+
+	return msg;
+}
+function initBoxMessageEvents(msg, opts) {
+	$(msg).on('show.bs.collapse', function(){
+		TweenMax.to($(msg), 0.3, {
+			marginBottom: '32px',
+			opacity: 1,
+			top: '0',
+			ease: Power1.easeOut
+		});
+		if (opts.animate && opts.mode == 'success') {
+			TweenMax.to($(msg).find('.message__icon'), .5, {
+				transform: 'scale(1)',
+				opacity: 1,
+				ease: Back.easeInOut
+			});
+		}
+	});
+	$(msg).on('hide.bs.collapse', function(){
+		TweenMax.to($(msg), 0.3, {
+			marginBottom: '0',
+			opacity: 0,
+			top: '-32px',
+			ease: Power1.easeOut
+		});
+		if (opts.animate && opts.mode == 'success') {
+			TweenMax.to($(msg).find('.message__icon'), .5, {
+				transform: 'scale(0.1)',
+				opacity: 0,
+				ease: Ease.easeOut
+			});
+		}
+	});
+
+	if (opts.closing) {
+		$(msg).find('.close').on('click', function(){
+			$(msg).collapse('hide');
+		});
+	}
+}
+
 // Modals
 function CMSalert(bodyContent, headContent, options) {
     headContent = headContent || '';

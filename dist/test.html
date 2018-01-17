@@ -514,8 +514,72 @@
 		<div class="page-block">
 			<div class="container">
 				<button class="btn btn-primary refresh"><i class="icon-refresh"></i>refresh</button>
+				<button class="btn btn-primary showMsg">Show message</button>
+				<button class="btn btn-primary hideMsg">Hide message</button>
 			</div>
 		</div>
+		<section>
+			<div class="container">
+				<div id="messager"></div>
+			</div>
+		</section>
+		<section class="page-block">
+			<div class="container">
+				<div class="box box-message collapse" id="smallSuccess">
+					<div class="box-body">
+						<div class="message message-success">
+							<div class="message__title"><i class="message__icon icon-check"></i> Заказ №4700 оформлен. Спасибо!</div>
+							<div class="message__text">
+								<p>Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show animate" id="bigSuccess">
+					<div class="box-body">
+						<div class="message message-lg message-success">
+							<div class="message__icon"><i class="icon-check"></i></div>
+							<div class="message__title">Заказ №4700 оформлен. Спасибо!</div>
+							<div class="message__text">
+								<p>Вам на почту выслан счет для оплаты заказа. Также Вы можете скачать его ниже.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="smallInfo">
+					<div class="box-body">
+						<div class="message message-info">
+							<div class="message__title"><i class="message__icon fa fa-info-circle"></i> Корзина пуста.</div>
+							<div class="message__text">
+								<p>Ваша корзина была очищена.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="bigWarning">
+					<div class="box-body">
+						<div class="message message-lg message-warning">
+							<i class="message__icon icon-exclamation-circle"></i>
+							<div class="message__title">Внимание!</div>
+							<div class="message__text">
+								<p>Выбранный концерт был отменён. Заказ билетов невозможен.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="box box-message collapse show" id="bigError">
+					<div class="box-body">
+						<div class="message message-lg message-danger">
+							<i class="message__icon icon-exclamation-circle"></i>
+							<div class="message__title">Внимание!</div>
+							<div class="message__text">
+								<p>Выбранный концерт был отменён. Заказ билетов невозможен.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<div class="page-block">
 			<div class="container">
 				<div class="box">
@@ -1274,6 +1338,8 @@ function whenOkPressed() {
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
 <!-- Main -->
@@ -1298,7 +1364,23 @@ $(function(){
 			});
 		});
 	});
+
+	var myMsg = BoxMessage('Hello', 'I am automatically generated message. Glad to see you!');
+	$('.showMsg').on('click', function(){
+		$(myMsg).collapse('show');
+	});
+	$('.hideMsg').on('click', function(){
+		$(myMsg).collapse('hide');
+	});
+
 });
+
+function showMessage(selector) {
+	$('.box-message'+selector).collapse('show');
+}
+function hideMessage(selector) {
+	$('.box-message'+selector).collapse('hide');
+}
 </script>
 </body>
 </html>

@@ -525,29 +525,21 @@
 		<section class="page-block">
 			<div class="container">
 				<div class="box nav nav-tabs steps">
-					<div class="nav-item">
-						<a href="/cart.html" data-toggle="tab" class="nav-link complete">
-							<span class="tab-num">1</span>
-							<span class="tab-text">Корзина</span>
-						</a>
+					<a href="/cart-1.html" class="nav-item nav-link complete">
+						<span class="tab-num">1</span>
+						<span class="tab-text">Корзина</span>
+					</a>
+					<div class="nav-item active">
+						<span class="tab-num">2</span>
+						<span class="tab-text">Оформление заказа</span>
 					</div>
 					<div class="nav-item">
-						<a href="/cart-2.html" data-toggle="tab" class="nav-link active">
-							<span class="tab-num">2</span>
-							<span class="tab-text">Оформление заказа</span>
-						</a>
+						<span class="tab-num">3</span>
+						<span class="tab-text">Обзор заказа</span>
 					</div>
 					<div class="nav-item">
-						<a href="/cart-3.html" data-toggle="tab" class="nav-link">
-							<span class="tab-num">3</span>
-							<span class="tab-text">Обзор заказа</span>
-						</a>
-					</div>
-					<div class="nav-item">
-						<a href="/cart-4.html" data-toggle="tab" class="nav-link">
-							<span class="tab-num">4</span>
-							<span class="tab-text">Подтверждение</span>
-						</a>
+						<span class="tab-num">4</span>
+						<span class="tab-text">Подтверждение</span>
 					</div>
 				</div>
 			</div>
@@ -562,7 +554,7 @@
 							</div>
 							<div class="countdown__text">
 								<h5>Время на оформление заказа</h5>
-								<p>Пожалуйста, обратите внимание на время, в течение которого ваши билеты будут находиться в резерве</p>
+								<p class="plain-text">Пожалуйста, обратите внимание на время, в течение которого ваши билеты будут находиться в резерве</p>
 							</div>
 						</div>
 					</div>
@@ -617,8 +609,8 @@
 										<h3 class="address-block__title">Адрес заказчика</h3>
 										<div class="form-group form-group-inline-sm-up">
 											<div class="form-control always-open">
-												<div class="form-select">
-													<select name="country" id="customer_country">
+												<div class="form-select disabled">
+													<select name="country" id="customer_country" disabled>
 														<option value="0">Deutschland</option>
 														<option value="1">Austria</option>
 														<option value="2">Belgium</option>
@@ -653,7 +645,7 @@
 										</div>
 										<div class="form-group form-group-inline">
 											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="customer_street" required>
+												<input type="text" name="street" id="customer_street" required value="HJkasvfalskjbf" disabled>
 												<label for="customer_street" class="placeholder compact required">Улица</label>
 											</div>
 											<div class="form-control basis-fourth">
@@ -818,9 +810,9 @@
 					<div class="box">
 						<div class="box-body">
 							<div class="d-flex justify-content-between align-items-center">
-								<a href="javascript:history.go(-1)" class="btn-text go-back d-none d-sm-inline-block">Назад</a>
+								<a href="/cart-1.html" class="btn-text go-back d-none d-sm-inline-block">Назад</a>
 								<a href="/cart-3.html" class="btn btn-primary btn-block d-sm-none">Продолжить</a>
-								<a href="/cart-3.html" class="btn btn-primary d-none d-sm-inline-block">Продолжить</a>
+								<a href="/cart-3.html" class="btn btn-primary btn-lg d-none d-sm-inline-block">Продолжить</a>
 							</div>
 						</div>
 					</div>

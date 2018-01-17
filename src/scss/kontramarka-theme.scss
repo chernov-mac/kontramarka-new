@@ -38,6 +38,7 @@
 @import "breadcrumbs";
 @import "benefit";
 @import "site-error";
+@import "message";
 
 
 
@@ -133,6 +134,9 @@ img {
 }
 .accent {
     box-shadow: 0 4px 40px 0 rgba($black, .18);
+}
+.crossed-out {
+    text-decoration: line-through;
 }
 
 // Icons
@@ -483,13 +487,30 @@ a.external {
 %action-block-big {
     padding: 0 20px;
     @include media-breakpoint-up(lg){
-        padding: 0 30px;
+        padding: 12px 30px;
     };
 }
 .action-block {
     @extend %action-block;
     &-big {
+        @extend %action-block;
         @extend %action-block-big;
+    }
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 0;
+
+        & + & {
+            border-top: 1px solid $gray-200;
+        }
+
+        .value {
+            margin-left: .5em;
+        }
+    }
+    &-highlited {
+        border-color: $secondary;
     }
 }
 
@@ -1134,13 +1155,18 @@ main {
 #promocode {
     max-width: 550px;
 }
+#confetti {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
 
 @import "gallery";
 @import "event-info";
 @import "tickets-block";
 @import "tour";
 @import "schedule";
-@import "flex-table";
 @import "comments";
 @import "cart";
 

@@ -118,7 +118,7 @@
         }
     }
 
-    &-item > &__col {
+    &-item &__col {
         &--tickets,
         &--total {
             display: flex;
@@ -127,12 +127,12 @@
 
 
             @include media-breakpoint-down(sm) {
-                padding-left: 84px;
+                // padding-left: 84px;
                 margin-top: 4px;
             };
-            @include media-breakpoint-down(xs) {
-                padding-left: 59px;
-            };
+            // @include media-breakpoint-down(xs) {
+            //     padding-left: 59px;
+            // };
 
             @include media-breakpoint-up(md) {
                 display: inline-block;
@@ -158,6 +158,7 @@
     }
     .value {
         margin-left: .5em;
+        flex-shrink: 0;
     }
 
 }
