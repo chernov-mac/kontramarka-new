@@ -134,6 +134,10 @@
         };
     }
 
+    & + & {
+        margin-top: 30px;
+    }
+
     @each $dimension in map-keys($grid-breakpoints) {
         &.short-#{$dimension}-down {
             @include media-breakpoint-down($dimension) {
