@@ -19,8 +19,9 @@ $grid-breakpoints: (
 $white:  #fff !default;
 $black:  #000 !default;
 $gray-100: rgba($black, .08);
+$gray-100-hex: #e4e4e4;
 $gray-200: #e0e0e0;
-$gray-300: #dee2e6 !default;
+$gray-300: #dddddd;
 $gray-400: #bbb;
 $gray-500: #a4a4a4;
 $gray-600: #666;
@@ -129,8 +130,8 @@ $modal-backdrop-bg: rgba($black, .48);
 // Tooltips
 $tooltip-bg:                  $white;
 // $tooltip-opacity:             .55; // doesn't work
-$tooltip-padding-y:           6px;
-$tooltip-padding-x:           6px !default;
+$tooltip-padding-y:           12px;
+$tooltip-padding-x:           12px !default;
 $tooltip-color:               $gray-600;
 
 // Popovers

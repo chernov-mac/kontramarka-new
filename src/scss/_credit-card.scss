@@ -1,0 +1,293 @@
+$card-width: 420px;
+$card-height: 270px;
+$card-border-color: $gray-300;
+$card-radius: 20px;
+$card-bg: $body-bg;
+
+$back-card-offset: 120px;
+$back-card-offset-lg: 190px;
+
+.credit-card {
+    position: relative;
+    width: $card-width;
+    height: $card-height;
+    background: $card-bg;
+    border: 2px solid $card-border-color;
+    border-radius: $card-radius;
+    color: $gray-700;
+    font-size: 18px;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+
+    @include media-breakpoint-down(xs) {
+        width: 100%;
+        padding: 12px 0 32px;
+        height: auto;
+    };
+    @include media-breakpoint-between(sm, sm) {
+        width: 432px;
+    };
+
+    &__input {
+        padding: 0 28px;
+        margin-top: 12px;
+
+        label {
+            &.hint {
+                line-height: 1.4;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0;
+
+            label {
+                position: absolute;
+                top: -6px;
+                transform: translateY(-100%);
+                margin: 0;
+            }
+
+            &.cardtype {
+                top: 28px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                label {
+                    position: relative;
+                    top: 0;
+                    transform: translateY(0);
+                    margin-right: 24px;
+                }
+            }
+            &.cardpan {
+                top: 106px;
+            }
+            &.cardexpire {
+                top: 190px;
+            }
+        };
+
+
+
+        &.cardcvv {
+            position: absolute;
+            top: 170px;
+            right: 0;
+            left: 0;
+            background: repeating-linear-gradient(
+                to bottom,
+                $card-border-color,
+                $card-border-color 6px,
+                $card-bg 4px,
+                $card-bg 14px
+            );
+
+            .input-frame {
+                margin-right: 0;
+                z-index: 2;
+            }
+            label {
+                position: absolute;
+                top: -6px;
+                transform: translateY(-100%);
+                margin: 0;
+                right: 30px;
+                width: 60px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.credit-cards {
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+        display: table;
+    };
+    @include media-breakpoint-up(md) {
+        padding-right: $back-card-offset;
+    };
+    @include media-breakpoint-between(md, md) {
+        padding-right: $back-card-offset-lg;
+    };
+
+    .credit-card {
+        &-back {
+
+            z-index: 1;
+            margin-top: -120px;
+            height: $card-height - 2px;
+
+            // @include media-breakpoint-up(sm) {
+            //     position: absolute;
+            // };
+            @include media-breakpoint-up(md) {
+                margin-top: 0;
+                position: absolute;
+                top: 2px;
+                left: $back-card-offset;
+            };
+            @include media-breakpoint-between(md, md) {
+                left: $back-card-offset-lg;
+            };
+
+            .magnet-tape {
+                position: absolute;
+                top: 20px;
+                right: 0;
+                left: 0;
+                height: 50px;
+                background: $card-border-color;
+            }
+        }
+        &-front {
+            z-index: 10;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.input-frame {
+    position: relative;
+    display: block;
+    background: $white;
+    border: 2px solid $card-border-color;
+
+    &.small {
+        width: 64px;
+        margin: 0 auto;
+    }
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 12px 16px;
+        line-height: 20px;
+        font-size: 18px;
+        background: #fff;
+        border: none;
+        color: #333;
+    }
+
+}
+.select-frame {
+    @extend .input-frame;
+
+    &:after {
+        content: '\f107';
+        display: block;
+        font-family: 'FontAwesome';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: $secondary;
+    }
+
+    select {
+        -webkit-appearance: none;
+        border: none;
+        border-radius: 0;
+        outline: none;
+        background: none;
+        position: relative;
+        z-index: 2;
+        line-height: 20px;
+        padding: 12px 32px 12px 16px;
+        cursor: pointer;
+    }
+}
+
+.card-input-group {
+    display: flex;
+}
+.card-expire-delimiter {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    color: $gray-500;
+}
+
+.card-shadow {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        box-shadow: 0 2px 40px 0 rgba(0, 0, 0, 0.24);
+    }
+
+    &--right {
+        top: 2px;
+        left: $card-width - $card-radius;
+        width: $card-radius + 36px;
+        height: $card-height - 2;
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        };
+
+        &:before {
+            top: -2px;
+            bottom: 0;
+            left: 0;
+            width: $card-radius;
+            border-top-right-radius: $card-radius;
+            border-bottom-right-radius: $card-radius;
+        }
+    }
+
+    &--bottom {
+        top: $card-height - $card-radius;
+        right: 0;
+        left: 0;
+        height: $card-radius + 36px;
+
+        @include media-breakpoint-down(xs) {
+            top: 286px;
+        };
+        @include media-breakpoint-up(md) {
+            display: none;
+        };
+
+        &:before {
+            top: 0;
+            right: 0;
+            left: 0;
+            height: $card-radius;
+            border-bottom-right-radius: $card-radius;
+            border-bottom-left-radius: $card-radius;
+        }
+    }
+
+}
+
+.card-payment {
+    display: flex;
+
+    @include media-breakpoint-down(md) {
+        flex-wrap: wrap;
+    };
+
+    &-form {
+        @include media-breakpoint-up(md) {
+            width: 100%;
+        };
+    }
+    &-description {
+        flex: 1 1 auto;
+    }
+}

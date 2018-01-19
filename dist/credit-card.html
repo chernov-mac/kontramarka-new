@@ -505,6 +505,7 @@
 				</div>
 			</div>
 			<div class="loader"></div>
+			<canvas id="confetti"></canvas>
         </section>
     </header>
 
@@ -517,304 +518,124 @@
 							<a rel="v:url" property="v:title" href="/">Главная</a>
 						</span>
 						<i class="fa fa-angle-right"></i>
-						Оформление заказа
+						<span typeof="v:Breadcrumb">
+							<a rel="v:url" property="v:title" href="/cart-1.html">Корзина</a>
+						</span>
+						<i class="fa fa-angle-right"></i>
+						Оплата кредитной картой
 					</div>
 			    </div>
 			</div>
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<div class="box nav nav-tabs steps">
-					<a href="/cart-1.html" class="nav-item nav-link complete">
-						<span class="tab-num">1</span>
-						<span class="tab-text">Корзина</span>
-					</a>
-					<div class="nav-item active">
-						<span class="tab-num">2</span>
-						<span class="tab-text">Оформление заказа</span>
-					</div>
-					<div class="nav-item">
-						<span class="tab-num">3</span>
-						<span class="tab-text">Обзор заказа</span>
-					</div>
-					<div class="nav-item">
-						<span class="tab-num">4</span>
-						<span class="tab-text">Подтверждение</span>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
 				<div class="box">
-					<div class="box-body">
-						<div class="countdown">
-							<div class="countdown__time">
-								<i class="icon-watch"></i><span id="cartCountdown"></span>
-							</div>
-							<div class="countdown__text">
-								<h5>Время на оформление заказа</h5>
-								<p class="plain-text">Пожалуйста, обратите внимание на время, в течение которого ваши билеты будут находиться в резерве</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="page-block">
-			<div class="container">
-				<form action="">
-					<div class="box address-block">
+					<form name="paymentform" action="" method="post">
 						<div class="box-body">
-							<div class="pane" id="customer">
-								<div class="row">
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Контактные данные заказчика</h3>
-										<div class="note on-top">
-											<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
-										</div>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control">
-												<input type="text" name="name" id="customer_name" data-placeholder="Ganz" required>
-												<label for="customer_name" class="placeholder compact required">Имя</label>
+							<div class="card-payment">
+								<div class="card-payment-description plain-text mb-4 mb-lg-0 ml-lg-4 ml-xl-5 order-lg-2">
+									<p>Ваш заказ почти оформлен, Вам осталось внести данные кредитной карты. На этом месте мы хотим объяснить, почему
+									оплата кредитной карточкой - это не только быстрый, но и надежный способ оплаты на сайте Kontramarka.de</p>
+									<ul>
+										<li>Мы не храним у себя данные Вашей кредитной карточки</li>
+										<li>Ваши данные передаются защищенным протоколом HTTPS напрямую в карточный центр</li>
+										<li>Оплата засчитана, хотя по факту деньги еще не поступили к нам</li>
+										<li>Это один из самых легких и быстрых способов оплатить Вашу покупку</li>
+										<li>Даже если Вы далеко и не можете воспользоваться банковским переводом,<br>Вы все равно можете преобрести заветный билетик.</li>
+									</ul>
+								</div>
+								<div class="card-payment-form order-lg-1">
+									<div class="credit-cards">
+										<div class="credit-card credit-card-front">
+											<div class="credit-card__input cardtype">
+												<label for="cardtype">Тип карты</label>
+												<div id="cardtypeOuter" class="select-frame">
+													<select id="cardtype">
+														<option value="V">Visa</option>
+														<option value="M">Mastercard</option>
+													</select>
+												</div>
 											</div>
-											<div class="form-control">
-												<input type="text" name="surname" id="customer_surname" data-placeholder="Rubinheigen" required>
-												<label for="customer_surname" class="placeholder compact required">Фамилия</label>
+											<div class="credit-card__input cardpan">
+												<label for="cardpanInput">Номер карты</label>
+												<div id="cardpanOuter" class="input-frame">
+													<input type="text" id="cardpanInput">
+												</div>
 											</div>
-										</div>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control">
-												<input type="email" name="mail" id="customer_mail" data-placeholder="example@mail.com" required>
-												<label for="customer_mail" class="placeholder compact required">E-mail</label>
-											</div>
-											<div class="form-control">
-												<input type="email" name="mail2" id="customer_mail2" data-placeholder="" required>
-												<label for="customer_mail2" class="placeholder compact required">E-mail еще раз</label>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="row no-gutters">
-												<div class="col-sm-6">
-													<div class="form-control always-open verified">
-														<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
-														<input type="text" name="phone" id="customer_phone" data-placeholder="" value="123423543" required>
-														<label for="customer_phone" class="placeholder compact required">Телефон</label>
+											<div class="credit-card__input cardexpire">
+												<label for="expireInput">Срок действия карты</label>
+												<div id="expireInput" class="card-input-group">
+													<div id="cardexpiremonthOuter" class="select-frame">
+														<select id="cardexpiremonth">
+															<option value="0"></option>
+															<option value="1">1</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+														</select>
+													</div>
+													<div class="card-expire-delimiter">/</div>
+													<div id="cardexpireyearOuter" class="select-frame">
+														<select id="cardexpireyear">
+															<option value="0"></option>
+															<option value="2018">2018</option>
+															<option value="2019">2019</option>
+															<option value="2020">2020</option>
+															<option value="2021">2021</option>
+															<option value="2022">2022</option>
+															<option value="2023">2023</option>
+															<option value="2024">2024</option>
+															<option value="2025">2025</option>
+															<option value="2026">2026</option>
+															<option value="2027">2027</option>
+															<option value="2028">2028</option>
+														</select>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Адрес заказчика</h3>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<div class="form-select disabled">
-													<select name="country" id="customer_country" disabled>
-														<option value="0">Deutschland</option>
-														<option value="1">Austria</option>
-														<option value="2">Belgium</option>
-														<option value="3">Czech Rep.</option>
-														<option value="4">Denmark</option>
-														<option value="5">Estonia</option>
-														<option value="6">Finland</option>
-														<option value="7">France</option>
-														<option value="8">Holland</option>
-														<option value="9">Hungary</option>
-														<option value="10">Ireland</option>
-														<option value="11">Italy</option>
-														<option value="12">Latvia</option>
-														<option value="13">Lithuania</option>
-														<option value="14">Luxemburg</option>
-														<option value="15">Norwegen</option>
-														<option value="16">Poland</option>
-														<option value="17">Russia</option>
-														<option value="18">Spain</option>
-														<option value="19">Sweden</option>
-														<option value="20">Switzerland</option>
-														<option value="21">Ukraine</option>
-														<option value="22">United Kingdom</option>
-													</select>
+										<div class="credit-card credit-card-back">
+											<div class="magnet-tape"></div>
+											<div class="credit-card__input cardcvv">
+												<label for="cvcInput" class="hint hint-cvc" title="CVV2/CVC2 код-это 3-значный код безопасности. Он расположен в поле подписи на обратной стороне Вашей платежной карты (последние три цифры).">Код CVV</label>
+												<div id="XXXcardcvc2" class="input-frame small">
+													<input type="text" id="cardcvc2">
 												</div>
-												<label for="customer_country" class="placeholder compact required">Страна</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="city" id="customer_city" data-placeholder="" required>
-												<label for="customer_city" class="placeholder compact required">Город</label>
 											</div>
 										</div>
-										<div class="form-group form-group-inline">
-											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="customer_street" required value="HJkasvfalskjbf" disabled>
-												<label for="customer_street" class="placeholder compact required">Улица</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="house" id="customer_house" required>
-												<label for="customer_house" class="placeholder compact required">№ дома</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="index" id="customer_index" required>
-												<label for="customer_index" class="placeholder compact required">Индекс</label>
-											</div>
-										</div>
+										<div class="card-shadow card-shadow--right"></div>
+										<div class="card-shadow card-shadow--bottom"></div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-12 col-md-4 col-lg-6">
-										<label class="form-check-label panel-control" data-panel-control="#recipient">
-											<input class="form-check-input" type="checkbox" name="other_recepient" value="other_recepient">
-											<span class="form-check-text">Другой получатель</span>
-										</label>
-									</div>
-									<div class="col-12 col-md-8 col-lg-6">
-										<div class="note on-bottom">
-											<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="pane collapse" id="recipient">
-								<br>
-								<div class="row">
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Контактные данные получателя</h3>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control">
-												<input type="text" name="name" id="recipient_name" data-placeholder="Ganz" required>
-												<label for="recipient_name" class="placeholder compact required">Имя</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="surname" id="recipient_surname" data-placeholder="Rubinheigen" required>
-												<label for="recipient_surname" class="placeholder compact required">Фамилия</label>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Адрес получателя</h3>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<div class="form-select">
-													<select name="country" id="recipient_country">
-														<option value="0">Deutschland</option>
-														<option value="1">Austria</option>
-														<option value="2">Belgium</option>
-														<option value="3">Czech Rep.</option>
-														<option value="4">Denmark</option>
-														<option value="5">Estonia</option>
-														<option value="6">Finland</option>
-														<option value="7">France</option>
-														<option value="8">Holland</option>
-														<option value="9">Hungary</option>
-														<option value="10">Ireland</option>
-														<option value="11">Italy</option>
-														<option value="12">Latvia</option>
-														<option value="13">Lithuania</option>
-														<option value="14">Luxemburg</option>
-														<option value="15">Norwegen</option>
-														<option value="16">Poland</option>
-														<option value="17">Russia</option>
-														<option value="18">Spain</option>
-														<option value="19">Sweden</option>
-														<option value="20">Switzerland</option>
-														<option value="21">Ukraine</option>
-														<option value="22">United Kingdom</option>
-													</select>
+									<div class="row mt-4">
+										<div class="col-xs-12 col-md-8">
+											<div class="form-group form-group-inline">
+												<div class="form-control basis-half full-width-xs-down">
+													<input type="text" name="firstname" id="firstnameInput">
+													<label for="firstnameInput" class="placeholder required">Имя</label>
 												</div>
-												<label for="recipient_country" class="placeholder compact required">Страна</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="city" id="recipient_city" data-placeholder="" required>
-												<label for="recipient_city" class="placeholder compact required">Город</label>
+												<div class="form-control basis-half full-width-xs-down">
+													<input type="text" name="lastname" id="lastnameInput">
+													<label for="lastnameInput" class="placeholder required">Фамилия</label>
+												</div>
 											</div>
 										</div>
-										<div class="form-group form-group-inline">
-											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="recipient_street" required>
-												<label for="recipient_street" class="placeholder compact required">Улица</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="house" id="recipient_house" required>
-												<label for="recipient_house" class="placeholder compact required">№ дома</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="index" id="recipient_index" required>
-												<label for="recipient_index" class="placeholder compact required">Индекс</label>
-											</div>
+										<div class="col-xs-12 col-md-4">
+											<a href="javascript:void(0)" class="btn btn-block btn-lg btn-primary payone-btn" onclick="check();">Оплатить</a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="box delivery-block">
-						<div class="box-body">
-							<div class="row">
-								<div class="delivery col-12 col-md-6">
-									<h3 class="delivery-block__title">Способ доставки</h3>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="delivery" value="1" checked>
-										<span class="form-check-text">
-											<span class="descr">Стандартное письмо</span>
-											<span class="price">+ &euro;1,50</span>
-										</span>
-									</label>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="delivery" value="2">
-										<span class="form-check-text">
-											<span class="descr">Заказное письмо</span>
-											<span class="price">+ &euro;3,50</span>
-										</span>
-									</label>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="delivery" value="3">
-										<span class="form-check-text">
-											<span class="descr">e-Ticket</span>
-											<span class="price">Бесплатно</span>
-										</span>
-									</label>
-								</div>
-								<div class="payment col-12 col-md-6">
-									<h3 class="delivery-block__title">Способ оплаты</h3>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="paytype" value="1" checked>
-										<span class="form-check-text">
-											<span class="descr">Банковский перевод</span>
-											<span class="price">Бесплатно</span>
-										</span>
-									</label>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="paytype" value="2">
-										<span class="form-check-text">
-											<span class="descr small">
-												<img class="paypal" src="/images/brands/paypal.svg" alt="Paypal">
-											</span>
-											<span class="price">+ &euro;3,50</span>
-										</span>
-									</label>
-									<label class="form-check-label">
-										<input class="form-check-input" type="radio" name="paytype" value="3">
-										<span class="form-check-text">
-											<span class="descr small">
-												<img class="visa" src="/images/brands/visa.svg" alt="Visa">
-												<img class="mastercard" src="/images/brands/mastercard.svg" alt="Mastercard">
-											</span>
-											<span class="price">+ &euro;5,00</span>
-										</span>
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="box">
-						<div class="box-body">
-							<div class="d-flex justify-content-between align-items-center">
-								<a href="/cart-1.html" class="btn-text go-back d-none d-sm-inline-block">Назад</a>
-								<a href="/cart-3.html" class="btn btn-primary btn-block d-sm-none">Продолжить</a>
-								<a href="/cart-3.html" class="btn btn-primary btn-lg d-none d-sm-inline-block">Продолжить</a>
-							</div>
-						</div>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</section>
     </main>
@@ -1086,22 +907,13 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
+<!-- <script src="/components/js/confetti.js"></script> -->
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
-
-<script type="text/javascript">
-	$(function() {
-		var start = new Date();
-		var diff = 30; // minutes
-		var afterDiff = new Date(start.getTime() + diff * 60000);
-		$('#cartCountdown')
-		.countdown(afterDiff, function(event) {
-			$(this).text(event.strftime('%M : %S'));
-		});
-	});
-</script>
 </body>
 </html>

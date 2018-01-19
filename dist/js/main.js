@@ -6,33 +6,7 @@ $(function() {
 
 	// Initialization
 
-	// setTimeout(function(){
-	// 	$('.box-message__icon')
-	// 		.animate(
-	// 			{ transform: 'scale(1)' }, {
-	// 				duration: 1600,
-	// 				easing: 'easeOutElastic',
-	// 				complete: function(){
-	// 					console.log('allo');
-	// 				}
-	// 		});
-	// }, 2000);
-
 	$.each($('.box-message'), function(i, msg){
-		// var mode = 'info';
-		// if ($(msg).hasClass('message-info')) {
-		// 	mode = 'info';
-		// }
-		// if ($(msg).hasClass('message-success')) {
-		// 	mode = 'success';
-		// }
-		// if ($(msg).hasClass('message-warning')) {
-		// 	mode = 'warning';
-		// }
-		// if ($(msg).hasClass('message-danger')) {
-		// 	mode = 'danger';
-		// }
-
 		var msgOpts = {
 			container: $(msg).parent(),
 			id: $(msg).attr('id') || '',
@@ -45,6 +19,13 @@ $(function() {
 
 		initBoxMessageEvents(msg, msgOpts);
 	});
+
+	if ($('.card-payment').length) {
+		$('.hint-cvc').tooltip({
+			html: false,
+			template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><img src="https://www.kontramarka.de/templates/default/images/payments/cvv2_white.gif" alt="cvv2" style="float:left; margin: 12px 12px 2px 12px;"><div class="tooltip-inner text-left"></div></div>'
+		});
+	}
 
 
 	// Pace
