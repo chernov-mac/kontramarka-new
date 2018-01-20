@@ -56,7 +56,11 @@ $back-card-offset-lg: 190px;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                max-width: 140px;
+
+                input,
+                select {
+                    max-width: 140px;
+                }
 
                 label {
                     position: relative;
