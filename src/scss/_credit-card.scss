@@ -179,6 +179,14 @@ $back-card-offset-lg: 190px;
         color: #333;
     }
 
+    iframe {
+        position: relative;
+        z-index: 2;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
 }
 .select-frame {
     @extend .input-frame;
