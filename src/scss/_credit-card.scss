@@ -56,6 +56,7 @@ $back-card-offset-lg: 190px;
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
+                max-width: 140px;
 
                 label {
                     position: relative;
@@ -71,8 +72,6 @@ $back-card-offset-lg: 190px;
                 top: 190px;
             }
         };
-
-
 
         &.cardcvv {
             position: absolute;
