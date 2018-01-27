@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #myElement {
+      background: silver;
+      height: 300px;
+      text-align: center;
+      font: 30px/300px Helvetica, Arial, sans-serif;
+    }
+    </style>
+</head>
+<body>
+    <div id="myElement"></div>
+
+
+    <!-- Touch emulator -->
+    <script src="/js/touch-emulator.js"></script>
+    <script> TouchEmulator(); </script>
+    <!-- <script src="/plugins/js/hammer.min.js"></script> -->
+        <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script type="text/javascript">
+        var myElement = document.getElementById('myElement');
+
+        var mc = new Hammer.Manager(myElement);
+
+        // create a pinch and rotate recognizer
+        // these require 2 pointers
+        var pinch = new Hammer.Pinch();
+        var rotate = new Hammer.Rotate();
+
+        // we want to detect both the same time
+        pinch.recognizeWith(rotate);
+
+        // add to the Manager
+        mc.add([pinch, rotate]);
+
+
+        mc.on("pinch rotate", function(ev) {
+        myElement.textContent += ev.type +" ";
+        });
+    </script>
+</body>
+</html>

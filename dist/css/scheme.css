@@ -33,7 +33,6 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  background: #f7f5f8;
   border: 2px solid #e0e0e0;
   height: 425px;
 }
@@ -45,6 +44,10 @@
 
 #DataCopy {
   position: relative;
+  cursor: -webkit-grab;
+}
+#DataCopy.dragging {
+  cursor: -webkit-grabbing;
 }
 
 #maindata_wrapper {
@@ -60,6 +63,9 @@
 #MainData {
   position: relative;
   margin-bottom: 20px;
+  margin-right: -2px;
+  margin-left: -2px;
+  width: 254px !important;
   border: 2px solid #e0e0e0;
   background-size: contain !important;
 }
@@ -70,7 +76,10 @@
   border: 2px solid #00398c;
   background: url("/upload/schemes/move-circle.svg") no-repeat center center;
   background-size: 38px 38px;
-  cursor: move;
+  cursor: -webkit-grab;
+}
+#helper.dragging {
+  cursor: -webkit-grabbing;
 }
 
 .tickets_group {
@@ -845,4 +854,61 @@
 p.sthpltz {
   vertical-align: middle;
   line-height: 25px;
+}
+
+.scheme-contols {
+  position: absolute;
+}
+
+.control-scale {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-flow: row wrap;
+  width: 97px;
+  background: #fff;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  cursor: default;
+}
+.control-scale__status {
+  flex-basis: 100%;
+  display: block;
+  padding: 6px 6px 0;
+  font-size: 14px;
+  color: #666666;
+  text-align: center;
+}
+.control-scale__btn {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 48px;
+  line-height: 20px;
+  color: #00398c;
+  font-size: 32px;
+  line-height: 1;
+  padding: 8px 16px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.control-scale__btn:hover {
+  color: #bd25b2;
+}
+.control-scale__btn.disabled {
+  color: #e0e0e0;
+}
+.control-scale__btn + .control-scale__btn {
+  margin-left: 1px;
+}
+.control-scale__btn + .control-scale__btn:before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: -1px;
+  display: block;
+  width: 1px;
+  background: #e0e0e0;
 }

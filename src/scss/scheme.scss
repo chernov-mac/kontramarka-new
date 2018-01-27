@@ -4,10 +4,12 @@
 
 // Colors
 $black: #000;
+$white: #fff;
 $default: #f7f7f7;
 $light-gray: #e0e0e0;
 $primary: #ffc800;
 $secondary: #00398c;
+$accent: #bd25b2;
 
 // Labels
 $label-colors: (
@@ -104,7 +106,7 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-    background: #f7f5f8;
+    // background: #f7f5f8;
     border: 2px solid $light-gray;
 
     height: 425px;
@@ -115,7 +117,11 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 // Places container's inner with background
 #DataCopy {
     position: relative;
+    cursor: -webkit-grab;
 
+    &.dragging {
+        cursor: -webkit-grabbing;
+    }
 }
 
 // Sidebar (td)
@@ -132,6 +138,11 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 #MainData {
     position: relative;
     margin-bottom: 20px;
+    margin: {
+        right: -2px;
+        left: -2px;
+    }
+    width: 254px !important;
     border: 2px solid $light-gray;
     background-size: contain !important;
 }
@@ -142,7 +153,11 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     border: 2px solid $secondary;
     background: url('/upload/schemes/move-circle.svg') no-repeat center center;
     background-size: 38px 38px;
-    cursor: move;
+    cursor: -webkit-grab;
+
+    &.dragging {
+        cursor: -webkit-grabbing;
+    }
 }
 
 // Ticket-price groups
@@ -703,6 +718,69 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 p.sthpltz {
     vertical-align: middle;
     line-height: 25px;
+}
+
+.scheme-contols {
+    position: absolute;
+}
+.control {
+    &-scale {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        display: flex;
+        flex-flow: row wrap;
+        width: 97px;
+        background: $white;
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
+        cursor: default;
+
+        &__status {
+            flex-basis: 100%;
+            display: block;
+            padding: 6px 6px 0;
+            font-size: 14px;
+            color: lighten($black, 40%);
+            text-align: center;
+        }
+        &__btn {
+            position: relative;
+            display: block;
+            flex: 0 0 auto;
+            width: 48px;
+            line-height: 20px;
+            color: $secondary;
+            font-size: 32px;
+            line-height: 1;
+            padding: 8px 16px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                color: $accent;
+            }
+
+            &.disabled {
+                color: $light-gray;
+            }
+
+            & + & {
+                margin-left: 1px;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 12px;
+                    bottom: 12px;
+                    left: -1px;
+                    display: block;
+                    width: 1px;
+                    background: $light-gray;
+                }
+            }
+        }
+    }
 }
 
 
