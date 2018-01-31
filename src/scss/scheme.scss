@@ -138,10 +138,6 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 #MainData {
     position: relative;
     margin-bottom: 20px;
-    margin: {
-        right: -2px;
-        left: -2px;
-    }
     width: 254px !important;
     border: 2px solid $light-gray;
     background-size: contain !important;

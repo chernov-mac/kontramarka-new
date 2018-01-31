@@ -1,10 +1,17 @@
-(function() {
+(function($) {
+
+    var version = '0.2.3';
+    var enableScaleControls = false;
+    var logging = true;
+    var showZoomPoints = false;
+    var pinchSpeed = 1;
 
     var
         mainData        = document.getElementById('MainData'),
         helper          = document.getElementById('helper'),
         zoomPlaceholder = document.getElementById('ZoomPlaceholder'),
-        dataCopy        = document.getElementById('DataCopy');
+        dataCopy        = document.getElementById('DataCopy'),
+        logbox          = null;
 
     var
         helperSize      = {}, // {x, y}
@@ -23,7 +30,8 @@
 
     var
         scale = 1,
-        lastScale = 1;
+        lastScale = 1,
+        zoomStep = 0.1;
 
     var helperIsDragging = false;
     var dataCopyIsDragging = false;
@@ -49,29 +57,47 @@
     setMainDataSize();
     setHelperSize();
     setHelperPos();
-    addControls();
-    changeScale(scale);
+    if (enableScaleControls) addControls();
+    handleScale(scale);
+
+    if (showZoomPoints) {
+        var zoomCenterElem = document.createElement('div');
+        zoomCenterElem.style.position = 'absolute';
+        zoomCenterElem.style.top = '50%';
+        zoomCenterElem.style.left = '50%';
+        zoomCenterElem.style.transform = 'translate3d(-50%, -50%, 0) rotate(45deg)';
+        zoomCenterElem.style.display = 'block';
+        zoomCenterElem.style.width = '40px';
+        zoomCenterElem.style.height = '40px';
+        zoomCenterElem.style.lineHeight = '40px';
+        zoomCenterElem.style.fontSize = '16px';
+        zoomCenterElem.style.textAlign = 'center';
+        zoomCenterElem.style.color = '#ffc800';
+        zoomCenterElem.innerHTML = '<i class="icon-times"></i>';
+        zoomCenterElem.style.textShadow = '0 3px 18px rgba(0,0,0,0.74)';
+        zoomPlaceholder.appendChild(zoomCenterElem);
+    }
 
     // ----------------------
-    // Инициалзация Hammer
+    // Инициализация Hammer
     // ----------------------
 
-    var helperManager = new Hammer.Manager(helper, {});
-    helperManager.add(new Hammer.Pan({
+    var helperManager = new Hammer(helper);
+    helperManager.get('pan').set({
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
-    }));
+    });
 
-    var dataCopyManager = new Hammer.Manager(dataCopy, {});
-    dataCopyManager.add(new Hammer.Pan({
+    var dataCopyManager = new Hammer(dataCopy);
+    dataCopyManager.get('pan').set({
         direction: Hammer.DIRECTION_ALL,
         threshold: 0
-    }));
-    dataCopyManager.add(new Hammer.Pinch({
-        enable: true,
-        threshold: 0
-    })).recognizeWith([dataCopyManager.get('pan')]);
-    dataCopyManager.get('pinch').set({ enable: true });
+    });
+
+    var zoomPlaceholderManager = new Hammer(zoomPlaceholder);
+    zoomPlaceholderManager.get('pinch').set({
+        enable: true
+    });
 
 
     // ----------------------
@@ -80,7 +106,7 @@
 
     window.addEventListener('resize', function(){
         if (window.innerWidth <= helperDisableDown) {
-            helperDisable = true;
+            helperDisable = false;
         }
         if (!helperDisable) {
             setHelperSize();
@@ -93,28 +119,57 @@
 
     // #DataCopy handlers
     dataCopyManager.on('pan', handleDataCopyPan);
-    dataCopyManager.on('pinch', function(ev){
-        var pinched = Math.round(ev.scale * 100) / 100;
-
-        var curScale = lastScale * pinched;
-        changeScale(curScale, ev.center);
-    });
-    dataCopyManager.on('pinchend', function(ev){
-        lastScale = scale;
-    });
 
     // #ZoomPlaceholder handlers
-    zoomPlaceholder.querySelector('.control-scale__btn--minus').addEventListener('click', function(){
-        changeScale(scale - 0.25);
-    });
-    zoomPlaceholder.querySelector('.control-scale__btn--plus').addEventListener('click', function(){
-        changeScale(scale + 0.25);
-    });
+    // zoomPlaceholderManager.on('pinch', onPinch);
+    zoomPlaceholderManager.on('pinchin', onPinchIn);
+    zoomPlaceholderManager.on('pinchout', onPinchOut);
+    zoomPlaceholder.addEventListener('mousewheel', onZoomWheel);
+    if (enableScaleControls) {
+        zoomPlaceholder.find('.control-scale__btn--minus').addEventListener('click', function(){
+            handleScale(scale - zoomStep);
+        });
+        zoomPlaceholder.find('.control-scale__btn--plus').addEventListener('click', function(){
+            handleScale(scale + zoomStep);
+        });
+    }
+
+    if (logging) {
+        var pageBlock = document.createElement('section');
+        pageBlock.classList.add('page-block');
+        var container = document.createElement('div');
+        container.classList.add('container');
+        var box = document.createElement('div');
+        box.classList.add('box');
+        var boxBody = document.createElement('div');
+        boxBody.classList.add('box-body');
+
+        logbox = document.createElement('div');
+        logbox.id = 'logbox';
+        logbox.classList.add('plain-text');
+
+        boxBody.appendChild(logbox);
+        box.appendChild(boxBody);
+        container.appendChild(box);
+        pageBlock.appendChild(container);
+        document.querySelector('main').appendChild(pageBlock);
+
+        log('Initialized. Ver.: ' + version);
+    }
 
 
     // ----------------------
     // Функции
     // ----------------------
+
+    function log(text) {
+        console.log(text);
+        if (logbox) {
+            var textElem = document.createElement('p');
+            textElem.innerHTML = text;
+            logbox.appendChild(textElem);
+        }
+    }
 
     function getVision() {
         return {
@@ -199,6 +254,12 @@
         };
     }
 
+    function calcDelta(diff, coeff) {
+        if (!coeff) coeff = 0.1;
+        var delta = Math.sqrt(Math.abs(Math.round(diff * 100) / 100)) * coeff * zoomStep;
+        return delta;
+    }
+
     function setMainDataSize() {
         var deltaSizeMainData = getDeltaSize(mainData);
         mainData.style.height = Math.round(mainData.clientWidth / ratio) + deltaSizeMainData.y + 'px';
@@ -222,8 +283,8 @@
             dataCopyPos = getDataCopyPos();
 
             actualPos = {
-                x: dataCopyPos.x * vision.x,
-                y: dataCopyPos.y * vision.y
+                x: - Math.round(dataCopyPos.x / proportion / scale),
+                y: - Math.round(dataCopyPos.y / proportion / scale)
             };
         }
 
@@ -256,6 +317,23 @@
 
         // Двигаем элемент до нужной позиции
         dataCopy.style.transform = 'translate3d(' + Math.round(actualPos.x) + 'px, ' + Math.round(actualPos.y) + 'px, 0) scale(' + scale + ')';
+    }
+
+    function setScale(actualScale) {
+        if (enableScaleControls) {
+            zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.remove('disabled');
+            zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.remove('disabled');
+        }
+
+        if (actualScale <= 0.25) {
+            scale = 0.25;
+            if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.add('disabled');
+        } else if (actualScale >= 5) {
+            scale = 5;
+            if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.add('disabled');
+        } else {
+            scale = actualScale;
+        }
     }
 
     function addControls() {
@@ -354,42 +432,100 @@
         }
     }
 
-    function changeScale(actualScale, scaleCenter) {
-        zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.remove('disabled');
-        zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.remove('disabled');
+    function onZoomWheel(ev) {
+        ev.preventDefault();
+        var zoomPlaceholderRect = zoomPlaceholder.getBoundingClientRect();
+        var zoomPlaceholderOffset = {
+            top: zoomPlaceholderRect.top + document.body.scrollTop,
+            left: zoomPlaceholderRect.left + document.body.scrollLeft
+        };
+        var zoomPoint = {
+            x: ev.clientX - zoomPlaceholderOffset.left,
+            y: ev.clientY - zoomPlaceholderOffset.top
+        };
+        var delta = calcDelta(ev.deltaY);
+        var newScale = ev.deltaY > 0 ? scale + delta : scale - delta;
+        handleScale(newScale, zoomPoint);
 
-        if (actualScale <= 0.25) {
-            scale = 0.25;
-            zoomPlaceholder.querySelector('.control-scale__btn--minus').classList.add('disabled');
-        } else if (actualScale >= 5) {
-            scale = 5;
-            zoomPlaceholder.querySelector('.control-scale__btn--plus').classList.add('disabled');
-        } else {
-            scale = actualScale;
-        }
-
-        if (!scaleCenter) {
-            var deltaDataCopy = getDeltaSize(dataCopy);
-            dataCopyPos = getDataCopyPos();
-            scaleCenter = {
-                x: deltaDataCopy.x + dataCopyPos.x + zoomPlaceholder.offsetWidth / 2,
-                y: deltaDataCopy.y + dataCopyPos.y + zoomPlaceholder.offsetHeight / 2
-            };
-        }
-
-        setDataCopyPos();
-        dataCopyPos = getDataCopyPos();
-
-        if (!helperDisable) {
-            var curHelperPos = {
-                x: - Math.round(dataCopyPos.x / proportion / scale),
-                y: - Math.round(dataCopyPos.y / proportion / scale)
-            };
-            setHelperSize();
-            setHelperPos(curHelperPos);
-        }
-
-        zoomPlaceholder.querySelector('.control-scale__status').innerHTML = Math.round(scale * 100) + '%';
+        log('zoomwheel');
     }
 
-})(jQuery, $);
+    function onPinchIn(ev) {
+        var coeff = 0.1;
+        var diff = Math.round(ev.scale * 100) / 100 * coeff;
+        var newScale = scale * Math.pow(diff, pinchSpeed);
+
+        handleScale(newScale, ev.center);
+
+        if (ev.type == 'pinchend') {
+            lastScale = scale;
+        }
+        log('pinch out');
+    }
+
+    function onPinchOut(ev) {
+        var coeff = 0.01;
+        var diff = scale * Math.abs(Math.round(ev.scale * 100) / 100) * coeff;
+        var newScale = scale + diff * pinchSpeed;
+
+        handleScale(newScale, ev.center);
+
+        if (ev.type == 'pinchend') {
+            lastScale = scale;
+        }
+        log('pinch out');
+    }
+
+    function handleScale(actualScale, zoomCenterPoint) {
+        if (!zoomCenterPoint) {
+            var deltaZoomPlaceholder = getDeltaSize(zoomPlaceholder);
+            zoomCenterPoint = {
+                x: zoomPlaceholder.offsetWidth / 2 - deltaZoomPlaceholder.x / 2,
+                y: zoomPlaceholder.offsetHeight / 2 - deltaZoomPlaceholder.y / 2
+            };
+        }
+
+        dataCopyPos = getDataCopyPos();
+        var schemeZoomCenterPoint = {
+            x: (zoomCenterPoint.x - dataCopyPos.x) / scale,
+            y: (zoomCenterPoint.y - dataCopyPos.y) / scale
+        };
+
+        if (showZoomPoints) {
+            var scalePrev = document.createElement('div');
+            scalePrev.style.position = 'absolute';
+            scalePrev.style.top = schemeZoomCenterPoint.y + 'px';
+            scalePrev.style.left = schemeZoomCenterPoint.x + 'px';
+            scalePrev.style.transform = 'translate3d(-50%, -50%, 0)';
+            scalePrev.style.display = 'block';
+            scalePrev.style.width = '40px';
+            scalePrev.style.height = '40px';
+            scalePrev.style.lineHeight = '40px';
+            scalePrev.style.fontSize = '24px';
+            scalePrev.style.textAlign = 'center';
+            scalePrev.style.color = '#bd25b2';
+            scalePrev.innerHTML = '<i class="icon-times"></i>';
+            scalePrev.style.textShadow = '0 3px 2px rgba(0,0,0,0.74)';
+            dataCopy.appendChild(scalePrev);
+        }
+
+        setScale(actualScale);
+
+        var sizeOut = getSizeOut(dataCopy);
+
+        var correctPos = {
+            x: zoomCenterPoint.x - schemeZoomCenterPoint.x * scale + sizeOut.x / 2,
+            y: zoomCenterPoint.y - schemeZoomCenterPoint.y * scale + sizeOut.y / 2
+        };
+
+        setDataCopyPos(correctPos);
+
+        if (!helperDisable) {
+            setHelperSize();
+            setHelperPos();
+        }
+
+        if (enableScaleControls) zoomPlaceholder.querySelector('.control-scale__status').innerHTML = Math.round(scale * 100) + '%';
+    }
+
+})(jQuery);
