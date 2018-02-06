@@ -5,27 +5,37 @@
     .nav-item {
         padding: 0 16px;
         font-weight: bold;
+    }
+    .nav-link {
+        position: relative;
+        display: inline-block;
+        padding: 18px 0;
+        line-height: 20px;
+        text-transform: uppercase;
+        @include masked-link(true);
 
+        &:hover {
+            border-bottom: none;
+        }
+
+        &.active {
+            background-color: transparent;
+            @include light-text;
+
+            &:before {
+                background: rgba($black, .12);
+            }
+        }
+    }
+
+    &.mobile {
+        .nav-item {
+            flex: 1 0 0;
+            padding: 0;
+            text-align: center;
+        }
         .nav-link {
-            position: relative;
-            display: inline-block;
-            padding: 18px 0;
-            line-height: 20px;
-            text-transform: uppercase;
-            @include masked-link(true);
-
-            &:hover {
-                border-bottom: none;
-            }
-
-            &.active {
-                background-color: transparent;
-                @include light-text;
-
-                &:before {
-                    background: rgba($black, .12);
-                }
-            }
+            width: 100%;
         }
     }
 
@@ -139,6 +149,24 @@
 
             &:hover {
                 border-bottom: none;
+            }
+        }
+    }
+
+    &.regular {
+        .nav-link {
+            padding: 26px 0;
+            font-size: 18px;
+            font-weight: normal;
+            text-transform: none;
+            color: $secondary;
+
+            &:hover {
+                color: $black;
+            }
+
+            &.active {
+                color: $gray-600;
             }
         }
     }
