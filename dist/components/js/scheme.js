@@ -440,7 +440,6 @@
                 width: Math.round(this.minimapSize.width * (this.vision.x < 1 ? this.vision.x : 1)) - this.outsize.x / this.proportion / this.realZoom,
                 height: Math.round(this.minimapSize.height * (this.vision.y < 1 ? this.vision.y : 1)) - this.outsize.y / this.proportion / this.realZoom
             };
-            // console.log(this.outsize);
 
             if (this.helperSize.width > this.minimapSize.width) this.helperSize.width = this.minimapSize.width;
             if (this.helperSize.height > this.minimapSize.height) this.helperSize.height = this.minimapSize.height;
@@ -519,21 +518,25 @@
             if (jsnstr) {
                 $.each(JSON.parse(jsnstr), function (k, v) {
                     var cls = $('#' + v.placeID).attr('class');
-                    var newcls = cls.replace(/empty/, v.color);
-                    $('#' + v.placeID)
-                        .attr('class', newcls)
-                        .attr('title', v.title)
-                        .data('block', v.block)
-                        .data('row', v.row)
-                        .data('place', v.place)
-                        .data('price', v.price)
-                        .data('currency', v.currency);
-                    if (v.pgroups) {
-                        var pgroups = $(v.pgroups);
-                        $('body').append(pgroups);
-                        $('#' + v.placeID).data('pgroups', pgroups.attr('id'));
+                    if (cls) {
+                        var newcls = cls.replace(/empty/, v.color);
+                        $('#' + v.placeID)
+                            .attr('class', newcls)
+                            .attr('title', v.title)
+                            .data('block', v.block)
+                            .data('row', v.row)
+                            .data('place', v.place)
+                            .data('price', v.price)
+                            .data('currency', v.currency);
+                        if (v.pgroups) {
+                            var pgroups = $(v.pgroups);
+                            $('body').append(pgroups);
+                            $('#' + v.placeID).data('pgroups', pgroups.attr('id'));
+                        }
+                        Scheme.addPlace($('#' + v.placeID));
+                    } else {
+                        console.error('`cls` is not defined. Cannot get place.');
                     }
-                    Scheme.addPlace($('#' + v.placeID));
                 });
                 $('g.empty_label').remove();
             } else {
