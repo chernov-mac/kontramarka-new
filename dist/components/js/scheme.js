@@ -357,6 +357,8 @@
 
             this.$scaleMinus.on('click', this.onScaleMinus.bind(this));
             this.$scalePlus.on('click', this.onScalePlus.bind(this));
+
+            $(document).on('delPlace', this.onDelPlace.bind(this));
         },
 
         setState: function() {
@@ -480,7 +482,7 @@
         },
 
         addScaleControl: function() {
-            var $controlLabel = $('<div class="scheme-control__label">' + options.controls.scale.label + ': </div>');
+            var $controlLabel = $('<div class="scheme-control__label">' + lang.scale + ': </div>');
             this.$scaleControl = $('<div class="scheme-control scale-control"></div>');
             this.$scaleStatus = $('<div class="scale-control__status"></div>');
             this.$scaleMinus = $('<div class="scale-control__btn scale-control__btn--minus">-</div>');
@@ -594,6 +596,11 @@
         },
         onScalePlus: function(ev) {
             this.panzoom.zoomIn();
+        },
+
+        onDelPlace: function(e) {
+            var detail = e.detail || e.originalEvent.detail;
+            this.places[detail.id].deselectPlace();
         }
     };
 
@@ -636,7 +643,7 @@
     };
 
     Scheme.init();
-    Ticketbox.init(Scheme);
+    // Ticketbox.init(Scheme);
 
     function dispEvent(target, name, detail) {
         name = name || 'customEvent';
