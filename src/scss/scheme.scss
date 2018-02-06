@@ -688,30 +688,12 @@ svg {
     }
 }
 .pgroups {
-    // position: absolute;
     display: none;
     color: #111;
     font-family: Verdana, "Geneva CY", "DejaVu Sans", sans-serif;
     font-size: 14px;
     padding: 0 12px;
     border: 2px solid $light-gray;
-
-    // p {
-    //     margin: 0;
-    //     // padding: 2px 40px 2px 2px;
-    //     // position: relative;
-    //     cursor: pointer;
-    //
-    //     // span {
-    //     //     position: absolute;
-    //     //     top: 2px;
-    //     //     right: 2px;
-    //     // }
-    //
-    //     &:hover {
-    //         background-color: #fed944;
-    //     }
-    // }
 
     &-title {
         margin-bottom: 10px;
@@ -889,6 +871,20 @@ p.sthpltz {
 
         &.disabled {
             color: $light-gray;
+        }
+    }
+
+    .scheme-holder & {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: auto;
+        border-width: 0;
+        background: #fff;
+        box-shadow: 0 0 12px 0 rgba(0,0,0,0.12);
+
+        .scheme-control__label {
+            display: none;
         }
     }
 }

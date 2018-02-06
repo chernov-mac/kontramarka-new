@@ -343,6 +343,7 @@
                 scheme.panzoom.resize();
                 scheme.setState();
                 scheme.minimapIsShown = $(window).width() > options.minimap.disableDown ? true : false;
+                scheme.placeScaleControl();
             });
             $(this.imageSelector).on('contextmenu', function(e){
                 return e.preventDefault(), e.stopPropagation(), false;
@@ -499,7 +500,8 @@
         },
         placeScaleControl: function() {
             if ($(window).width() > options.minimap.disableDown) {
-                this.$minimapWrapper.append(this.$scaleControl.detach());
+                // this.$minimapWrapper.append(this.$scaleControl.detach());
+                this.$holder.append(this.$scaleControl.detach());
             } else {
                 this.$holderWrapper.prepend(this.$scaleControl.detach());
             }
@@ -546,7 +548,8 @@
             }
         },
         addPlace: function(place) {
-            this.places.push(Place(place));
+            var newPlace = Place(place);
+            this.places[newPlace.data.id] = newPlace;
         },
 
         beforePan: function(t, e) {

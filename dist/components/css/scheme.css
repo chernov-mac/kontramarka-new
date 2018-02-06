@@ -1401,6 +1401,18 @@ p.sthpltz {
 .scale-control__btn.disabled {
   color: #ededed;
 }
+.scheme-holder .scale-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: auto;
+  border-width: 0;
+  background: #fff;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.12);
+}
+.scheme-holder .scale-control .scheme-control__label {
+  display: none;
+}
 
 .scroll-shadow {
   position: relative;
@@ -1467,3 +1479,5 @@ p.sthpltz {
 .scroll-shadow.not-end:after {
   background-size: 100% 8px;
 }
+
+/*# sourceMappingURL=scheme.css.map */
