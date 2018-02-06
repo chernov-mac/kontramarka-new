@@ -6,7 +6,7 @@
 $black: #000;
 $white: #fff;
 $default: #f7f7f7;
-$light-gray: #e0e0e0;
+$light-gray: #ededed;
 $primary: #ffc800;
 $secondary: #00398c;
 $accent: #bd25b2;
@@ -101,22 +101,54 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 }
 
 // Places container
-#ZoomPlaceholder {
+.scheme-holder,
+.scheme-holder .scheme-base,
+.scheme-holder .scheme-base svg {
+    width: 100%;
+    height: 100%;
+}
+#ZoomPlaceholder,
+.scheme-holder {
     position: relative;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
-    // background: #f7f5f8;
-    border: 2px solid $light-gray;
+    transition: opacity .5s ease-in;
 
     height: 425px;
     @media (min-width: 540px) {
         height: 650px;
     }
+
+    &.loading {
+        opacity: 0
+    }
+
+    svg {
+        display: block;
+        cursor: move;
+
+        g {
+            image {
+                user-select: none;
+            }
+            .place {
+                cursor: pointer;
+
+                &.busy {
+                    opacity:1;
+                    animation: pulsate .75s ease-in-out infinite;
+                    cursor: wait;
+                }
+            }
+        }
+    }
 }
 // Places container's inner with background
-#DataCopy {
+#DataCopy,
+.scheme-base {
     position: relative;
+    height: 100%;
     cursor: -webkit-grab;
 
     &.dragging {
@@ -138,13 +170,13 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 #MainData {
     position: relative;
     margin-bottom: 20px;
-    width: 254px !important;
-    border: 2px solid $light-gray;
+    width: 100%;
     background-size: contain !important;
 }
 // Minimap's draggable element
-#helper {
-    display: none;
+#helper,
+.helper {
+    display: block;
     position: absolute;
     border: 2px solid $secondary;
     background: url('/upload/schemes/move-circle.svg') no-repeat center center;
@@ -355,7 +387,7 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 }
 
 // Places
-.place {
+#DataCopy > .place {
     position: absolute;
     width: 16px;
     height: 16px;
@@ -462,6 +494,87 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
         &.bileter {
             height: 34px!important;
         }
+    }
+}
+svg {
+    .place {
+        circle {
+            transition: stroke-width 100ms ease-in-out
+        }
+        text {
+            font-family: "Trebuchet MS", "Helvetica CY", sans-serif;
+            font-size: 8px;
+            line-height: 16px;
+            fill: #fff;
+            text-align: center;
+            alignment-baseline: central;
+            text-anchor: middle;
+        }
+
+        &.sold_label {
+            .brick {
+                fill: map-get($label-colors, sold);
+            }
+        }
+        &.reserve_label {
+            .letter-r {
+                fill: map-get($label-colors, reserve);
+            }
+        }
+
+        &:not(.empty_label) {
+            cursor: pointer;
+        }
+
+        @each $name, $value in $label-colors {
+            &.#{$name}_label {
+                circle.place_label {
+                    fill: $value;
+                    stroke: $value;
+                    stroke-opacity: 0.3;
+                    stroke-width: 0;
+                }
+
+                &:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
+                    stroke-width: 3;
+                }
+
+                circle.addition {
+                    @if ($name == 'empty') {
+                        fill: $value;
+                        stroke: #e9e9e9;
+                    } @elseif ($name == 'sold') {
+                        fill: #fff;
+                        stroke: $value;
+                    } @elseif ($name == 'reserve') {
+                        fill: #fff;
+                        stroke: $value;
+                    }
+                    stroke-width: 1.26;
+                    stroke-opacity: 1;
+                }
+
+                &.marker {
+                    circle {
+                        opacity: 1;
+                    }
+                    text {
+                        fill-opacity: 0;
+                    }
+                    path.check {
+                        fill: $white;
+                    }
+                }
+            }
+        };
+    }
+}
+@keyframes pulsate{
+    0%, 100% {
+        opacity: 1
+    }
+    50% {
+        opacity: .5
     }
 }
 
@@ -621,6 +734,7 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
             // width: 50%;
         }
 
+        &.active,
         &:hover {
             background-color: #ffc800;
         }
@@ -716,72 +830,65 @@ p.sthpltz {
     line-height: 25px;
 }
 
-.scheme-wrapper {
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    bottom: 2px;
-    left: 2px;
+.scheme-wrapper,
+.minimap-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 2px solid $light-gray;
 }
-.scheme-contols {
-    position: absolute;
+.minimap-wrapper {
+    margin-bottom: 20px;
+    #MainData {
+        margin-bottom: 0;
+    }
 }
-.control {
-    &-scale {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        display: flex;
-        flex-flow: row wrap;
-        width: 97px;
-        background: $white;
-        box-shadow: 0 2px 10px 0 rgba(0,0,0,0.12);
-        cursor: default;
 
-        &__status {
-            flex-basis: 100%;
-            display: block;
-            padding: 6px 6px 0;
-            font-size: 14px;
-            color: lighten($black, 40%);
-            text-align: center;
-        }
-        &__btn {
-            position: relative;
-            display: block;
-            flex: 0 0 auto;
-            width: 48px;
-            line-height: 20px;
+
+.scheme-control {
+    padding: 12px 18px;
+    line-height: 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+
+    border-width: 0;
+    border-style: solid;
+    border-color: $light-gray;
+
+    .scheme-wrapper & {
+        border-bottom-width: 2px;
+    }
+    .minimap-wrapper & {
+        border-top-width: 2px;
+    }
+
+    &__label {
+        flex: 0 0 auto;
+        margin-right: auto;
+    }
+}
+
+.scale-control {
+    &__status {
+        flex: 0 0 auto;
+        width: 60px;
+        text-align: center;
+    }
+    &__btn {
+        line-height: 0.8em;
+        color: $primary;
+        font-size: 1.8em;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
             color: $secondary;
-            font-size: 32px;
-            line-height: 1;
-            padding: 8px 16px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
+        }
 
-            &:hover {
-                color: $accent;
-            }
-
-            &.disabled {
-                color: $light-gray;
-            }
-
-            & + & {
-                margin-left: 1px;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 12px;
-                    bottom: 12px;
-                    left: -1px;
-                    display: block;
-                    width: 1px;
-                    background: $light-gray;
-                }
-            }
+        &.disabled {
+            color: $light-gray;
         }
     }
 }

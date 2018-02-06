@@ -130,7 +130,7 @@ $(function() {
 		    }, 300);
 		});
 	});
-	$.each($('#DataCopy .place'), function(i, place) {
+	$.each($('.scheme-base .place'), function(i, place) {
 		$(place).popover({
 			html: true,
 			animation: false,
@@ -163,6 +163,10 @@ $(function() {
 		$(place).on('hide.bs.popover', function() {
 			var popoverId = $(place).attr('aria-describedby');
 			$('#' + popoverId).removeClass('pgroups-activated');
+		});
+
+		$('.scheme-base').on('schemePgroupsActivated', function(event){
+			$(event.detail.target).popover('update');
 		});
 	});
 
@@ -457,6 +461,10 @@ $(function() {
 	});
 	$('#commentForm').on('show.bs.collapse', function (event) {
 		$(this).closest('.box').removeClass('e2e-off-xs-down');
+	});
+
+	$('.scheme-base').on('schemePan', function(){
+		$('.scheme-base .place').popover('update');
 	});
 
 	// Form control

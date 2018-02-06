@@ -15,9 +15,10 @@ function setTabIndicator(nav, activeTab, indicator) {
 		return;
 	}
 	var arrowPart = $cur.hasClass('dropdown') ? 10 : 0;
+	var padding = $cur.outerWidth() - $cur.width();
 
 	$ind.css({
-		left: (($cur.offset().left - $nav.offset().left) + $nav.scrollLeft() + 16) + 'px',
+		left: (($cur.offset().left - $nav.offset().left) + $nav.scrollLeft() + padding / 2) + 'px',
 		width: $cur.width() - arrowPart + 'px',
 		backgroundColor: '#ffc800'
 	});
@@ -460,6 +461,7 @@ function checkScrollShadowPos(target) {
 
 function showGroupsField(id, elem) {
 	var popoverId = $(elem).attr('aria-describedby');
+	console.log(popoverId);
 	$('#' + popoverId)
 		.addClass('pgroups-activated')
 		.find('.popover-body')
