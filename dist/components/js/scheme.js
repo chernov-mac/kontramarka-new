@@ -609,18 +609,21 @@
             this.$ticketbox.on('ticketRemove', this.onTicketRemove.bind(this));
         },
         onPlaceSelect: function(e) {
-            var place = e.detail.place;
+            var detail = e.detail || e.originalEvent.detail;
+            var place = detail.place;
             this.tickets[place.data.id] = Ticket(place);
             this.$ticketbox.append(this.tickets[place.data.id].$ticket);
 
             dispEvent(this.$ticketbox[0], 'ticketboxTicketAdd', {ticket: this.tickets[place.data.id]});
         },
         onPlaceDeselect: function(e) {
-            var place = e.detail.place;
+            var detail = e.detail || e.originalEvent.detail;
+            var place = detail.place;
             this.tickets[place.data.id].removeTicket();
         },
         onTicketRemove: function(e) {
-            var ticket = e.detail.ticket;
+            var detail = e.detail || e.originalEvent.detail;
+            var ticket = detail.ticket;
             this.tickets.splice(ticket.pace.data.id, 1);
 
             this.updateInfo();
