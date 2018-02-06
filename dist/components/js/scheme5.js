@@ -357,6 +357,8 @@
 
             this.$scaleMinus.on('click', this.onScaleMinus.bind(this));
             this.$scalePlus.on('click', this.onScalePlus.bind(this));
+
+            $(document).on('delPlace', this.onDelPlace.bind(this));
         },
 
         setState: function() {
@@ -519,21 +521,26 @@
             if (jsnstr) {
                 $.each(JSON.parse(jsnstr), function (k, v) {
                     var cls = $('#' + v.placeID).attr('class');
-                    var newcls = cls.replace(/empty/, v.color);
-                    $('#' + v.placeID)
-                        .attr('class', newcls)
-                        .attr('title', v.title)
-                        .data('block', v.block)
-                        .data('row', v.row)
-                        .data('place', v.place)
-                        .data('price', v.price)
-                        .data('currency', v.currency);
-                    if (v.pgroups) {
-                        var pgroups = $(v.pgroups);
-                        $('body').append(pgroups);
-                        $('#' + v.placeID).data('pgroups', pgroups.attr('id'));
+                    if (cls) {
+                        var newcls = cls.replace(/empty/, v.color);
+                        $('#' + v.placeID)
+                            .attr('class', newcls)
+                            .attr('title', v.title)
+                            .data('block', v.block)
+                            .data('row', v.row)
+                            .data('place', v.place)
+                            .data('price', v.price)
+                            .data('currency', v.currency);
+                        if (v.pgroups) {
+                            var pgroups = $(v.pgroups);
+                            $('body').append(pgroups);
+                            $('#' + v.placeID).data('pgroups', pgroups.attr('id'));
+                        }
+                        Scheme.addPlace($('#' + v.placeID));
+                    } else {
+                        console.error('Class of place is undefined. Place element: ');
+                        console.log($('#' + v.placeID));
                     }
-                    Scheme.addPlace($('#' + v.placeID));
                 });
                 $('g.empty_label').remove();
             } else {
@@ -541,7 +548,8 @@
             }
         },
         addPlace: function(place) {
-            this.places.push(Place(place));
+            var newPlace = Place(place);
+            this.places[newPlace.data.id] = newPlace;
         },
 
         beforePan: function(t, e) {
@@ -591,6 +599,10 @@
         },
         onScalePlus: function(ev) {
             this.panzoom.zoomIn();
+        },
+
+        onDelPlace: function(e) {
+            this.places[e.detail.id].deselectPlace();
         }
     };
 
@@ -630,7 +642,7 @@
     };
 
     Scheme.init();
-    Ticketbox.init(Scheme);
+    // Ticketbox.init(Scheme);
 
     function dispEvent(target, name, detail) {
         name = name || 'customEvent';
