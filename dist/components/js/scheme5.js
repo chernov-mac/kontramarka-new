@@ -49,158 +49,150 @@
 
     var Place = function(g) {
         var place = {
-            id: null,
-            block: null,
-            row: null,
-            place: null,
-            // category: null,
-            price: null,
-            currency: null,
+            data: {},
+
             size: options.place.radius,
-            pos: {
-                x: null,
-                y: null
-            },
+            posX: 0,
+            posY: 0,
             label: null,
 
-            title: '',
-            pgroups: '',
+            title: '', // for popover
+            pgroups: '', // for popover with group select
 
-            group: null,
-            circ: null,
-            text: null,
-            check: null,
-            addition: null,
+            svgG: null,
+            svgCircle: null,
+            svgText: null,
 
             isMarkable: true,
             isMarked: false,
 
             init: function(g) {
-                this.id = $(g).attr('id');
-                // this.category = $(g).data('category');
-                this.price = $(g).data('price');
-                this.currency = $(g).data('currency');
+                this.data.id = $(g).attr('id');
 
-                this.pos.x = $(g).data('cx');
-                this.pos.y = $(g).data('cy');
+                this.data.groupId = 0;
+                this.data.price = $(g).data('price');
+                this.data.currency = $(g).data('currency');
 
-                this.block = $(g).data('block');
-                this.row = $(g).data('row');
-                this.place = $(g).data('place');
+                this.data.block = $(g).data('block');
+                this.data.row = $(g).data('row');
+                this.data.place = $(g).data('place');
+
+                this.posX = $(g).data('cx');
+                this.posY = $(g).data('cy');
 
                 this.title = $(g).attr('title');
                 this.pgroups = $(g).data('pgroups');
 
-                this.group = $(g)[0];
-                // this.group.style.transform = 'translate3d('+ this.pos.x +', '+ this.pos.y +', 0)';
-                this.circ = this.makeSVG('circle', {class: 'place_label', cx: this.pos.x, cy: this.pos.y, r: this.size});
-                this.group.prepend(this.circ);
+                this.svgG = $(g)[0];
+                this.svgCircle = makeSVG('circle', {class: 'place_label', cx: this.posX, cy: this.posY, r: this.size});
+                this.svgG.prepend(this.svgCircle);
 
-                if ($(this.group).find('text').length) {
-                    this.text = $(this.group).find('text')[0];
-                    this.text.setAttribute('x', this.pos.x);
-                    this.text.setAttribute('y', this.pos.y);
+                if ($(this.svgG).find('text').length) {
+                    this.svgText = $(this.svgG).find('text')[0];
+                    this.svgText.setAttribute('x', this.posX);
+                    this.svgText.setAttribute('y', this.posY);
                 }
 
-                var classList = this.group.classList;
+                var classList = this.svgG.classList;
                 for (var i = classList.length - 1; i > 0; i--) {
-                    if (~this.group.classList[i].indexOf('_label')) {
-                        this.label = this.group.classList[i].split('_')[0];
+                    if (~this.svgG.classList[i].indexOf('_label')) {
+                        this.label = this.svgG.classList[i].split('_')[0];
                         break;
                     }
                 }
                 if (this.label == 'empty' || this.label == 'sold' || this.label == 'reserve') this.isMarkable = false;
 
-                this.setAdditions();
+                if (!this.isMarkable) this.setAdditions();
                 this.initEvents();
             },
-            setAdditions: function() {
-                var place = this;
-
-                if (!this.isMarkable) {
-                    this.addition = this.makeSVG('circle', {class: 'addition', cx: this.pos.x, cy: this.pos.y, r: this.size - 0.63});
-                    this.group.appendChild(this.addition);
-
-                    if (this.label == 'sold') {
-                        this.brick = this.makeSVG('rect', {class: 'brick', x: this.pos.x -5, y: this.pos.y -1, width: 10, height: 2});
-                        this.group.appendChild(this.brick);
-                    }
-
-                    if (this.label == 'reserve') {
-                        this.letter = this.makeSVG('path', {
-                            class: GLYPHS.r.class,
-                            d: GLYPHS.r.d,
-                            transform: 'matrix(1, 0, 0, 1, '+ (place.pos.x - place.size * 2 * 0.186) +', '+( place.pos.y - place.size * 2 * 0.266) +')'
-                        });
-                        this.group.appendChild(this.letter);
-                    }
-                }
-            },
             initEvents: function() {
-                var place = this;
-
-                if (place.isMarkable && !this.pgroups) {
-                    $(this.group).on('click', this.toggleMarker.bind(this));
+                if (this.isMarkable && !this.pgroups) {
+                    $(this.svgG).on('click', this.toggleMarker.bind(this));
                 }
 
+                var place = this;
                 if (this.pgroups) {
-                    $(this.group).on('click', function() {
-                    	var popoverId = $(this).attr('aria-describedby');
+                    $(this.svgG).on('click', function() {
+                        var popoverId = $(this).attr('aria-describedby');
                         if (!popoverId) return;
-                    	$('#' + popoverId)
-                    		.addClass('pgroups-activated')
-                    		.find('.popover-body')
-                    			.html('<div class="pgroups-title">' + lang.choose_category + ':</div>')
-                    			.append($('#' + place.pgroups).clone());
-                        dispEvent(place.group, 'schemePgroupsActivated', {target: place.group});
-                        $('#' + popoverId).find('p').on('click', place.onPgroupsClick);
+                        $('#' + popoverId).addClass('pgroups-activated');
+                        $('#' + popoverId).find('.popover-body')
+                            .html('<div class="pgroups-title">' + lang.choose_category + ':</div>')
+                            .append($('#' + place.pgroups).clone());
+
+                        dispEvent(place.svgG, 'schemePgroupsActivated', {target: place.svgG});
+
+                        $('#' + popoverId).find('p').on('click', function(){
+                            place.onPgroupsClick(this);
+                        });
                     });
                 }
             },
-            makeSVG: function(tag, attrs, text) {
-                var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
-                for (var k in attrs) {
-                    el.setAttribute(k, attrs[k]);
+            setAdditions: function() {
+                this.svgAddition = makeSVG('circle', {class: 'addition', cx: this.posX, cy: this.posY, r: this.size - 0.63});
+                this.svgG.appendChild(this.svgAddition);
+
+                if (this.label == 'sold') {
+                    this.svgBrick = makeSVG('rect', {class: 'brick', x: this.posX -5, y: this.posY-1, width: 10, height: 2});
+                    this.svgG.appendChild(this.svgBrick);
                 }
-                return el;
+
+                if (this.label == 'reserve') {
+                    this.svgLetter = makeSVG('path', {
+                        class: GLYPHS.r.class,
+                        d: GLYPHS.r.d,
+                        transform: 'matrix(1, 0, 0, 1, '+ (this.posX - this.size * 2 * 0.186) +', '+( this.posY - this.size * 2 * 0.266) +')'
+                    });
+                    this.svgG.appendChild(this.svgLetter);
+                }
             },
             toggleMarker: function() {
-                this.isMarked = !this.isMarked;
-                this.setMarkState();
+                if (!this.isMarked) this.selectPlace();
+                else this.deselectPlace();
             },
-            setMarkState: function() {
-                if (this.isMarked) {
-                    $(this.group).addClass('marker');
+            selectPlace: function() {
+                var newState = !this.isMarked;
+                this.isMarked = true;
 
-                    var place = this;
-                    this.check = this.makeSVG('path', {
-                        class: GLYPHS.check.class,
-                        d: GLYPHS.check.d,
-                        transform: 'matrix(0.54, 0, 0, 0.54, '+ (place.pos.x - place.size * 2 * 0.333) +', '+( place.pos.y - place.size * 2 * 0.233) +')'
-                    });
-                    this.group.appendChild(this.check);
+                $(this.svgG).addClass('marker');
+                this.svgCheck = makeSVG('path', {
+                    class: GLYPHS.check.class,
+                    d: GLYPHS.check.d,
+                    transform: 'matrix(0.54, 0, 0, 0.54, '+ (this.posX - this.size * 2 * 0.333) +', '+( this.posY - this.size * 2 * 0.233) +')'
+                });
+                this.svgG.appendChild(this.svgCheck);
 
-                    if (!this.pgroups) dispEvent(this.group, 'schemePlaceSelect', {place: place});
-                } else {
-                    $(this.group).removeClass('marker');
-                    $(this.check).remove();
-                }
+                if (newState) dispEvent(this.svgG, 'placeSelect', {place: this});
             },
-            onPgroupsClick: function(ev) {
+            deselectPlace: function() {
+                var newState = this.isMarked;
+                this.isMarked = false;
+
+                $(this.svgCheck).remove();
+                $(this.svgG).removeClass('marker');
+
+                if (newState) dispEvent(this.svgG, 'placeDeselect', {place: this});
+            },
+            onPgroupsClick: function(p) {
+                var isNew = !$(p).hasClass('active');
+
+                // Remove old select
                 $('#' + place.pgroups + ' p').removeClass('active');
-                place.isMarked = true;
-                place.setMarkState();
-                $('#' + place.pgroups + ' p').eq($(this).index()).addClass('active');
-                $(this).addClass('active');
-                dispEvent(place.group, 'schemePlaceSelect', {place: {
-                    id: place.id,
-                    block: place.block,
-                    row: place.row,
-                    place: place.place,
-                    category: $(this).data('group'),
-                    price: $(this).data('price'),
-                    currency: $(this).data('currency')
-                }});
+                $(p).parent().find('p').removeClass('active');
+
+                this.deselectPlace();
+
+                if (isNew) {
+                    // Set new select if it's different
+                    this.data.groupId = $(p).data('group');
+                    this.data.price = $(p).data('price');
+                    this.data.currency = $(p).data('currency');
+
+                    this.selectPlace();
+
+                    $('#' + place.pgroups + ' p').eq($(p).index()).addClass('active');
+                    $(p).addClass('active');
+                }
             }
         };
 
@@ -208,7 +200,6 @@
 
         return place;
     };
-
     var Ticket = function(place) {
         var ticket = {
             place: place,
@@ -217,22 +208,19 @@
             $delButton: null,
 
             init: function(place) {
-                this.$ticket = $('<div id="ticket_' + place.id + '" class="ticket_point"><p>' + place.block + '</p>' + lang.row + ': ' + place.row + ', ' + lang.place + ': ' + place.place + ', ' + lang.price + ': ' + (this.place.price + '').replace(/\./, ',') + ' ' + this.place.currency + '</div>');
+                this.$ticket = $('<div id="ticket_' + this.place.data.id + '" class="ticket_point"><p>' + this.place.data.block + '</p>' + lang.row + ': ' + this.place.data.row + ', ' + lang.place + ': ' + this.place.data.place + ', ' + lang.price + ': ' + (this.place.data.price + '').replace(/\./, ',') + ' ' + this.place.data.currency + '</div>');
+
                 this.$delButton = $('<div class="delplace_btn" title="' + lang.del + '">&times;</div>');
                 this.$ticket.append(this.$delButton);
 
                 this.initEvents();
             },
-            removeTicket: function() {
-                this.$ticket[0].remove();
-                dispEvent(this.place.group, 'schemeTicketDelete', {ticket: this});
-            },
             initEvents: function() {
-                this.$delButton.on('click', this.onDelButtonClick.bind(this));
+                this.$delButton.on('click', this.removeTicket.bind(this));
             },
-            onDelButtonClick: function(ev){
+            removeTicket: function() {
+                this.place.deselectPlace();
                 this.$ticket[0].remove();
-                dispEvent(this.place.group, 'schemeTicketDelete', {ticket: this});
             }
         };
 
@@ -284,7 +272,6 @@
         $minimap: $(options.minimap.selector),
         $minimapWrapper: null,
         $helper: helper,
-        $ticketbox: $(options.ticketbox.selector),
 
         $scaleControl: null,
         $scaleStatus: null,
@@ -314,8 +301,6 @@
 
         panzoom: null,
         places: [],
-        tickets: [],
-
 
         init: function() {
             var scheme = this;
@@ -350,6 +335,28 @@
             this.initEvents();
 
             $(this.$holder).removeClass('loading');
+        },
+        initEvents: function () {
+            var scheme = this;
+
+            $(window).on('resize', function (e) {
+                scheme.panzoom.resize();
+                scheme.setState();
+                scheme.minimapIsShown = $(window).width() > options.minimap.disableDown ? true : false;
+            });
+            $(this.imageSelector).on('contextmenu', function(e){
+                return e.preventDefault(), e.stopPropagation(), false;
+            });
+
+            this.helperManager = new Hammer(this.$helper[0]);
+            this.helperManager.get('pan').set({
+                direction: Hammer.DIRECTION_ALL,
+                threshold: 0
+            });
+            this.helperManager.on('pan', this.onHelperPan.bind(this));
+
+            this.$scaleMinus.on('click', this.onScaleMinus.bind(this));
+            this.$scalePlus.on('click', this.onScalePlus.bind(this));
         },
 
         setState: function() {
@@ -537,31 +544,6 @@
             this.places.push(Place(place));
         },
 
-        initEvents: function () {
-            var scheme = this;
-
-            $(window).on('resize', function (e) {
-                scheme.panzoom.resize();
-                scheme.setState();
-                scheme.minimapIsShown = $(window).width() > options.minimap.disableDown ? true : false;
-            });
-            $(this.imageSelector).on('contextmenu', function(e){
-                return e.preventDefault(), e.stopPropagation(), false;
-            });
-
-            this.helperManager = new Hammer(this.$helper[0]);
-            this.helperManager.get('pan').set({
-                direction: Hammer.DIRECTION_ALL,
-                threshold: 0
-            });
-            this.helperManager.on('pan', this.onHelperPan.bind(this));
-
-            this.$scaleMinus.on('click', this.onScaleMinus.bind(this));
-            this.$scalePlus.on('click', this.onScalePlus.bind(this));
-
-            this.$base.on('schemePlaceSelect', this.onPlaceSelect.bind(this));
-            this.$base.on('schemeTicketDelete', this.onTicketDelete.bind(this));
-        },
         beforePan: function(t, e) {
             var n = this.getSizes(),
                 a = -(n.viewBox.x + n.viewBox.width) * n.realZoom + 200,
@@ -609,36 +591,46 @@
         },
         onScalePlus: function(ev) {
             this.panzoom.zoomIn();
-        },
-        onPlaceSelect: function(ev) {
-            var place = event.detail.place;
+        }
+    };
 
-            var coincidence = false, i;
-            for (i = 0; i < this.tickets.length && coincidence != true; i++) {
-                console.log(i);
-                console.log(this.tickets[i]);
-                console.log(place.id);
-                if (this.tickets[i].place.id == place.id) {
-                    coincidence = true;
-                    this.tickets[i].removeTicket();
-                }
-            }
+    var Ticketbox = {
+        $scheme: null,
+        $ticketbox: $(options.ticketbox.selector),
+        tickets: [],
 
-            var ticket = Ticket(place);
-            this.$ticketbox.append(ticket.$ticket);
-            this.tickets.push(ticket);
+        init: function(scheme) {
+            this.$scheme = scheme.$base;
+            this.initEvents();
         },
-        onTicketDelete: function(ev) {
-            var ticket = event.detail.ticket;
-            ticket.place.toggleMarker();
-            var index = this.tickets.indexOf(ticket);
-            if (index) {
-                this.tickets.splice(index, 1);
-            }
+        initEvents: function() {
+            this.$scheme.on('placeSelect', this.onPlaceSelect.bind(this));
+            this.$scheme.on('placeDeselect', this.onPlaceDeselect.bind(this));
+            this.$ticketbox.on('ticketRemove', this.onTicketRemove.bind(this));
+        },
+        onPlaceSelect: function(e) {
+            var place = e.detail.place;
+            this.tickets[place.data.id] = Ticket(place);
+            this.$ticketbox.append(this.tickets[place.data.id].$ticket);
+
+            dispEvent(this.$ticketbox[0], 'ticketboxTicketAdd', {ticket: this.tickets[place.data.id]});
+        },
+        onPlaceDeselect: function(e) {
+            var place = e.detail.place;
+            this.tickets[place.data.id].removeTicket();
+        },
+        onTicketRemove: function(e) {
+            var ticket = e.detail.ticket;
+            this.tickets.splice(ticket.pace.data.id, 1);
+
+            this.updateInfo();
+
+            dispEvent(this.$ticketbox[0], 'ticketboxTicketDelete', {ticket: ticket});
         }
     };
 
     Scheme.init();
+    Ticketbox.init(Scheme);
 
     function dispEvent(target, name, detail) {
         name = name || 'customEvent';
@@ -654,6 +646,13 @@
         }
         target.dispatchEvent(eventInstance);
         return eventInstance;
+    }
+    function makeSVG(tag, attrs, text) {
+        var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
+        for (var k in attrs) {
+            el.setAttribute(k, attrs[k]);
+        }
+        return el;
     }
 
 
