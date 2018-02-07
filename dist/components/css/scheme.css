@@ -89,6 +89,7 @@
 
 #maindata_wrapper {
   width: 270px;
+  min-width: 270px;
   padding-left: 20px;
 }
 @media (max-width: 991px) {

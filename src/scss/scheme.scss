@@ -159,6 +159,7 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 // Sidebar (td)
 #maindata_wrapper {
     width: 270px;
+    min-width: 270px;
     padding-left: 20px;
 
     @media (max-width: 991px) {
