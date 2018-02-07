@@ -431,6 +431,7 @@
         },
         setMinimapSize: function() {
             this.$minimap.css({
+                width: '100%',
                 height: Math.round(this.origSize.height / this.proportion) + 'px'
             });
             this.minimapSize = {
