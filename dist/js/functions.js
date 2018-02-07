@@ -461,7 +461,6 @@ function checkScrollShadowPos(target) {
 
 function showGroupsField(id, elem) {
 	var popoverId = $(elem).attr('aria-describedby');
-	console.log(popoverId);
 	$('#' + popoverId)
 		.addClass('pgroups-activated')
 		.find('.popover-body')

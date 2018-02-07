@@ -595,10 +595,12 @@
             }
         },
         onScaleMinus: function(ev) {
-            this.panzoom.zoomOut();
+            var newZoom = Math.round(this.zoom) - 1;
+            this.panzoom.zoomBy(newZoom / this.zoom);
         },
         onScalePlus: function(ev) {
-            this.panzoom.zoomIn();
+            var newZoom = Math.round(this.zoom) + 1;
+            this.panzoom.zoomBy(newZoom / this.zoom);
         },
 
         onDelPlace: function(e) {

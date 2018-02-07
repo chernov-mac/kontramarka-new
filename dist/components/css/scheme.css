@@ -1394,6 +1394,8 @@ p.sthpltz {
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 .scale-control__btn:hover {
   color: #00398c;
