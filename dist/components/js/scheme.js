@@ -117,7 +117,7 @@
                         if (!popoverId) return;
                         $('#' + popoverId).addClass('pgroups-activated');
                         $('#' + popoverId).find('.popover-body')
-                            .html('<div class="pgroups-title">' + lang.choose_category + ':</div>')
+                            .html('<div class="pgroups-title">' + lang['choose-category'] + ':</div>')
                             .append($('#' + place.pgroups).clone());
 
                         dispEvent(place.svgG, 'schemePgroupsActivated', {target: place.svgG});
