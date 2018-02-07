@@ -703,6 +703,7 @@ svg .place text, svg #DataCopy > .place-double text {
   line-height: 16px;
   fill: #fff;
   text-align: center;
+  dominant-baseline: central;
   alignment-baseline: central;
   text-anchor: middle;
 }
