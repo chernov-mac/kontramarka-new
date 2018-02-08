@@ -76,6 +76,7 @@
 
         &:disabled {
             color: $gray-500;
+            -webkit-text-fill-color: $gray-500;
         }
     }
     input {
@@ -110,6 +111,12 @@
             color: theme-color(secondary);
             top: 30px;
             transform: translateY(0);
+        }
+    }
+
+    &--avatar {
+        .avatar {
+            margin: -2px;
         }
     }
 

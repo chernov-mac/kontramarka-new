@@ -76,6 +76,9 @@ img {
     position: relative;
     z-index: 1;
 }
+label {
+    cursor: pointer;
+}
 .container {
     @include row-x-offsets($grid-gutters);
 
@@ -735,36 +738,45 @@ a.external {
 .user-info {
     display: flex;
     align-items: center;
+}
+.avatar {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 64px;
+    height: 64px;
+    margin-right: 1em;
+    overflow: hidden;
+    border: 2px solid $gray-200;
 
-    .avatar {
-        position: relative;
-        display: inline-block;
-        flex: 0 0 auto;
-        width: 60px;
-        height: 60px;
-        margin-right: 1em;
-        overflow: hidden;
-        border: 2px solid $gray-200;
+    img {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
-        img {
-            position: absolute;
-            z-index: 2;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    &:before {
+        content: '\f007';
+        font-family: 'kontramarka-icons';
+        position: absolute;
+        bottom: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 46px;
+        line-height: 1;
+        color: $gray-200;
+    }
+}
 
-        &:before {
-            content: '\f007';
-            font-family: 'kontramarka-icons';
-            position: absolute;
-            bottom: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 46px;
-            line-height: 1;
-            color: $gray-200;
-        }
+.fileinput {
+    display: flex;
+    flex-flow: row wrap;
+
+    &-exists &-new,
+    &-new &-exists {
+        display: none !important;
     }
 }
 

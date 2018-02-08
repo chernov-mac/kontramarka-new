@@ -526,110 +526,248 @@
 			<div class="container">
 				<div class="box">
 					<div class="nav nav-tabs mobile regular indicated d-md-none">
-						<div class="nav-item"><a href="#info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i></a></div>
-						<div class="nav-item"><a href="#orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i></a></div>
-						<div class="nav-item"><a href="#favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i></a></div>
-						<div class="nav-item"><a href="#comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i></a></div>
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i></a></div>
+						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i></a></div>
+						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i></a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i></a></div>
 					</div>
 					<div class="nav nav-tabs regular indicated d-none d-md-flex">
-						<div class="nav-item"><a href="#info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i> Мои данные</a></div>
-						<div class="nav-item"><a href="#orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i> Мои заказы</a></div>
-						<div class="nav-item"><a href="#favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i> Избранное</a></div>
-						<div class="nav-item"><a href="#comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i> Комментарии</a></div>
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i> Мои данные</a></div>
+						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i> Мои заказы</a></div>
+						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i> Избранное</a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i> Комментарии</a></div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="page-block">
 			<div class="container">
-				<div class="box">
+				<div class="tab-content">
 					<div class="tab-pane active" id="user-info" role="tabpanel">
-						<form>
-							<div class="box-body">
-								<div class="row">
-									<div class="col-lg-4 order-lg-2">
-										<div class="note mb-3">
-											<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
+						<div class="box">
+							<form>
+								<div class="box-body">
+									<div class="row">
+										<div class="col-lg-5 col-xl-4 order-lg-2 mb-4">
+											<div class="note mb-3">
+												<i class="icon-exclamation-circle text-secondary"></i> Максимальный размер картинки &mdash; 5 Мбайт
+											</div>
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+												<div class="avatar">
+													<div class="fileinput-new thumbnail" style="width: 60px; height: 60px;">
+														<img src="/images/60x60.jpg" alt="60x60">
+													</div>
+													<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 60px; max-height: 60px;"></div>
+												</div>
+												<label class="btn btn-primary d-flex align-items-center mb-0">
+													<span class="fileinput-new">Выбрать</span>
+													<span class="fileinput-exists">Изменить</span>
+													<input type="file" name="avatar" class="d-none">
+												</label>
+												<a href="#" class="btn btn-text d-flex align-items-center fileinput-exists" data-dismiss="fileinput"><span>Отмена</span></a>
+											</div>
+										</div>
+										<div class="col-lg-7 col-xl-8 order-lg-1">
+											<div class="note mb-3">
+												<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
+											</div>
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<input type="text" name="name" id="user-info_name" value="Ganz" required>
+													<label for="user-info_name" class="placeholder compact required">Имя</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="text" name="surname" id="user-info_surname" value="Rubinheigen" required>
+													<label for="user-info_surname" class="placeholder compact required">Фамилия</label>
+												</div>
+											</div>
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<input type="email" name="mail" id="user-info_mail" value="email@mail.com" required>
+													<label for="user-info_mail" class="placeholder compact required">E-mail</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="password" name="password" id="user-info_mail2" value="password" required>
+													<label for="user-info_mail2" class="placeholder compact required">Пароль</label>
+													<a href="javascript:void(0)" class="placeholder pull-right compact text-secondary" data-toggle="modal" data-target="#changePassword">Изменить</a>
+												</div>
+											</div>
+											<div class="form-group form-group-inline-sm-up">
+												<div class="form-control always-open">
+													<div class="form-select">
+														<select name="country" id="user-info_country">
+															<option value="0" selected>Deutschland</option>
+															<option value="1">Austria</option>
+															<option value="2">Belgium</option>
+															<option value="3">Czech Rep.</option>
+															<option value="4">Denmark</option>
+															<option value="5">Estonia</option>
+															<option value="6">Finland</option>
+															<option value="7">France</option>
+															<option value="8">Holland</option>
+															<option value="9">Hungary</option>
+															<option value="10">Ireland</option>
+															<option value="11">Italy</option>
+															<option value="12">Latvia</option>
+															<option value="13">Lithuania</option>
+															<option value="14">Luxemburg</option>
+															<option value="15">Norwegen</option>
+															<option value="16">Poland</option>
+															<option value="17">Russia</option>
+															<option value="18">Spain</option>
+															<option value="19">Sweden</option>
+															<option value="20">Switzerland</option>
+															<option value="21">Ukraine</option>
+															<option value="22">United Kingdom</option>
+														</select>
+													</div>
+													<label for="user-info_country" class="placeholder compact required">Страна</label>
+												</div>
+												<div class="form-control always-open">
+													<input type="text" name="city" id="user-info_city" value="Frankfurt am Main" required>
+													<label for="user-info_city" class="placeholder compact required">Город</label>
+												</div>
+											</div>
+											<div class="form-group form-group-inline">
+												<div class="form-control basis-half full-width-xs-down always-open">
+													<input type="text" name="street" id="user-info_street" required value="Alt Schwanheim">
+													<label for="user-info_street" class="placeholder compact required">Улица</label>
+												</div>
+												<div class="form-control basis-fourth always-open">
+													<input type="text" name="house" id="user-info_house" value="21" required>
+													<label for="user-info_house" class="placeholder compact required">№ дома</label>
+												</div>
+												<div class="form-control basis-fourth always-open">
+													<input type="text" name="index" id="user-info_index" value="60529" required>
+													<label for="user-info_index" class="placeholder compact required">Индекс</label>
+												</div>
+											</div>
 										</div>
 									</div>
-									<div class="col-lg-8 order-lg-1">
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<input type="text" name="name" id="user-info_name" value="Ganz" required>
-												<label for="user-info_name" class="placeholder compact required">Имя</label>
-											</div>
-											<div class="form-control always-open">
-												<input type="text" name="surname" id="user-info_surname" value="Rubinheigen" required>
-												<label for="user-info_surname" class="placeholder compact required">Фамилия</label>
-											</div>
+								</div>
+								<div class="box-footer">
+									<div class="d-flex flex-wrap align-items-center justify-content-between d-sm-none">
+										<a href="javascript:void(0)" class="btn btn-text btn-cancel">Отмена</a>
+										<button type="submit" class="btn btn-primary">Сохранить</button>
+									</div>
+									<div class="d-none d-sm-flex flex-wrap align-items-center justify-content-end">
+										<a href="javascript:void(0)" class="btn btn-lg btn-text btn-cancel">Отмена</a>
+										<button type="submit" class="btn btn-lg btn-primary">Сохранить</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="tab-pane" id="user-orders" role="tabpanel">
+						<div class="box">
+							<div class="box-header bg-secondary">Заказ №4700 от 22.01.2015</div>
+							<div class="box-body">
+								<div class="event-info extended">
+									<div class="event-info__pic">
+										<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+											<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+										</a>
+									</div>
+									<div class="event-info__content">
+										<div class="event-info__main">
+											<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/">Хор турецкого в германии</a></h1>
+											<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+											<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
 										</div>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<input type="email" name="mail" id="user-info_mail" value="email@mail.com" required>
-												<label for="user-info_mail" class="placeholder compact required">E-mail</label>
-											</div>
-											<div class="form-control always-open">
-												<input type="password" name="password" id="user-info_mail2" value="password" required>
-												<label for="user-info_mail2" class="placeholder compact required">Пароль</label>
-												<a href="javascript:void(0)" class="placeholder pull-right compact text-secondary" data-toggle="modal" data-target="#changePassword">Изменить</a>
-											</div>
-										</div>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<div class="form-select">
-													<select name="country" id="user-info_country">
-														<option value="0" selected>Deutschland</option>
-														<option value="1">Austria</option>
-														<option value="2">Belgium</option>
-														<option value="3">Czech Rep.</option>
-														<option value="4">Denmark</option>
-														<option value="5">Estonia</option>
-														<option value="6">Finland</option>
-														<option value="7">France</option>
-														<option value="8">Holland</option>
-														<option value="9">Hungary</option>
-														<option value="10">Ireland</option>
-														<option value="11">Italy</option>
-														<option value="12">Latvia</option>
-														<option value="13">Lithuania</option>
-														<option value="14">Luxemburg</option>
-														<option value="15">Norwegen</option>
-														<option value="16">Poland</option>
-														<option value="17">Russia</option>
-														<option value="18">Spain</option>
-														<option value="19">Sweden</option>
-														<option value="20">Switzerland</option>
-														<option value="21">Ukraine</option>
-														<option value="22">United Kingdom</option>
-													</select>
+										<div class="event-info__extend">
+											<div class="d-flex-col">
+												<div class="tickets">
+													<div class="tickets-item">
+			                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+			                                            <div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>3</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+			                                            <div class="tickets-item__price">42 €</div>
+			                                        </div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
 												</div>
-												<label for="user-info_country" class="placeholder compact required">Страна</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="city" id="user-info_city" value="Frankfurt am Main" required>
-												<label for="customer_city" class="placeholder compact required">Город</label>
+												<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 											</div>
 										</div>
-										<div class="form-group form-group-inline">
-											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="user-info_street" required value="Alt Schwanheim">
-												<label for="customer_street" class="placeholder compact required">Улица</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="house" id="user-info_house" value="21" required>
-												<label for="customer_house" class="placeholder compact required">№ дома</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="index" id="user-info_index" value="60529" required>
-												<label for="customer_index" class="placeholder compact required">Индекс</label>
+									</div>
+								</div>
+								<div class="divider mt-4 mb-4"></div>
+								<div class="event-info extended">
+									<div class="event-info__pic">
+										<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+											<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017"/>
+										</a>
+									</div>
+									<div class="event-info__content">
+										<div class="event-info__main">
+											<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/">Хор турецкого в германии</a></h1>
+											<div class="event-info__datetime">17 октября, среда, 19:30 — 22:30</div>
+											<div class="event-info__place">Berlin, Stadthalle, Theodor-Heuss-Platz 2, 45479</div>
+										</div>
+										<div class="event-info__extend">
+											<div class="d-flex-col">
+												<div class="tickets">
+													<div class="tickets-item">
+			                                            <div class="tickets-item__descr">Stehplatz / Dancefloor</div>
+			                                            <div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>3</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+			                                            <div class="tickets-item__price">42 €</div>
+			                                        </div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+													<div class="tickets-item">
+														<div class="tickets-item__descr">Parkett A</div>
+														<div class="tickets-item__amount"><span class="d-sm-none">Количество: </span>1</div>
+			                                            <div class="tickets-item__separator">&times;</div>
+														<div class="tickets-item__price">38,00 €</div>
+													</div>
+												</div>
+												<div class="tickets-total">Итого: <span class="value">152,00 €</span></div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</form>
+						</div>
 					</div>
-					<div class="tab-pane" id="user-orders" role="tabpanel"></div>
 					<div class="tab-pane" id="user-favourites" role="tabpanel"></div>
 					<div class="tab-pane" id="user-comments" role="tabpanel"></div>
 				</div>
@@ -914,7 +1052,7 @@
 					</div>
 				</div>
 				<button class="btn btn-block btn-primary">Сохранить</button>
-				<button class="btn btn-block btn-text">Отмена</button>
+				<button class="btn btn-block btn-text" data-dismiss="modal">Отмена</button>
 			</div>
 		</div>
 	</div>
@@ -937,6 +1075,8 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Fileinput -->
+<script src="/plugins/js/fileinput.js"></script>
 <!-- Components -->
 <script src="/components/js/autocomplete.js"></script>
 <!-- Main -->
