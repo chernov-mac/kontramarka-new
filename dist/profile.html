@@ -574,22 +574,33 @@
 											<div class="form-group form-group-inline-sm-up">
 												<div class="form-control always-open">
 													<input type="text" name="name" id="user-info_name" value="Ganz" required>
-													<label for="user-info_name" class="placeholder compact required">Имя</label>
+													<label for="user-info_name" class="placeholder compact">Имя</label>
 												</div>
 												<div class="form-control always-open">
 													<input type="text" name="surname" id="user-info_surname" value="Rubinheigen" required>
-													<label for="user-info_surname" class="placeholder compact required">Фамилия</label>
+													<label for="user-info_surname" class="placeholder compact">Фамилия</label>
 												</div>
 											</div>
 											<div class="form-group form-group-inline-sm-up">
 												<div class="form-control always-open">
 													<input type="email" name="mail" id="user-info_mail" value="email@mail.com" required>
-													<label for="user-info_mail" class="placeholder compact required">E-mail</label>
+													<label for="user-info_mail" class="placeholder compact">E-mail</label>
 												</div>
 												<div class="form-control always-open">
-													<input type="password" name="password" id="user-info_mail2" value="password" required>
-													<label for="user-info_mail2" class="placeholder compact required">Пароль</label>
+													<input type="password" name="password" id="user-info_password" value="password" required>
+													<label for="user-info_password" class="placeholder compact">Пароль</label>
 													<a href="javascript:void(0)" class="placeholder pull-right compact text-secondary" data-toggle="modal" data-target="#changePassword">Изменить</a>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="row no-gutters">
+													<div class="col-sm-6">
+														<div class="form-control always-open">
+															<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+															<input type="text" name="phone" id="user-info_phone" data-placeholder="" value="123423543" required>
+															<label for="user-info_phone" class="placeholder compact">Телефон</label>
+														</div>
+													</div>
 												</div>
 											</div>
 											<div class="form-group form-group-inline-sm-up">
@@ -621,25 +632,25 @@
 															<option value="22">United Kingdom</option>
 														</select>
 													</div>
-													<label for="user-info_country" class="placeholder compact required">Страна</label>
+													<label for="user-info_country" class="placeholder compact">Страна</label>
 												</div>
 												<div class="form-control always-open">
 													<input type="text" name="city" id="user-info_city" value="Frankfurt am Main" required>
-													<label for="user-info_city" class="placeholder compact required">Город</label>
+													<label for="user-info_city" class="placeholder compact">Город</label>
 												</div>
 											</div>
 											<div class="form-group form-group-inline">
 												<div class="form-control basis-half full-width-xs-down always-open">
 													<input type="text" name="street" id="user-info_street" required value="Alt Schwanheim">
-													<label for="user-info_street" class="placeholder compact required">Улица</label>
+													<label for="user-info_street" class="placeholder compact">Улица</label>
 												</div>
 												<div class="form-control basis-fourth always-open">
 													<input type="text" name="house" id="user-info_house" value="21" required>
-													<label for="user-info_house" class="placeholder compact required">№ дома</label>
+													<label for="user-info_house" class="placeholder compact">№ дома</label>
 												</div>
 												<div class="form-control basis-fourth always-open">
 													<input type="text" name="index" id="user-info_index" value="60529" required>
-													<label for="user-info_index" class="placeholder compact required">Индекс</label>
+													<label for="user-info_index" class="placeholder compact">Индекс</label>
 												</div>
 											</div>
 										</div>
