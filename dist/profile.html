@@ -670,6 +670,37 @@
 						</div>
 					</div>
 					<div class="tab-pane" id="user-orders" role="tabpanel">
+						<div class="box">
+							<div class="box-header d-flex">
+								<div class="pagination">
+									<span><i class="icon-chevron-left"></i></span>
+									<span>1</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a>
+									<span>...</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2"><i class="icon-chevron-right"></i></a>
+								</div>
+								<div class="per-page ml-auto">
+									<span class="mr-2">На странице:</span>
+									<span class="form-select d-inline-block">
+										<select id="per_page_comm">
+											<option value="10">10</option>
+							                <option value="20">20</option>
+							                <option value="30">30</option>
+							                <option value="50">50</option>
+							                <option value="100">100</option>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
 						<div class="box orders-list">
 							<div class="orders-list__item">
 								<a class="orders-list__item-header" data-toggle="collapse" href="#order_K-12345-12345" aria-expanded="false">
@@ -690,7 +721,7 @@
 												<div class="order-events-list__item-body collapse" id="order_K-12345-12345_event_1" role="tabpanel">
 													<div class="order-events-list__item-amount">Билетов: <strong class="value">3</strong></div>
 													<div class="order-events-list__item-total">На сумму: <strong class="value">217 &euro;</strong></div>
-													
+
 													<div class="order-event-summary">
 														<div class="order-event-summary__pic">
 															<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
@@ -731,7 +762,90 @@
 						</div>
 					</div>
 					<div class="tab-pane" id="user-favourites" role="tabpanel"></div>
-					<div class="tab-pane" id="user-comments" role="tabpanel"></div>
+					<div class="tab-pane" id="user-comments" role="tabpanel">
+						<div class="box">
+							<div class="box-header d-flex">
+								<div class="pagination">
+									<span><i class="icon-chevron-left"></i></span>
+									<span>1</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a>
+									<span>...</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2"><i class="icon-chevron-right"></i></a>
+								</div>
+								<div class="per-page ml-auto">
+									<span class="mr-2">На странице:</span>
+									<span class="form-select d-inline-block">
+										<select id="per_page_comm">
+											<option value="10">10</option>
+							                <option value="20">20</option>
+							                <option value="30">30</option>
+							                <option value="50">50</option>
+							                <option value="100">100</option>
+										</select>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
+									</div>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
+								</div>
+							</div>
+						</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
+									</div>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
+								</div>
+							</div>
+						</div>
+						<div class="comment">
+							<div class="comment__wrapper">
+								<div class="event-info__pic">
+									<a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="a4 preloading">
+										<img src="/images/public/events/ex.png" alt="ани лорак в германии 2017, kontramarka.de" title="Ани Лорак в Германии 2017">
+									</a>
+								</div>
+								<div class="comment__content">
+									<div class="comment__info">
+										<h1 class="event-info__title"><a href="http://www.admin.parsoft.ru/tour/vladimir-kuzmin/category/520/3582/" class="link">Хор турецкого в германии</a></h1>
+										<span class="comment__date">21 октября 2017</span>
+										<span class="comment__time">23:55</span>
+									</div>
+									<div class="comment__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni laboriosam animi, vero doloremque provident, laborum cumque deleniti cum nihil dolorem maxime pariatur dolorum! Eaque, voluptatum odio harum aliquam quasi illo! Earum sint totam deleniti nisi perferendis, quod reiciendis debitis natus modi ipsum laborum nesciunt beatae ad voluptatem placeat dolor aliquid!</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

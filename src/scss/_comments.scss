@@ -7,6 +7,22 @@
 		margin-top: 24px;
 	}
 
+	&__wrapper {
+		display: flex;
+		align-items: flex-start;
+	}
+	.event-info {
+		&__pic {
+			flex: 0 0 auto;
+		}
+		&__title {
+			margin-bottom: .2em;
+		}
+	}
+	&__content {
+		flex: 1 1 auto;
+	}
+
 	&__username {
 		font-size: 18px;
 		color: theme-color(secondary);

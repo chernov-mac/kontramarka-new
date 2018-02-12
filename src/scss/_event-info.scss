@@ -44,7 +44,7 @@
         width: 45px;
         margin-right: 14px;
 
-        .event-info:not(.extended) > & {
+        *:not(.extended) > & {
             @include media-breakpoint-up(sm) {
                 width: 70px;
             };
@@ -52,7 +52,8 @@
         .extended > & {
             @include media-breakpoint-up(md) {
                 width: 220px;
-                max-width: 220px;margin-right: 24px;
+                max-width: 220px;
+                margin-right: 24px;
             };
         }
     }
