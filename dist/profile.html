@@ -783,7 +783,7 @@
 								<div class="per-page ml-auto">
 									<span class="mr-2">На странице:</span>
 									<span class="form-select d-inline-block">
-										<select id="per_page_comm">
+										<select>
 											<option value="10">10</option>
 							                <option value="20">20</option>
 							                <option value="30">30</option>
@@ -1159,16 +1159,5 @@
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
 
-<script type="text/javascript">
-	$(function() {
-		var start = new Date();
-		var diff = 30; // minutes
-		var afterDiff = new Date(start.getTime() + diff * 60000);
-		$('#cartCountdown')
-		.countdown(afterDiff, function(event) {
-			$(this).text(event.strftime('%M : %S'));
-		});
-	});
-</script>
 </body>
 </html>

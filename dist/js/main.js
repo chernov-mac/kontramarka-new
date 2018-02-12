@@ -5,6 +5,21 @@ var menuDragDistance = 0;
 $(function() {
 
 	// Initialization
+	var path = window.location.pathname.split('/');
+	if (path[0] == 'profile') {
+		switch(path[1]) {
+			case 'user-orders':
+				$('a[href="#user-orders"]').tab('show');
+				break;
+			case 'user-favourites':
+				$('a[href="#user-favourites"]').tab('show');
+				break;
+			case 'user-comments':
+				$('a[href="#user-comments"]').tab('show');
+				break;
+			default: break;
+		}
+	}
 
 	$.each($('.box-message'), function(i, msg){
 		var msgOpts = {
