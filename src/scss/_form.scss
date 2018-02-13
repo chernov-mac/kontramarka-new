@@ -96,6 +96,8 @@
         min-height: 60px;
     }
     select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
         width: 100%;
         padding-right: 32px;
     }
@@ -147,7 +149,7 @@
     }
 
     &.active {
-        z-index: 2;
+        z-index: 10;
         border-color: theme-color(secondary);
 
         .placeholder {
@@ -157,6 +159,7 @@
 
     @each $color in map-keys($theme-colors) {
         &.has-#{$color} {
+            z-index: 2;
             $value: theme-color($color);
             border-color: $value;
 
@@ -386,6 +389,7 @@ input.form-control {
 
     select {
         -webkit-appearance: none;
+        -moz-appearance: none;
         border: none;
         border-radius: 0;
         outline: none;
@@ -447,6 +451,8 @@ input.form-control {
         text-align: center;
 
         select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
             position: relative;
             display: inline-block;
             padding-right: 0;
