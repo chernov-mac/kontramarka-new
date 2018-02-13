@@ -552,19 +552,22 @@
 											<div class="note mb-3">
 												<i class="icon-exclamation-circle text-secondary"></i> Максимальный размер картинки &mdash; 5 Мбайт
 											</div>
-											<div class="fileinput fileinput-new" data-provides="fileinput">
+											<div class="form-group fileinput fileinput-new" data-provides="fileinput">
 												<div class="avatar">
 													<div class="fileinput-new thumbnail" style="width: 60px; height: 60px;">
 														<img src="/images/60x60.jpg" alt="60x60">
 													</div>
 													<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 60px; max-height: 60px;"></div>
 												</div>
-												<label class="btn btn-primary d-flex align-items-center mb-0">
+												<label class="btn btn-primary btn-auto d-flex align-items-center mb-0">
 													<span class="fileinput-new">Выбрать</span>
 													<span class="fileinput-exists">Изменить</span>
 													<input type="file" name="avatar" class="d-none">
 												</label>
-												<a href="#" class="btn btn-text d-flex align-items-center fileinput-exists" data-dismiss="fileinput"><span>Отмена</span></a>
+												<a href="#" class="btn btn-text btn-auto d-flex align-items-center fileinput-exists" data-dismiss="fileinput"><span>Отмена</span></a>
+											</div>
+											<div class="form-group">
+												<a href="#changePassword" class="btn btn-text btn-auto pl-0" data-toggle="modal">Изменить пароль</a>
 											</div>
 										</div>
 										<div class="col-lg-7 col-xl-8 order-lg-1">
@@ -587,12 +590,17 @@
 													<label for="user-info_mail" class="placeholder compact">E-mail</label>
 												</div>
 												<div class="form-control always-open">
+													<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+													<input type="text" name="phone" id="user-info_phone" data-placeholder="" value="123423543" required>
+													<label for="user-info_phone" class="placeholder compact">Телефон</label>
+												</div>
+												<!-- <div class="form-control always-open">
 													<input type="password" name="password" id="user-info_password" value="password" required>
 													<label for="user-info_password" class="placeholder compact">Пароль</label>
 													<a href="javascript:void(0)" class="placeholder pull-right compact text-secondary" data-toggle="modal" data-target="#changePassword">Изменить</a>
-												</div>
+												</div> -->
 											</div>
-											<div class="form-group">
+											<!-- <div class="form-group">
 												<div class="row no-gutters">
 													<div class="col-sm-6">
 														<div class="form-control always-open">
@@ -602,7 +610,7 @@
 														</div>
 													</div>
 												</div>
-											</div>
+											</div> -->
 											<div class="form-group form-group-inline-sm-up">
 												<div class="form-control always-open">
 													<div class="form-select">

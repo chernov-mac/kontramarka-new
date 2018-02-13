@@ -771,15 +771,7 @@ a.external {
     }
 }
 
-.fileinput {
-    display: flex;
-    flex-flow: row wrap;
 
-    &-exists &-new,
-    &-new &-exists {
-        display: none !important;
-    }
-}
 
 
 

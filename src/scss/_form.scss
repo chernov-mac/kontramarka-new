@@ -84,7 +84,7 @@
 
         &.countrycode {
             flex: 0 0 auto;
-            width: 50px;
+            width: 56px;
             padding-right: 0;
 
             + input {
@@ -194,7 +194,7 @@ input.form-control {
     .form-control + .form-control {
         margin-top: -2px;
     }
-    .btn {
+    .btn:not(.btn-auto) {
         display: block;
         width: 100%;
     }
@@ -539,5 +539,20 @@ input.form-control {
                 }
             };
         }
+    }
+}
+
+.fileinput {
+    display: flex;
+    flex-flow: row wrap;
+
+    &-exists &-new,
+    &-new &-exists {
+        display: none !important;
+    }
+
+    .btn {
+        flex: 0 0 auto;
+        width: auto;
     }
 }

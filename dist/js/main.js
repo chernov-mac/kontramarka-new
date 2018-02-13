@@ -6,12 +6,12 @@ $(function() {
 
 	// Initialization
 	var path = window.location.pathname.split('/');
-	if (path[0] == 'profile') {
-		switch(path[1]) {
+	if (path[1] == 'profile') {
+		switch(path[2]) {
 			case 'user-orders':
 				$('a[href="#user-orders"]').tab('show');
 				break;
-			case 'user-favourites':
+			case 'user-favorites':
 				$('a[href="#user-favourites"]').tab('show');
 				break;
 			case 'user-comments':
