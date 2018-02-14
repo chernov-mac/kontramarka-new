@@ -1,17 +1,15 @@
 main {
     position: static;
-    margin-top: 40px;
 }
 .breadcrumbs {
     position: absolute;
     right: 0;
+    top: 0;
     left: 0;
     transform: translate3d(0, -40px, 0);
 
     background: $white;
-    // margin-top: -2px;
     padding: 6px 0 10px;
-    // border-top: 2px solid $body-bg;
     font-weight: bold;
     @include light-text;
 
