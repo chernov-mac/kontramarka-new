@@ -1,5 +1,12 @@
 (function($) {
 
+    var id_koncert, id_tour;
+
+    var path = document.location.pathname;
+    var matches = path.match(/plan\/(\d{1,})\/(\d{1,})\//);
+    if (matches && matches[2]) id_koncert = parseInt(matches[2], 10);
+    console.log('Concert ID: ' + id_koncert);
+
     // Options
 
     var options = {
@@ -311,6 +318,7 @@
             this.panzoom = svgPanZoom(options.schemeHolder.selector + ' svg', {
                 dblClickZoomEnabled: false,
                 zoomScaleSensitivity: 0.25,
+                minZoom: 1.0,
                 fit: true,
                 center: true,
                 beforePan: this.beforePan,
@@ -318,7 +326,12 @@
                 onPan: this.onSchemePan.bind(scheme),
                 customEventsHandler: schemePanEventsHandler
             });
+
             this.$viewport = $(this.viewportSelector);
+            this.$minimap.find('svg').prepend(makeSVG('g', {class: 'minimap-viewport'}));
+            this.$minimapViewport = this.$minimap.find('svg .minimap-viewport');
+            this.$minimapViewport.append(this.$minimap.find('svg image').detach());
+            this.$minimapViewport.append('<g class="minimap-content"></g>');
 
             this.zoom = this.panzoom.getZoom();
             this.realZoom = this.panzoom.getSizes().realZoom;
@@ -327,10 +340,11 @@
                 this.addScaleControl();
             }
 
+            this.panzoom.zoomBy(2);
+
             this.setState();
 
             this.parsePlaces(jsnstr);
-
 
             this.initEvents();
 
@@ -433,6 +447,19 @@
             this.$minimap.css({
                 width: 'auto',
                 height: Math.round(this.origSize.height / this.proportion) + 'px'
+            });
+            this.$minimap.find('svg').css({
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                'touch-action': 'none',
+                'user-select': 'none',
+                '-webkit-user-drag': 'none',
+                '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)'
+            });
+            this.$minimapViewport.css({
+                transform: 'matrix(' + 1/this.proportion + ', 0, 0, ' + 1/this.proportion + ', 0, 0)'
             });
             this.minimapSize = {
                 width: this.$minimap.width(),
@@ -540,17 +567,36 @@
                         }
                         Scheme.addPlace($('#' + v.placeID));
                     } else {
-                        console.error('`cls` is not defined. Cannot get place.');
+                        console.error('`cls` is not defined. Cannot find place ID: ' + v.placeID);
                     }
                 });
-                $('g.empty_label').remove();
+
+                if(id_koncert != 3746){
+                    $('g.empty_label').remove();
+                } else {
+                    var emptyPlaces = this.$base.find("g.empty_label");
+                    $.each(emptyPlaces, function(key, val){
+                        $(val)
+                            .data('block', 0)
+                            .data('row', 0)
+                            .data('place', 0)
+                            .data('price', 0)
+                            .data('currency', '');
+                        Scheme.addPlace($(val));
+                    });
+                }
+
             } else {
-                console.error('jsnstr is not defined. Cannot parse places.');
+                console.error('`jsnstr` is not defined. Cannot parse places.');
             }
         },
         addPlace: function(place) {
             var newPlace = Place(place);
             this.places[newPlace.data.id] = newPlace;
+
+            var placeCloneSVG = newPlace.svgG.cloneNode(true);
+            $(placeCloneSVG).find('text').remove();
+            this.$minimapViewport.append(placeCloneSVG);
         },
 
         beforePan: function(t, e) {
@@ -649,6 +695,7 @@
     };
 
     Scheme.init();
+
     // Ticketbox.init(Scheme);
 
     function dispEvent(target, name, detail) {
