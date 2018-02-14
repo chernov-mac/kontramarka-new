@@ -509,6 +509,11 @@
     </header>
 
     <main>
+		<section class="page-block first-after-nav">
+			<div class="container">
+				<div id="messager"></div>
+			</div>
+		</section>
 		<section class="breadcrumbs">
 			<div class="container">
 				<div id="speedbar">
@@ -1159,6 +1164,8 @@
 <script src="/plugins/js/pace.min.js"></script>
 <!-- Slick -->
 <script src="/plugins/js/slick.min.js"></script>
+<!-- Animations -->
+<script src="/plugins/js/TweenMax.min.js"></script>
 <!-- Fileinput -->
 <script src="/plugins/js/fileinput.js"></script>
 <!-- Components -->
@@ -1166,6 +1173,16 @@
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
+<script>
+	var msg = BoxMessage('Error', 'Вы уже зарегистрированы. Авторизуйтесь.', {
+		size: 'lg',
+		mode: 'danger',
+		animate: true,
+		showOnInit: false,
+		closing: true
+	});
+	$(msg).collapse('show');
+</script>
 
 </body>
 </html>

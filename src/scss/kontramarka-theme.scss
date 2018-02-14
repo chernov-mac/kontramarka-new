@@ -1088,8 +1088,15 @@ a.external {
         background: $white;
     }
 
+    .breadcrumbs + & {
+        margin-top: $margin + 40px;
+    }
     &.first-after-nav {
         margin-top: $margin + 40px;
+
+        & ~ .page-block {
+            margin-top: $margin;
+        }
     }
 
     @include media-breakpoint-up(lg) {
@@ -1097,8 +1104,15 @@ a.external {
 
         margin: $margin auto;
 
+        .breadcrumbs + & {
+            margin-top: $margin + 40px;
+        }
         &.first-after-nav {
             margin-top: $margin + 40px;
+
+            & ~ .page-block {
+                margin-top: $margin;
+            }
         }
 
         &-title {
