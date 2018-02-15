@@ -312,6 +312,8 @@
         init: function() {
             var scheme = this;
 
+            this.$minimap.append(makeSVG('svg', {}));
+
             this.$holderWrapper = this.$holder.wrap('<div class="scheme-wrapper"></div>').closest('.scheme-wrapper');
             this.$minimapWrapper = this.$minimap.wrap('<div class="minimap-wrapper"></div>').closest('.minimap-wrapper');
 
@@ -328,9 +330,10 @@
             });
 
             this.$viewport = $(this.viewportSelector);
+
             this.$minimap.find('svg').prepend(makeSVG('g', {class: 'minimap-viewport'}));
             this.$minimapViewport = this.$minimap.find('svg .minimap-viewport');
-            this.$minimapViewport.append(this.$minimap.find('svg image').detach());
+            this.$minimapViewport.append(this.$image[0].cloneNode(true));
             this.$minimapViewport.append('<g class="minimap-content"></g>');
 
             this.zoom = this.panzoom.getZoom();
