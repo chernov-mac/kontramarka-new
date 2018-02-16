@@ -145,7 +145,7 @@ $(function() {
 		    }, 300);
 		});
 	});
-	$.each($('.scheme-base .place'), function(i, place) {
+	$.each($('.scheme-base .place, .scheme-base .place_new, .scheme-base .place-double'), function(i, place) {
 		$(place).popover({
 			html: true,
 			animation: false,

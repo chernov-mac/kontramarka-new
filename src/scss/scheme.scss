@@ -498,9 +498,14 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     }
 }
 svg {
-    .place {
-        circle {
-            transition: stroke-width 100ms ease-in-out
+    .place,
+    .place_new,
+    .place-double {
+        circle,
+        path.place-union {
+            transition:
+                fill-opacity 100ms ease-in-out,
+                stroke-width 100ms ease-in-out;
         }
         text {
             font-family: "Trebuchet MS", "Helvetica CY", sans-serif;
@@ -530,15 +535,26 @@ svg {
 
         @each $name, $value in $label-colors {
             &.#{$name}_label {
-                circle.place_label {
+                circle.place_label,
+                path.place-union {
                     fill: $value;
                     stroke: $value;
                     stroke-opacity: 0.3;
                     stroke-width: 0;
                 }
 
-                &:not(.empty_label):not(.sold_label):not(.reserve_label):hover circle.place_label {
-                    stroke-width: 3;
+                path.place-union {
+                    fill-opacity: 0.3;
+                }
+
+                &:not(.empty_label):not(.sold_label):not(.reserve_label):hover {
+                    circle.place_label {
+                        stroke-width: 3;
+                    }
+                    path.place-union {
+                        stroke-width: 3;
+                        fill-opacity: 1;
+                    }
                 }
 
                 circle.addition {
@@ -569,6 +585,17 @@ svg {
                 }
             }
         };
+    }
+
+    .place_new {
+        text {
+            font-size: 6px;
+            line-height: 8px;
+        }
+    }
+
+    .place-double:hover circle.place_label {
+        stroke-width: 0 !important;
     }
 }
 @keyframes pulsate{

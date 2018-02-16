@@ -5,7 +5,7 @@
     var path = document.location.pathname;
     var matches = path.match(/plan\/(\d{1,})\/(\d{1,})\//);
     if (matches && matches[2]) id_koncert = parseInt(matches[2], 10);
-    console.log('Concert ID: ' + id_koncert);
+    // console.log('Concert ID: ' + id_koncert);
 
     // Options
 
@@ -29,6 +29,9 @@
         },
         place: {
             radius: 7.5
+        },
+        placeNew: {
+            radius: 4
         }
     };
 
@@ -40,6 +43,10 @@
         r: {
             'class': 'letter-r',
             'd': 'M0,7.975V0h2.86c0.44,0,0.85,0.041,1.229,0.122c0.379,0.082,0.707,0.213,0.983,0.396s0.494,0.425,0.653,0.726  c0.16,0.301,0.24,0.675,0.24,1.122c0,0.61-0.154,1.102-0.46,1.476C5.201,4.215,4.792,4.483,4.284,4.646l2.019,3.329H4.621  L2.795,4.853H1.501v3.122H0z M1.501,3.731h1.204c0.578,0,1.02-0.114,1.326-0.341c0.307-0.228,0.46-0.569,0.46-1.024  c0-0.463-0.153-0.784-0.46-0.963C3.725,1.224,3.283,1.134,2.705,1.134H1.501V3.731z'
+        },
+        union: {
+            'class': 'place-union',
+            'd': 'M14.957,23.695C14.602,20.212,12,18.315,12,15.985c0-2.33,2.603-4.227,2.958-7.711c0.002-0.02,0.006-0.039,0.008-0.058   c0.007-0.072,0.006-0.15,0.011-0.223C14.987,7.826,15,7.659,15,7.493c0-0.003,0-0.005,0-0.007c0-0.003-0.001-0.007-0.001-0.01   c-0.006-1.911-0.737-3.82-2.196-5.279c-2.929-2.929-7.678-2.929-10.607,0C0.739,3.655,0.007,5.564,0.001,7.475   C0.001,7.479,0,7.482,0,7.485C0,7.488,0,7.49,0,7.493c0,0.167,0.012,0.333,0.023,0.5c0.005,0.074,0.004,0.151,0.011,0.223   c0.002,0.02,0.006,0.039,0.008,0.058C0.397,11.758,3,13.656,3,15.985c0,2.329-2.602,4.226-2.957,7.709   c-0.002,0.02-0.006,0.04-0.008,0.06c-0.007,0.072-0.006,0.148-0.011,0.221C0.013,24.143,0,24.31,0,24.478c0,0.003,0,0.005,0,0.008   c0,0,0,0,0.001,0c0.004,1.915,0.735,3.828,2.196,5.289c2.929,2.929,7.678,2.929,10.607,0c1.461-1.461,2.192-3.374,2.196-5.289   c0,0,0,0,0.001,0c0-0.003,0-0.005,0-0.008c0-0.167-0.012-0.335-0.023-0.502c-0.005-0.073-0.004-0.15-0.011-0.221   C14.964,23.735,14.96,23.715,14.957,23.695z'
         }
     };
 
@@ -58,7 +65,7 @@
         var place = {
             data: {},
 
-            size: options.place.radius,
+            size: 0,
             posX: 0,
             posY: 0,
             label: null,
@@ -70,6 +77,7 @@
             svgCircle: null,
             svgText: null,
 
+            isDouble: false,
             isMarkable: true,
             isMarked: false,
 
@@ -91,13 +99,47 @@
                 this.pgroups = $(g).data('pgroups');
 
                 this.svgG = $(g)[0];
-                this.svgCircle = makeSVG('circle', {class: 'place_label', cx: this.posX, cy: this.posY, r: this.size});
-                this.svgG.prepend(this.svgCircle);
 
-                if ($(this.svgG).find('text').length) {
-                    this.svgText = $(this.svgG).find('text')[0];
-                    this.svgText.setAttribute('x', this.posX);
-                    this.svgText.setAttribute('y', this.posY);
+                this.size = $(this.svgG).hasClass('place_new') ? options.placeNew.radius : options.place.radius;
+
+                if ($(this.svgG).hasClass('place-double')) {
+                    this.isDouble = true;
+                }
+
+                if (!this.isDouble) {
+                    this.svgCircle = makeSVG('circle', {class: 'place_label', cx: this.posX, cy: this.posY, r: this.size});
+                    this.svgG.prepend(this.svgCircle);
+
+                    if ($(this.svgG).find('text').length) {
+                        this.svgText = $(this.svgG).find('text')[0];
+                        this.svgText.setAttribute('x', this.posX);
+                        this.svgText.setAttribute('y', this.posY);
+                    }
+                } else {
+                    this.isRightSide = $(this.svgG).hasClass('right');
+                    this.additionShift = this.size * 2 * 0.8;
+                    var rotate = this.isRightSide ? 45 : -45;
+                    this.svgUnion = makeSVG('path', {
+                        class: GLYPHS.union.class,
+                        d: GLYPHS.union.d,
+                        style: 'transform-origin: 50% 23.4%',
+                        transform: 'matrix(1, 0, 0, 1, '+ (this.posX - this.size + (this.isRightSide ? this.additionShift : 0)) +', '+( this.posY - this.size) +') rotate('+ rotate +')'
+                    });
+                    this.svgTopCircle = makeSVG('circle', {
+                        class: 'place_label',
+                        cx: this.posX + (this.isRightSide ? this.additionShift : 0),
+                        cy: this.posY,
+                        r: this.size
+                    });
+                    this.svgBottomCircle = makeSVG('circle', {
+                        class: 'place_label',
+                        cx: this.posX + (this.isRightSide ? 0 : this.additionShift),
+                        cy: this.posY + this.additionShift,
+                        r: this.size
+                    });
+                    this.svgG.prepend(this.svgTopCircle);
+                    this.svgG.prepend(this.svgBottomCircle);
+                    this.svgG.prepend(this.svgUnion);
                 }
 
                 var classList = this.svgG.classList;
@@ -136,22 +178,45 @@
                 }
             },
             setAdditions: function() {
+                this.setAdditionCircle();
+                if (this.label == 'sold') { this.setBrick(); }
+                if (this.label == 'reserve') { this.setLetterR(); }
+            },
+            setAdditionCircle: function() {
                 this.svgAddition = makeSVG('circle', {class: 'addition', cx: this.posX, cy: this.posY, r: this.size - 0.63});
                 this.svgG.appendChild(this.svgAddition);
 
-                if (this.label == 'sold') {
-                    this.svgBrick = makeSVG('rect', {class: 'brick', x: this.posX -5, y: this.posY-1, width: 10, height: 2});
-                    this.svgG.appendChild(this.svgBrick);
-                }
+                if (this.isDouble) {
+                    this.svgAdditionDuplicate = this.svgAddition.cloneNode(true);
+                    this.svgG.appendChild(this.svgAdditionDuplicate);
 
-                if (this.label == 'reserve') {
-                    this.svgLetter = makeSVG('path', {
-                        class: GLYPHS.r.class,
-                        d: GLYPHS.r.d,
-                        transform: 'matrix(1, 0, 0, 1, '+ (this.posX - this.size * 2 * 0.186) +', '+( this.posY - this.size * 2 * 0.266) +')'
-                    });
-                    this.svgG.appendChild(this.svgLetter);
+                    if (this.isRightSide) {
+                        $(this.svgAdditionDuplicate).attr('cy', parseInt($(this.svgAddition).attr('cy'), 10) + this.additionShift);
+                        $(this.svgAddition).attr('cx', parseInt($(this.svgAddition).attr('cx'), 10) + this.additionShift);
+                    }
                 }
+            },
+            setBrick: function() {
+                this.svgBrick = makeSVG('rect', {class: 'brick', x: this.posX -5, y: this.posY-1, width: 10, height: 2});
+                this.svgG.appendChild(this.svgBrick);
+
+                if (this.isDouble) {
+                    this.svgBrickDuplicate = this.svgBrick.cloneNode(true);
+                    this.svgG.appendChild(this.svgBrickDuplicate);
+
+                    if (this.isRightSide) {
+                        $(this.svgAdditionDuplicate).attr('cy', parseInt($(this.svgAddition).attr('cy'), 10) + this.additionShift);
+                        $(this.svgAddition).attr('cx', parseInt($(this.svgAddition).attr('cx'), 10) + this.additionShift);
+                    }
+                }
+            },
+            setLetterR: function() {
+                this.svgLetter = makeSVG('path', {
+                    class: GLYPHS.r.class,
+                    d: GLYPHS.r.d,
+                    transform: 'matrix(1, 0, 0, 1, '+ (this.posX - this.size * 2 * 0.186) +', '+( this.posY - this.size * 2 * 0.266) +')'
+                });
+                this.svgG.appendChild(this.svgLetter);
             },
             toggleMarker: function() {
                 if (!this.isMarked) this.selectPlace();
@@ -570,7 +635,7 @@
                         }
                         Scheme.addPlace($('#' + v.placeID));
                     } else {
-                        console.error('`cls` is not defined. Cannot find place ID: ' + v.placeID);
+                        console.warn('Cannot find place ID: ' + v.placeID);
                     }
                 });
 
