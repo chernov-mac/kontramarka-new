@@ -197,7 +197,25 @@
                 }
             },
             setBrick: function() {
-                this.svgBrick = makeSVG('rect', {class: 'brick', x: this.posX -5, y: this.posY-1, width: 10, height: 2});
+                var svgopts = {};
+                if ($(this.svgG).hasClass('place_new')) {
+                    svgopts = {
+                        class: 'brick',
+                        x: this.posX - 2,
+                        y: this.posY - 0.5,
+                        width: 4,
+                        height: 1
+                    };
+                } else {
+                    svgopts = {
+                        class: 'brick',
+                        x: this.posX - 5,
+                        y: this.posY - 1,
+                        width: 10,
+                        height: 2
+                    };
+                }
+                this.svgBrick = makeSVG('rect', svgopts);
                 this.svgG.appendChild(this.svgBrick);
 
                 if (this.isDouble) {
@@ -211,10 +229,14 @@
                 }
             },
             setLetterR: function() {
+                var sizeCoeff = 1;
+                if ($(this.svgG).hasClass('place_new')) {
+                    sizeCoeff = 0.5;
+                }
                 this.svgLetter = makeSVG('path', {
                     class: GLYPHS.r.class,
                     d: GLYPHS.r.d,
-                    transform: 'matrix(1, 0, 0, 1, '+ (this.posX - this.size * 2 * 0.186) +', '+( this.posY - this.size * 2 * 0.266) +')'
+                    transform: 'matrix('+ sizeCoeff +', 0, 0, '+ sizeCoeff +', '+ (this.posX - this.size * 2 * 0.186) +', '+( this.posY - this.size * 2 * 0.266) +')'
                 });
                 this.svgG.appendChild(this.svgLetter);
             },
@@ -226,11 +248,13 @@
                 var newState = !this.isMarked;
                 this.isMarked = true;
 
+                var coeff = $(this.svgG).hasClass('place_new') ? 0.3 : 0.54;
+
                 $(this.svgG).addClass('marker');
                 this.svgCheck = makeSVG('path', {
                     class: GLYPHS.check.class,
                     d: GLYPHS.check.d,
-                    transform: 'matrix(0.54, 0, 0, 0.54, '+ (this.posX - this.size * 2 * 0.333) +', '+( this.posY - this.size * 2 * 0.233) +')'
+                    transform: 'matrix('+ coeff +', 0, 0, '+ coeff +', '+ (this.posX - this.size * 2 * 0.333) +', '+( this.posY - this.size * 2 * 0.233) +')'
                 });
                 this.svgG.appendChild(this.svgCheck);
 
