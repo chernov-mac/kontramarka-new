@@ -569,48 +569,42 @@
 							<div class="pane" id="customer">
 								<div class="row">
 									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Контактные данные заказчика</h3>
+										<h3 class="address-block__title">Личные данные заказчика</h3>
 										<div class="note on-top">
 											<i class="icon-exclamation-circle text-secondary"></i> Вводите данные только латинскими буквами
 										</div>
 										<div class="form-group form-group-inline-sm-up">
 											<div class="form-control">
-												<input type="text" name="name" id="customer_name" data-placeholder="Ganz" required>
-												<label for="customer_name" class="placeholder compact required">Имя</label>
+												<input type="text" name="name" id="customer_name" required>
+												<label for="customer_name" class="placeholder compact">Имя</label>
 											</div>
 											<div class="form-control">
-												<input type="text" name="surname" id="customer_surname" data-placeholder="Rubinheigen" required>
-												<label for="customer_surname" class="placeholder compact required">Фамилия</label>
+												<input type="text" name="surname" id="customer_surname" required>
+												<label for="customer_surname" class="placeholder compact">Фамилия</label>
+											</div>
+										</div>
+										<div class="form-group form-group-inline">
+											<div class="form-control full-width-xs-down">
+												<input type="text" name="street" id="customer_street" required>
+												<label for="customer_street" class="placeholder compact">Улица</label>
+											</div>
+											<div class="form-control">
+												<input type="text" name="house" id="customer_house" required>
+												<label for="customer_house" class="placeholder compact">№ дома</label>
 											</div>
 										</div>
 										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control">
-												<input type="email" name="mail" id="customer_mail" data-placeholder="example@mail.com" required>
-												<label for="customer_mail" class="placeholder compact required">E-mail</label>
+											<div class="form-control basis-fourth">
+												<input type="text" name="index" id="customer_index" required>
+												<label for="customer_index" class="placeholder compact">Индекс</label>
 											</div>
-											<div class="form-control">
-												<input type="email" name="mail2" id="customer_mail2" data-placeholder="" required>
-												<label for="customer_mail2" class="placeholder compact required">E-mail еще раз</label>
+											<div class="form-control basis-fourth">
+												<input type="text" name="city" id="customer_city" required>
+												<label for="customer_city" class="placeholder compact">Город</label>
 											</div>
-										</div>
-										<div class="form-group">
-											<div class="row no-gutters">
-												<div class="col-sm-6">
-													<div class="form-control always-open verified">
-														<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
-														<input type="text" name="phone" id="customer_phone" data-placeholder="" value="123423543" required>
-														<label for="customer_phone" class="placeholder compact required">Телефон</label>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Адрес заказчика</h3>
-										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<div class="form-select disabled">
-													<select name="country" id="customer_country" disabled>
+											<div class="form-control basis-half full-width-sm-down always-open">
+												<div class="form-select">
+													<select name="country" id="customer_country" required>
 														<option value="0">Deutschland</option>
 														<option value="1">Austria</option>
 														<option value="2">Belgium</option>
@@ -636,25 +630,31 @@
 														<option value="22">United Kingdom</option>
 													</select>
 												</div>
-												<label for="customer_country" class="placeholder compact required">Страна</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="city" id="customer_city" data-placeholder="" required>
-												<label for="customer_city" class="placeholder compact required">Город</label>
+												<label for="customer_country" class="placeholder compact">Страна</label>
 											</div>
 										</div>
-										<div class="form-group form-group-inline">
-											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="customer_street" required value="HJkasvfalskjbf" disabled>
-												<label for="customer_street" class="placeholder compact required">Улица</label>
+									</div>
+									<div class="col-12 col-lg-6">
+										<h3 class="address-block__title">Контактные данные заказчика</h3>
+										<div class="form-group form-group-inline-sm-up">
+											<div class="form-control">
+												<input type="email" name="mail" id="customer_mail" required>
+												<label for="customer_mail" class="placeholder compact">E-mail</label>
 											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="house" id="customer_house" required>
-												<label for="customer_house" class="placeholder compact required">№ дома</label>
+											<div class="form-control">
+												<input type="email" name="mail2" id="customer_mail2" required>
+												<label for="customer_mail2" class="placeholder compact">E-mail еще раз</label>
 											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="index" id="customer_index" required>
-												<label for="customer_index" class="placeholder compact required">Индекс</label>
+										</div>
+										<div class="form-group">
+											<div class="row no-gutters">
+												<div class="col-sm-6">
+													<div class="form-control always-open">
+														<input type="text" name="countrycode" class="countrycode" value="+49" readonly>
+														<input type="text" name="phone" id="customer_phone" data-placeholder="" value="123423543" required>
+														<label for="customer_phone" class="placeholder compact">Телефон</label>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -663,7 +663,7 @@
 									<div class="col-12 col-md-4 col-lg-6">
 										<label class="form-check-label panel-control" data-panel-control="#recipient">
 											<input class="form-check-input" type="checkbox" name="other_recepient" value="other_recepient">
-											<span class="form-check-text">Другой получатель</span>
+											<span class="form-check-text">Доставка по иному адресу</span>
 										</label>
 									</div>
 									<div class="col-12 col-md-8 col-lg-6">
@@ -677,23 +677,38 @@
 								<br>
 								<div class="row">
 									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Контактные данные получателя</h3>
+										<h3 class="address-block__title">Данные получателя</h3>
 										<div class="form-group form-group-inline-sm-up">
 											<div class="form-control">
-												<input type="text" name="name" id="recipient_name" data-placeholder="Ganz" required>
-												<label for="recipient_name" class="placeholder compact required">Имя</label>
+												<input type="text" name="name" id="recipient_name" required>
+												<label for="recipient_name" class="placeholder compact">Имя</label>
 											</div>
 											<div class="form-control">
-												<input type="text" name="surname" id="recipient_surname" data-placeholder="Rubinheigen" required>
-												<label for="recipient_surname" class="placeholder compact required">Фамилия</label>
+												<input type="text" name="surname" id="recipient_surname" required>
+												<label for="recipient_surname" class="placeholder compact">Фамилия</label>
 											</div>
 										</div>
-									</div>
-									<div class="col-12 col-lg-6">
-										<h3 class="address-block__title">Адрес получателя</h3>
+										<div class="form-group form-group-inline">
+											<div class="form-control full-width-xs-down">
+												<input type="text" name="street" id="recipient_street" required>
+												<label for="recipient_street" class="placeholder compact">Улица</label>
+											</div>
+											<div class="form-control">
+												<input type="text" name="house" id="recipient_house" required>
+												<label for="recipient_house" class="placeholder compact">№ дома</label>
+											</div>
+										</div>
 										<div class="form-group form-group-inline-sm-up">
-											<div class="form-control always-open">
-												<div class="form-select">
+											<div class="form-control basis-fourth basis-fourth">
+												<input type="text" name="index" id="recipient_index" required>
+												<label for="recipient_index" class="placeholder compact">Индекс</label>
+											</div>
+											<div class="form-control basis-fourth">
+												<input type="text" name="city" id="recipient_city" data-placeholder="" required>
+												<label for="recipient_city" class="placeholder compact">Город</label>
+											</div>
+											<div class="form-control basis-half always-open">
+												<div class="form-select full-width-sm-down">
 													<select name="country" id="recipient_country">
 														<option value="0">Deutschland</option>
 														<option value="1">Austria</option>
@@ -720,25 +735,7 @@
 														<option value="22">United Kingdom</option>
 													</select>
 												</div>
-												<label for="recipient_country" class="placeholder compact required">Страна</label>
-											</div>
-											<div class="form-control">
-												<input type="text" name="city" id="recipient_city" data-placeholder="" required>
-												<label for="recipient_city" class="placeholder compact required">Город</label>
-											</div>
-										</div>
-										<div class="form-group form-group-inline">
-											<div class="form-control basis-half full-width-xs-down">
-												<input type="text" name="street" id="recipient_street" required>
-												<label for="recipient_street" class="placeholder compact required">Улица</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="house" id="recipient_house" required>
-												<label for="recipient_house" class="placeholder compact required">№ дома</label>
-											</div>
-											<div class="form-control basis-fourth">
-												<input type="text" name="index" id="recipient_index" required>
-												<label for="recipient_index" class="placeholder compact required">Индекс</label>
+												<label for="recipient_country" class="placeholder compact">Страна</label>
 											</div>
 										</div>
 									</div>
