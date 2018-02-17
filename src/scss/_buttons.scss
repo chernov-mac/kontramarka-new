@@ -47,7 +47,7 @@
                 $btn-hover-color: $black;
             }
             @if ($color == 'light') {
-                $btn-color: $gray-600;
+                $btn-color: $gray-500;
             }
 
             color: $btn-color;
@@ -57,9 +57,13 @@
             }
         }
     }
-    &[class^="btn-outline"] {
-        padding: ($btn-padding-y - 1) ($btn-padding-x - 1);
+    &-light,
+    &-light:hover, {
+        color: $white;
     }
+    // &[class^="btn-outline"] {
+    //     padding: ($btn-padding-y - 1) ($btn-padding-x - 1);
+    // }
 
     &-text {
         font-size: 16px;
