@@ -44,13 +44,14 @@ $pink: #e815af;
 $cherry: #860e0e;
 
 $theme-colors: (
+  default: #f0f0f0,
   primary: $yellow,
   secondary: $blue,
   success: $yellow,
   info: $blue,
   warning: $orange,
   danger: $red,
-  light: $gray-100,
+  light: $gray-200,
   dark: $black,
   accent: $purple
 );

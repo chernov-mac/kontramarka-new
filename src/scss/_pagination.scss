@@ -4,7 +4,8 @@
     align-items: center;
     width: auto;
     font-size: 18px;
-    line-height: 18px;
+    // line-height: 18px;
+    line-height: 1.4;
 
     span {
         color: $gray-400;
@@ -33,10 +34,12 @@
             border-bottom: 1px solid transparent;
         }
         &:first-child {
-            margin-left: -10px;
+            // margin-left: -10px;
+            padding-left: 0;
         }
         &:last-child {
-            margin-right: -10px;
+            // margin-right: -10px;
+            padding-right: 0;
         }
         &:not(:first-child):not(:last-child) {
             margin: {

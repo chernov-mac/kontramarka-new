@@ -1088,16 +1088,18 @@ a.external {
         background: $white;
     }
 
-    .breadcrumbs + & {
-        margin-top: $margin + 40px;
-    }
-    &.first-after-nav {
-        margin-top: $margin + 40px;
-
-        & ~ .page-block {
-            margin-top: $margin;
+    @include media-breakpoint-up(md) {
+        .breadcrumbs + & {
+            margin-top: $margin + 40px;
         }
-    }
+        &.first-after-nav {
+            margin-top: $margin + 40px;
+
+            & ~ .page-block {
+                margin-top: $margin;
+            }
+        }
+    };
 
     @include media-breakpoint-up(lg) {
         $margin: 32px;

@@ -190,7 +190,7 @@ $(function() {
 		speed: 500,
 		infinite: true,
 		fade: false,
-		autoplay: false,
+		autoplay: true,
 		autoplaySpeed: 5000,
 		thumbsCount: {
 			xl: 5,

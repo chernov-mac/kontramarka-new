@@ -59,4 +59,12 @@
 		font-size: 16px;
 		color: $black;
 	}
+
+	.cancel-date {
+		color: $red;
+
+		&.transfer {
+			color: $orange;
+		}
+	}
 }
