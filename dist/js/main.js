@@ -616,6 +616,10 @@ $(function() {
 		$('.gallery').on('afterChange', function(event, slick, currentSlide) {
 			setNextButtonState(slick, currentSlide);
 		});
+		$.each($('.gallery'), function(key, gallery) {
+			var instance = $(gallery).slick('getSlick');
+			setNextButtonState(instance, instance.currentSlide);
+		});
 	}
 
 	$('.form-check-input[name="agb"]').on('click', function(){
