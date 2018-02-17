@@ -25,7 +25,7 @@
         padding: 20px 30px;
         font-size: 18px;
         line-height: 20px;
-        color: $gray-500;
+        color: $gray-600;
         transition:
             padding .25s ease,
             line-height .25s ease,
@@ -75,8 +75,9 @@
         z-index: 2;
 
         &:disabled {
-            color: $gray-500;
-            -webkit-text-fill-color: $gray-500;
+            background: $body-bg;
+            color: $gray-600;
+            -webkit-text-fill-color: $gray-600;
         }
     }
     input {
