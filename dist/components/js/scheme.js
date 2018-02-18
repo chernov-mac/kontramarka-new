@@ -448,7 +448,6 @@
             $(window).on('resize', function (e) {
                 scheme.panzoom.resize();
                 scheme.setState();
-                scheme.minimapIsShown = $(window).width() > options.minimap.disableDown ? true : false;
                 scheme.placeScaleControl();
             });
             $(this.imageSelector).on('contextmenu', function(e){
@@ -491,7 +490,7 @@
             this.setSchemeDistance();
             this.setOutsize();
 
-            this.minimapIsShown = $(window).width() > options.minimap.disableDown ? true : false;
+            this.minimapIsShown = this.$minimap.is(':visible');
             if (this.minimapIsShown) {
                 this.setMinimapSize();
                 this.setHelperSize();
