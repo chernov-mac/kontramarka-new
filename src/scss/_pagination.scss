@@ -1,16 +1,74 @@
 .pagination {
-    // @extend .box;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    justify-content: space-between;
     width: auto;
     font-size: 18px;
-    // line-height: 18px;
     line-height: 1.4;
+
+    span, a {
+        display: inline-block;
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+        padding: 1px 2px 0;
+        margin: 0 1px;
+        text-align: center;
+        border: none;
+
+        &:first-child,
+        &:last-child {
+            font-size: 0;
+            background: none;
+
+            &:before,
+            &:after {
+                display: inline-block;
+                font-size: 16px;
+            }
+        }
+
+        &:first-child {
+            margin-right: 8px;
+
+            &:before {
+                content: '\f053';
+                font-family: 'kontramarka-icons';
+            }
+        }
+
+        &:last-child {
+            margin-left: 8px;
+
+            &:after {
+                content: '\f054';
+                font-family: 'kontramarka-icons';
+            }
+        }
+
+        &:not(:first-child):not(:last-child) {
+            @include media-breakpoint-down(sm) {
+                display: none;
+            };
+        }
+
+        // &:not(:first-child):not(:last-child) {
+        //     margin: {
+        //         right: 3px;
+        //         left: 3px;
+        //     }
+        // }
+    }
 
     span {
         color: $gray-400;
-        // border-bottom: 1px solid transparent;
+
+        &:not(:first-child):not(:last-child):not(.nav-ext) {
+            display: inline-block !important;
+            background: $body-bg;
+            color: $black;
+        }
     }
     a {
         color: $black;
@@ -36,62 +94,6 @@
 
     span, a, i {
         vertical-align: middle;
-    }
-
-    span, a {
-        display: inline-block;
-        min-width: 32px;
-        height: 32px;
-        line-height: 32px;
-        padding: 1px 2px 0;
-        margin: 0 1px;
-        // min-width: 20px;
-        text-align: center;
-        border: none;
-
-        &.current {
-            background: $body-bg;
-            color: $black;
-        }
-
-        &:first-child,
-        &:last-child {
-            // border-bottom: 1px solid transparent;
-            font-size: 0;
-            background: none;
-
-            &:before,
-            &:after {
-                display: inline-block;
-                font-size: 16px;
-            }
-        }
-        &:first-child {
-            // margin-left: -10px;
-            // padding-left: 0;
-            margin-right: 8px;
-
-            &:before {
-                content: '\f053';
-                font-family: 'kontramarka-icons';
-            }
-        }
-        &:last-child {
-            // margin-right: -10px;
-            // padding-right: 0;
-            margin-left: 8px;
-
-            &:after {
-                content: '\f054';
-                font-family: 'kontramarka-icons';
-            }
-        }
-        // &:not(:first-child):not(:last-child) {
-        //     margin: {
-        //         right: 3px;
-        //         left: 3px;
-        //     }
-        // }
     }
 }
 .pag-nav {
