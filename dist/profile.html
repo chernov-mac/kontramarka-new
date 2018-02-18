@@ -531,16 +531,16 @@
 			<div class="container">
 				<div class="box">
 					<div class="nav nav-tabs mobile regular indicated d-md-none">
-						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i></a></div>
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link"><i class="icon-id-card"></i></a></div>
 						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i></a></div>
 						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i></a></div>
-						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i></a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link active"><i class="fa fa-comments"></i></a></div>
 					</div>
 					<div class="nav nav-tabs regular indicated d-none d-md-flex">
-						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link active"><i class="icon-id-card"></i> Мои данные</a></div>
+						<div class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link"><i class="icon-id-card"></i> Мои данные</a></div>
 						<div class="nav-item"><a href="#user-orders" data-toggle="tab" class="nav-link"><i class="icon-tickets"></i> Мои заказы</a></div>
 						<div class="nav-item"><a href="#user-favourites" data-toggle="tab" class="nav-link"><i class="fa fa-star"></i> Избранное</a></div>
-						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link"><i class="fa fa-comments"></i> Комментарии</a></div>
+						<div class="nav-item"><a href="#user-comments" data-toggle="tab" class="nav-link active"><i class="fa fa-comments"></i> Комментарии</a></div>
 					</div>
 				</div>
 			</div>
@@ -548,7 +548,7 @@
 		<section class="page-block">
 			<div class="container">
 				<div class="tab-content">
-					<div class="tab-pane active" id="user-info" role="tabpanel">
+					<div class="tab-pane" id="user-info" role="tabpanel">
 						<div class="box">
 							<form>
 								<div class="box-body">
@@ -775,41 +775,35 @@
 						</div>
 					</div>
 					<div class="tab-pane" id="user-favourites" role="tabpanel"></div>
-					<div class="tab-pane" id="user-comments" role="tabpanel">
-						<div class="box">
-							<div class="box-header d-flex">
-								<div class="pagination">
-									<span>
-										<!-- <i class="icon-chevron-left"></i> -->
-										Назад
-									</span>
-									<span>1</span>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a>
-									<span>...</span>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
-									<a onclick="ShowPage(this); return false;" href="/&amp;page=2">
-										<!-- <i class="icon-chevron-right"></i> -->
-										Далее
-									</a>
-								</div>
-								<div class="per-page ml-auto">
+					<div class="tab-pane active" id="user-comments" role="tabpanel">
+						<div class="d-flex">
+							<div class="box pag-nav">
+								<div class="per-page">
 									<span class="mr-2">На странице:</span>
 									<span class="form-select d-inline-block">
 										<select>
 											<option value="10">10</option>
-							                <option value="20">20</option>
-							                <option value="30">30</option>
-							                <option value="50">50</option>
-							                <option value="100">100</option>
+											<option value="20">20</option>
+											<option value="30">30</option>
+											<option value="50">50</option>
+											<option value="100">100</option>
 										</select>
 									</span>
+								</div>
+								<div class="pagination">
+									<span><!-- <i class="icon-chevron-left"></i> -->Назад</span>
+									<span class="current">1</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">2</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">3</a>
+									<!-- <a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">4</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">5</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">6</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">7</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">8</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">9</a> -->
+									<span>...</span>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2" class="link">189</a>
+									<a onclick="ShowPage(this); return false;" href="/&amp;page=2"><!-- <i class="icon-chevron-right"></i> -->Далее</a>
 								</div>
 							</div>
 						</div>
@@ -1179,7 +1173,7 @@
 <!-- Main -->
 <script src="/js/functions.js"></script>
 <script src="/js/main.js"></script>
-<script>
+<!-- <script>
 	var msg = BoxMessage('Error', 'Вы уже зарегистрированы. Авторизуйтесь.', {
 		size: 'lg',
 		mode: 'danger',
@@ -1188,7 +1182,7 @@
 		closing: true
 	});
 	$(msg).collapse('show');
-</script>
+</script> -->
 
 </body>
 </html>

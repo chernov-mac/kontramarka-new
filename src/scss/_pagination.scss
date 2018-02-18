@@ -1,6 +1,7 @@
 .pagination {
+    // @extend .box;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: center;
     width: auto;
     font-size: 18px;
@@ -9,13 +10,27 @@
 
     span {
         color: $gray-400;
-        border-bottom: 1px solid transparent;
+        // border-bottom: 1px solid transparent;
     }
     a {
         color: $black;
+        background: $primary;
+        border-bottom: none;
 
         i {
             color: $primary;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            border-bottom: none;
+        }
+
+        &:first-child,
+        &:last-child {
+            &:hover {
+                background: $body-bg;
+            }
         }
     }
 
@@ -25,27 +40,79 @@
 
     span, a {
         display: inline-block;
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
         padding: 1px 2px 0;
+        margin: 0 1px;
         // min-width: 20px;
         text-align: center;
+        border: none;
+
+        &.current {
+            background: $body-bg;
+            color: $black;
+        }
 
         &:first-child,
         &:last-child {
-            border-bottom: 1px solid transparent;
+            // border-bottom: 1px solid transparent;
+            font-size: 0;
+            background: none;
+
+            &:before,
+            &:after {
+                display: inline-block;
+                font-size: 16px;
+            }
         }
         &:first-child {
             // margin-left: -10px;
-            padding-left: 0;
+            // padding-left: 0;
+            margin-right: 8px;
+
+            &:before {
+                content: '\f053';
+                font-family: 'kontramarka-icons';
+            }
         }
         &:last-child {
             // margin-right: -10px;
-            padding-right: 0;
-        }
-        &:not(:first-child):not(:last-child) {
-            margin: {
-                right: 3px;
-                left: 3px;
+            // padding-right: 0;
+            margin-left: 8px;
+
+            &:after {
+                content: '\f054';
+                font-family: 'kontramarka-icons';
             }
         }
+        // &:not(:first-child):not(:last-child) {
+        //     margin: {
+        //         right: 3px;
+        //         left: 3px;
+        //     }
+        // }
+    }
+}
+.pag-nav {
+    display: table;
+    margin: {
+        right: auto;
+        left: auto;
+    };
+
+    .per-page,
+    .pagination {
+        padding: 12px 24px;
+    }
+
+    .per-page {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid light($black);
+        font-size: 18px;
+    }
+    .pagination {
+        padding: 12px 12px;
     }
 }
