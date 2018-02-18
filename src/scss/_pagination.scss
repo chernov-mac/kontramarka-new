@@ -64,7 +64,7 @@
     span {
         color: $gray-400;
 
-        &:not(:first-child):not(:last-child):not(.nav-ext) {
+        &:not(:first-child):not(:last-child):not(.nav_ext) {
             display: inline-block !important;
             background: $body-bg;
             color: $black;
@@ -117,4 +117,11 @@
     .pagination {
         padding: 12px 12px;
     }
+}
+.Nnavigation {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
