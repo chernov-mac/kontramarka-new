@@ -22,6 +22,7 @@
         }
 
         &--fix {
+            display: block;
             position: relative;
             padding-bottom: 71%;
             overflow: hidden;
@@ -35,6 +36,8 @@
         }
         &--animated {
             overflow: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0, 1.0);
 
             img {
                 transition: transform $city-bg-scaling-speed $city-bg-scaling-easing;
@@ -56,7 +59,7 @@
     &:active,
     &:focus {
         .card__img--animated img {
-            transform: scale3d(1.1, 1.1, 1);
+            transform: scale(1.1);
         }
     }
 }
