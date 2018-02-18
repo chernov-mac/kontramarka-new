@@ -17,7 +17,7 @@ $(function() {
 			case 'user-comments':
 				$('a[href="#user-comments"]').tab('show');
 				break;
-			default: break;
+			default: $('a[href="#user-info"]').tab('show');
 		}
 	}
 
