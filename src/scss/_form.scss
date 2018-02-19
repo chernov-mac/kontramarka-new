@@ -169,15 +169,18 @@
             }
         }
     }
+
+    &.captcha {
+        &-img img,
+        &-input input {
+            height: 80px;
+        }
+    }
 }
 
 .image-control {
     flex: 0 0 auto;
     width: auto;
-
-    img {
-        height: 60px;
-    }
 }
 
 input.form-control {
