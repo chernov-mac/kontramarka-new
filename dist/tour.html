@@ -764,58 +764,45 @@
 					<div class="collapse" id="commentForm">
 						<div class="box-body">
 							<form action="" method="POST" id="addotzivform">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="form-group">
-											<div class="form-control">
-												<input type="text" name="com_name" id="addotzivform_name" class="edit bk" data-placeholder="Например: Viktor">
-												<label for="addotzivform_name" class="placeholder">Ваше имя</label>
-											</div>
-										</div>
+								<div class="form-group form-group-inline-md-up">
+									<div class="form-control">
+										<input type="text" name="com_name" id="addotzivform_name" class="edit bk">
+										<label for="addotzivform_name" class="placeholder">Ваше имя</label>
 									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<div class="form-control">
-												<input type="text" name="com_email" id="addotzivform_email" maxlength="100" data-placeholder="Например: Viktor">
-												<label for="addotzivform_email" class="placeholder">Ваш email</label>
-											</div>
-										</div>
+									<div class="form-control">
+										<input type="text" name="com_email" id="addotzivform_email" maxlength="100">
+										<label for="addotzivform_email" class="placeholder">Ваш email</label>
 									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<div class="form-control">
-												<input type="text" name="com_phone" id="addotzivform_phone" maxlength="100" data-placeholder="Например: +380951112233">
-												<label for="addotzivform_phone" class="placeholder">Ваш телефон</label>
-											</div>
-										</div>
+									<div class="form-control">
+										<input type="text" name="com_phone" id="addotzivform_phone" maxlength="100">
+										<label for="addotzivform_phone" class="placeholder">Ваш телефон</label>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="form-control">
-										<textarea type="text" rows="2" name="com_text" id="addotzivform_text" class="edit bk" data-placeholder="Введите текст отзыва" style="resize: vertical"></textarea>
+										<textarea type="text" rows="2" name="com_text" id="addotzivform_text" class="edit bk" style="resize: vertical"></textarea>
 										<label for="addotzivform_text" class="placeholder">Ваш отзыв</label>
 									</div>
 								</div>
-								<div class="row" id="captcha">
-									<div class="col-xs-12 col-md-7 col-lg-7 col-xl-5">
-										<div class="form-group">
-											<div class="form-control">
-												<input type="text" name="sec_code" id="addotzivform_captcha" maxlength="10" class="edit bk" data-placeholder="Например: 6sf3a7">
-												<label for="addotzivform_captcha" class="placeholder pull-left">Код</label>
-												<a onclick="captcha_reload(); return false;" href="javascript:void(0)" class="placeholder pull-right">Обновить</a>
+								<div class="row no-gutters">
+									<div class="col-12 col-md-6 col-lg-5 col-xl-6">
+										<div class="form-group form-group-inline" id="captcha">
+											<div class="form-control image-control">
+												<img src="/images/public/captcha.png" alt="Включите эту картинку для отображения кода безопасности">
 											</div>
-											<small>Введите код, изображенный на картинке рядом.</small>
+											<div class="form-control always-open">
+												<input type="text" name="sec_code" id="addotzivform_captcha" maxlength="10">
+												<label for="addotzivform_captcha" class="placeholder pull-left">Код</label>
+												<label for="addotzivform_captcha" class="placeholder pull-right">
+													<a onclick="captcha_reload(); return false;" href="javascript:void(0)" data-toggle="tooltip" title="Обновить, если не виден код"><i class="icon-refresh d-none d-sm-inline"></i> Обновить</a>
+												</label>
+											</div>
 										</div>
 									</div>
 									<div class="col">
-										<div class="form-group">
-											<img src="/images/public/captcha.png" alt="Включите эту картинку для отображения кода безопасности">
-											<!-- <a onclick="captcha_reload(); return false;" href="javascript:void(0)">Обновить, если не виден код</a> -->
-										</div>
+										<a href="javascript:void(0)" class="btn btn-lg btn-block btn-primary d-sm-none" onclick="addOtziv(448,'ru');">Отправить</a>
+										<a href="javascript:void(0)" class="btn btn-lg btn-primary pull-right d-none d-sm-inline-block" onclick="addOtziv(448,'ru');">Отправить</a>
 									</div>
-								</div>
-								<div class="form-group">
-									<a href="javascript:void(0)" class="btn btn-primary comment__add" onclick="addOtziv(448,'ru');">Отправить</a>
 								</div>
 							</form>
 						</div>

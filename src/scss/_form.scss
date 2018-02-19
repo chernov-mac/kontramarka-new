@@ -171,6 +171,15 @@
     }
 }
 
+.image-control {
+    flex: 0 0 auto;
+    width: auto;
+
+    img {
+        height: 60px;
+    }
+}
+
 input.form-control {
     padding: $input-btn-padding-y $input-btn-padding-x;
     border: 1px solid theme-color(light);
@@ -220,6 +229,9 @@ input.form-control {
                 flex-basis: 50%;
             }
         }
+    }
+    .image-control {
+        flex: 0 0 auto;
     }
 
     .form-control + .form-control {
