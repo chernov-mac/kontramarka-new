@@ -23,6 +23,10 @@
         outline: none;
         box-shadow: none;
     }
+    &:active {
+        padding-top: $btn-padding-y + 1;
+        padding-bottom: $btn-padding-y - 1;
+    }
 
     &.processing {
         i {
@@ -79,9 +83,6 @@
                     }
                 }
                 &:active {
-                    padding-top: $btn-padding-y + 1;
-                    padding-bottom: $btn-padding-y - 1;
-
                     @if ($color == 'default') {
                         $btn-bg: darken($btn-bg, 2%);
                     } @else {
@@ -190,6 +191,11 @@
     &-lg {
         padding: $btn-padding-y * 1.5 $btn-padding-x * 1.5;
         font-size: 18px;
+
+        &:active {
+            padding-top: $btn-padding-y * 1.5 + 1;
+            padding-bottom: $btn-padding-y * 1.5 - 1;
+        }
     }
     &-sm {
         padding: $btn-padding-y * .5 $btn-padding-x * .5;
