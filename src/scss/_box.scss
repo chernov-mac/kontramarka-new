@@ -130,7 +130,7 @@
         color: $gray-800;
     }
 
-    ul {
+    ul:not(.dropdown-menu):not(.autocomplete-results) {
         display: inline-block;
         margin-bottom: 1rem;
         padding-left: 1em;

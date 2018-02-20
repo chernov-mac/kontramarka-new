@@ -138,14 +138,14 @@
                     left: ($nav-link-padding-x * 0.75) * 2 + 14px;
                 }
             }
-            .nav-link {
-                position: absolute;
-                flex: 1 0 auto;
-                z-index: 2;
-                top: 0;
-                bottom: 0;
-                left: 0;
-            }
+            // .nav-link {
+            //     position: absolute;
+            //     flex: 1 0 auto;
+            //     z-index: 2;
+            //     top: 0;
+            //     bottom: 0;
+            //     left: 0;
+            // }
 		}
 	}
 }
