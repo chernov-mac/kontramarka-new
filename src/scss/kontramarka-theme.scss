@@ -774,6 +774,7 @@ a.external {
 .search-dropdown {
     display: none;
     position: absolute;
+    z-index: 1000;
     // box-shadow: 2px 3px 10px 0.2rem rgba(0,0,0,0.25);
     right: 0;
     left: 0;
@@ -817,6 +818,13 @@ a.external {
                 font-size: 20px;
                 line-height: 1.2;
             }
+        }
+
+        &--empty {
+            display: block;
+            font-size: 18px;
+            color: $gray-600;
+            text-align: center;
         }
     }
 }

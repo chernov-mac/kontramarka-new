@@ -155,6 +155,7 @@
             top: auto;
             bottom: 0;
             background: $pace-color;
+            z-index: 999;
         }
         .pace-progress-inner {
             box-shadow: 0 0 10px $pace-color, 0 0 5px $pace-color;

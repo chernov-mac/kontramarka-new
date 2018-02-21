@@ -1,5 +1,6 @@
 #topMenu {
     position: relative;
+    z-index: 10;
     background: $secondary;
 
     body.fixed-nav & {
@@ -284,6 +285,11 @@
         text-shadow: none;
         color: $white;
         opacity: 1;
+        cursor: pointer;
+
+        @include media-breakpoint-up(lg) {
+            line-height: 24px;
+        };
     }
 
     &__items-list {
