@@ -123,26 +123,6 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     &.loading {
         opacity: 0
     }
-
-    svg {
-        display: block;
-        cursor: move;
-
-        g {
-            image {
-                user-select: none;
-            }
-            .place {
-                cursor: pointer;
-
-                &.busy {
-                    opacity:1;
-                    animation: pulsate .75s ease-in-out infinite;
-                    cursor: wait;
-                }
-            }
-        }
-    }
 }
 // Places container's inner with background
 #DataCopy,
@@ -498,9 +478,18 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     }
 }
 svg {
+    display: block;
+    cursor: move;
+
+    image {
+        user-select: none;
+    }
+
     .place,
     .place_new,
     .place-double {
+        cursor: pointer;
+
         circle,
         path.place-union {
             transition:
@@ -522,10 +511,22 @@ svg {
             .brick {
                 fill: map-get($label-colors, sold);
             }
+            text {
+                fill-opacity: 0;
+            }
         }
         &.reserve_label {
             .letter-r {
                 fill: map-get($label-colors, reserve);
+            }
+            text {
+                fill-opacity: 0;
+            }
+        }
+        &.empty_label {
+            cursor: default;
+            text {
+                fill: #bbb;
             }
         }
 

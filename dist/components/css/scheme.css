@@ -54,27 +54,6 @@
 .scheme-holder.loading {
   opacity: 0;
 }
-#ZoomPlaceholder svg,
-.scheme-holder svg {
-  display: block;
-  cursor: move;
-}
-#ZoomPlaceholder svg g image,
-.scheme-holder svg g image {
-  user-select: none;
-}
-#ZoomPlaceholder svg g .place, #ZoomPlaceholder svg g #DataCopy > .place-double,
-.scheme-holder svg g .place,
-.scheme-holder svg g #DataCopy > .place-double {
-  cursor: pointer;
-}
-#ZoomPlaceholder svg g .place.busy, #ZoomPlaceholder svg g #DataCopy > .busy.place-double,
-.scheme-holder svg g .place.busy,
-.scheme-holder svg g #DataCopy > .busy.place-double {
-  opacity: 1;
-  animation: pulsate .75s ease-in-out infinite;
-  cursor: wait;
-}
 
 #DataCopy,
 .scheme-base {
@@ -694,6 +673,18 @@
   height: 34px !important;
 }
 
+svg {
+  display: block;
+  cursor: move;
+}
+svg image {
+  user-select: none;
+}
+svg .place, svg #DataCopy > .place-double,
+svg .place_new,
+svg .place-double {
+  cursor: pointer;
+}
 svg .place circle, svg #DataCopy > .place-double circle,
 svg .place path.place-union,
 svg #DataCopy > .place-double path.place-union,
@@ -720,10 +711,30 @@ svg .place_new.sold_label .brick,
 svg .place-double.sold_label .brick {
   fill: #ef0000;
 }
+svg .place.sold_label text, svg #DataCopy > .sold_label.place-double text,
+svg .place_new.sold_label text,
+svg .place-double.sold_label text {
+  fill-opacity: 0;
+}
 svg .place.reserve_label .letter-r, svg #DataCopy > .reserve_label.place-double .letter-r,
 svg .place_new.reserve_label .letter-r,
 svg .place-double.reserve_label .letter-r {
   fill: #ef0000;
+}
+svg .place.reserve_label text, svg #DataCopy > .reserve_label.place-double text,
+svg .place_new.reserve_label text,
+svg .place-double.reserve_label text {
+  fill-opacity: 0;
+}
+svg .place.empty_label, svg #DataCopy > .empty_label.place-double,
+svg .place_new.empty_label,
+svg .place-double.empty_label {
+  cursor: default;
+}
+svg .place.empty_label text, svg #DataCopy > .empty_label.place-double text,
+svg .place_new.empty_label text,
+svg .place-double.empty_label text {
+  fill: #bbb;
 }
 svg .place:not(.empty_label), svg #DataCopy > .place-double:not(.empty_label),
 svg .place_new:not(.empty_label),

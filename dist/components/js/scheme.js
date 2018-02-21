@@ -74,6 +74,7 @@
             pgroups: '', // for popover with group select
 
             svgG: null,
+            svgText: null,
             svgCircle: null,
             svgText: null,
 
@@ -99,6 +100,7 @@
                 this.pgroups = $(g).data('pgroups');
 
                 this.svgG = $(g)[0];
+                this.svgText = $(this.svgG).find('text');
 
                 this.size = $(this.svgG).hasClass('place_new') ? options.placeNew.radius : options.place.radius;
 
@@ -181,6 +183,8 @@
                 this.setAdditionCircle();
                 if (this.label == 'sold') { this.setBrick(); }
                 if (this.label == 'reserve') { this.setLetterR(); }
+
+                $(this.svgG).append($(this.svgText).detach());
             },
             setAdditionCircle: function() {
                 this.svgAddition = makeSVG('circle', {class: 'addition', cx: this.posX, cy: this.posY, r: this.size - 0.63});
@@ -662,9 +666,9 @@
                     }
                 });
 
-                if(id_koncert != 3746){
-                    $('g.empty_label').remove();
-                } else {
+                // if(id_koncert != 3746){
+                    // $('g.empty_label').remove();
+                // } else {
                     var emptyPlaces = this.$base.find("g.empty_label");
                     $.each(emptyPlaces, function(key, val){
                         $(val)
@@ -675,7 +679,7 @@
                             .data('currency', '');
                         Scheme.addPlace($(val));
                     });
-                }
+                // }
 
             } else {
                 console.error('`jsnstr` is not defined. Cannot parse places.');
