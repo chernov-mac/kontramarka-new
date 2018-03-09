@@ -76,7 +76,6 @@
             svgG: null,
             svgText: null,
             svgCircle: null,
-            svgText: null,
 
             isDouble: false,
             isMarkable: true,
@@ -272,6 +271,34 @@
                 $(this.svgG).removeClass('marker');
 
                 if (newState) dispEvent(this.svgG, 'placeDeselect', {place: this});
+            },
+            makeEmpty: function() {
+                var isPlaceNew = $(this.svgG).hasClass('place_new');
+
+                $(this.svgG).removeAttr('class');
+                $(this.svgG).off('click');
+                $(this.svgG).popover('disable');
+
+                $(this.svgG).removeAttr('title');
+                $(this.svgG).data('original-title', false);
+                $(this.svgG).data('toggle', false);
+                $(this.svgG).removeAttr('data-original-title');
+                $(this.svgG).removeAttr('data-toggle');
+
+                $(this.svgG).addClass('place empty_label');
+                if (isPlaceNew) {
+                    $(this.svgG).removeClass('place').addClass('place_new');
+                }
+                this.title = '';
+                this.pgroups = '';
+                this.isDouble = false;
+                this.isMarkable = false;
+                this.isMarked = false;
+
+                // console.log($(this.svgG));
+                if (this.svgBrick) this.svgBrick.remove();
+                if (this.svgLetter) this.svgLetter.remove();
+                this.init(this.svgG);
             },
             onPgroupsClick: function(p) {
                 var isNew = !$(p).hasClass('active');
@@ -469,6 +496,7 @@
             this.$scalePlus.on('click', this.onScalePlus.bind(this));
 
             $(document).on('delPlace', this.onDelPlace.bind(this));
+            $(document).on('placeToCart', this.onPlaceToCart.bind(this));
         },
 
         setState: function() {
@@ -748,6 +776,11 @@
         onDelPlace: function(e) {
             var detail = e.detail || e.originalEvent.detail;
             this.places[detail.id].deselectPlace();
+        },
+        onPlaceToCart: function(e){
+            var detail = e.detail || e.originalEvent.detail;
+            this.places[detail.placeId].deselectPlace();
+            this.places[detail.placeId].makeEmpty();
         }
     };
 
