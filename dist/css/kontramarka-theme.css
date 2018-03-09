@@ -15409,8 +15409,6 @@ input.form-control:focus:-ms-input-placeholder {
 }
 
 .event--full-width {
-  min-height: 180px;
-  max-height: 200px;
   padding: 0;
 }
 
@@ -15423,6 +15421,16 @@ input.form-control:focus:-ms-input-placeholder {
 .event--full-width img {
   width: 100%;
   height: 100%;
+}
+
+.event--full-width img.fade:not(.show) {
+  min-height: 155px;
+  max-height: 200px;
+}
+
+.event--1000 {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .event:hover .action, .event:active .action, .event:focus .action {
