@@ -287,6 +287,10 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
         margin: 12px 0;
         text-align: center;
 
+        b, strong {
+            display: inline-block;
+        }
+
         &_btn {
             display: block;
             width: 100%;
