@@ -15399,7 +15399,7 @@ input.form-control:focus:-ms-input-placeholder {
 .event__hover-only {
   opacity: 0;
   display: none;
-  visibility: none;
+  visibility: hidden;
 }
 
 .event__hover-none {
@@ -15450,16 +15450,16 @@ input.form-control:focus:-ms-input-placeholder {
   white-space: normal;
 }
 
-.event:hover .event__hover--only, .event:active .event__hover--only, .event:focus .event__hover--only {
+.event:hover .event__hover-only, .event:active .event__hover-only, .event:focus .event__hover-only {
   display: inline;
   opacity: 1;
   visibility: visible;
 }
 
-.event:hover .event__hover--none, .event:active .event__hover--none, .event:focus .event__hover--none {
+.event:hover .event__hover-none, .event:active .event__hover-none, .event:focus .event__hover-none {
   opacity: 0;
   display: none;
-  visibility: none;
+  visibility: hidden;
 }
 
 .event-horz {

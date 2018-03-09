@@ -116,7 +116,7 @@
         &-only {
             opacity: 0;
             display: none;
-            visibility: none;
+            visibility: hidden;
         }
         &-none {
             display: inline;
@@ -171,15 +171,15 @@
                 }
             }
             &__hover {
-                &--only {
+                &-only {
                     display: inline;
                     opacity: 1;
                     visibility: visible;
                 }
-                &--none {
+                &-none {
                     opacity: 0;
                     display: none;
-                    visibility: none;
+                    visibility: hidden;
                 }
             }
         }
