@@ -424,13 +424,15 @@ a.external {
 
     &__text {
         margin-right: auto;
-        @include overflow-ellipsis;
+        // @include overflow-ellipsis;
         @include link-appearance;
     }
     &__label {
         flex-shrink: 0;
-        margin-left: 8px;
         @include light-text;
+    }
+    &__text + &__label {
+        margin-left: 8px;
     }
 
     &:hover {
@@ -443,6 +445,9 @@ a.external {
 // Events row
 .events {
     @include custom-grid($grid-gutters, $events-cols);
+}
+.new-events {
+    @include custom-grid($grid-gutters /*$new-events-gutters*/, $new-events-cols);
 }
 .events-4 {
     @include custom-grid($grid-gutters, $events-cols-4);

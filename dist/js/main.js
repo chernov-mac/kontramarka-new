@@ -123,13 +123,13 @@ $(function() {
 
 	// Popovers
 	$('[data-toggle="popover"]').popover();
-	$.each($('#topSlider .cities-list .hint-popover'), function(i, hint) {
+	$.each($('.hint-popover'), function(i, hint) {
 		$(hint).popover({
 			html: true,
 			trigger: 'manual',
 			placement: 'top',
 			offset: '100%, 10',
-			content: $(hint).closest('.cities-list').find('.full-list'),
+			content: $(hint).parent().find('.full-list'),
 		}).on("mouseenter", function () {
 		    var _this = this;
 		    $(this).popover("show");

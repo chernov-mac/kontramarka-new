@@ -3,6 +3,9 @@
     box-shadow: $card-shadow;
     transition: box-shadow $card-sliding-speed ease;
 
+    &__wrapper {
+        overflow: hidden;
+    }
     &__body {
         display: block;
         position: relative;
@@ -19,6 +22,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+
+            &.img-blured {
+                opacity: 0;
+                filter: blur(6px);
+            }
         }
 
         &--fix {
@@ -40,8 +48,45 @@
             -webkit-transform: translateZ(0) scale(1.0, 1.0);
 
             img {
-                transition: transform $city-bg-scaling-speed $city-bg-scaling-easing;
+                transition:
+                    transform $city-bg-scaling-speed $city-bg-scaling-easing,
+                    opacity $city-bg-scaling-speed $city-bg-scaling-easing;
             }
+        }
+    }
+    &-cover {
+        display: flex;
+        flex-flow: column nowrap;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.75 * $card-sliding-speed ease;
+
+        &__header {
+            flex: 0 0 auto;
+            display: flex;
+            font-size: 18px;
+            justify-content: space-between;
+        }
+        &__body {
+            flex: 1 1 auto;
+        }
+        &__foter {
+            flex: 0 0 auto;
+        }
+
+        &--dark {
+            background: rgba(0, 0, 0, 0.6);
+            color: $white;
+        }
+        &--light {
+            background: rgba(255, 255, 255, 0.8);
+            color: inherit;
         }
     }
 
@@ -49,6 +94,10 @@
     &:active,
     &:focus {
         box-shadow: 0 4px 40px 0 rgba($black, .18);
+    }
+
+    &:hover &-cover {
+        opacity: 1;
     }
 }
 
@@ -60,6 +109,30 @@
     &:focus {
         .card__img--animated img {
             transform: scale(1.1);
+
+            &.img-blured {
+                opacity: 1;
+            }
         }
+    }
+
+    &-plain {
+        .card {
+            &__img {
+                // padding: 20px;
+                @include card;
+            }
+        }
+        &:hover {
+            .card {
+                &__img {
+                    box-shadow: 0 4px 40px 0 rgba($black, .18);
+                }
+            }
+        }
+        //
+        // .block-title {
+        //     padding: 10px 0 0 0;
+        // }
     }
 }

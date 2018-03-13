@@ -141,3 +141,24 @@ $pace-color: theme-color(primary);
 $primary: theme-color(primary);
 $secondary: theme-color(secondary);
 $accent: theme-color(accent);
+
+
+
+
+
+
+
+$new-events-gutters: (
+    xs: 10px,
+    sm: 20px,
+    md: 30px,
+    lg: 40px,
+    xl: 50px
+);
+$new-events-cols: (
+    xs: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+    xl: 5
+);
