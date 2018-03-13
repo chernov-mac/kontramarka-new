@@ -15887,6 +15887,12 @@ input.form-control:focus:-ms-input-placeholder {
   padding: 16px 20px 20px;
 }
 
+@media (max-width: 575px) {
+  .long-event__body {
+    padding: 10px 8px 8px;
+  }
+}
+
 .long-event__body .block-title {
   padding: 0;
 }
@@ -15899,14 +15905,27 @@ input.form-control:focus:-ms-input-placeholder {
   display: none;
 }
 
-.long-event__action {
+.card__body .long-event__action {
   margin-top: 16px;
 }
 
-.long-event__action .btn.hover-only {
+@media (max-width: 575px) {
+  .card__body .long-event__action .btn {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+}
+
+.card__body .long-event__action .btn.hover-only {
   margin-top: -48px;
   opacity: 0;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, color 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+@media (max-width: 575px) {
+  .card__body .long-event__action .btn.hover-only {
+    margin-top: -40px;
+  }
 }
 
 .long-event:hover .long-event__action .btn.hover-only {
@@ -15933,6 +15952,13 @@ input.form-control:focus:-ms-input-placeholder {
   transform: translate3d(0, -15px, 0);
   opacity: 0;
   transition: transform 0.16875s ease-out 0.03375s, opacity 0.16875s ease 0.03375s;
+}
+
+.card-cover .new-event__action, .card-cover
+.long-event__action {
+  transform: translate3d(0, -15px, 0);
+  opacity: 0;
+  transition: transform 0.21375s ease-out 0.05625s, opacity 0.21375s ease 0.05625s;
 }
 
 .new-event:hover .new-event__category, .new-event:hover .new-event__description, .new-event:hover .new-event__action, .new-event:hover .new-event__favourite,
