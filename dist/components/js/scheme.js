@@ -466,6 +466,11 @@
             this.panzoom.zoomBy(2);
 
             this.setState();
+            var initPos = {
+                x: this.schemeLastPos.x,
+                y: this.schemePosRange.y.min
+            };
+            this.panzoom.pan(initPos);
 
             this.parsePlaces(jsnstr);
 
@@ -521,6 +526,7 @@
             this.setSchemePosRange();
             this.setSchemeDistance();
             this.setOutsize();
+            this.schemeLastPos = this.panzoom.getPan();
 
             this.minimapIsShown = this.$minimap.is(':visible');
             if (this.minimapIsShown) {
