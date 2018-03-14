@@ -21493,6 +21493,8 @@ main {
 
 .order h4 {
   margin-bottom: .3em;
+  color: #666;
+  font-weight: 600;
 }
 
 .credit-card {
