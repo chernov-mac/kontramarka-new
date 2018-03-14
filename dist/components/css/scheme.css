@@ -298,21 +298,24 @@
 
 .ticket_point {
   position: relative;
-  padding: 12px 20px 12px 0;
+  padding: 6px 20px 6px 0;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 14px;
+  letter-spacing: -0.2px;
 }
 
 .ticket_point p {
   margin: 0;
-  line-height: 24px;
-  font-size: 18px;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
 }
 
 .ticket_point .delplace_btn {
   position: absolute;
   overflow: hidden;
-  top: 12px;
+  top: 9px;
   right: -4px;
   padding: 4px;
   color: #ffc800;
@@ -340,13 +343,14 @@
   margin: 20px 0;
   padding: 0 18px;
   border: 2px solid #ededed;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
 }
 
 #ticketbox_title {
   padding: 6px 0;
   text-align: center;
+  font-size: 16px;
 }
 
 #ticketbox_inner {
@@ -392,8 +396,11 @@
 
 #ticketbox_form_btn:hover, #ticketbox_form_btn:active {
   color: #111;
-  background-color: #d9aa00;
-  border-color: #cca000;
+  background-color: #ffd333;
+}
+
+#ticketbox_form_btn:hover:before, #ticketbox_form_btn:active:before {
+  border-color: #ffd333;
 }
 
 #ticketbox_form_btn:focus {
@@ -2236,16 +2243,24 @@ svg .place-double:hover circle.place_label {
   text-align: center;
 }
 
+.buttons-stehplatz {
+  margin: 0 -18px !important;
+  padding: 6px 18px;
+  border-bottom: 2px solid #ededed;
+}
+
 .buttons-stehplatz .cat-itm {
   position: relative;
-  padding: 12px 0;
+  padding: 6px 0;
   line-height: 16px;
 }
 
 .buttons-stehplatz .cat-itm .catname {
   margin: 0;
-  line-height: 24px;
-  font-size: 18px;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
 }
 
 .buttons-stehplatz .cat-itm .actions {
@@ -2275,6 +2290,10 @@ svg .place-double:hover circle.place_label {
   min-width: 50%;
   height: 24px;
   line-height: 24px;
+}
+
+.buttons-stehplatz .cat-itm + .cat-itm {
+  border-top: 1px solid #ededed;
 }
 
 .stehplatz {

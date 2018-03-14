@@ -223,19 +223,22 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
 // Ticketbox
 .ticket_point {
     position: relative;
-    padding: 12px 20px 12px 0;
+    padding: 6px 20px 6px 0;
     font-size: 14px;
-    line-height: 16px;
+    line-height: 14px;
+    letter-spacing: -0.2px;
 
     p {
         margin: 0;
-        line-height: 24px;
-        font-size: 18px;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
     }
     .delplace_btn {
         position: absolute;
         overflow: hidden;
-        top: 12px;
+        top: 9px;
         right: -4px;
         padding: 4px;
         color: $primary;
@@ -268,12 +271,13 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
     margin: 20px 0;
     padding: 0 18px;
     border: 2px solid $light-gray;
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
 
     &_title {
         padding: 6px 0;
         text-align: center;
+        font-size: 16px;
     }
     &_inner {
         position: relative;
@@ -316,8 +320,11 @@ $labels-white-text: (blue, brown, crimson, cyan, darkblue, green, magenta, orang
             &:hover,
             &:active {
                 color: #111;
-                background-color: #d9aa00;
-                border-color: #cca000;
+                background-color: #ffd333;
+
+                &:before {
+                    border-color: #ffd333;
+                }
             }
             &:focus {
                 box-shadow: 0 0 0 3px rgba(255,200,0,0.5);
@@ -792,15 +799,21 @@ svg {
     }
 }
 .buttons-stehplatz {
+    margin: 0 -18px !important;
+    padding: 6px 18px;
+    border-bottom: 2px solid #ededed;
+
     .cat-itm {
         position: relative;
-        padding: 12px 0;
+        padding: 6px 0;
         line-height: 16px;
 
         .catname {
             margin: 0;
-            line-height: 24px;
-            font-size: 18px;
+            line-height: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
         }
 
         .actions {
@@ -833,6 +846,10 @@ svg {
                 }
             }
         }
+    }
+
+    .cat-itm + .cat-itm {
+        border-top: 1px solid #ededed;
     }
 }
 
