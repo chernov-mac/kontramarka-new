@@ -110,11 +110,21 @@ function initFormControls() {
 		$(input).on('focus', onFormControlFocus.bind(this));
 		$(input).on('blur', onFormControlBlur.bind(this));
 		$(input).on('scroll', onFormControlScroll.bind(this));
+		$(input).on('change', onFormControlChange.bind(this));
 
-        if ($(input).val()) {
-            $(input).closest('.form-control').addClass('filled');
-        }
+		checkInputFill(input);
+		setTimeout(function(){
+			checkInputFill(input);
+		}, 100);
+		setTimeout(function(){
+			checkInputFill(input);
+		}, 1000);
 	});
+}
+function checkInputFill(input) {
+	if ($(input).val()) {
+		$(input).closest('.form-control').addClass('filled');
+	}
 }
 function onFormControlClick(input) {
 	if ($(this).attr('readonly')) {
@@ -136,6 +146,9 @@ function onFormControlScroll(input) {
 	$(placeholder) && $(placeholder).css({
 		transform: 'translateY(-' + scroll + 'px)'
 	});
+}
+function onFormControlChange(input) {
+	checkInputFill(input);
 }
 function setMenuHeight() {
 	setTimeout(function(){
