@@ -547,6 +547,13 @@ a.external {
             font-size: .8em;
             color: theme-color(secondary);
         }
+
+        &--danger {
+            &:before {
+                content: '\f068';
+                color: theme-color(danger);
+            }
+        }
     }
 }
 
@@ -652,6 +659,9 @@ a.external {
                     }
                     &.mastercard {
                         height: 22px;
+                    }
+                    &.sofort {
+                        height: 40px;
                     }
                 }
                 img + img {

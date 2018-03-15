@@ -663,11 +663,11 @@
 									<div class="row">
 										<div class="col-12 col-md-8 col-lg-12">
 											<div class="form-group form-group-inline-md row-like">
-												<div class="form-control">
+												<div class="form-control always-open">
 													<input type="email" name="login_name" id="cart_login_name">
 													<label for="cart_login_name" class="placeholder">E-mail</label>
 												</div>
-												<div class="form-control">
+												<div class="form-control always-open">
 													<input type="password" name="login_password" id="cart_login_password">
 													<label for="cart_login_password" class="placeholder">Пароль</label>
 													<span class="placeholder static over-input pull-right"><a href="/lostpassword/">Забыли?</a></span>
@@ -675,7 +675,7 @@
 											</div>
 										</div>
 										<div class="col-12 col-md-4 col-lg-12">
-											<button class="btn btn-block btn-lg btn-primary" onclick="submit();" type="submit" title="Войти">
+											<button class="btn btn-block btn-lg btn-outline-primary" onclick="submit();" type="submit" title="Войти">
 												<i class="icon-sign-in"></i><span>Войти</span>
 											</button>
 										</div>
@@ -686,7 +686,7 @@
 								</form>
 							</div>
 							<div class="box-body d-md-none">
-								<button class="btn btn-block btn-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
+								<button class="btn btn-block btn-outline-primary" title="Войти" data-toggle="modal" data-target="#loginModal">
 									<i class="icon-sign-in"></i><span>Войти</span>
 								</button>
 							</div>
@@ -703,14 +703,11 @@
 									<div class="checklist__item">Удобно отслеживать статус заказа</div>
 									<div class="checklist__item">Интересная рассылка новостей</div>
 									<div class="checklist__item">Защита персональных данных</div>
-									<div class="checklist__item d-lg-none d-xl-block">Удобно отслеживать статус заказа</div>
-									<div class="checklist__item d-lg-none">Интересная рассылка новостей</div>
-									<div class="checklist__item d-lg-none">Защита персональных данных</div>
 								</div>
-								<a href="register.html" class="btn btn-lg btn-primary">Зарегистрироваться</a>
+								<a href="register.html" class="btn btn-lg btn-outline-primary">Зарегистрироваться</a>
 							</div>
 							<div class="box-body d-md-none">
-								<a href="register.html" class="btn btn-block btn-primary">Зарегистрироваться</a>
+								<a href="register.html" class="btn btn-block btn-outline-primary">Зарегистрироваться</a>
 							</div>
 						</div>
 					</div>
@@ -721,8 +718,12 @@
 								<div>Мы так и не познакомимся :(</div>
 							</div>
 							<div class="box-body">
-								<a href="cart-2.html" class="btn btn-block btn-light d-md-none">Продолжить как гость</a>
-								<a href="cart-2.html" class="btn btn-allow-wrap btn-lg btn-light d-none d-md-inline-block">Продолжить как гость</a>
+								<div class="checklist">
+									<div class="checklist__item">Удобно отслеживать статус заказа</div>
+									<div class="checklist__item checklist__item--danger">Интересная рассылка новостей</div>
+								</div>
+								<a href="cart-2.html" class="btn btn-block btn-primary d-md-none">Продолжить как гость</a>
+								<a href="cart-2.html" class="btn btn-allow-wrap btn-lg btn-primary d-none d-md-inline-block">Продолжить как гость</a>
 							</div>
 						</div>
 					</div>

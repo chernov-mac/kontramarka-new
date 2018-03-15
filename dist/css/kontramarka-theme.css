@@ -18215,6 +18215,11 @@ a.external:after {
   color: #00398c;
 }
 
+.checklist__item--danger:before {
+  content: '\f068';
+  color: #c40e00;
+}
+
 @media (max-width: 991px) {
   .cart-box .checklist {
     display: flex;
@@ -18426,6 +18431,10 @@ a.external:after {
 
 .delivery-block .form-check-text .descr img.mastercard {
   height: 22px;
+}
+
+.delivery-block .form-check-text .descr img.sofort {
+  height: 40px;
 }
 
 .delivery-block .form-check-text .descr img + img {
