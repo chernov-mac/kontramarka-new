@@ -1278,6 +1278,19 @@ main {
         bottom: $container-padding-x;
         background: $white;
         @include accent;
+
+        @media (min-width: map-get($grid-breakpoints, sm) + 106) and (max-width: map-get($grid-breakpoints, md) - 0.02) {
+            transform: translate3d(72px, 0, 0);
+        }
+        @media (min-width: map-get($grid-breakpoints, md) + 106) and (max-width: map-get($grid-breakpoints, lg) - 0.02) {
+            transform: translate3d(72px, 0, 0);
+        }
+        @media (min-width: map-get($grid-breakpoints, lg) + 106) and (max-width: map-get($grid-breakpoints, xl) - 0.02) {
+            transform: translate3d(72px, 0, 0);
+        }
+        @media (min-width: map-get($grid-breakpoints, xl) + 106) {
+            transform: translate3d(72px, 0, 0);
+        }
     }
 
     .show-to-top & {
