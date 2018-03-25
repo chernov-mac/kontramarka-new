@@ -126,29 +126,29 @@ function checkInputFill(input) {
 		$(input).closest('.form-control').addClass('filled');
 	}
 }
-function onFormControlClick(input) {
+function onFormControlClick(e) {
 	if ($(this).attr('readonly')) {
 		var target = $(this).closest('.form-control').find('input:not([readonly])');
 		target && $(target).focus();
 	}
 }
-function onFormControlFocus(input) {
+function onFormControlFocus(e) {
 	$(this).closest('.form-control').addClass('active').removeClass('filled');
 	$(this).addClass('focus').attr('placeholder', $(this).data('placeholder'));
 }
-function onFormControlBlur(input) {
+function onFormControlBlur(e) {
 	$(this).attr('placeholder', '').closest('.form-control').removeClass('active');
 	if (this.value) $(this).closest('.form-control').addClass('filled');
 }
-function onFormControlScroll(input) {
+function onFormControlScroll(e) {
 	var scroll = $(this).scrollTop();
 	var placeholder = $(this).closest('.form-control').find('.placeholder');
 	$(placeholder) && $(placeholder).css({
 		transform: 'translateY(-' + scroll + 'px)'
 	});
 }
-function onFormControlChange(input) {
-	checkInputFill(input);
+function onFormControlChange(e) {
+	checkInputFill(this);
 }
 function setMenuHeight() {
 	setTimeout(function(){
