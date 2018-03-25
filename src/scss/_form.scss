@@ -20,14 +20,22 @@
         top: 0;
         left: 0;
         z-index: 3;
-        display: inline-table;
+        // display: inline-table;
         max-width: 100%;
-        padding: 20px 30px;
+        // padding: 20px 30px;
         font-size: 18px;
         line-height: 20px;
         color: $gray-600;
+
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+        padding: 0 30px;
+
         transition:
             padding .25s ease,
+            height .25s ease,
             line-height .25s ease,
             font-size .25s ease;
 
@@ -146,6 +154,8 @@
             padding: 10px 16px 3px;
             line-height: 16px;
             font-size: 14px;
+
+            height: 48.34%;
         }
     }
 
