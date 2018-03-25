@@ -140,9 +140,9 @@
     background: transparent;
     overflow: hidden;
 
-    .pace-running & {
-        z-index: 1000;
-    }
+    // .pace-running & {
+    //     z-index: 1000;
+    // }
 
     .pace {
         position: absolute;
@@ -172,6 +172,17 @@
                 right: auto;
                 left: 54px;
             };
+        }
+    }
+}
+
+.pace-running {
+    .main-menu {
+        .drag {
+            &-fog,
+            &-item {
+                background: none;
+            }
         }
     }
 }

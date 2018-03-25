@@ -19177,10 +19177,6 @@ body.fixed-nav #topMenu {
   overflow: hidden;
 }
 
-.pace-running .loader {
-  z-index: 1000;
-}
-
 .loader .pace {
   position: absolute;
   top: 0;
@@ -19214,6 +19210,10 @@ body.fixed-nav #topMenu {
     right: auto;
     left: 54px;
   }
+}
+
+.pace-running .main-menu .drag-fog, .pace-running .main-menu .drag-item {
+  background: none;
 }
 
 .pace {
