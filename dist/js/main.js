@@ -1,13 +1,15 @@
 var menuDragDistance = 0;
 
-// some changes
-
 $(function() {
 
 	// Initialization
-	var path = window.location.pathname.split('/');
-	if (path[1] == 'profile') {
-		switch(path[2]) {
+	var path				= window.location.pathname.split('/'),
+		pathHasLangPrefix	= path[1] == 'ru' || path[1] == 'de' ? true : false,
+		siteSection			= pathHasLangPrefix ? path[2] : path[1],
+		profileTab			= pathHasLangPrefix ? path[3] : path[2];
+
+	if (siteSection) {
+		switch(profileTab) {
 			case 'user-orders':
 				$('a[href="#user-orders"]').tab('show');
 				break;
