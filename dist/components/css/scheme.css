@@ -882,6 +882,12 @@ svg .place-double text {
   text-anchor: middle;
 }
 
+svg .place text.place-text-empty, svg #DataCopy > .place-double text.place-text-empty,
+svg .place_new text.place-text-empty,
+svg .place-double text.place-text-empty {
+  display: none;
+}
+
 svg .place.sold_label .brick, svg #DataCopy > .sold_label.place-double .brick,
 svg .place_new.sold_label .brick,
 svg .place-double.sold_label .brick {

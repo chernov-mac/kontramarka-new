@@ -516,6 +516,10 @@ svg {
             dominant-baseline: central;
             alignment-baseline: central;
             text-anchor: middle;
+
+            &.place-text-empty {
+                display: none;
+            }
         }
 
         &.sold_label {
