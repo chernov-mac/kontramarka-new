@@ -98,6 +98,25 @@ label {
 
 // Utilities
 
+.fs {
+    $font-sizes: (
+        '1': .1em,
+        '2': .2em,
+        '3': .3em,
+        '4': .4em,
+        '5': .5em,
+        '6': .6em,
+        '7': .7em,
+        '8': .8em,
+        '9': .9em,
+        '10': .10em
+    );
+    @each $fs, $val in $font-sizes {
+        &-#{$fs} {
+            font-size: $val !important;
+        }
+    }
+}
 .text-muted {
     @include text-muted();
 }

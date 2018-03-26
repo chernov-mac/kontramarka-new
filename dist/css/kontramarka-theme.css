@@ -16922,6 +16922,46 @@ label {
   padding-left: 0 !important;
 }
 
+.fs-1 {
+  font-size: 0.1em !important;
+}
+
+.fs-2 {
+  font-size: 0.2em !important;
+}
+
+.fs-3 {
+  font-size: 0.3em !important;
+}
+
+.fs-4 {
+  font-size: 0.4em !important;
+}
+
+.fs-5 {
+  font-size: 0.5em !important;
+}
+
+.fs-6 {
+  font-size: 0.6em !important;
+}
+
+.fs-7 {
+  font-size: 0.7em !important;
+}
+
+.fs-8 {
+  font-size: 0.8em !important;
+}
+
+.fs-9 {
+  font-size: 0.9em !important;
+}
+
+.fs-10 {
+  font-size: 0.1em !important;
+}
+
 .text-muted {
   line-height: 13px;
   color: rgba(0, 0, 0, 0.48);
