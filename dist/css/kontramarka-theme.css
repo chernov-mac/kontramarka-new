@@ -19376,6 +19376,8 @@ body.fixed-nav #topMenu {
     flex-wrap: wrap;
   }
   #subscribe .form .input-group .form-control:not(.active):not(.filled) .placeholder {
+    width: 100%;
+    justify-content: center;
     text-align: center;
     left: 50%;
     transform: translate(-50%, 0);
