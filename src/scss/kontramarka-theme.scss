@@ -1085,11 +1085,14 @@ a.external {
                 &.paypal {
                     width: 60px;
                 }
+                &.sofort {
+                    width: 60px;
+                }
                 &.vorkasse {
                     width: 76px;
                 }
 
-                $methods: mastercard visa paypal vorkasse;
+                $methods: mastercard visa paypal sofort vorkasse;
                 @each $method in $methods {
                     &.#{$method} {
                         background: url('../images/brands/#{$method}.svg') no-repeat center;

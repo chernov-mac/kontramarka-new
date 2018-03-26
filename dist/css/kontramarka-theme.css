@@ -19541,6 +19541,10 @@ body.fixed-nav #topMenu {
   width: 60px;
 }
 
+#footInfo .payment-methods .method > div.sofort {
+  width: 60px;
+}
+
 #footInfo .payment-methods .method > div.vorkasse {
   width: 76px;
 }
@@ -19572,6 +19576,16 @@ body.fixed-nav #topMenu {
 
 #footInfo .payment-methods .method > div.paypal.mono {
   background: url("../images/brands/mono/paypal.png") no-repeat center;
+  background-size: contain;
+}
+
+#footInfo .payment-methods .method > div.sofort {
+  background: url("../images/brands/sofort.svg") no-repeat center;
+  background-size: contain;
+}
+
+#footInfo .payment-methods .method > div.sofort.mono {
+  background: url("../images/brands/mono/sofort.png") no-repeat center;
   background-size: contain;
 }
 
