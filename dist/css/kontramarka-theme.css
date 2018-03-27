@@ -19138,6 +19138,16 @@ body.fixed-nav #topMenu {
   border-bottom: none;
 }
 
+.main-menu .menu-item.logo {
+  order: 0 !important;
+  width: 52px;
+  margin-right: 20px;
+  margin-left: 0;
+  background: url("../images/logo-no-text-2.svg") center no-repeat;
+  background-position-y: 8px;
+  height: 56px;
+}
+
 .main-menu .menu-item.optional {
   display: none;
   will-change: transform;
@@ -19178,7 +19188,7 @@ body.fixed-nav #topMenu {
   font-size: 18px;
 }
 
-.main-menu .menu-item:first-of-type {
+.main-menu .menu-item:not(.logo):first-of-type {
   margin-left: 40px;
 }
 
@@ -22396,10 +22406,10 @@ main {
     top: 54px;
   }
   #mainMenu .main-menu .drag-wrapper {
-    order: 1;
+    order: 9;
   }
   #mainMenu .main-menu .menu-item {
-    order: 2;
+    order: 10;
   }
   #mainMenu .main-menu .dropdown.city ul {
     max-height: 448px;

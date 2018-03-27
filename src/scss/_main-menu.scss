@@ -61,6 +61,16 @@
         margin-left: 20px;
         border-bottom: none;
 
+        &.logo {
+            order: 0 !important;
+            width: 52px;
+            margin-right: 20px;
+            margin-left: 0;
+            background: url('../images/logo-no-text-2.svg') center no-repeat;
+            background-position-y: 8px;
+            height: 56px;
+        }
+
         &.optional {
             display: none;
             will-change: transform;
@@ -102,7 +112,7 @@
             }
         }
 
-        &:first-of-type {
+        &:not(.logo):first-of-type {
             margin-left: 40px;
         }
     }

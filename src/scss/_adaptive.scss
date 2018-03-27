@@ -331,8 +331,8 @@
 			}
 
 			// ordering
-			.drag-wrapper { order: 1; }
-			.menu-item { order: 2 }
+			.drag-wrapper { order: 9; }
+			.menu-item { order: 10 }
 
 			.dropdown {
 				&.city {
