@@ -19139,10 +19139,12 @@ body.fixed-nav #topMenu {
 }
 
 .main-menu .menu-item.logo {
+  flex: 0 0 auto !important;
   order: 0 !important;
-  width: 52px;
+  width: 34px;
   margin-right: 20px;
   margin-left: 0;
+  padding: 0;
   background: url("../images/logo-no-text-2.svg") center no-repeat;
   background-position-y: 8px;
   height: 56px;
