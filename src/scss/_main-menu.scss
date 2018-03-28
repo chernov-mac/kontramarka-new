@@ -61,16 +61,26 @@
         margin-left: 20px;
         border-bottom: none;
 
+        // .fixed-nav & {
+        //     @include media-breakpoint-down(xs) {
+        //         margin-left: 12px;
+        //     };
+        // }
+
         &.logo {
             flex: 0 0 auto !important;
             order: 0 !important;
             width: 34px;
-            margin-right: 20px;
+            margin-right: 40px;
             margin-left: 0;
             padding: 0;
             background: url('../images/logo-no-text-2.svg') center no-repeat;
             background-position-y: 8px;
             height: 56px;
+
+            @include media-breakpoint-down(md) {
+                display: none !important;
+            };
         }
 
         &.optional {
@@ -126,9 +136,9 @@
             font-size: 18px;
         }
     }
-    .phone {
-        margin-left: 20px;
-    }
+    // .phone {
+    //     margin-left: 20px;
+    // }
 
     &:after {
         content: '';

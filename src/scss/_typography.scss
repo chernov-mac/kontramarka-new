@@ -22,6 +22,14 @@ $icons-font-path: '../fonts/kontramarka-icons';
     };
     width: 1.2em;
 }
+.icon-brand-logo {
+    &.colored {
+        color: transparent;
+        background: url('../images/logo-no-text-2.svg') center no-repeat;
+        background-size: 64%;
+        background-position: 32% 50%;
+    }
+}
 // .btn {
 //     &:not(.btn-round):not(.btn-square) {
 //         [class^="icon-"] {
