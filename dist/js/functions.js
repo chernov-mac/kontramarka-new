@@ -501,6 +501,9 @@ function BoxMessage(title, text, options) {
 
 	var icon = '<span class="message__icon">';
 	switch (opts.mode) {
+		case 'announce':
+			icon += '<i class="icon-brand-logo colored"></i>';
+			break;
 		case 'info':
 			icon += '<i class="fa fa-info-circle"></i>';
 			break;
