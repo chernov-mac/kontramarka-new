@@ -1,6 +1,80 @@
 .slider {
     overflow: hidden;
 
+    &-dots {
+        display: flex;
+        flex-direction: row;
+
+        .slider-nav--vertical & {
+            flex-direction: column;
+        }
+
+        li {
+            $slick-button-size: 4px;
+
+            padding: $slick-button-size * 2;
+            cursor: pointer;
+
+            button {
+                font-size: 0;
+                line-height: 0;
+                display: block;
+                width: $slick-button-size * 2;
+                height: $slick-button-size * 2;
+                color: transparent;
+                border-radius: 50%;
+                outline: none;
+                background: $gray-500;
+                border: none;
+                cursor: pointer;
+                transition: box-shadow .085s ease;
+            }
+
+            &:hover {
+                button {
+                    box-shadow: 0 0 0 $slick-button-size rgba($gray-500, 0.38);
+                }
+            }
+            &.slick-active {
+                border-color: rgba(theme-color(primary), .38);
+
+                button {
+                    background: theme-color(primary);
+                    box-shadow: 0 0 0 $slick-button-size rgba(theme-color(primary), 0.38);
+                }
+            }
+        }
+    }
+    &-nav {
+        display: flex;
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--vertical {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+#topSlider {
+    .slider {
+        &-dots {
+            position: absolute;
+            left: $container-padding-x;
+            bottom: 20px;
+
+            @include media-breakpoint-up(lg) {
+                bottom: 40px;
+                left: $btn-arrow-width;
+            };
+        }
+    }
     .slides {
         z-index: 1;
 
@@ -141,57 +215,6 @@
                 }
             }
         }
-        .pagination {
-            position: absolute;
-            left: $container-padding-x;
-            bottom: 20px;
-            // transform: translateY(50%);
-            display: flex;
-
-            // @include media-breakpoint-down(sm) {
-            //     display: none !important;
-            // };
-            @include media-breakpoint-up(lg) {
-                bottom: 40px;
-                left: $btn-arrow-width;
-            };
-
-            li {
-                $slick-button-size: 4px;
-
-                padding: $slick-button-size * 2;
-                cursor: pointer;
-
-                button {
-                    font-size: 0;
-                    line-height: 0;
-                    display: block;
-                    width: $slick-button-size * 2;
-                    height: $slick-button-size * 2;
-                    color: transparent;
-                    border-radius: 50%;
-                    outline: none;
-                    background: $gray-500;
-                    border: none;
-                    cursor: pointer;
-                    transition: box-shadow .085s ease;
-                }
-
-                &:hover {
-                    button {
-                        box-shadow: 0 0 0 $slick-button-size rgba($gray-500, 0.38);
-                    }
-                }
-                &.slick-active {
-                    border-color: rgba(theme-color(primary), .38);
-
-                    button {
-                        background: theme-color(primary);
-                        box-shadow: 0 0 0 $slick-button-size rgba(theme-color(primary), 0.38);
-                    }
-                }
-            }
-        }
     }
     .controls {
         $indicator-size: 4px;
@@ -303,6 +326,120 @@
                     background: theme-color(primary);
                 }
             }
+        }
+    }
+}
+
+#redesignAnnouncement {
+    .announcement {
+        position: relative;
+    }
+    .slick-track {
+        display: flex;
+        align-items: stretch;
+
+        .slick-slide {
+            float: none;
+            display: flex;
+            align-items: center;
+            height: auto;
+        }
+    }
+    .slide {
+        .modal-body {
+            height: 100%;
+
+            > .row {
+                height: 100%;
+            }
+        }
+        .slide-content {
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+        }
+        .slide-mockup {
+            position: relative;
+
+            &-text {
+                flex: 0 0 auto;
+            }
+            .mockup-container {
+                flex: 1 0 auto;
+            }
+        }
+
+        @include media-breakpoint-up(sm) {
+            .slide-mockup {
+                flex-direction: row;
+                align-items: center;
+
+                &-text {
+                    flex: initial;
+                }
+                .mockup-container {
+                    position: absolute;
+                    width: 160px;
+                    top: 40px;
+                    bottom: 40px;
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+            }
+        };
+
+        &:nth-child(2) {
+            p {
+                margin-top: 1rem;
+            }
+            
+            @include media-breakpoint-up(sm) {
+                .slide-content {
+                    justify-content: start;
+                }
+                .slide-mockup-text {
+                    margin-right: 180px;
+                }
+                .mockup-container {
+                    right: 0;
+                }
+            };
+            @include media-breakpoint-up(lg) {
+                .slide-mockup-text {
+                    margin-right: 240px;
+                }
+                .mockup-container {
+                    width: 200px;
+                }
+            };
+        }
+        &:nth-child(3) {
+            p {
+                margin-top: 1rem;
+            }
+            
+            @include media-breakpoint-up(sm) {
+                .slide-content {
+                    justify-content: start;
+                }
+                .slide-mockup-text {
+                    margin-left: 180px;
+                }
+                .mockup-container {
+                    left: 0;
+                }
+            };
+            @include media-breakpoint-up(lg) {
+                .slide-mockup-text {
+                    margin-left: 240px;
+                }
+                .mockup-container {
+                    width: 200px;
+                }
+            };
         }
     }
 }

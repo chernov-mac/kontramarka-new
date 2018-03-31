@@ -239,7 +239,7 @@ $(function() {
 			fade: topSliderOptions.fade,
 			arrows: false,
 			dots: true,
-			dotsClass: 'pagination',
+			dotsClass: 'slider-dots',
 			cssEase: 'ease-in-out',
 			lazyLoading: 'progressive',
 			responsive: [

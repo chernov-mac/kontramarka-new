@@ -3412,7 +3412,7 @@
 			<div class="modal-header">
 				<h5 class="modal-title">Modal title</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
+					<i class="icon-times" aria-hidden="true"></i>
 				</button>
 			</div>
 			<div class="modal-body">
@@ -3439,67 +3439,90 @@
 <div class="modal fade" id="redesignAnnouncement" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content announcement">
-			<div class="modal-body">
-				<div class="announcement__img text-center">
-					<img src="/images/logo.svg" class="logo" alt="Kontramarka.de">
-				</div>
-				<div class="h1 mt-4 text-center">Добро пожаловать!</div>
-				<div class="announcement__text">
-					<p>Мы рады сообщить о завершении работ по обновлению дизайна! Здесь мы расскажем Вам немного о редизайне сайта.</p>
-					<!-- <div class="d-flex justify-content-center align-items-center">
-						<img src="/images/old_logo.png" alt="" class="m-3" style="height: 60px;">
-						<i class="icon-chevron-right"></i>
-						<img src="/images/logo-no-text-2.svg" alt="" class="m-3" style="height: 60px; transform: translateY(-5px)">
-					</div> -->
-					<div class="transformation-scene">
-						<div class="transformation mx-auto">
-							<img src="/images/old_logo.png" alt="Kontramarka.de" class="transformation__logo transformation__logo--old">
-							<img src="/images/logo-no-text-2.svg" alt="Kontramarka.de" class="transformation__logo transformation__logo--new">
-						</div>
-					</div>
-					<div class="row my-5" style="margin-right: -30px;">
-						<div class="col col-lg-8">
-							<div class="row">
-								<div class="col">
-									<p>Сайт стал полностью адаптивным и более дружелюбным для пользователей. Теперь весь функционал доступен в удобном виде на устройствах с любым разрешением.</p>
-									<p>Мы учли большое количество посетителей с мобильных устройств (более <b>60%</b>) и сконцентрировались на достижении максимально комфортных условий для таких пользователей. Результатом стала разработка уникального дизайна по стратегии <b>Mobile First</b>.</p>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<i class="icon-times" aria-hidden="true"></i>
+			</button>
+			<div class="slider slider-steps">
+				<div class="slides">
+					<div class="slide slide-step">
+						<div class="modal-body">
+							<div class="slide-content">
+								<div class="transformation-scene">
+									<div class="transformation mx-auto">
+										<img src="/images/old_logo.png" alt="" class="transformation__logo transformation__logo--old">
+										<div class="transformation__logo transformation__logo--new minimized">
+											<img src="/images/logo-no-text-2.svg" alt="" class="logo">
+											<div class="text-container">
+												<img src="/images/logo-text.svg" alt="Kontramarka.de" class="text">
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="col col-md-4 mockup-col d-lg-none">
-									<img src="/images/mockups/iphone-mockup.jpg" alt="Kontramarka.de" class="iphone-mockup">
+								<div class="h1 text-center mt-4">Добро пожаловать!</div>
+								<div class="row">
+									<div class="col-lg-10 mx-auto">
+										<p class="text-center">Мы рады привествовать Вас на нашем обновленном сайте. Возможно, Вы оказались здесь впервые, тогда Вы може просто закрыть это окно. Нашим постоянным посетителям мы хотим немного рассказать об обновлениях.</p>
+									</div>
 								</div>
 							</div>
-							<p>Не нужно делать выбор между мобильностью и эффективнстью. Новый дизайн одинаково высоко эффективен на любых разрешениях!</p>
-						</div>
-						<div class="col col-lg-4 mockup-col d-none d-lg-block">
-							<img src="/images/mockups/iphone-mockup.jpg" alt="Kontramarka.de" class="iphone-mockup iphone-mockup-lg">
 						</div>
 					</div>
-					<div class="row my-5" style="margin-left: -30px;">
-						<div class="col col-lg-4 mockup-col d-none d-lg-block">
-							<img src="/images/mockups/iphone-scheme-mockup.jpg" alt="Kontramarka.de" class="iphone-scheme-mockup iphone-scheme-mockup-lg">
-						</div>
-						<div class="col col-lg-8">
+					<div class="slide slide-step">
+						<div class="modal-body">
 							<div class="row">
-								<div class="col-xs-12 col-sm-6 col-md-4 mockup-col d-lg-none">
-									<img src="/images/mockups/iphone-scheme-mockup.jpg" alt="Kontramarka.de" class="iphone-scheme-mockup">
-								</div>
-								<div class="col">
-									<p>Страница выбора билетов стала просторнее и чище. Выбрать билеты стало гораздо проще благодаря новому взаимодействию со схемой.</p>
-									<p>Теперь схему можно таскать за курсором нажатием левой кнопки мыши или тачпада, на мобильных устройствах - движением пальца. Однако, миникарту мы оставили, поскольку многие привыкли к такому формату.</p>
+								<div class="col-lg-10 mx-auto">
+									<div class="slide-content slide-mockup">
+										<div class="slide-mockup-text">
+											<p>Наш сайт стал полностью адаптивным и более дружелюбным для всех устройств и любых разрешений экрана. Теперь Вам не нужно делать выбор между мобильностью и эффективнстью. Новый дизайн одинаково высоко эффективен в любых условиях.</p>
+										</div>
+										<div class="mockup-container">
+											<img src="/images/mockups/iphone-mockup.jpg" alt="Kontramarka.de">
+										</div>
+									</div>
 								</div>
 							</div>
-							<p>Также стало возможным масштабирование схемы для более удобного выбора мест. Это будет особенно полезно для пользователей с мобильных устройств.</p>
-							<p>Новое взаимодействие со схемой стало доступным благодаря переходу на векторные схемы без растровых изображений. Однако, должны сообщить, что на данный момент не все схемы переведены в векторный формат. Поскольку мы оперируем более чем <b>1300</b> залами, мы не успели перерисовать их все, придётся немножко подождать.</p>
 						</div>
 					</div>
-					<p>Команда Kontramarka.de работала над новым дизайном более <b>6 месяцев</b>, за это время в конференциях в Skype были наговорены <b>178 часов</b>, было произведено более <b>200 коммитов</b> и было выпито <b>1800 чашек кофе</b>! :)</p>
-					<p>Мы действительно очень много трудились ради этого момента, и это на самом деле для нас огромное событие. Наконец, мы готовы представить нашу работу, и мы очень надеемся, что Вам понравится!</p>
-					<p>На этом наша работа не заканчивается, мы ещё много всего для Вас приготовили!</p>
-					<p>Не стесняйтесь делиться своими впечатлениями, а также задавать вопросы или оставлять пожелания нам на почту <b><a href="mailto:info@kontramarka.de" class="link">info@kontramarka.de</a></b>.</p>
-					<p>По всем техническим вопросам и неполадкам пишите на <b><a href="mailto:support@kontramarka.de" class="link">support@kontramarka.de</a></b></p>
+					<div class="slide slide-step">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-10 mx-auto">
+									<div class="slide-content slide-mockup">
+										<div class="slide-mockup-text">
+											<p>Выбрать билеты теперь проще благодаря новому взаимодействию со схемой зала. Вам будет удобнее двигать и масштабировать схемы мышкой, тачпадом, а также пальцами на мобильном устройстве. На данный момент в новый формат переведены почти все залы на сайте. Отдельные исключения будут завершены в ближайшее время.</p>
+										</div>
+										<div class="mockup-container">
+											<img src="/images/mockups/iphone-scheme-mockup.jpg" alt="Kontramarka.de">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="slide slide-step">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-10 mx-auto">
+									<div class="slide-content">
+										<div class="announcement__img text-center">
+											<img src="/images/logo.svg" class="logo mx-auto" alt="Kontramarka.de">
+										</div>
+										<p>Наша команда работала над новым сайтом более 6 месяцев. За это время мы исписали несметное количество бумаги, выпили неслыханное количество кофе, а от переживаний съели несчитанное количество печенюшек :)</p>
+										<p class="d-none d-lg-block">Мы очень много трудились ради этого момента, и для нас огромное событие. Мы очень надеемся, что Вам понравится!</p>
+										<p>Не стесняйтесь делиться своими впечатлениями, а также задавать вопросы или оставлять пожелания нам на почту <b><a href="mailto:info@kontramarka.de" class="link">info@kontramarka.de</a></b>.</p>
+										<div class="text-center mt-3 my-lg-4">
+											<button class="btn btn-primary" data-dismiss="modal">Перейти к сайту!</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="text-center">
-					<button type="button" class="btn btn-primary mt-4 mb-2" data-dismiss="modal">Ознакомиться!</button>
+				<div class="slider-nav justify-content-center pb-4 mb-lg-2">
+					<button class="slider-nav-arrow prev"><i class="icon-chevron-left"></i></button>
+					<div class="slider-nav-list"></div>
+					<button class="slider-nav-arrow next"><i class="icon-chevron-right"></i></button>
 				</div>
 			</div>
 		</div>
@@ -3533,10 +3556,33 @@
 <script>
 	$(function(){
 		$('#redesignAnnouncement').on('shown.bs.modal', function(){
-			$('.transformation').addClass('transformed');
+
+			$('#redesignAnnouncement .slides').slick({
+				infinite: false,
+				autoplay: false,
+				speed: 500,
+				fade: false,
+				arrows: true,
+				dots: true,
+				// adaptiveHeight: true,
+				// vertical: true,
+				// verticalSwiping: true,
+				appendDots: $('#redesignAnnouncement .slider-nav-list'),
+				prevArrow: $('#redesignAnnouncement .slider-nav-arrow.prev'),
+				nextArrow: $('#redesignAnnouncement .slider-nav-arrow.next'),
+				dotsClass: 'slider-dots',
+				cssEase: 'ease-in-out',
+				lazyLoading: 'progressive'
+			});
+
+			setTimeout(function(){
+				$('.transformation').addClass('transformed');
+				$('.transformation__logo--new').removeClass('minimized');
+			}, 10);
 		});
+
 		$('#redesignAnnouncement').modal('show');
-		$('#redesignAnnouncement').on('hide.bs.modal', function(){
+		$('#redesignAnnouncement').on('hide.bs.modal', function(e){
 			console.log('must set cookie to not show again');
 		});
 	})
