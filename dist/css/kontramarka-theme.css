@@ -22258,6 +22258,22 @@ main {
   }
 }
 
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - (.5rem * 2));
+}
+
+.modal-dialog-centered .modal-content {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog-centered {
+    min-height: calc(100% - (1.75rem * 2));
+  }
+}
+
 #loginModal .modal-header {
   padding: 0;
   border-bottom-width: 0;
