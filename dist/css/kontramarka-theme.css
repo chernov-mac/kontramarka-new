@@ -22288,6 +22288,15 @@ main {
   padding: 22px 0;
 }
 
+#redesignAnnouncement .slider {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
+#redesignAnnouncement:not(.show) .slider {
+  opacity: 0;
+}
+
 @media (max-width: 991px) {
   #mainMenu .main-menu .menu-body {
     margin-right: -24px;

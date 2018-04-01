@@ -3580,35 +3580,37 @@
 
 <script>
 	$(function(){
+		$('#redesignAnnouncement .slides').on('init', function(e, slick){
+			$('#redesignAnnouncement').modal('show');
+		});
+
 		$('#redesignAnnouncement').on('shown.bs.modal', function(){
-
-			$('#redesignAnnouncement .slides').slick({
-				infinite: false,
-				autoplay: false,
-				speed: 500,
-				fade: false,
-				arrows: true,
-				dots: true,
-				// adaptiveHeight: true,
-				// vertical: true,
-				// verticalSwiping: true,
-				appendDots: $('#redesignAnnouncement .slider-nav-list'),
-				prevArrow: $('#redesignAnnouncement .slider-nav-arrow.prev'),
-				nextArrow: $('#redesignAnnouncement .slider-nav-arrow.next'),
-				dotsClass: 'slider-dots',
-				cssEase: 'ease-in-out',
-				lazyLoading: 'progressive'
-			});
-
 			setTimeout(function(){
 				$('.transformation').addClass('transformed');
 				$('.transformation__logo--new').removeClass('minimized');
 			}, 10);
 		});
 
-		$('#redesignAnnouncement').modal('show');
 		$('#redesignAnnouncement').on('hide.bs.modal', function(e){
 			console.log('must set cookie to not show again');
+		});
+
+		$('#redesignAnnouncement .slides').slick({
+			infinite: false,
+			autoplay: false,
+			speed: 500,
+			fade: false,
+			arrows: true,
+			dots: true,
+			// adaptiveHeight: true,
+			// vertical: true,
+			// verticalSwiping: true,
+			appendDots: $('#redesignAnnouncement .slider-nav-list'),
+			prevArrow: $('#redesignAnnouncement .slider-nav-arrow.prev'),
+			nextArrow: $('#redesignAnnouncement .slider-nav-arrow.next'),
+			dotsClass: 'slider-dots',
+			cssEase: 'ease-in-out',
+			lazyLoading: 'progressive'
 		});
 	})
 </script>

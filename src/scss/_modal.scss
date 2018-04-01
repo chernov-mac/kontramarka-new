@@ -87,3 +87,15 @@
         }
     }
 }
+
+#redesignAnnouncement {
+    .slider {
+        opacity: 1;
+        transition: opacity .3s ease-in;
+    }
+    &:not(.show) {
+        .slider {
+            opacity: 0;
+        }
+    }
+}
